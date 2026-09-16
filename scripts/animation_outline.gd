@@ -30,8 +30,8 @@ static func blended_points(sprite: Sprite2D) -> PackedVector2Array:
 		var ratio=sprite.texture.get_size()/texture.get_size()
 		# Fitting and hit testing both use convex extrema; interior outline
 		# vertices do not affect either result under an affine transform.
-		for point in local_hull(texture):
-			points.append(sprite.transform*(point*ratio))
+		var transform=sprite.transform*Transform2D.IDENTITY.scaled(ratio)
+		points.append_array(transform*local_hull(texture))
 	return points
 
 static func fit(sprite: Sprite2D, anchor: Vector2, window_size: Vector2) -> void:
