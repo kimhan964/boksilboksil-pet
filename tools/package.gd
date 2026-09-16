@@ -8,12 +8,14 @@ func add_folder(folder: String) -> void:
 		if packer.add_file(path,path)!=OK: failed=true
 	for directory in DirAccess.get_directories_at(folder): add_folder(folder.path_join(directory))
 func _initialize() -> void:
-	var destination="res://builds/DesktopFriends-0.24.2-test"
+	var destination="res://builds/DesktopFriends-0.24.3-test"
 	DirAccess.make_dir_recursive_absolute(destination)
 	if packer.pck_start(destination+"/DesktopFriends.pck")!=OK:
 		quit(1)
 		return
 	for folder in ["res://assets","res://scripts","res://scenes"]: add_folder(folder)
+	if packer.add_file("res://tools/check_package.gd","res://tools/check_package.gd")!=OK: failed=true
+	if packer.add_file("res://.godot/global_script_class_cache.cfg","res://tools/runtime-global-classes.cfg")!=OK: failed=true
 	if packer.add_file("res://project.godot","res://project.godot")!=OK: failed=true
 	if packer.flush()!=OK: failed=true
 	var license_file=FileAccess.open(destination+"/GODOT-LICENSE.txt",FileAccess.WRITE)

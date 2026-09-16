@@ -51,6 +51,9 @@ func restore_layer_order() -> void:
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true,window.get_window_id())
 
 func _ready() -> void:
+	if OS.get_cmdline_user_args().has("--check-package"):
+		add_child(load("res://tools/check_package.gd").new())
+		return
 	# Load the raw packaged PNG so the window icon also works without editor imports.
 	if DisplayServer.get_name()!="headless":
 		var icon=Image.load_from_file("res://assets/icon/pet-icon.png")

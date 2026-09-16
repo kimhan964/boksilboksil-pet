@@ -1,8 +1,12 @@
-# 복슬복슬펫 · 0.24.2
+# 복슬복슬펫 · 0.24.3
+
+0.24.3은 Godot 4.7.2 공식 Windows release 템플릿을 사용하여 압축 해제 용량을 약 269.2MB(300,000,000바이트 미만)로 줄였습니다. 동물·모션·음식·소품의 원본 해상도와 게임 기능, 테스트 해금 설정은 유지합니다.
+
+배포 시 `tools/fetch_windows_template.py`로 공식 release 템플릿을 준비하고 `tools/package.gd`로 PCK를 만듭니다. 템플릿을 배포 폴더의 `DesktopFriends.exe`로 복사한 뒤 `assets/icon/PROMPT.md`의 아이콘 적용 절차를 실행합니다. 편집기 EXE 대신 release 템플릿을 사용해야 용량 제한을 지킬 수 있습니다. 배포 EXE의 `--headless -- --check-package`로 저장 데이터를 건드리지 않고 패키지를 검사할 수 있습니다.
 
 ## Windows에서 바로 실행하기
 
-[Windows 실행 파일 다운로드](https://github.com/kimhan964/boksilboksil-pet/releases/download/v0.24.2/BoksilboksilPet-0.24.2-Windows.zip)
+[Windows 실행 파일 다운로드](https://github.com/kimhan964/boksilboksil-pet/releases/download/v0.24.3/BoksilboksilPet-0.24.3-Windows.zip)
 
 ZIP 파일 전체를 압축 해제한 뒤 `DesktopFriends.exe`를 실행하세요. `DesktopFriends.pck`는 실행 파일과 같은 폴더에 있어야 합니다. 바탕화면에는 실행 파일의 바로가기를 만들어 사용하면 됩니다. 현재 테스트 버전으로 모든 해금 요소가 열려 있습니다.
 
