@@ -1,0 +1,7 @@
+내장 image_gen 편집으로 새끼의 형태를 보존하며 그림체를 변경했습니다.
+최종 시트: babies-toon-0.png ~ babies-toon-3.png. 강아지는 승인된 puppy-style-v3.png 두 번째 행을 직접 사용하므로 새 시트에서 다시 그려진 강아지와 무관하게 승인본을 유지합니다.
+원본 새끼 그림은 별도 보존합니다.
+
+IMAGE 1 IS THE EDIT TARGET. IMAGE 2 is ONLY the APPROVED STYLE REFERENCE: specifically its SECOND ROW baby puppies have clean simple cartoon coloring; ignore its other rows. Repaint the animals of IMAGE 1 in exactly that approved simple cartoon ink-and-flat-color rendering, while preserving their original BABY CHARACTER DESIGNS. Retain exact juvenile silhouettes, large heads, short round torsos, stubby legs/paws, eye sizes/positions, tiny muzzles, expressions, ears/tails, clothing and markings and all original poses. Do NOT redesign, mature them, shrink their heads, lengthen their bodies, change species, or replace their facial design. Change ONLY rendering: remove watercolor washes, brush texture, paper/grain, messy fur paint and soft painterly shadows; use clean thin dark-brown consistent outlines with smooth flat pastel color regions, matching the approved puppies in second row of IMAGE 2. Keep the original colors and all 32 separate full-body drawings in identical positions, exact 8 columns 4 rows. Keep opaque uniform solid #FF00FF magenta background. No extra objects, text, borders, shadows or checkerboard. No clipping, no touching cells, preserve complete ears/tails. 
+
+그룹 2 추가 제약: In IMAGE 1 leave the already-approved SECOND ROW puppies completely unchanged. Edit ONLY rows 1 (kittens), 3 (hamsters), and 4 (pandas).

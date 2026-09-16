@@ -1,0 +1,11 @@
+.godot/
+builds/
+*.log
+.env
+.env.*
+!.env.example
+export_credentials.cfg
+commerce-session.json
+*.pem
+*.pfx
+__pycache__/
