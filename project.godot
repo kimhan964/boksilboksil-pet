@@ -5,6 +5,8 @@ unlock_all=true
 
 [application]
 config/name="바탕화면 친구"
+config/icon="res://assets/icon/pet-icon.png"
+config/windows_native_icon="res://assets/icon/pet-icon.ico"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="DesktopFriends"
 run/main_scene="res://scenes/main.tscn"
