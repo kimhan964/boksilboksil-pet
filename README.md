@@ -1,5 +1,11 @@
 # 복슬복슬펫 · 0.24.2
 
+## Windows에서 바로 실행하기
+
+[Windows 실행 파일 다운로드](https://github.com/kimhan964/boksilboksil-pet/releases/download/v0.24.2/BoksilboksilPet-0.24.2-Windows.zip)
+
+ZIP 파일 전체를 압축 해제한 뒤 `DesktopFriends.exe`를 실행하세요. `DesktopFriends.pck`는 실행 파일과 같은 폴더에 있어야 합니다. 바탕화면에는 실행 파일의 바로가기를 만들어 사용하면 됩니다. 현재 테스트 버전으로 모든 해금 요소가 열려 있습니다.
+
 기존 강아지 그림체를 참고해 만든 얼굴 아이콘을 게임 창과 Windows 실행 파일에 적용했습니다. 아이콘 원본·생성 프롬프트·Windows 적용 방법은 `assets/icon/`에 있습니다.
 
 Godot로 만든 바탕화면 반려동물 게임입니다. 프로젝트의 `project.godot`를 Godot 4.7.2에서 열어 실행할 수 있습니다. 소스와 게임 에셋을 포함하며, 생성된 실행 빌드와 Godot 캐시는 저장소에서 제외합니다.
