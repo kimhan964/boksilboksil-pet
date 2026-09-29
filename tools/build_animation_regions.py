@@ -14,6 +14,7 @@ SHEETS.update({f'assets/babies/babies-toon-{i}.png':(8,4) for i in range(4)})
 SHEETS.update({f'assets/babies/extra-{i}.png':(8,4) for i in range(4)})
 SHEETS.update({f'assets/decor/species-{kind}.png':(4,4) for kind in ['toys','comfort']})
 manifest={}; report=[]
+SHEETS.update({f'assets/walk/baby-{id}.png':(4,2) for id in IDS if (ROOT/f'assets/walk/baby-{id}.png').exists()})
 SHEETS['assets/reactions/edge-repair.png']=(8,4)
 if (ROOT/'assets/specials').exists():
     SHEETS.update({f'assets/specials/adult-{i}.png':(4,4) for i in range(4)})

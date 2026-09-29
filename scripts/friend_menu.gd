@@ -1,6 +1,7 @@
 extends PopupPanel
 signal id_pressed(id: int)
 const Catalog=preload("res://scripts/animal_catalog.gd")
+const Food=preload("res://scripts/food_catalog.gd")
 var entries: Array=[]
 var section=0
 var source: PopupMenu
@@ -10,8 +11,7 @@ var heading: Label
 var detail: Label
 var portrait: TextureRect
 var tabs: Array=[]
-const SECTIONS=[[0,1,22,4,16,20],[2,15,11,12,13,21],[5,6,7,8],[18,14,9,19,10,900]]
-
+const SECTIONS=[[0,23,24,1,22,4,16,20],[2,15,11,12,13,21],[5,6,7,8],[26,25,18,14,9,19,10,900]]
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
 func add_check_item(text: String,id: int) -> void:
@@ -152,6 +152,17 @@ func rebuild() -> void:
 		tabs[i].add_theme_stylebox_override("normal",box("dce6cc" if i==section and source==null else "eee7da"))
 	if source!=null:
 		body.add_child(make_button("‹  돌아가기",func(): source=history.pop_back(); rebuild()))
+		var pet=get_parent()
+		if source.name=="Foods":
+			var help=Label.new()
+			help.text=pet.state.food_progress(pet.species)
+			help.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+			body.add_child(help)
+			var basic=int(Catalog.DEFAULT_MEALS[pet.species])
+			var quick=make_button("기본 먹이 · "+Food.title_for(pet.species,basic),func(): hide(); pet.activity_requested.emit(100+basic))
+			quick.disabled=not pet.state.food_available(pet.species,basic)
+			style_action(quick)
+			body.add_child(quick)
 		for i in range(source.item_count):
 			if source.is_item_separator(i): continue
 			var item_index=i
@@ -163,11 +174,23 @@ func rebuild() -> void:
 					hide()
 					model.id_pressed.emit(model.get_item_id(item_index)))
 			button.disabled=model.is_item_disabled(i)
+			var food_id=model.get_item_id(i)-100
+			if food_id>=0 and food_id<32:
+				button.disabled=not pet.state.food_available(pet.species,food_id)
+				button.text=("잠김 · " if button.disabled else "")+model.get_item_text(i)
+				if int(pet.state.meals.get(str(pet.species),Catalog.DEFAULT_MEALS[pet.species]))==food_id: button.text+=" · 선택됨"
+				button.text+="\n"+pet.state.food_hint(pet.species,food_id)
+				button.icon=Food.icon_for(pet.species,food_id)
+				button.expand_icon=true
+				button.add_theme_constant_override("icon_max_width",44)
 			style_action(button)
 			body.add_child(button)
 		return
 	var caption=Label.new()
 	caption.text=["오늘은 어떤 놀이를 해볼까?","먹고 쉬며, 조금 더 가까이","우리 친구의 자리를 꾸며요","함께 쌓아가는 작은 기록"][section]
+	caption.text+="\n"+get_parent().state.next_gift(get_parent().species)
+	caption.text+="\n"+get_parent().state.goal_text(get_parent().species)
+	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	caption.add_theme_color_override("font_color",Color("8b806e"))
 	body.add_child(caption)
 	for id in SECTIONS[section]:
@@ -175,12 +198,13 @@ func rebuild() -> void:
 		if index<0: continue
 		var item=entries[index]
 		var text=("✓  " if item.checked else "")+item.text
+		if item.disabled: text+="\n"+get_parent().state.action_hint(get_parent().species,id)
 		if not item.submenu.is_empty(): text+="  ›"
 		var button=make_button(text,func():
 			if not item.submenu.is_empty(): open_source(get_node(item.submenu))
 			else: hide(); id_pressed.emit(item.id))
 		button.disabled=item.disabled
-		if item.disabled: button.tooltip_text="친밀도를 쌓으면 열려요"
+		if item.disabled: button.tooltip_text=get_parent().state.action_hint(get_parent().species,id)
 		style_action(button)
 		body.add_child(button)
 

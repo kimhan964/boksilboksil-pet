@@ -28,7 +28,7 @@ func run() -> void:
 			for pose in range(4):
 				motion.phase="eat" if pose<2 else "drink"
 				motion.visit_id="hand_feed" if pose<2 else "water"
-				motion.elapsed=0 if pose%2==0 else (.26 if pose<2 else .34)
+				motion.elapsed=0 if pose%2==0 else (.7 if pose<2 else .34)
 				view.refresh()
 				var rect: Vector4=view.sprite.material.get_shader_parameter("prop_rect")
 				if rect.x<0 or rect.y<0 or rect.x+rect.z>1 or rect.y+rect.w>1: failures+=1

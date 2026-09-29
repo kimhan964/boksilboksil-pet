@@ -1,0 +1,59 @@
+{
+  "workflow_id": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "prompts": {
+    "cape": {
+      "idle": "ca79dca0-631d-44d2-97d4-18dec01a7d44",
+      "walk": "d1b0c5b5-4bea-435b-be16-6501ea1bc2e6",
+      "pet": "4659a863-5c36-4b59-bd93-d00196a6fb21",
+      "eat": "2ab884e0-a871-4d05-a2e1-d634665eea18",
+      "drink": "79082372-0506-479c-a250-eaffcc070e80",
+      "sleep": "06a75233-23dd-4439-9abb-1f0054631024",
+      "carry": "a43d1031-8bd9-42f7-b232-2a26da9090f5",
+      "jump": "681164c0-5252-4b2a-973b-4970320710e4",
+      "look": "2f16a8c0-36f8-4ac0-832f-879abfe5c64a",
+      "sniff": "1ad2740c-b98f-4bdc-8d40-b5695001ac02",
+      "wave": "d4daae6e-fea1-47c0-b70a-8e8b45a0db80",
+      "groom": "62e57e8f-3c52-46b2-8fcb-f5c825f3d304",
+      "stretch": "508fa883-c873-42b0-aa4b-8ee76a583543",
+      "rub": "46f11d50-19ac-4d32-99ad-f5b244de123a",
+      "toy": "ac81fa82-2be5-4c2a-be32-d469d826ec15",
+      "rest": "457f0b46-de7b-4c67-a295-72c6de9339b8"
+    },
+    "vest": {
+      "idle": "c3850658-46b3-476d-be23-184b097ef992",
+      "walk": "bf76f7a6-c704-4bce-a1dc-6779e68b91fb",
+      "pet": "bab92b21-c5e8-4ee4-aec3-2fe477cd083f",
+      "eat": "6cd8b502-4d6c-418b-858b-d0eaf507f425",
+      "drink": "c3196a78-c0d5-4e2c-acde-924f1ba57352",
+      "sleep": "874abc99-e2d6-48db-a6f4-20189c084262",
+      "carry": "33870c04-76e0-49a1-be55-e28c9e5b3aba",
+      "jump": "ce1954e0-94e3-43b3-836c-97699c4e8d3a",
+      "look": "ea1781d5-b04c-4b1e-b21e-be0d4961af71",
+      "sniff": "a75879ec-c8d8-489f-8f6f-e5038aeefdb5",
+      "wave": "a0a8c372-feb0-4a32-abf1-6dbee50a4255",
+      "groom": "92cbfe09-18b0-41a4-9983-bd77a5dbbd74",
+      "stretch": "6357b089-92e0-4775-b996-74444ad0c401",
+      "rub": "1f751a98-5aef-4a8a-9e79-ba8f8c708aae",
+      "toy": "e34c8bf8-a4e9-475b-b54d-37750b125d45",
+      "rest": "7a38fc36-7934-4ce8-8acc-760ec4269742"
+    },
+    "sweater": {
+      "idle": "ea6a8dea-9f6e-43d2-9b05-c0e1780ec8b3",
+      "walk": "ebb485d9-46a0-4821-b51b-610fef19dcdd",
+      "pet": "4d9a4d44-c392-49f4-9fd8-0aa8ec3f6cc9",
+      "eat": "fa537294-ff03-43ee-a269-fea9854e4256",
+      "drink": "93939600-4b00-443e-9ce8-11c1e70f2930",
+      "sleep": "e926fe37-a950-4878-add1-f23f899d070f",
+      "carry": "ecd4f791-bba8-4938-841e-6b643399391e",
+      "jump": "d24b4c85-db37-4978-862e-c8a0d4979623",
+      "look": "fe679a6b-4f63-44cb-bd78-b5fbf112baac",
+      "sniff": "6f3b6cbd-14f3-4d4a-b2ad-04fc32774f82",
+      "wave": "3b9ae188-94db-4678-a436-98acf8f7bcfc",
+      "groom": "f680e751-5f03-4503-a4d1-2c04385ac333",
+      "stretch": "b1a9fbd6-ed0c-404d-839d-db933f45daff",
+      "rub": "c5f8f7d3-73fa-4a5d-9486-49745f6e3d4d",
+      "toy": "0bf677e2-cba0-445b-a62f-c0144e9cf9fb",
+      "rest": "8882579a-cea5-47b3-9c29-fb3998cf40a8"
+    }
+  }
+}

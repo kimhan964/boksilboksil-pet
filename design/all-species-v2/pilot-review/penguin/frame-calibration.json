@@ -1,0 +1,48 @@
+{
+  "species": "penguin",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.625,
+      "neutral_height": 320,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6430868167202572,
+      "neutral_height": 311,
+      "relative_to_idle": 1.0289389067524115
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.6006006006006006,
+      "neutral_height": 333,
+      "relative_to_idle": 0.960960960960961
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5617977528089888,
+      "neutral_height": 356,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5730659025787965,
+      "neutral_height": 349,
+      "relative_to_idle": 1.0200573065902578
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5494505494505495,
+      "neutral_height": 364,
+      "relative_to_idle": 0.978021978021978
+    }
+  ]
+}

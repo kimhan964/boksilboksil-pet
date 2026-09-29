@@ -47,9 +47,9 @@ func run() -> void:
 	pet.activity_requested.connect(func(id): meals.append(id))
 	menu.source=null
 	menu.open_source(menu.get_node("Foods/Species0"))
-	for i in range(4):
+	for i in range(8):
 		menu.body.get_child(i+1).pressed.emit()
-		if meals.is_empty() or meals[-1]!=100+i: failures+=1
+		if meals.is_empty() or meals[-1]!=100+i*4: failures+=1
 	print("MENU_ACTION_FAILURES=",failures)
 	pet.free()
 	quit(0 if failures==0 else 1)

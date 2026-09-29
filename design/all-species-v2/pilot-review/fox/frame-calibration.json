@@ -1,0 +1,48 @@
+{
+  "species": "fox",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6191950464396285,
+      "neutral_height": 323,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6211180124223602,
+      "neutral_height": 322,
+      "relative_to_idle": 1.0031055900621118
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5763688760806917,
+      "neutral_height": 347,
+      "relative_to_idle": 0.9308357348703169
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5524861878453039,
+      "neutral_height": 362,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5988023952095808,
+      "neutral_height": 334,
+      "relative_to_idle": 1.083832335329341
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5434782608695652,
+      "neutral_height": 368,
+      "relative_to_idle": 0.983695652173913
+    }
+  ]
+}

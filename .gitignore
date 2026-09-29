@@ -9,3 +9,7 @@ commerce-session.json
 *.pem
 *.pfx
 __pycache__/
+*.import
+design/**/*.png
+design/**/*.jpg
+design/**/*.jpeg

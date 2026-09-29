@@ -1,0 +1,48 @@
+{
+  "species": "bear",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.5797101449275363,
+      "neutral_height": 345,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6430868167202572,
+      "neutral_height": 311,
+      "relative_to_idle": 1.1093247588424437
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5988023952095808,
+      "neutral_height": 334,
+      "relative_to_idle": 1.0329341317365268
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5494505494505495,
+      "neutral_height": 364,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5524861878453039,
+      "neutral_height": 362,
+      "relative_to_idle": 1.005524861878453
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5305039787798409,
+      "neutral_height": 377,
+      "relative_to_idle": 0.9655172413793104
+    }
+  ]
+}

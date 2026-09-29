@@ -1,0 +1,48 @@
+{
+  "species": "raccoon",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6024096385542169,
+      "neutral_height": 332,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6134969325153374,
+      "neutral_height": 326,
+      "relative_to_idle": 1.01840490797546
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5865102639296188,
+      "neutral_height": 341,
+      "relative_to_idle": 0.9736070381231672
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5154639175257731,
+      "neutral_height": 388,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5617977528089888,
+      "neutral_height": 356,
+      "relative_to_idle": 1.0898876404494384
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5089058524173028,
+      "neutral_height": 393,
+      "relative_to_idle": 0.9872773536895675
+    }
+  ]
+}

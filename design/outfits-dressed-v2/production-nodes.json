@@ -1,0 +1,225 @@
+{
+  "workflow_id": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "pilot": {
+    "baby": {
+      "cape": {
+        "walk": "ba6ef884-5902-42fe-ae1a-9761aa4b9e33",
+        "idle": "0274400b-3a9f-4d5c-b291-61d59046f2e8",
+        "sleep": "cf080f48-5aad-4909-9baa-035a05f5fd56"
+      }
+    },
+    "adult": {
+      "cape": {
+        "idle": "212871a7-9a20-42a0-a3c2-a8a74b112740",
+        "walk": "d177bc94-ee5b-47ff-b981-8c480cdeeaf1",
+        "sleep": "36e9ae85-38bd-4bb0-bcaf-4e79df3138c7"
+      }
+    }
+  },
+  "production": {
+    "rabbit": {
+      "baby": {
+        "cape": {
+          "pet": "d3ca3568-bd1f-44e4-b13f-e0f06901b5e4",
+          "eat": "293d7518-f469-4647-bd6d-f2908eedf8d8",
+          "drink": "c5c84b85-b17e-4074-ad57-19befead474d",
+          "jump": "99d33bd9-d60d-4cae-bd8b-a54db3f2cd65",
+          "carry": "1dfc9b53-45ce-49f5-8d9b-716d48356028",
+          "look": "ac6b3c62-9e5d-4072-a719-176945c9a63d",
+          "sniff": "2f14baa4-09b9-4478-acd9-8a766718a32e",
+          "wave": "745f321c-ae0e-45a6-8ceb-9947e7792879",
+          "groom": "97815f08-8cba-48e4-8979-fcbb8a234cee",
+          "stretch": "f1aab66c-96b4-4d0d-99e2-1524f9cb2e2f",
+          "rub": "6484cd88-f3bc-47ec-991a-83fd57d25525",
+          "toy": "73a4cae9-271f-4b0e-93f2-95e3fb302617",
+          "rest": "e1f40203-b848-4945-b04e-788cfde04731"
+        },
+        "vest": {
+          "pet": "2e1e8747-b46f-47f8-993e-d1ffd9ce95f8",
+          "eat": "80b95748-cc2e-483d-8ec9-f1c15c185136",
+          "drink": "afa3bab0-b699-4ff9-aee8-b809e5540dcb",
+          "jump": "7170e7c9-ee49-4fcb-9141-30cc6fc8cfff",
+          "idle": "89ed7986-f370-48ac-8678-19ffb7775d4e",
+          "walk": "f4e4b2ff-d95e-4091-97b8-9333660166a3",
+          "sleep": "78d705dc-3a2f-42fd-b5cd-99fdb31ca7a6",
+          "carry": "e9a16fbc-12f0-40ae-8fa6-5e9f372c94f3",
+          "look": "8a62232a-c389-4389-a3a9-ff7a130a10a4",
+          "sniff": "5492ae5b-e2f2-40b5-87c8-79ff859301d6",
+          "wave": "ba1c3fe6-0ed8-4671-9d59-4645d113f246",
+          "groom": "af72f0e4-d7e2-4345-84e8-da3c7759e012",
+          "stretch": "cdce20b9-bda3-43cd-aef1-eef2ea3e7374",
+          "rub": "8f3af5c1-0a50-40b9-b90b-a609df022271",
+          "toy": "eab1c9ac-a805-4c96-95a1-914d5042aaa3",
+          "rest": "24798c9c-f487-4945-9d9b-e8725cd950b7"
+        },
+        "sweater": {
+          "pet": "cdb3aaa9-5bac-4aa2-aa0f-61d72c30972c",
+          "eat": "1038439f-0330-4764-8e38-fdb2e7c79fab",
+          "drink": "fd337165-12b0-4115-b6d9-d13ef8e4f57c",
+          "jump": "a9185ee2-2698-4f72-9521-b85fa029c762",
+          "idle": "472e402d-e944-4d1f-8842-5c4061ebc0a1",
+          "walk": "a7afee20-8950-4569-b5ef-268a812d69ee",
+          "sleep": "e434978b-e42a-4304-83aa-1659cb7c5e53",
+          "carry": "47c8f76d-a46b-4b03-b477-89b959482d1b",
+          "look": "a74c0f0c-9bf3-4643-85b0-cf91fe6eb304",
+          "sniff": "955a5c35-2340-4d7d-9147-08945f3df921",
+          "wave": "c4264f47-a2d7-441e-b04a-e4da0a699a30",
+          "groom": "6f794f3e-5104-4620-be6d-26ab766be831",
+          "stretch": "56090d85-c287-4011-938d-445b29325663",
+          "rub": "7fa2c30d-13dd-46c5-b117-6ae166b0dee9",
+          "toy": "c83f20cf-a1fd-418b-8cef-d262405f488d",
+          "rest": "b1a859a7-b144-464a-a179-7100ace5936e"
+        }
+      },
+      "adult": {
+        "cape": {
+          "pet": "ed658dbf-49b5-438a-9bff-9f99d0388fae",
+          "eat": "f1dad305-1b52-49a9-a8df-875a3e7b58fb",
+          "drink": "49301d4c-456b-4bdc-b819-4eb67be06f29",
+          "carry": "23e0ea03-714e-4de9-a151-5ac523dd6f0d",
+          "jump": "11c92cd4-4a37-4af9-9222-13301d114e08",
+          "look": "764885dc-a32c-4443-821c-2fec83f4205c",
+          "sniff": "072ad94d-7f69-4240-82a4-64b8f34ed2fa",
+          "wave": "a83813df-9aae-46de-984c-908b6de00ed4",
+          "groom": "57f5e678-e412-4649-bb75-26d0ad718cd4",
+          "stretch": "abe7147f-4247-4775-8fc2-0de9355bb9a7",
+          "rub": "21c29676-f439-4eac-804b-c3b6ff8c7b8f",
+          "toy": "0d3d3e64-bb81-4f55-98bb-bc47a9d7dd82",
+          "rest": "18aba228-ced4-42a3-ba36-74bfceae0472"
+        },
+        "vest": {
+          "pet": "450cc3c6-a8c9-4a5b-94d6-8252bdd59587",
+          "idle": "0d970dad-7fa5-4981-bd5b-2f67355191b7",
+          "walk": "66931e1f-3946-4a7d-b87e-9dea6ec13675",
+          "sleep": "b8103939-0744-4e27-ae9a-323ec1da5e49",
+          "eat": "e04c303b-a672-413b-b183-878b7653c93d",
+          "drink": "f23187ab-2dea-4382-ad27-1975985794a5",
+          "carry": "07e662bf-7fce-4bcb-9856-e8fb87b3ec67",
+          "jump": "e3a22475-e7c7-4e6e-be85-c6798351ec1c",
+          "look": "765fab38-1ef6-4a92-bea9-8cf452b51b86",
+          "sniff": "47d86cf9-bd22-4be8-9ae8-538e3e8c9b6e",
+          "wave": "a31f883c-3c11-4246-b032-8bd644e7c5b9",
+          "groom": "de07b040-a9ab-436d-988e-fa4711488d85",
+          "stretch": "424546f3-f743-44b2-9fd6-376c1431ffa1",
+          "rub": "8e787a76-4b03-42cc-b7b4-6195dfc15728",
+          "toy": "5fec7440-8eaf-462e-8ec3-d74b4a7be949",
+          "rest": "8ab5c4f9-6d72-4019-af5f-68a6d97433f7"
+        },
+        "sweater": {
+          "pet": "adc2f6c8-2701-4ff1-844b-1ba51e6a21ce",
+          "idle": "c8fc4c01-8bcc-4b6c-bafb-bd16e34cd40c",
+          "walk": "10d6b594-9561-4809-b245-5f5e2fc89da0",
+          "sleep": "22612915-2600-4d7a-823f-7bb5a1247040",
+          "eat": "16208f5d-74cb-4119-bdcc-bbf2d7090177",
+          "drink": "8966fb60-ef89-4228-9845-ad3dde49cc37",
+          "carry": "7df343fe-5ce4-4361-ab64-b08fb1cad8b4",
+          "jump": "bcd16347-95ad-4d28-bc4b-fb7030ab08cc",
+          "look": "4017022a-8b42-4b1b-b69b-49ca7c6e63bc",
+          "sniff": "3c37017f-779c-422c-a33f-5c94f4cbfd43",
+          "wave": "55d44929-6220-43ac-bd53-1d6790524702",
+          "groom": "46aa30ca-f845-4d04-a383-22e325939343",
+          "stretch": "dfb5f1f5-2b75-4346-bbd6-02f57ad3d4c6",
+          "rub": "3a7288e5-45c0-4728-a40b-da698ca5c819",
+          "toy": "21b194db-8213-4921-b4e0-0187196450bf",
+          "rest": "1dfb18ce-ba81-4fac-93fd-74c1cc85dbaf"
+        }
+      }
+    },
+    "otter": {
+      "baby": {
+        "cape": {
+          "idle": "5ab78004-11ac-4d02-bb0d-182da8d9cf0d"
+        },
+        "vest": {
+          "idle": "28111a7f-ecc8-4cbe-97a6-2907e0ca6f2c"
+        },
+        "sweater": {
+          "idle": "df4a214f-95fb-442a-a0fa-20e56d761b26"
+        }
+      },
+      "adult": {
+        "cape": {
+          "idle": "fc25f68b-bef8-4476-b17c-0dafb075739d"
+        },
+        "vest": {
+          "idle": "c688d28d-253b-4997-af3c-9935dc913261"
+        },
+        "sweater": {
+          "idle": "ad8c6f8d-06d8-4723-b276-f72b51f2416c"
+        }
+      }
+    },
+    "squirrel": {
+      "baby": {
+        "cape": {
+          "idle": "7aede09a-b9ea-4ac7-b158-2e3dc8ebf455"
+        },
+        "vest": {
+          "idle": "99499c25-c2d5-4b2e-a612-2ed767b7bdf6"
+        },
+        "sweater": {
+          "idle": "f1914cb1-7dd9-40ca-801a-fe132baf2ecd"
+        }
+      },
+      "adult": {
+        "cape": {
+          "idle": "6be85608-8f0a-4c44-9db5-1eb2f62c3d83"
+        },
+        "vest": {
+          "idle": "cee8a011-d9af-4a1c-ae60-9d1ebc5610ec"
+        },
+        "sweater": {
+          "idle": "bf6fa689-a9f5-44fe-afe1-e49c89808115"
+        }
+      }
+    },
+    "hedgehog": {
+      "baby": {
+        "cape": {
+          "idle": "1750ff2b-fc64-4ba9-94c4-a1d1a64136fc"
+        },
+        "vest": {
+          "idle": "4c14124d-33b5-4149-b9b1-37f1f1aa6269"
+        },
+        "sweater": {
+          "idle": "6227d4a5-8f4d-4449-a5eb-ae40e2af2956"
+        }
+      },
+      "adult": {
+        "cape": {
+          "idle": "0c9bca51-2c20-4914-85ef-c95d179fd196"
+        },
+        "vest": {
+          "idle": "66a90994-4adf-4dad-9bbd-96861005f799"
+        },
+        "sweater": {
+          "idle": "68d99aaf-c22a-41fa-aacb-f455d1980c87"
+        }
+      }
+    },
+    "raccoon": {
+      "baby": {
+        "cape": {
+          "idle": "95cd5690-f601-4fd3-b55f-b30ac9a4827f"
+        },
+        "vest": {
+          "idle": "8246fc56-d96f-4e30-95af-5a0b5878c742"
+        },
+        "sweater": {
+          "idle": "8dea6c17-182b-4acb-a90e-b1e03ead30af"
+        }
+      },
+      "adult": {
+        "cape": {
+          "idle": "f6815c0f-c036-4df9-a3ec-2ff125763820"
+        },
+        "vest": {
+          "idle": "e11da5fe-9abc-44ef-a748-32213384c432"
+        },
+        "sweater": {
+          "idle": "41492ffb-6632-4dc1-95ed-f7f22247e515"
+        }
+      }
+    }
+  }
+}

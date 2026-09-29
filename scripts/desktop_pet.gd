@@ -9,6 +9,7 @@ const View=preload("res://scripts/desktop_pet_view.gd")
 const Catalog=preload("res://scripts/animal_catalog.gd")
 const Food=preload("res://scripts/food_catalog.gd")
 const Profiles=preload("res://scripts/companion_profiles.gd")
+const Outfits=preload("res://scripts/outfit_catalog.gd")
 const Outline=preload("res://scripts/animation_outline.gd")
 var species=0
 var state
@@ -42,7 +43,7 @@ func _init() -> void:
 	transient=false
 	exclusive=false
 	gui_embed_subwindows=false
-	size=Vector2i(204,190)
+	size=Vector2i(View.WINDOW_SIZE)
 	name="DesktopPet"
 
 func _ready() -> void:
@@ -50,6 +51,8 @@ func _ready() -> void:
 	motion.species=species
 	motion.growth_scale=state.growth_scale(species) if state else 1.0
 	motion.growth_stage=state.growth_stage(species) if state else 2
+	motion.outfit_style=int(state.outfits.get(str(species),0)) if state else 0
+	motion.outfit_color=int(state.outfit_colors.get(str(species),0)) if state else 0
 	var screen=desktop_bounds()
 	motion.configure(screen,screen.position+Vector2(screen.size.x*.5,screen.size.y*.78))
 	view=View.new()
@@ -85,6 +88,10 @@ func _ready() -> void:
 	menu.add_item("발견한 취향",9)
 	menu.add_item("성격 행동 · "+motion.Personality.TYPES[species]+" · "+motion.Personality.NAMES[species],16)
 	menu.add_item("사용법",10)
+	menu.add_item("첫 만남 가이드",25)
+	menu.add_item("함께할 목표",26)
+	menu.add_item("마우스 따라오기",23)
+	menu.add_item("가까운 소품에 부비기",24)
 	menu.add_item("친밀도와 선물",14)
 	menu.add_item("전용 소품 안내",19)
 	menu.add_item("킁킁 · 폴짝 놀이",22)
@@ -97,18 +104,34 @@ func _ready() -> void:
 	var foods=PopupMenu.new()
 	foods.name="Foods"
 	foods.force_native=true
-	for s in range(8):
+	for s in range(4):
 		var group=PopupMenu.new()
 		group.name="Species%d"%s
 		group.force_native=true
-		for p in range(4):
-			var id=s*4+p
-			group.add_item(Food.title(id)+( " ★" if id==Profiles.FAVORITE_FOOD[species] and state.favorite_foods.get(str(species),false) else ""),100+id)
+		for p in range(8):
+			var id=p*4+s
+			group.add_item(Food.title_for(species,id)+( " ★" if id==Profiles.FAVORITE_FOOD[species] and state.favorite_foods.get(str(species),false) else ""),100+id)
 		group.id_pressed.connect(func(id): activity_requested.emit(id))
 		foods.add_child(group)
-		foods.add_submenu_item(Catalog.NAMES[s],group.name)
+		foods.add_submenu_item(["기본 요리","든든한 한 끼","간식과 차","별미와 음료"][s],group.name)
 	menu.add_child(foods)
-	menu.add_submenu_item("식당 음식 차려주기","Foods",15)
+	menu.add_submenu_item("먹이 고르기 · 해금 기록","Foods",15)
+	var outfits=PopupMenu.new()
+	outfits.name="Outfits"
+	outfits.force_native=true
+	for style in range(4):
+		outfits.add_radio_check_item(Outfits.style_name(species,style),300+style)
+	outfits.id_pressed.connect(menu_action)
+	menu.add_child(outfits)
+	menu.add_submenu_item("옷 입히기 · "+Outfits.style_name(species,motion.outfit_style),"Outfits",27)
+	var outfit_colors=PopupMenu.new()
+	outfit_colors.name="OutfitColors"
+	outfit_colors.force_native=true
+	for color in range(Outfits.COLOR_NAMES.size()):
+		outfit_colors.add_radio_check_item(Outfits.color_name(color),320+color)
+	outfit_colors.id_pressed.connect(menu_action)
+	menu.add_child(outfit_colors)
+	menu.add_submenu_item("옷 색상 · "+Outfits.color_name(motion.outfit_color),"OutfitColors",28)
 	var friends=PopupMenu.new()
 	friends.name="Friends"
 	friends.force_native=true
@@ -176,7 +199,7 @@ func move_pointer(screen_point: Vector2) -> void:
 			var screen=DisplayServer.get_screen_from_rect(Rect2i(Vector2i(screen_point),Vector2i.ONE))
 			if screen>=0:
 				var rect=Rect2(DisplayServer.screen_get_usable_rect(screen))
-				motion.bounds=Rect2(rect.position+Vector2(102,160),(rect.size-Vector2(204,190)).max(Vector2.ONE))
+				motion.bounds=Rect2(rect.position+View.FEET,(rect.size-View.WINDOW_SIZE).max(Vector2.ONE))
 		motion.feet=(press_feet+displacement).clamp(motion.bounds.position,motion.bounds.end)
 		motion.target=motion.feet
 
@@ -203,11 +226,11 @@ func open_menu() -> void:
 	menu.set_item_checked(menu.get_item_index(2),motion.resting)
 	menu.set_item_checked(menu.get_item_index(5),decorating)
 	var foods=menu.get_node("Foods")
-	for s in range(8):
+	for s in range(4):
 		var group=foods.get_node("Species%d"%s)
-		for p in range(4):
-			var id=s*4+p
-			group.set_item_text(p,Food.title(id)+( " ★" if id==Profiles.FAVORITE_FOOD[species] and state.favorite_foods.get(str(species),false) else ""))
+		for p in range(8):
+			var id=p*4+s
+			group.set_item_text(p,Food.title_for(species,id)+( " ★" if id==Profiles.FAVORITE_FOOD[species] and state.favorite_foods.get(str(species),false) else ""))
 	menu.set_item_text(menu.get_item_index(0),"쓰다듬기 · 교감 %d"%int(state.play_affection.get(str(species),0)))
 	menu.set_item_text(menu.get_item_index(18),"성장 기록 · %s · 경험치 %d"%[state.GROWTH_NAMES[state.growth_stage(species)],int(state.growth.get(str(species),0))])
 	menu.position=position+Vector2i(0,32)
@@ -215,6 +238,20 @@ func open_menu() -> void:
 
 func menu_action(id: int) -> void:
 	motion.held=false
+	if id>=300 and id<304:
+		motion.outfit_style=id-300
+		state.outfits[str(species)]=motion.outfit_style
+		state.save_game()
+		refresh_unlock_menu()
+		view.refresh()
+		return
+	if id>=320 and id<320+Outfits.COLOR_NAMES.size():
+		motion.outfit_color=id-320
+		state.outfit_colors[str(species)]=motion.outfit_color
+		state.save_game()
+		refresh_unlock_menu()
+		view.refresh()
+		return
 	if not state.can_action(species,id): return
 	match id:
 		0: motion.pet()
@@ -259,7 +296,13 @@ func update_ball_drag() -> void:
 
 func refresh_unlock_menu() -> void:
 	if menu==null: return
-	for id in [1,4,5,6,7,8,11,12,13,15]:
+	var outfit_menu=menu.get_node("Outfits")
+	for style in range(4): outfit_menu.set_item_checked(outfit_menu.get_item_index(300+style),style==motion.outfit_style)
+	var color_menu=menu.get_node("OutfitColors")
+	for color in range(Outfits.COLOR_NAMES.size()): color_menu.set_item_checked(color_menu.get_item_index(320+color),color==motion.outfit_color)
+	menu.set_item_text(menu.get_item_index(27),"옷 입히기 · "+Outfits.style_name(species,motion.outfit_style))
+	menu.set_item_text(menu.get_item_index(28),"옷 색상 · "+Outfits.color_name(motion.outfit_color))
+	for id in state.ACTION_UNLOCKS:
 		var index=menu.get_item_index(id)
 		if index>=0:
 			menu.set_item_disabled(index,not state.can_action(species,id))
@@ -287,12 +330,14 @@ func _process(delta: float) -> void:
 	if monitor_timer>=2 and not motion.held:
 		monitor_timer=0
 		var screen=desktop_bounds()
-		var new_bounds=Rect2(screen.position+Vector2(102,160),(screen.size-Vector2(204,190)).max(Vector2.ONE))
+		var new_bounds=Rect2(screen.position+View.FEET,(screen.size-View.WINDOW_SIZE).max(Vector2.ONE))
 		if new_bounds!=motion.bounds:
 			motion.bounds=new_bounds
 			motion.move_to(motion.feet)
 	motion.advance(delta)
-	view.refresh()
+	var window_origin=motion.feet-View.FEET
+	view.window_subpixel=window_origin-Vector2(Vector2i(window_origin))
+	view.refresh(delta)
 	Outline.fit(view.sprite,View.FEET,Vector2(size))
 	sync_position()
 	update_mouse_region()

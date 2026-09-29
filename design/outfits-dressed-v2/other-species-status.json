@@ -1,0 +1,218 @@
+[
+  {
+    "species": "otter",
+    "stage": "baby",
+    "style": "cape",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/2021142b3ede17f09e8672cfa71e8a5e.png",
+    "error": null
+  },
+  {
+    "species": "otter",
+    "stage": "baby",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/78b6e88b797a5a9cc95a14654d7c4f5f.png",
+    "error": null
+  },
+  {
+    "species": "otter",
+    "stage": "baby",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/10b141c4aa5b4149225f0cdc02579b63.png",
+    "error": null
+  },
+  {
+    "species": "otter",
+    "stage": "adult",
+    "style": "cape",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/4b279c6ca175207db20a5fba026e2699.png",
+    "error": null
+  },
+  {
+    "species": "otter",
+    "stage": "adult",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/c92362b4fcbbeb8a30bb5b0281a6dcb2.png",
+    "error": null
+  },
+  {
+    "species": "otter",
+    "stage": "adult",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/ae0bdb4a1c4fa9b56bdb0a0834038c45.png",
+    "error": null
+  },
+  {
+    "species": "squirrel",
+    "stage": "baby",
+    "style": "cape",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/6254ef5727bceafc0855b84b89e22952.png",
+    "error": null
+  },
+  {
+    "species": "squirrel",
+    "stage": "baby",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/cfb034a9ae3d783235c367dfd392507a.png",
+    "error": null
+  },
+  {
+    "species": "squirrel",
+    "stage": "baby",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/41a6100dd373b1c06b90cc35808e3f22.png",
+    "error": null
+  },
+  {
+    "species": "squirrel",
+    "stage": "adult",
+    "style": "cape",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/4188d407ace2a4634ef30060c7774c23.png",
+    "error": null
+  },
+  {
+    "species": "squirrel",
+    "stage": "adult",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/45375ff57951d38c5c8f9d6981b2db11.png",
+    "error": null
+  },
+  {
+    "species": "squirrel",
+    "stage": "adult",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/9d2083ad74ac9a4952565c00dc7ff4d1.png",
+    "error": null
+  },
+  {
+    "species": "hedgehog",
+    "stage": "baby",
+    "style": "cape",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/c52bf4b8aea9bc6cd728c93cc23fd0cf.png",
+    "error": null
+  },
+  {
+    "species": "hedgehog",
+    "stage": "baby",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/df73ae0ceac64808d926829af0738ffd.png",
+    "error": null
+  },
+  {
+    "species": "hedgehog",
+    "stage": "baby",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/2fbdf051f905ba97591a011685ffbf1d.png",
+    "error": null
+  },
+  {
+    "species": "hedgehog",
+    "stage": "adult",
+    "style": "cape",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/0c3a01d448ac98537f0a566c664daf4c.png",
+    "error": null
+  },
+  {
+    "species": "hedgehog",
+    "stage": "adult",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/81a447e566bf1a7c037cdce4f51062e8.png",
+    "error": null
+  },
+  {
+    "species": "hedgehog",
+    "stage": "adult",
+    "style": "sweater",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  },
+  {
+    "species": "raccoon",
+    "stage": "baby",
+    "style": "cape",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  },
+  {
+    "species": "raccoon",
+    "stage": "baby",
+    "style": "vest",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  },
+  {
+    "species": "raccoon",
+    "stage": "baby",
+    "style": "sweater",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  },
+  {
+    "species": "raccoon",
+    "stage": "adult",
+    "style": "cape",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  },
+  {
+    "species": "raccoon",
+    "stage": "adult",
+    "style": "vest",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  },
+  {
+    "species": "raccoon",
+    "stage": "adult",
+    "style": "sweater",
+    "action": "idle",
+    "status": "failure",
+    "url": "",
+    "error": "Insufficient credit"
+  }
+]

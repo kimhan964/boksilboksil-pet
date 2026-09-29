@@ -1,0 +1,1448 @@
+{
+  "generated": "2026-09-23T16:53:39.400Z",
+  "scope": "16 species x 2 stages x 3 pilot actions x 8 complete cels",
+  "cells": 768,
+  "failures": [],
+  "sequences": [
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        203,
+        202,
+        199,
+        201,
+        203,
+        202
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        197,
+        179,
+        186,
+        196,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        199,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        196,
+        196,
+        196,
+        195,
+        196,
+        196,
+        196,
+        196
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        195,
+        195,
+        179,
+        188,
+        196,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        205,
+        203,
+        203,
+        202,
+        202,
+        201,
+        199
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        200,
+        198,
+        172,
+        199,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        198,
+        201,
+        199,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        198,
+        187,
+        198,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        200,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        201,
+        200,
+        197,
+        196,
+        197,
+        196
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        199,
+        196,
+        195,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        201,
+        200,
+        202,
+        202,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        199,
+        200,
+        204,
+        202,
+        202,
+        204
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        200,
+        201,
+        202,
+        205,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        202,
+        203,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        197,
+        200,
+        201,
+        200,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        198,
+        189,
+        202,
+        205,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        198,
+        198,
+        200,
+        197,
+        199,
+        197
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        191,
+        197,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        198,
+        199,
+        197,
+        196,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        198,
+        199,
+        198,
+        199,
+        198,
+        198
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        202,
+        204,
+        181,
+        205,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        200,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        198,
+        197,
+        193,
+        191,
+        198,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        202,
+        201,
+        201,
+        201,
+        199,
+        201
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        201,
+        199,
+        197,
+        197,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        198,
+        200,
+        199,
+        198,
+        196,
+        198,
+        196
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        196,
+        197,
+        201,
+        183,
+        193,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        198,
+        199,
+        197
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        199,
+        201,
+        196,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        199,
+        198,
+        197,
+        199
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        202,
+        198,
+        198,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        200,
+        200,
+        200,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        204,
+        199,
+        207,
+        201,
+        205,
+        202
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        193,
+        195,
+        199,
+        197,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        201,
+        201,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        199,
+        199,
+        197,
+        200,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        198,
+        198,
+        199,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        201,
+        199,
+        199,
+        195,
+        197,
+        198
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        195,
+        197,
+        202,
+        200,
+        203,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        198,
+        200,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        200,
+        199,
+        199,
+        199
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        197,
+        196,
+        194,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        199,
+        201,
+        200,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        201,
+        200,
+        200,
+        201,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        202,
+        193,
+        179,
+        196,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        201,
+        201,
+        201,
+        201,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        198,
+        197,
+        172,
+        193,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        200,
+        200,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        202,
+        200,
+        202,
+        199,
+        200,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        199,
+        205,
+        201,
+        204,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        201,
+        200,
+        200,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        202,
+        202,
+        202,
+        203,
+        201,
+        201,
+        201
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        201,
+        194,
+        191,
+        198,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        196,
+        196,
+        195,
+        195
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        202,
+        201,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        200,
+        199,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        197,
+        201,
+        197,
+        200,
+        200,
+        196,
+        199
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        203,
+        189,
+        196,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        199,
+        198,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        201,
+        203,
+        202,
+        202
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        199,
+        207,
+        204,
+        202,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        201,
+        200,
+        201,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        201,
+        204,
+        207,
+        207,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        197,
+        197,
+        196,
+        199,
+        198,
+        198,
+        199
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        196,
+        197,
+        196,
+        189,
+        195,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        200,
+        201,
+        205,
+        205,
+        206,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        202,
+        202,
+        203,
+        198,
+        198,
+        198,
+        198
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        197,
+        199,
+        190,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        197,
+        200,
+        199,
+        198,
+        195,
+        196
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        201,
+        207,
+        181,
+        196,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        201,
+        201,
+        202,
+        201,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        189,
+        203,
+        188,
+        201,
+        188,
+        199,
+        184
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        192,
+        209,
+        201,
+        193,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        201,
+        202,
+        205,
+        204,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        198,
+        199,
+        199,
+        198,
+        199,
+        199,
+        199
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        196,
+        190,
+        189,
+        199,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        200,
+        199,
+        198,
+        198,
+        199,
+        199
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        198,
+        195,
+        194,
+        197,
+        195,
+        200
+      ]
+    }
+  ]
+}

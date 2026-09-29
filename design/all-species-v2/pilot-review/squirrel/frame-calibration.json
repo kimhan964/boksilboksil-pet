@@ -1,0 +1,48 @@
+{
+  "species": "squirrel",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6211180124223602,
+      "neutral_height": 322,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6514657980456026,
+      "neutral_height": 307,
+      "relative_to_idle": 1.0488599348534202
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.6269592476489029,
+      "neutral_height": 319,
+      "relative_to_idle": 1.0094043887147337
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5763688760806917,
+      "neutral_height": 347,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.6042296072507553,
+      "neutral_height": 331,
+      "relative_to_idle": 1.0483383685800602
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5555555555555556,
+      "neutral_height": 360,
+      "relative_to_idle": 0.9638888888888889
+    }
+  ]
+}

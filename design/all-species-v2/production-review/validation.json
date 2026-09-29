@@ -1,0 +1,7688 @@
+{
+  "generated": "2026-09-23T17:28:46.951Z",
+  "scope": "16 species x 2 stages x 16 actions x 8 complete cels",
+  "cells": 4096,
+  "failures": [],
+  "sequences": [
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        203,
+        202,
+        199,
+        201,
+        203,
+        202
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        197,
+        179,
+        186,
+        196,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        205,
+        205,
+        205,
+        206,
+        206,
+        206,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        195,
+        195,
+        185,
+        193,
+        190,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        187,
+        165,
+        152,
+        142,
+        138,
+        168,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        206,
+        207,
+        207,
+        208,
+        209,
+        188,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        195,
+        214,
+        198,
+        199,
+        210,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        204,
+        201,
+        201,
+        204,
+        204,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        195,
+        195,
+        194,
+        201,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        206,
+        206,
+        206,
+        207,
+        207,
+        207,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        198,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        213,
+        214,
+        212,
+        206,
+        208,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        205,
+        200,
+        205,
+        203,
+        204,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        203,
+        203,
+        203,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        180,
+        173,
+        183,
+        195,
+        191,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        199,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        196,
+        196,
+        196,
+        195,
+        196,
+        196,
+        196,
+        196
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        195,
+        195,
+        179,
+        188,
+        196,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        199,
+        198,
+        198,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        202,
+        202,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        175,
+        159,
+        142,
+        124,
+        121,
+        157,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        206,
+        206,
+        204,
+        205,
+        209,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        187,
+        211,
+        200,
+        195,
+        200,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        204,
+        202,
+        204,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        193,
+        190,
+        190,
+        201,
+        198,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        206,
+        205,
+        205,
+        208,
+        205,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        196,
+        196,
+        196,
+        192,
+        192,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        204,
+        201,
+        202,
+        203,
+        203,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "rabbit",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        177,
+        167,
+        177,
+        175,
+        180,
+        188,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        205,
+        203,
+        203,
+        202,
+        202,
+        201,
+        199
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        200,
+        198,
+        172,
+        199,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        202,
+        201,
+        200,
+        205,
+        202,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        200,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        160,
+        139,
+        118,
+        125,
+        143,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        206,
+        206,
+        202,
+        213,
+        212,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        176,
+        201,
+        199,
+        204,
+        204,
+        186,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        200,
+        197,
+        198,
+        199,
+        197,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        185,
+        194,
+        185,
+        196,
+        201,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        198,
+        198,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        214,
+        213,
+        219,
+        207,
+        206,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        194,
+        194,
+        195,
+        208,
+        201,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        198,
+        198,
+        202,
+        196,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        176,
+        178,
+        183,
+        178,
+        191,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        198,
+        201,
+        199,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        198,
+        187,
+        198,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        197,
+        196,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        198,
+        198,
+        200,
+        201,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        155,
+        120,
+        113,
+        94,
+        93,
+        139,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        212,
+        205,
+        198,
+        209,
+        196,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        180,
+        196,
+        201,
+        195,
+        196,
+        182,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        201,
+        197,
+        198,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        186,
+        189,
+        189,
+        195,
+        195,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        197,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        198,
+        199,
+        192,
+        192,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        199,
+        199,
+        202,
+        199,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        192,
+        197,
+        195,
+        199,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        199,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "otter",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        175,
+        191,
+        204,
+        190,
+        185,
+        218,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        200,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        201,
+        200,
+        197,
+        196,
+        197,
+        196
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        199,
+        196,
+        195,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        197,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        162,
+        137,
+        135,
+        117,
+        117,
+        161,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        210,
+        213,
+        212,
+        215,
+        204,
+        191,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        178,
+        200,
+        198,
+        195,
+        200,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        206,
+        202,
+        200,
+        199,
+        199,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        185,
+        192,
+        184,
+        200,
+        201,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        196,
+        195,
+        184,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        201,
+        201,
+        198,
+        198,
+        174,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        207,
+        207,
+        218,
+        203,
+        200,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        193,
+        192,
+        198,
+        199,
+        196,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        200,
+        197,
+        199,
+        194,
+        194,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        172,
+        177,
+        176,
+        178,
+        185,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        201,
+        200,
+        202,
+        202,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        199,
+        200,
+        204,
+        202,
+        202,
+        204
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        200,
+        201,
+        202,
+        205,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        199,
+        198,
+        202,
+        203,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        155,
+        152,
+        159,
+        118,
+        115,
+        148,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        201,
+        201,
+        209,
+        209,
+        199,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        182,
+        197,
+        204,
+        205,
+        197,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        202,
+        199,
+        197,
+        197,
+        201,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        193,
+        197,
+        198,
+        201,
+        201,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        201,
+        199,
+        200,
+        201,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        199,
+        198,
+        198,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        202,
+        201,
+        201,
+        197,
+        198,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        202,
+        199,
+        199,
+        199,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        198,
+        199,
+        199,
+        187,
+        194,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "squirrel",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        163,
+        184,
+        180,
+        186,
+        194,
+        214,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        202,
+        203,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        197,
+        200,
+        201,
+        200,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        198,
+        189,
+        202,
+        205,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        198,
+        198,
+        199,
+        198,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        172,
+        159,
+        160,
+        147,
+        142,
+        159,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        201,
+        204,
+        202,
+        202,
+        201,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        182,
+        203,
+        201,
+        200,
+        197,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        200,
+        195,
+        198,
+        199,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        185,
+        192,
+        188,
+        196,
+        196,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        203,
+        199,
+        201,
+        202,
+        203,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        198,
+        199,
+        201,
+        203,
+        185,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        207,
+        206,
+        206,
+        206,
+        205,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        192,
+        188,
+        188,
+        192,
+        192,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        201,
+        201,
+        202,
+        203,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        167,
+        167,
+        199,
+        177,
+        196,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        198,
+        198,
+        200,
+        197,
+        199,
+        197
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        191,
+        197,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        200,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        199,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        166,
+        142,
+        123,
+        131,
+        128,
+        146,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        202,
+        201,
+        201,
+        202,
+        194,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        183,
+        201,
+        201,
+        199,
+        197,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        199,
+        198,
+        197,
+        200,
+        198,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        192,
+        191,
+        190,
+        199,
+        196,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        200,
+        200,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        202,
+        204,
+        205,
+        204,
+        204,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        194,
+        188,
+        192,
+        196,
+        199,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        198,
+        195,
+        202,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hedgehog",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        178,
+        176,
+        184,
+        186,
+        195,
+        211,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        198,
+        199,
+        197,
+        196,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        198,
+        199,
+        198,
+        199,
+        198,
+        198
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        202,
+        204,
+        181,
+        205,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        199,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        202,
+        202,
+        199,
+        199,
+        201,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        162,
+        138,
+        133,
+        122,
+        122,
+        161,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        214,
+        211,
+        213,
+        208,
+        202,
+        210,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        184,
+        212,
+        200,
+        192,
+        195,
+        187,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        206,
+        213,
+        201,
+        196,
+        209,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        192,
+        191,
+        190,
+        194,
+        206,
+        210,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        201,
+        199,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        199,
+        196,
+        198,
+        199,
+        176,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        213,
+        219,
+        223,
+        207,
+        209,
+        208,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        205,
+        202,
+        204,
+        210,
+        206,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        197,
+        196,
+        199,
+        193,
+        155,
+        188,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        175,
+        188,
+        184,
+        193,
+        204,
+        213,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        200,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        198,
+        197,
+        193,
+        191,
+        198,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        199,
+        198,
+        197,
+        195,
+        195,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        197,
+        198,
+        198,
+        199,
+        196,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        169,
+        153,
+        140,
+        103,
+        101,
+        155,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        215,
+        203,
+        198,
+        205,
+        192,
+        186,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        176,
+        195,
+        201,
+        211,
+        194,
+        186,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        201,
+        198,
+        200,
+        201,
+        204,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        181,
+        182,
+        180,
+        192,
+        194,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        198,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        202,
+        202,
+        201,
+        201,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        213,
+        206,
+        211,
+        206,
+        206,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        200,
+        201,
+        201,
+        201,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        201,
+        198,
+        202,
+        203,
+        174,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "raccoon",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        169,
+        175,
+        192,
+        190,
+        199,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        202,
+        201,
+        201,
+        201,
+        199,
+        201
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        201,
+        199,
+        197,
+        197,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        198,
+        199,
+        199,
+        198,
+        196,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        203,
+        203,
+        201,
+        199,
+        201,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        167,
+        143,
+        142,
+        125,
+        121,
+        151,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        205,
+        212,
+        205,
+        215,
+        194,
+        207,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        190,
+        215,
+        204,
+        211,
+        194,
+        188,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        210,
+        207,
+        204,
+        202,
+        208,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        189,
+        198,
+        192,
+        201,
+        208,
+        208,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        201,
+        199,
+        199,
+        199,
+        197,
+        186,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        198,
+        199,
+        198,
+        198,
+        197,
+        179,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        211,
+        211,
+        213,
+        210,
+        208,
+        207,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        195,
+        194,
+        198,
+        199,
+        201,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        206,
+        204,
+        205,
+        204,
+        197,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        164,
+        189,
+        190,
+        204,
+        191,
+        212,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        198,
+        200,
+        199,
+        198,
+        196,
+        198,
+        196
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        196,
+        197,
+        201,
+        183,
+        193,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        202,
+        201,
+        197,
+        197,
+        200,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        198,
+        199,
+        199,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        150,
+        138,
+        131,
+        123,
+        120,
+        150,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        199,
+        203,
+        202,
+        202,
+        190,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        169,
+        199,
+        188,
+        185,
+        182,
+        175,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        206,
+        198,
+        200,
+        199,
+        206,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        171,
+        174,
+        174,
+        178,
+        181,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        202,
+        202,
+        202,
+        202,
+        202,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        201,
+        202,
+        200,
+        196,
+        198,
+        174,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        212,
+        220,
+        226,
+        212,
+        187,
+        175,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        194,
+        192,
+        194,
+        203,
+        206,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        207,
+        205,
+        203,
+        205,
+        197,
+        170,
+        200
+      ]
+    },
+    {
+      "id": "fox",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        179,
+        171,
+        182,
+        191,
+        203,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        198,
+        199,
+        197
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        199,
+        201,
+        196,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        202,
+        202,
+        202,
+        199,
+        205,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        175,
+        172,
+        169,
+        131,
+        123,
+        156,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        207,
+        216,
+        213,
+        224,
+        203,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        189,
+        208,
+        209,
+        204,
+        208,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        207,
+        207,
+        204,
+        197,
+        207,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        192,
+        190,
+        192,
+        197,
+        199,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        203,
+        202,
+        202,
+        197,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        203,
+        202,
+        202,
+        201,
+        202,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        214,
+        211,
+        212,
+        209,
+        207,
+        206,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        201,
+        201,
+        199,
+        197,
+        195,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        201,
+        201,
+        202,
+        197,
+        183,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        177,
+        187,
+        190,
+        188,
+        204,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        199,
+        198,
+        197,
+        199
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        202,
+        198,
+        198,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        174,
+        148,
+        143,
+        100,
+        97,
+        121,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        210,
+        201,
+        203,
+        204,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        182,
+        204,
+        209,
+        199,
+        202,
+        191,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        202,
+        202,
+        201,
+        201,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        179,
+        184,
+        186,
+        199,
+        200,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        201,
+        202,
+        200,
+        193,
+        199,
+        172,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        205,
+        207,
+        205,
+        204,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        201,
+        199,
+        206,
+        202,
+        203,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "bear",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        170,
+        172,
+        186,
+        169,
+        184,
+        180,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        200,
+        200,
+        200,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        204,
+        199,
+        207,
+        201,
+        205,
+        202
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        193,
+        195,
+        199,
+        197,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        201,
+        201,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        168,
+        144,
+        125,
+        110,
+        112,
+        175,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        209,
+        213,
+        210,
+        209,
+        205,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        180,
+        201,
+        205,
+        198,
+        194,
+        187,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        203,
+        207,
+        198,
+        199,
+        202,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        196,
+        202,
+        194,
+        204,
+        202,
+        212,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        201,
+        201,
+        200,
+        195,
+        199,
+        176,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        199,
+        199,
+        199,
+        199,
+        180,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        216,
+        200,
+        210,
+        201,
+        205,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        208,
+        208,
+        205,
+        212,
+        208,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        202,
+        200,
+        199,
+        199,
+        198,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        165,
+        175,
+        175,
+        168,
+        183,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        201,
+        201,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        199,
+        199,
+        197,
+        200,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        198,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        201,
+        201,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        173,
+        151,
+        143,
+        108,
+        105,
+        151,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        201,
+        198,
+        206,
+        203,
+        194,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        188,
+        203,
+        207,
+        204,
+        193,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        203,
+        201,
+        195,
+        200,
+        203,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        193,
+        198,
+        187,
+        197,
+        201,
+        209,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        200,
+        201,
+        196,
+        197,
+        170,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        205,
+        202,
+        200,
+        201,
+        175,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        208,
+        208,
+        208,
+        203,
+        203,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        203,
+        197,
+        193,
+        204,
+        204,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        201,
+        200,
+        201,
+        199,
+        194,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "owl",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        173,
+        168,
+        168,
+        168,
+        175,
+        165,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        198,
+        198,
+        199,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        201,
+        199,
+        199,
+        195,
+        197,
+        198
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        195,
+        197,
+        202,
+        200,
+        203,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        201,
+        202,
+        201,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        198,
+        198,
+        199,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        161,
+        138,
+        125,
+        117,
+        113,
+        147,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        220,
+        215,
+        216,
+        223,
+        206,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        178,
+        212,
+        207,
+        208,
+        191,
+        185,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        214,
+        213,
+        201,
+        202,
+        213,
+        209,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        185,
+        188,
+        185,
+        191,
+        197,
+        215,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        202,
+        199,
+        202,
+        200,
+        200,
+        184,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        205,
+        204,
+        201,
+        202,
+        203,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        215,
+        218,
+        221,
+        209,
+        204,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        192,
+        207,
+        201,
+        208,
+        208,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        206,
+        202,
+        206,
+        211,
+        199,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        171,
+        161,
+        200,
+        199,
+        191,
+        212,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        199,
+        198,
+        200,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        200,
+        199,
+        199,
+        199
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        197,
+        196,
+        194,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        198,
+        200,
+        199,
+        199,
+        198,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        200,
+        199,
+        199,
+        200,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        165,
+        148,
+        144,
+        110,
+        110,
+        140,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        215,
+        215,
+        203,
+        215,
+        186,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        177,
+        214,
+        211,
+        199,
+        188,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        209,
+        206,
+        201,
+        203,
+        210,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        194,
+        197,
+        193,
+        198,
+        199,
+        209,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        201,
+        202,
+        201,
+        202,
+        179,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        198,
+        198,
+        198,
+        199,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        210,
+        209,
+        217,
+        206,
+        205,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        202,
+        199,
+        199,
+        203,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        203,
+        205,
+        207,
+        203,
+        165,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "cat",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        173,
+        167,
+        167,
+        171,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        199,
+        201,
+        200,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        201,
+        200,
+        200,
+        201,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        202,
+        193,
+        179,
+        196,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        203,
+        200,
+        197,
+        199,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        203,
+        202,
+        202,
+        204,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        172,
+        153,
+        138,
+        130,
+        130,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        213,
+        206,
+        206,
+        203,
+        199,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        189,
+        220,
+        201,
+        194,
+        189,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        201,
+        196,
+        201,
+        199,
+        201,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        195,
+        195,
+        195,
+        198,
+        197,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        198,
+        201,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        200,
+        199,
+        199,
+        201,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        204,
+        209,
+        226,
+        223,
+        216,
+        186,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        200,
+        199,
+        197,
+        201,
+        206,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        203,
+        203,
+        203,
+        205,
+        186,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        173,
+        192,
+        203,
+        189,
+        200,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        201,
+        201,
+        201,
+        201,
+        200,
+        201
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        198,
+        197,
+        172,
+        193,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        198,
+        198,
+        198,
+        198,
+        198,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        202,
+        202,
+        201,
+        204,
+        208,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        152,
+        137,
+        112,
+        110,
+        110,
+        152,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        202,
+        207,
+        202,
+        206,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        171,
+        194,
+        200,
+        176,
+        179,
+        164,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        204,
+        199,
+        201,
+        199,
+        201,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        188,
+        190,
+        189,
+        197,
+        200,
+        213,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        202,
+        201,
+        205,
+        198,
+        198,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        199,
+        198,
+        199,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        214,
+        215,
+        226,
+        221,
+        218,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        191,
+        196,
+        186,
+        204,
+        202,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        206,
+        203,
+        201,
+        206,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "puppy",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        172,
+        181,
+        178,
+        179,
+        196,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        200,
+        200,
+        200,
+        200,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        202,
+        200,
+        202,
+        199,
+        200,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        199,
+        205,
+        201,
+        204,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        199,
+        199,
+        202,
+        202,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        173,
+        154,
+        146,
+        131,
+        131,
+        170,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        218,
+        219,
+        215,
+        214,
+        200,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        178,
+        213,
+        208,
+        204,
+        204,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        207,
+        209,
+        200,
+        201,
+        206,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        189,
+        191,
+        188,
+        198,
+        198,
+        208,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        201,
+        201,
+        184,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        215,
+        216,
+        217,
+        214,
+        212,
+        208,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        201,
+        199,
+        196,
+        205,
+        204,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        202,
+        202,
+        202,
+        199,
+        199,
+        173,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        169,
+        175,
+        173,
+        193,
+        202,
+        212,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        201,
+        200,
+        200,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        202,
+        202,
+        202,
+        203,
+        201,
+        201,
+        201
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        201,
+        194,
+        191,
+        198,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        201,
+        197,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        160,
+        131,
+        124,
+        101,
+        103,
+        139,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        209,
+        198,
+        195,
+        201,
+        187,
+        191,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        180,
+        197,
+        209,
+        203,
+        192,
+        179,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        202,
+        204,
+        205,
+        196,
+        202,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        189,
+        189,
+        189,
+        196,
+        191,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        194,
+        195,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        207,
+        207,
+        210,
+        205,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        191,
+        194,
+        197,
+        205,
+        195,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        200,
+        201,
+        201,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "hamster",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        178,
+        175,
+        174,
+        173,
+        186,
+        213,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        196,
+        196,
+        195,
+        195
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        202,
+        201,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        199,
+        200,
+        199,
+        200,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        201,
+        208,
+        204,
+        205,
+        204,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        178,
+        143,
+        135,
+        126,
+        126,
+        170,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        212,
+        214,
+        219,
+        210,
+        212,
+        192,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        184,
+        199,
+        195,
+        201,
+        199,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        207,
+        207,
+        203,
+        198,
+        208,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        193,
+        190,
+        190,
+        199,
+        205,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        199,
+        199,
+        200,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        200,
+        201,
+        197,
+        199,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        205,
+        205,
+        208,
+        199,
+        200,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        205,
+        205,
+        204,
+        201,
+        201,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        199,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        180,
+        184,
+        199,
+        192,
+        203,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        201,
+        200,
+        199,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        197,
+        201,
+        197,
+        200,
+        200,
+        196,
+        199
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        200,
+        203,
+        189,
+        196,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        202,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        181,
+        163,
+        151,
+        103,
+        99,
+        131,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        207,
+        208,
+        204,
+        205,
+        209,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        182,
+        205,
+        207,
+        199,
+        190,
+        187,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        204,
+        204,
+        201,
+        197,
+        202,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        182,
+        184,
+        186,
+        203,
+        203,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        202,
+        202,
+        201,
+        197,
+        199,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        206,
+        203,
+        208,
+        201,
+        200,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        200,
+        195,
+        200,
+        208,
+        200,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "panda",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        170,
+        185,
+        189,
+        196,
+        189,
+        211,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        199,
+        198,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        201,
+        203,
+        202,
+        202
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        199,
+        207,
+        204,
+        202,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        198,
+        198,
+        198,
+        199,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        201,
+        203,
+        203,
+        204,
+        205,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        177,
+        162,
+        150,
+        138,
+        126,
+        176,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        217,
+        218,
+        214,
+        216,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        183,
+        210,
+        202,
+        203,
+        204,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        208,
+        214,
+        201,
+        201,
+        213,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        190,
+        190,
+        190,
+        195,
+        200,
+        210,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        199,
+        199,
+        180,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        201,
+        201,
+        201,
+        201,
+        201,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        208,
+        208,
+        207,
+        210,
+        207,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        202,
+        202,
+        196,
+        207,
+        201,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        201,
+        201,
+        199,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        160,
+        175,
+        194,
+        199,
+        207,
+        210,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        201,
+        200,
+        201,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        201,
+        201,
+        201
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        201,
+        204,
+        207,
+        207,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        201,
+        197,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        205,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        164,
+        142,
+        135,
+        121,
+        115,
+        163,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        205,
+        198,
+        194,
+        209,
+        193,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        175,
+        208,
+        196,
+        191,
+        191,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        206,
+        201,
+        199,
+        196,
+        203,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        177,
+        176,
+        168,
+        197,
+        197,
+        205,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        204,
+        206,
+        206,
+        203,
+        202,
+        171,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        201,
+        200,
+        198,
+        200,
+        202,
+        177,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        217,
+        220,
+        224,
+        225,
+        217,
+        210,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        195,
+        187,
+        180,
+        199,
+        194,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        202,
+        201,
+        203,
+        202,
+        172,
+        78,
+        200
+      ]
+    },
+    {
+      "id": "red_panda",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        176,
+        182,
+        192,
+        191,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        197,
+        197,
+        196,
+        199,
+        198,
+        198,
+        199
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        196,
+        197,
+        196,
+        189,
+        195,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        202,
+        200,
+        201,
+        201,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        202,
+        203,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        171,
+        149,
+        139,
+        127,
+        126,
+        160,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        198,
+        199,
+        201,
+        201,
+        190,
+        194,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        186,
+        212,
+        214,
+        203,
+        206,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        199,
+        194,
+        196,
+        201,
+        196,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        193,
+        194,
+        196,
+        199,
+        200,
+        217,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        200,
+        201,
+        199,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        201,
+        200,
+        201,
+        199,
+        199,
+        185,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        202,
+        205,
+        209,
+        205,
+        202,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        193,
+        192,
+        201,
+        199,
+        201,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        200,
+        200,
+        199,
+        201,
+        201,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        171,
+        196,
+        188,
+        189,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        199,
+        200,
+        201,
+        205,
+        205,
+        206,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        202,
+        202,
+        203,
+        198,
+        198,
+        198,
+        198
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        199,
+        197,
+        199,
+        190,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        198,
+        198,
+        198,
+        198,
+        196,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        198,
+        198,
+        199,
+        198,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        175,
+        153,
+        139,
+        106,
+        106,
+        142,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        196,
+        192,
+        198,
+        198,
+        202,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        187,
+        206,
+        203,
+        191,
+        188,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        199,
+        198,
+        199,
+        200,
+        199,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        180,
+        179,
+        177,
+        182,
+        182,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        200,
+        200,
+        199,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        198,
+        198,
+        198,
+        199,
+        183,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        203,
+        210,
+        211,
+        210,
+        210,
+        209,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        187,
+        186,
+        186,
+        194,
+        195,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        201,
+        198,
+        198,
+        201,
+        200,
+        181,
+        200
+      ]
+    },
+    {
+      "id": "lamb",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        181,
+        167,
+        198,
+        198,
+        206,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        199,
+        199,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        197,
+        200,
+        199,
+        198,
+        195,
+        196
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        200,
+        201,
+        207,
+        181,
+        196,
+        193,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        201,
+        201,
+        199,
+        198,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        198,
+        199,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        168,
+        153,
+        142,
+        145,
+        141,
+        176,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        207,
+        214,
+        214,
+        220,
+        212,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        190,
+        201,
+        207,
+        204,
+        204,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        220,
+        213,
+        201,
+        199,
+        208,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        186,
+        185,
+        184,
+        196,
+        198,
+        211,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        201,
+        201,
+        201,
+        199,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        200,
+        200,
+        201,
+        202,
+        179,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        201,
+        199,
+        204,
+        205,
+        201,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        205,
+        204,
+        204,
+        202,
+        202,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        200,
+        199,
+        199,
+        199,
+        196,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        171,
+        187,
+        186,
+        200,
+        205,
+        211,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        201,
+        201,
+        202,
+        201,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        189,
+        203,
+        188,
+        201,
+        188,
+        199,
+        184
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        192,
+        209,
+        201,
+        193,
+        190,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        197,
+        197,
+        195,
+        198,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        205,
+        201,
+        201,
+        204,
+        201,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        178,
+        164,
+        158,
+        113,
+        110,
+        148,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        207,
+        207,
+        207,
+        202,
+        207,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        178,
+        198,
+        187,
+        188,
+        188,
+        185,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        206,
+        205,
+        197,
+        200,
+        211,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        187,
+        203,
+        182,
+        196,
+        195,
+        209,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        199,
+        199,
+        201,
+        204,
+        199,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        199,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        215,
+        211,
+        218,
+        208,
+        208,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        203,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        200,
+        202,
+        200,
+        199,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "koala",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        181,
+        192,
+        187,
+        192,
+        204,
+        188,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "idle",
+      "heights": [
+        200,
+        202,
+        201,
+        202,
+        205,
+        204,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "walk",
+      "heights": [
+        200,
+        198,
+        199,
+        199,
+        198,
+        199,
+        199,
+        199
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "pet",
+      "heights": [
+        200,
+        197,
+        196,
+        190,
+        189,
+        199,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "eat",
+      "heights": [
+        200,
+        199,
+        198,
+        199,
+        200,
+        200,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "drink",
+      "heights": [
+        200,
+        199,
+        199,
+        199,
+        199,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "sleep",
+      "heights": [
+        200,
+        168,
+        156,
+        148,
+        118,
+        118,
+        144,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "carry",
+      "heights": [
+        200,
+        213,
+        213,
+        206,
+        217,
+        215,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "jump",
+      "heights": [
+        200,
+        180,
+        204,
+        202,
+        204,
+        189,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "look",
+      "heights": [
+        200,
+        204,
+        199,
+        201,
+        200,
+        204,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "sniff",
+      "heights": [
+        200,
+        189,
+        191,
+        192,
+        201,
+        201,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "wave",
+      "heights": [
+        200,
+        201,
+        199,
+        201,
+        202,
+        201,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        200,
+        199,
+        199,
+        200,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "stretch",
+      "heights": [
+        200,
+        212,
+        204,
+        208,
+        205,
+        205,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "rub",
+      "heights": [
+        200,
+        193,
+        193,
+        199,
+        207,
+        202,
+        201,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        200,
+        200,
+        200,
+        201,
+        179,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "baby",
+      "action": "rest",
+      "heights": [
+        200,
+        176,
+        179,
+        179,
+        184,
+        184,
+        204,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "idle",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        202,
+        202,
+        202,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "walk",
+      "heights": [
+        200,
+        199,
+        200,
+        199,
+        198,
+        198,
+        199,
+        199
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "pet",
+      "heights": [
+        200,
+        201,
+        198,
+        195,
+        194,
+        197,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "eat",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "drink",
+      "heights": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "sleep",
+      "heights": [
+        200,
+        169,
+        147,
+        141,
+        93,
+        93,
+        131,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "carry",
+      "heights": [
+        200,
+        212,
+        212,
+        205,
+        206,
+        212,
+        195,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "jump",
+      "heights": [
+        200,
+        183,
+        202,
+        208,
+        201,
+        194,
+        189,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "look",
+      "heights": [
+        200,
+        206,
+        197,
+        200,
+        204,
+        204,
+        203,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "sniff",
+      "heights": [
+        200,
+        183,
+        189,
+        185,
+        194,
+        194,
+        199,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "wave",
+      "heights": [
+        200,
+        200,
+        200,
+        201,
+        201,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "groom",
+      "heights": [
+        200,
+        200,
+        199,
+        200,
+        200,
+        200,
+        176,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "stretch",
+      "heights": [
+        200,
+        202,
+        201,
+        203,
+        199,
+        197,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "rub",
+      "heights": [
+        200,
+        193,
+        194,
+        196,
+        194,
+        196,
+        196,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "toy",
+      "heights": [
+        200,
+        199,
+        199,
+        201,
+        200,
+        198,
+        198,
+        200
+      ]
+    },
+    {
+      "id": "penguin",
+      "stage": "adult",
+      "action": "rest",
+      "heights": [
+        200,
+        167,
+        166,
+        172,
+        170,
+        179,
+        181,
+        200
+      ]
+    }
+  ]
+}

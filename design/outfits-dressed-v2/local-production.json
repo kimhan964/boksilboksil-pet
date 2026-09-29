@@ -1,0 +1,435 @@
+{
+  "mode": "image_gen built-in",
+  "organization": {
+    "inputs": "design/all-species-v3/production-sources/{species}/{stage}/{action}.png",
+    "outfit_references": "design/outfits-varco-v1/{species}/{stage}-{style}-source.png",
+    "generated": "design/outfits-dressed-v2/local-sources/{species}/{stage}/{style}/{action}.png",
+    "runtime": "assets/outfits-dressed-v2/{species}/{stage}/{style}/{action}.png",
+    "validation": "tools/check_dressed_sheets.py {species}"
+  },
+  "assets": [
+    {
+      "species": "otter",
+      "stage": "baby",
+      "style": "cape",
+      "action": "walk",
+      "source": "design/all-species-v3/production-sources/otter/baby/walk.png",
+      "outfit_reference": "design/outfits-varco-v1/otter/baby-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/otter/baby/cape/walk.png",
+      "game_asset": "assets/outfits-dressed-v2/otter/baby/cape/walk.png",
+      "prompt": "Edit the original 4x4 16-pose baby otter walk sheet. Preserve two eyes, brown and cream fur, 16 distinct poses, proportions and foot positions. Use the reference green cape with gold wave pattern, edging and clasp. Draw the cape attached to neck and shoulders in each complete 2D character cel, moving naturally with the walk. One animal per cell, transparent background, clear cell margins, no extra body parts or text.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "otter",
+      "stage": "adult",
+      "style": "cape",
+      "action": "walk",
+      "source": "design/all-species-v3/production-sources/otter/adult/walk.png",
+      "outfit_reference": "design/outfits-varco-v1/otter/adult-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/otter/adult/cape/walk.png",
+      "game_asset": "assets/outfits-dressed-v2/otter/adult/cape/walk.png",
+      "prompt": "Edit the adult otter 4x4 sixteen-pose walk sheet; preserve adult face, two eyes, brown and cream fur, body proportions, tail, feet and pose order. Apply the sage-green short gold-wave cape and gold leaf clasp from the adult reference as part of each whole 2D cel, attached at the shoulders and draping naturally. Transparent background, 4x4 separated cells, no clipping, no parts, no 3D or text.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "raccoon",
+      "stage": "baby",
+      "style": "cape",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/raccoon/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/raccoon/baby-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/raccoon/baby/cape/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/raccoon/baby/cape/idle.png",
+      "prompt": "Edit the baby raccoon 4x4 idle sheet; preserve the two dark eyes and eye masks, striped tail, blue neckerchief, taupe and cream fur and sixteen poses. Draw the moss-green gold-cross cape from the baby reference integrated with the whole animal in every cell, attached to both shoulders. Transparent background, exact 4x4 grid, clear margins, no separate parts or extra anatomy.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "raccoon",
+      "stage": "adult",
+      "style": "cape",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/raccoon/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/raccoon/adult-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/raccoon/adult/cape/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/raccoon/adult/cape/idle.png",
+      "prompt": "Edit the adult raccoon 4x4 idle sheet; preserve two eyes, eye masks, striped tail, blue neckerchief, taupe and cream fur consistent with baby, all sixteen poses. Draw the moss-green gold-cross cape with gold hem and clasp from the adult reference as part of each whole animal. Transparent separated 4x4 cels, no missing or extra body parts, text or 3D.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "raccoon",
+      "stage": "baby",
+      "style": "vest",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/raccoon/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/raccoon/baby-vest-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/raccoon/baby/vest/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/raccoon/baby/vest/idle.png",
+      "prompt": "Edit the baby raccoon 4x4 idle sheet; preserve every original standing pose, face, fur, tail and blue neckerchief. Add the orange cream-trimmed vest with two buttons and green forest patch on viewer-right chest in every complete cel. Transparent background, no parts or extra anatomy.",
+      "note": "accepted original",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "raccoon",
+      "stage": "adult",
+      "style": "vest",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/raccoon/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/raccoon/adult-vest-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/raccoon/adult/vest/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/raccoon/adult/vest/idle.png",
+      "prompt": "Edit the adult raccoon 4x4 idle sheet; preserve standing poses, face, fur, tail and blue neckerchief. Add matching orange vest. Correct the tiny forest patch to viewer-right chest in every cel while keeping central buttons and all original poses. Transparent background, no parts or extra anatomy.",
+      "note": "corrected patch-side variant",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "raccoon",
+      "stage": "baby",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/raccoon/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/raccoon/baby-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/raccoon/baby/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/raccoon/baby/sweater/idle.png",
+      "prompt": "Precise edit of baby raccoon 4x4 idle sheet: change only clothing to a sky-blue knit sweater with cream collar/cuffs/hem and small green pines. Keep all sixteen original poses standing, including last row, plus face, eyes, fur, tail and neckerchief. Transparent background, no parts or new actions.",
+      "note": "corrected pose-lock variant",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "raccoon",
+      "stage": "adult",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/raccoon/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/raccoon/adult-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/raccoon/adult/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/raccoon/adult/sweater/idle.png",
+      "prompt": "Precise edit of adult raccoon 4x4 idle sheet: change only clothing to matching sky-blue pine-pattern knit sweater with cream trims. Keep all sixteen original poses standing and preserve face, fur, tail, neckerchief and adult proportions. Transparent background, no parts or new actions.",
+      "note": "accepted original",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "hedgehog",
+      "stage": "adult",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/hedgehog/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/hedgehog/adult-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/hedgehog/adult/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/hedgehog/adult/sweater/idle.png",
+      "prompt": "Precise edit of the adult hedgehog 4x4 idle sheet. Preserve every original standing pose, cream face, two eyes and natural blinks, brown spines, green clover and short legs. Fit a powder-blue cable-knit sweater with cream ribbed trim and orange leaf motif to the complete body in all sixteen cels. Transparent separated 4x4 grid, no new actions, extra anatomy, detached clothing or 3D.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "rabbit",
+      "stage": "adult",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/outfits-dressed-v2/production-sources/rabbit/adult/sweater/idle.png",
+      "outfit_reference": "design/outfits-dressed-v2/production-sources/rabbit/baby/sweater/idle.png",
+      "generated": "design/outfits-dressed-v2/local-sources/rabbit/adult/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/rabbit/adult/sweater/idle.png",
+      "prompt": "Precise edit of the adult rabbit 4x4 idle sheet: change only sweater fabric hue, saturation and brightness to match the baby rabbit sweater's soft muted slate blue. Preserve all sixteen adult idle poses, white cream fur, pink ears/cheeks, two eyes, flower motif, green leaf neck decoration, body size, grid and cyan background.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0,
+        "fabric_rgb_distance_before": 0.305,
+        "fabric_rgb_distance_after": 0.039
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "baby",
+      "style": "cape",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/fox/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/fox/baby-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/baby/cape/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/baby/cape/idle.png",
+      "prompt": "Edit baby fox original 4x4 idle sheet; preserve all 16 poses, eyes, bow, orange/cream fur and tail. Add forest-green short shoulder cape with gold leaf motifs, hem and clasp from baby reference to every complete cel. Transparent background, no parts.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "adult",
+      "style": "cape",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/fox/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/fox/adult-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/adult/cape/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/adult/cape/idle.png",
+      "prompt": "Edit adult fox original 4x4 idle sheet; preserve all 16 poses and adult proportions. Match the approved baby cape green and gold palette, motifs and clasp. Complete transparent 4x4 cels, no parts.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "baby",
+      "style": "vest",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/fox/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/fox/baby-vest-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/baby/vest/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/baby/vest/idle.png",
+      "prompt": "Edit baby fox original 4x4 idle sheet; preserve all 16 standing poses. Add fitted warm orange vest with cream trim, two brown buttons and small maple emblem from reference. Complete transparent cels.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "adult",
+      "style": "vest",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/fox/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/fox/adult-vest-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/adult/vest/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/adult/vest/idle.png",
+      "prompt": "Edit adult fox original 4x4 idle sheet; match approved baby vest warm orange, cream trim, two buttons and emblem. Correct orange fabric brightness to baby tone while preserving adult fur and poses.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      },
+      "note": "Second imagegen pass corrected orange fabric; first version retained as idle-v1.png."
+    },
+    {
+      "species": "fox",
+      "stage": "baby",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/fox/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/fox/baby-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/baby/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/baby/sweater/idle.png",
+      "prompt": "Edit baby fox original 4x4 idle sheet; preserve all 16 poses. Add soft powder-blue cable-knit sweater with cream ribbing and small cream maple emblem from reference. Tail visible, complete cels.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "adult",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/fox/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/fox/adult-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/adult/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/adult/sweater/idle.png",
+      "prompt": "Edit adult fox original 4x4 idle sheet; preserve all 16 poses. Match approved baby sweater blue tone, cream ribbing and small maple emblem. Tail visible, complete cels.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "baby",
+      "style": "cape",
+      "action": "walk",
+      "source": "design/all-species-v3/production-sources/fox/baby/walk.png",
+      "outfit_reference": "design/outfits-dressed-v2/local-sources/fox/baby/cape/idle.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/baby/cape/walk.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/baby/cape/walk.png",
+      "prompt": "Edit original 4x4 fox walk sheet using approved same-stage cape idle as design reference. Preserve sixteen distinct alternating footstep poses, body bounce, fur, eyes, bow and tail. Attach forest-green gold-leaf cape to whole body in each 2D cel; clear transparent grid and no detached parts.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "fox",
+      "stage": "adult",
+      "style": "cape",
+      "action": "walk",
+      "source": "design/all-species-v3/production-sources/fox/adult/walk.png",
+      "outfit_reference": "design/outfits-dressed-v2/local-sources/fox/adult/cape/idle.png",
+      "generated": "design/outfits-dressed-v2/local-sources/fox/adult/cape/walk.png",
+      "game_asset": "assets/outfits-dressed-v2/fox/adult/cape/walk.png",
+      "prompt": "Edit original 4x4 fox walk sheet using approved same-stage cape idle as design reference. Preserve sixteen distinct alternating footstep poses, body bounce, fur, eyes, bow and tail. Attach forest-green gold-leaf cape to whole body in each 2D cel; clear transparent grid and no detached parts.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "baby",
+      "style": "cape",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/bear/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/bear/baby-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/baby/cape/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/baby/cape/idle.png",
+      "prompt": "Edit original baby bear 4x4 idle sheet; preserve 16 poses, face, tan fur and green satchel. Add moss-green gold honeycomb cape attached to both shoulders in each full cel.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "adult",
+      "style": "cape",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/bear/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/bear/adult-cape-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/adult/cape/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/adult/cape/idle.png",
+      "prompt": "Edit original adult bear 4x4 idle sheet; preserve 16 poses and satchel. Match approved baby moss-green gold honeycomb cape tone and clasp in every full cel.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "baby",
+      "style": "vest",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/bear/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/bear/baby-vest-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/baby/vest/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/baby/vest/idle.png",
+      "prompt": "Edit original baby bear 4x4 idle sheet; add warm orange cream-trimmed vest, two dark buttons, gold honeycomb emblem and keep green satchel strap in front. Preserve 16 complete poses.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "adult",
+      "style": "vest",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/bear/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/bear/adult-vest-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/adult/vest/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/adult/vest/idle.png",
+      "prompt": "Edit original adult bear 4x4 idle sheet; match approved baby orange vest, buttons, emblem and cream trim while preserving 16 adult poses and front satchel strap.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "baby",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/bear/baby/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/bear/baby-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/baby/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/baby/sweater/idle.png",
+      "prompt": "Edit original baby bear 4x4 idle sheet; add powder-blue cream-ribbed sweater and tiny gold honeycomb emblem, green satchel strap in front. Preserve 16 full poses.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "adult",
+      "style": "sweater",
+      "action": "idle",
+      "source": "design/all-species-v3/production-sources/bear/adult/idle.png",
+      "outfit_reference": "design/outfits-varco-v1/bear/adult-sweater-source.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/adult/sweater/idle.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/adult/sweater/idle.png",
+      "prompt": "Edit original adult bear 4x4 idle sheet; match approved baby blue sweater, cream ribbing and gold emblem, green satchel strap in front. Preserve 16 adult poses.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "baby",
+      "style": "cape",
+      "action": "walk",
+      "source": "design/all-species-v3/production-sources/bear/baby/walk.png",
+      "outfit_reference": "design/outfits-dressed-v2/local-sources/bear/baby/cape/idle.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/baby/cape/walk.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/baby/cape/walk.png",
+      "prompt": "Edit the original 4x4 bear walking sheet using approved same-stage cape idle as reference. Preserve sixteen distinct ordered footsteps, adult/baby proportions and green satchel. Integrate moss-green gold honeycomb cape with clasp in complete 2D cels, transparent background.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    },
+    {
+      "species": "bear",
+      "stage": "adult",
+      "style": "cape",
+      "action": "walk",
+      "source": "design/all-species-v3/production-sources/bear/adult/walk.png",
+      "outfit_reference": "design/outfits-dressed-v2/local-sources/bear/adult/cape/idle.png",
+      "generated": "design/outfits-dressed-v2/local-sources/bear/adult/cape/walk.png",
+      "game_asset": "assets/outfits-dressed-v2/bear/adult/cape/walk.png",
+      "prompt": "Edit the original 4x4 bear walking sheet using approved same-stage cape idle as reference. Preserve sixteen distinct ordered footsteps, adult/baby proportions and green satchel. Integrate moss-green gold honeycomb cape with clasp in complete 2D cels, transparent background.",
+      "qa": {
+        "frames": 16,
+        "blank": 0,
+        "edge_clipping": 0
+      }
+    }
+  ]
+}

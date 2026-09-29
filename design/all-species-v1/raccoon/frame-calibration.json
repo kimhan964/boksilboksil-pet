@@ -1,0 +1,230 @@
+{
+  "species": "raccoon",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.5899705014749262,
+      "neutral_height": 339,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.56657223796034,
+      "neutral_height": 353,
+      "relative_to_idle": 0.9603399433427763
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5970149253731343,
+      "neutral_height": 335,
+      "relative_to_idle": 1.0119402985074626
+    },
+    {
+      "stage": "baby",
+      "action": "eat",
+      "scale": 0.6006006006006006,
+      "neutral_height": 333,
+      "relative_to_idle": 1.018018018018018
+    },
+    {
+      "stage": "baby",
+      "action": "drink",
+      "scale": 0.5830903790087464,
+      "neutral_height": 343,
+      "relative_to_idle": 0.9883381924198251
+    },
+    {
+      "stage": "baby",
+      "action": "sleep",
+      "scale": 0.6289308176100629,
+      "neutral_height": 318,
+      "relative_to_idle": 1.0660377358490565
+    },
+    {
+      "stage": "baby",
+      "action": "carry",
+      "scale": 0.6600660066006601,
+      "neutral_height": 303,
+      "relative_to_idle": 1.118811881188119
+    },
+    {
+      "stage": "baby",
+      "action": "jump",
+      "scale": 0.7194244604316546,
+      "neutral_height": 278,
+      "relative_to_idle": 1.2194244604316546
+    },
+    {
+      "stage": "baby",
+      "action": "look",
+      "scale": 0.5865102639296188,
+      "neutral_height": 341,
+      "relative_to_idle": 0.9941348973607039
+    },
+    {
+      "stage": "baby",
+      "action": "sniff",
+      "scale": 0.5633802816901409,
+      "neutral_height": 355,
+      "relative_to_idle": 0.9549295774647888
+    },
+    {
+      "stage": "baby",
+      "action": "wave",
+      "scale": 0.5714285714285714,
+      "neutral_height": 350,
+      "relative_to_idle": 0.9685714285714285
+    },
+    {
+      "stage": "baby",
+      "action": "groom",
+      "scale": 0.5797101449275363,
+      "neutral_height": 345,
+      "relative_to_idle": 0.982608695652174
+    },
+    {
+      "stage": "baby",
+      "action": "stretch",
+      "scale": 0.6330532212885154,
+      "neutral_height": 314,
+      "relative_to_idle": 1.0730252100840336
+    },
+    {
+      "stage": "baby",
+      "action": "rub",
+      "scale": 0.5714285714285714,
+      "neutral_height": 350,
+      "relative_to_idle": 0.9685714285714285
+    },
+    {
+      "stage": "baby",
+      "action": "toy",
+      "scale": 0.5571030640668524,
+      "neutral_height": 359,
+      "relative_to_idle": 0.9442896935933148
+    },
+    {
+      "stage": "baby",
+      "action": "rest",
+      "scale": 0.6097560975609756,
+      "neutral_height": 328,
+      "relative_to_idle": 1.0335365853658536
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5730659025787965,
+      "neutral_height": 349,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5970149253731343,
+      "neutral_height": 335,
+      "relative_to_idle": 1.0417910447761194
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5586592178770949,
+      "neutral_height": 358,
+      "relative_to_idle": 0.9748603351955307
+    },
+    {
+      "stage": "adult",
+      "action": "eat",
+      "scale": 0.5797101449275363,
+      "neutral_height": 345,
+      "relative_to_idle": 1.0115942028985507
+    },
+    {
+      "stage": "adult",
+      "action": "drink",
+      "scale": 0.5714285714285714,
+      "neutral_height": 350,
+      "relative_to_idle": 0.9971428571428571
+    },
+    {
+      "stage": "adult",
+      "action": "sleep",
+      "scale": 0.5780346820809249,
+      "neutral_height": 346,
+      "relative_to_idle": 1.008670520231214
+    },
+    {
+      "stage": "adult",
+      "action": "carry",
+      "scale": 0.6230529595015576,
+      "neutral_height": 321,
+      "relative_to_idle": 1.087227414330218
+    },
+    {
+      "stage": "adult",
+      "action": "jump",
+      "scale": 0.6410256410256411,
+      "neutral_height": 312,
+      "relative_to_idle": 1.1185897435897438
+    },
+    {
+      "stage": "adult",
+      "action": "look",
+      "scale": 0.546448087431694,
+      "neutral_height": 366,
+      "relative_to_idle": 0.9535519125683062
+    },
+    {
+      "stage": "adult",
+      "action": "sniff",
+      "scale": 0.5586592178770949,
+      "neutral_height": 358,
+      "relative_to_idle": 0.9748603351955307
+    },
+    {
+      "stage": "adult",
+      "action": "wave",
+      "scale": 0.5509641873278237,
+      "neutral_height": 363,
+      "relative_to_idle": 0.9614325068870524
+    },
+    {
+      "stage": "adult",
+      "action": "groom",
+      "scale": 0.5449591280653951,
+      "neutral_height": 367,
+      "relative_to_idle": 0.9509536784741146
+    },
+    {
+      "stage": "adult",
+      "action": "stretch",
+      "scale": 0.5681818181818182,
+      "neutral_height": 352,
+      "relative_to_idle": 0.9914772727272729
+    },
+    {
+      "stage": "adult",
+      "action": "rub",
+      "scale": 0.5420054200542005,
+      "neutral_height": 369,
+      "relative_to_idle": 0.9457994579945799
+    },
+    {
+      "stage": "adult",
+      "action": "toy",
+      "scale": 0.5847953216374269,
+      "neutral_height": 342,
+      "relative_to_idle": 1.0204678362573099
+    },
+    {
+      "stage": "adult",
+      "action": "rest",
+      "scale": 0.56657223796034,
+      "neutral_height": 353,
+      "relative_to_idle": 0.9886685552407932
+    }
+  ]
+}

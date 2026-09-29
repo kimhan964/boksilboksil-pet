@@ -52,8 +52,142 @@ const SPEEDS=[66.0,52.0,82.0,46.0,54.0,72.0,44.0,50.0,60.0,56.0,62.0,42.0,56.0,4
 var species=0
 var growth_scale=1.0
 var growth_stage=-1
+var outfit_style=0
+var outfit_color=0
 var bounds=Rect2(100,160,1080,520)
 var feet=Vector2.ZERO
+var travel_speed=0.0
+var walk_phase=0.0
+var can_playful=false
+var can_personality=false
+var can_follow=false
+var can_rub=false
+var social_kind=""
+var social_left=0.0
+var social_cooldown=12.0
+var social_reward=false
+var social_contact=0.0
+var social_anchor=Vector2.ZERO
+var voice_left=0.0
+var voice_cooldown=0.0
+var voice_text=""
+var initiative_cooldown=5.0
+var last_initiative=""
+
+func say(words: String) -> void:
+	voice_text=words
+	voice_left=2.8
+	voice_cooldown=10.0
+
+func try_initiative() -> bool:
+	if initiative_cooldown>0: return false
+	initiative_cooldown=rng.randf_range(14,24)
+	# Needs come before distractions; only visible unlocked destinations exist here.
+	var wanted="bowl" if satiety<48 else ("water" if hydration<45 else ("cushion" if energy<35 else ""))
+	if not wanted.is_empty():
+		for destination in destinations:
+			if destination.id==wanted:
+				last_initiative=wanted
+				visit(destination.point,destination.action,destination.id)
+				say({"bowl":"밥 먹으러 가자~","water":"목말라~","cushion":"졸려…"}[wanted])
+				return true
+		if wanted!=last_initiative:
+			last_initiative=wanted
+			react("greet",2.0)
+			say("배고파…" if wanted=="bowl" else ("목말라…" if wanted=="water" else "잠깐 쉴래…"))
+			return true
+	var choices=["explore","watch","groom"]
+	if affection>=3: choices.append("attention")
+	if can_ask_play: choices.append("invite")
+	choices.erase(last_initiative)
+	var chosen=choices[rng.randi_range(0,choices.size()-1)]
+	last_initiative=chosen
+	match chosen:
+		"explore":
+			var point=(feet+Vector2(rng.randf_range(-110,110),rng.randf_range(-40,40))).clamp(bounds.position,bounds.end)
+			visit(point,"sniff","explore")
+			say("여긴 뭐지?")
+		"watch":
+			phase="look"
+			elapsed=0
+			action_left=2.5
+			if absf(cursor_position.x-feet.x)>2: facing=signf(cursor_position.x-feet.x)
+			say("빤히…")
+		"groom":
+			phase="stretch" if energy<55 else "groom"
+			elapsed=0
+			action_left=2.8
+			say("으쌰~" if phase=="stretch" else "단장 중~")
+		"attention":
+			react("pet",2.2)
+			say("쓰다듬어 줘~")
+		"invite":
+			var point=(feet+(cursor_position-feet).limit_length(75)).clamp(bounds.position,bounds.end)
+			visit(point,"askplay","askplay")
+			ask_left=60
+			say("공놀이 할래?")
+	return true
+const VOICES=["뀨!","삐익!","찍찍!","킁킁!","쿠루!","캥!","크웅!","부엉!","야옹~","멍멍!","찍!","웅~","끼잉!","메에~","쿠우~","꽥꽥!"]
+
+func speak() -> void:
+	if voice_cooldown<=0:
+		voice_text=""
+		voice_left=2.0
+		voice_cooldown=10.0
+
+func start_social(kind: String, reward: bool=false) -> bool:
+	if kind=="follow" and not can_follow: return false
+	if kind=="rub" and (not can_rub or destinations.is_empty()): return false
+	if kind not in ["follow","rub"]: return false
+	cancel_play()
+	resting=false
+	held=false
+	social_kind=kind
+	social_left=7.0 if kind=="follow" else 12.0
+	social_reward=reward
+	social_contact=0
+	social_cooldown=35.0
+	if kind=="rub":
+		var nearest=destinations[0].point
+		for destination in destinations:
+			if feet.distance_to(destination.point)<feet.distance_to(nearest): nearest=destination.point
+		social_anchor=(nearest+Vector2(-28,0)).clamp(bounds.position,bounds.end)
+	speak()
+	return true
+
+func advance_social(delta: float) -> void:
+	social_left-=delta
+	if social_kind=="follow":
+		var offset=cursor_position-feet
+		if offset.length()>500 or not bounds.grow(80).has_point(cursor_position): social_left=0
+		target=(cursor_position-offset.normalized()*65).clamp(bounds.position,bounds.end)
+		if offset.length()>80:
+			phase="wander"
+			advance_travel(delta,.85)
+			if travel_speed>5: social_contact+=delta
+		else:
+			phase="look"
+			travel_speed=0
+			if absf(offset.x)>2: facing=signf(offset.x)
+	else:
+		target=social_anchor
+		if feet.distance_to(target)>2:
+			phase="wander"
+			advance_travel(delta,.7)
+		else:
+			phase="rub"
+			social_contact+=delta
+			if social_contact>=3: social_left=0
+	if social_left<=0:
+		var finished=social_kind
+		var earned=social_reward and social_contact>=1.0
+		social_kind=""
+		social_reward=false
+		phase="idle"
+		target=feet
+		rest_left=2
+		if earned: activity_bonded.emit(finished)
+var travel_direction=Vector2.ZERO
 var target=Vector2.ZERO
 var phase="idle"
 var facing=1.0
@@ -79,7 +213,7 @@ var rng=RandomNumberGenerator.new()
 
 func configure(screen: Rect2, initial: Vector2) -> void:
 	# Coordinates are desktop pixels, including negative monitor origins.
-	bounds=Rect2(screen.position+Vector2(102,160),(screen.size-Vector2(204,190)).max(Vector2.ONE))
+	bounds=Rect2(screen.position+Vector2(128,190),(screen.size-Vector2(256,224)).max(Vector2.ONE))
 	feet=initial.clamp(bounds.position,bounds.end)
 	target=feet
 	rng.randomize()
@@ -88,14 +222,17 @@ func configure(screen: Rect2, initial: Vector2) -> void:
 
 func pet() -> void:
 	if cooldown>0: return
+	speak()
 	ask_left=55
 	cancel_play()
-	react("pet",2.6 if affection>=18 else 1.8)
+	react("pet",3.6 if affection>=18 else 2.6)
 	joy_left=1.8
 	cooldown=2.2
 	bonded.emit()
 
 func cancel_play() -> void:
+	social_kind=""
+	social_reward=false
 	prop_dragging=false
 	prop_strength=0.0
 	prop_progress=0.0
@@ -215,7 +352,13 @@ func remember(action: String) -> void:
 	if recent_actions.size()>2: recent_actions.pop_front()
 
 func choose_autonomous_action() -> void:
-	if personality_cooldown<=0 and energy>30:
+	if try_initiative(): return
+	if social_cooldown<=0 and energy>30:
+		if can_follow and feet.distance_to(cursor_position)<260 and feet.distance_to(cursor_position)>85:
+			if start_social("follow"): return
+		if can_rub and not destinations.is_empty():
+			if start_social("rub"): return
+	if can_personality and personality_cooldown<=0 and energy>30:
 		start_personality()
 		return
 	if can_ask_play and ask_left<=0 and energy>35:
@@ -224,12 +367,12 @@ func choose_autonomous_action() -> void:
 		visit(near,"askplay","askplay")
 		return
 	# Give each friend a visible animation regularly, even without unlocked props.
-	if habit_cooldown<=0 and energy>25:
+	if can_playful and habit_cooldown<=0 and energy>25:
 		remember("signature")
 		start_habit()
 		return
 	var options: Array=[]
-	if habit_cooldown<=0:
+	if can_playful and habit_cooldown<=0:
 		options.append({"action":"signature","weight":38.0 if energy>35 else 12.0})
 	for action in ["wander","look","groom","stretch","doze"]:
 		var weight={"wander":42.0,"look":10.0,"groom":12.0,"stretch":8.0,"doze":.4}[action]
@@ -320,8 +463,7 @@ func next_personality_step() -> void:
 
 func advance_personality(delta: float) -> void:
 	if phase=="wander":
-		if absf(target.x-feet.x)>.5: facing=1.0 if target.x>feet.x else -1.0
-		feet=feet.move_toward(target,SPEEDS[species]*lerpf(.72,1.0,inverse_lerp(.62,1.0,growth_scale))*personality_speed*delta)
+		advance_travel(delta,personality_speed)
 		if feet.distance_to(target)<.5: next_personality_step()
 	elif reaction_time>=reaction_duration:
 		next_personality_step()
@@ -350,7 +492,7 @@ func start_playful(reward: bool=false) -> void:
 	phase="playful"
 	elapsed=0
 	action_left=3.0
-	visit_id="personality"
+	visit_id="playful"
 	visit_action="playful"
 	visit_reward=reward
 
@@ -370,7 +512,39 @@ func advance_habit() -> void:
 		target=feet
 		rest_left=rng.randf_range(.8,2)
 
+func advance_travel(delta: float, multiplier: float=1.0) -> void:
+	var offset=target-feet
+	var distance=offset.length()
+	if distance<=.001:
+		travel_speed=0.0
+		return
+	var direction=offset/distance
+	if direction.dot(travel_direction)<0.0: travel_speed=0.0
+	travel_direction=direction
+	if absf(offset.x)>.5: facing=1.0 if offset.x>0 else -1.0
+	var nominal=SPEEDS[species]*lerpf(.72,1.0,clampf(inverse_lerp(.62,1.0,growth_scale),0,1))
+	var maximum=nominal*multiplier
+	var acceleration=maximum/0.24
+	var desired=minf(maximum,sqrt(2.0*acceleration*distance))
+	travel_speed=move_toward(travel_speed,desired,acceleration*delta)
+	# Ease forward between foot contacts and slow slightly while a paw bears
+	# weight. The average remains one, so travel speed and animation cadence stay
+	# synchronized without the constant-speed skating look.
+	var contact_speed=.82+.18*(1.0-cos(walk_phase*TAU*2.0))
+	var step=minf(distance,travel_speed*delta*contact_speed)
+	feet+=direction*step
+	# Feet cadence follows actual travel, including acceleration and slowing down.
+	var period=preload("res://scripts/gait_profile.gd").PERIOD[species]
+	walk_phase=fposmod(walk_phase+step/maxf(16.0,nominal*period),1.0)
+
 func advance(delta: float) -> void:
+	initiative_cooldown=maxf(0,initiative_cooldown-delta)
+	voice_left=maxf(0,voice_left-delta)
+	voice_cooldown=maxf(0,voice_cooldown-delta)
+	social_cooldown=maxf(0,social_cooldown-delta)
+	if held or phase not in ["wander","chase","return","visit"]:
+		travel_speed=0.0
+		travel_direction=Vector2.ZERO
 	elapsed+=delta
 	if not reaction.is_empty(): reaction_time+=delta
 	if carried: carry_elapsed+=delta
@@ -381,9 +555,12 @@ func advance(delta: float) -> void:
 	hydration=maxf(0,hydration-delta*.1)
 	energy=maxf(0,energy-delta*(.2 if phase in ["wander","chase","return","visit"] else .025))
 	if held: return
+	if not social_kind.is_empty():
+		advance_social(delta)
+		return
 	if phase=="prop_use":
 		action_left-=delta
-		if not prop_dragging: prop_progress+=delta*preload("res://scripts/prop_interactions.gd").SPEEDS[species]
+		if not prop_dragging: prop_progress+=delta*.65*preload("res://scripts/prop_interactions.gd").SPEEDS[species]
 		if prop_dragging: action_left=maxf(action_left,1.0)
 		if visit_id=="lamp": energy=minf(100,energy+delta*2)
 		if action_left<=0: finish_prop_use()
@@ -424,14 +601,12 @@ func advance(delta: float) -> void:
 	if phase=="signature":
 		advance_habit()
 	elif phase in ["wander","chase","return","visit"]:
-		var direction=target-feet
-		if absf(direction.x)>.5: facing=1.0 if direction.x>0 else -1.0
-		feet=feet.move_toward(target,SPEEDS[species]*lerpf(.72,1.0,inverse_lerp(.62,1.0,growth_scale))*delta*(1.5 if phase in ["chase","return"] else 1.0))
+		advance_travel(delta,1.5 if phase in ["chase","return"] else 1.0)
 		if phase=="return": ball_position=feet+Vector2(facing*22,-28)
 		if feet.distance_to(target)<.5:
 			if phase=="visit":
 				phase=visit_action
-				action_left=rng.randf_range(7,12) if phase=="doze" else (rng.randf_range(3,5) if phase=="relax" else 4.0)
+				action_left=rng.randf_range(7,12) if phase=="doze" else (rng.randf_range(3,5) if phase=="relax" else (5.5 if phase in ["eat","drink"] else 4.0))
 				elapsed=0
 				if phase=="prop_use":
 					action_left=14.0 if species==9 and visit_id=="plant" else 8.0

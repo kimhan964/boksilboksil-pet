@@ -11,10 +11,19 @@ static func frames(species: int) -> Array:
 
 # The same choreography runs at every age; only the drawings change.
 static func pose(motion, baby: bool=false) -> int:
-	if motion.carried or motion.landing_left>0 or motion.phase in ["wander","chase","return","visit"]: return -1
+	return int(sample(motion,baby).x)
+
+static func sample(motion, baby: bool=false) -> Vector3:
+	if motion.carried or motion.landing_left>0 or motion.phase in ["wander","chase","return","visit"]: return Vector3(-1,-1,0)
 	var t=motion.reaction_time if motion.phase=="react" else motion.elapsed
-	if motion.phase in ["sniff","look","inspect"] or (motion.phase=="react" and motion.reaction in ["inspect","anticipate"]): return int(t*2)%2
-	if motion.phase in ["playful","askplay","pet"] or (baby and motion.phase=="signature") or (motion.phase=="react" and motion.reaction in ["askplay","pet","greet"]):
-		var plan=[2,2,3,3,1,0] if motion.species%2==0 else [0,1,2,3,3,1]
-		return plan[int(t*4)%plan.size()]
-	return -1
+	var plan: Array=[]
+	var speed=2.6
+	if motion.phase in ["sniff","look","inspect"] or (motion.phase=="react" and motion.reaction in ["inspect","anticipate"]):
+		plan=[0,1]
+		speed=1.3
+	if motion.phase in ["playful","askplay"] or (baby and motion.phase=="signature") or (motion.phase=="react" and motion.reaction in ["askplay","greet"]):
+		plan=[2,2,3,3,1,0] if motion.species%2==0 else [0,1,2,3,3,1]
+	if plan.is_empty(): return Vector3(-1,-1,0)
+	var frame=t*speed
+	var slot=int(frame)%plan.size()
+	return Vector3(plan[slot],plan[(slot+1)%plan.size()],smoothstep(.45,1.0,frame-floorf(frame)))

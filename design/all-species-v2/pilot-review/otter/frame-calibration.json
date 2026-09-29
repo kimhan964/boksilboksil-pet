@@ -1,0 +1,48 @@
+{
+  "species": "otter",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6134969325153374,
+      "neutral_height": 326,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6329113924050633,
+      "neutral_height": 316,
+      "relative_to_idle": 1.0316455696202531
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5865102639296188,
+      "neutral_height": 341,
+      "relative_to_idle": 0.9560117302052786
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5571030640668524,
+      "neutral_height": 359,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5602240896358543,
+      "neutral_height": 357,
+      "relative_to_idle": 1.0056022408963585
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5405405405405406,
+      "neutral_height": 370,
+      "relative_to_idle": 0.9702702702702702
+    }
+  ]
+}

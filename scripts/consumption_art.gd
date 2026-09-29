@@ -7,7 +7,7 @@ const DRINK=[0,1,2,3,3,4,4,5,6,7,7]
 
 static func sample(species: int, bank: int, elapsed: float) -> Vector3:
 	var plan=DRINK if bank==1 else EAT
-	var phase=fposmod(elapsed/SPEEDS[species-8]*plan.size(),plan.size())
+	var phase=fposmod(elapsed*.65/SPEEDS[species-8]*plan.size(),plan.size())
 	var slot=floori(phase)
 	# These independently drawn poses do not register pixel-for-pixel.
 	# Hold each drawing cleanly instead of dissolving two faces/paws together.

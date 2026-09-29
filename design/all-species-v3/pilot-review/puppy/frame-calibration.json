@@ -1,0 +1,48 @@
+{
+  "species": "puppy",
+  "rule": "One scale per 16-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 1,
+      "neutral_height": 200,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 1.0204081632653061,
+      "neutral_height": 196,
+      "relative_to_idle": 1.0204081632653061
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.966183574879227,
+      "neutral_height": 207,
+      "relative_to_idle": 0.966183574879227
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.9900990099009901,
+      "neutral_height": 202,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 1.0161290322580645,
+      "neutral_height": 190,
+      "relative_to_idle": 1.0262903225806452
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.975609756097561,
+      "neutral_height": 205,
+      "relative_to_idle": 0.9853658536585366
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "species": "owl",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6097560975609756,
+      "neutral_height": 328,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6097560975609756,
+      "neutral_height": 328,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.547945205479452,
+      "neutral_height": 365,
+      "relative_to_idle": 0.8986301369863013
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5347593582887701,
+      "neutral_height": 374,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5524861878453039,
+      "neutral_height": 362,
+      "relative_to_idle": 1.0331491712707181
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5194805194805194,
+      "neutral_height": 385,
+      "relative_to_idle": 0.9714285714285713
+    }
+  ]
+}

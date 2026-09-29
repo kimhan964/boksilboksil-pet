@@ -1,0 +1,48 @@
+{
+  "species": "red_panda",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6329113924050633,
+      "neutral_height": 316,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6557377049180327,
+      "neutral_height": 305,
+      "relative_to_idle": 1.0360655737704916
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.6211180124223602,
+      "neutral_height": 322,
+      "relative_to_idle": 0.981366459627329
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5847953216374269,
+      "neutral_height": 342,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.60790273556231,
+      "neutral_height": 329,
+      "relative_to_idle": 1.0395136778115501
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5952380952380952,
+      "neutral_height": 336,
+      "relative_to_idle": 1.0178571428571428
+    }
+  ]
+}

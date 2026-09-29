@@ -1,0 +1,167 @@
+{
+  "workflow_version": 2,
+  "generated": "2026-09-23T16:35:04.941Z",
+  "approval_rule": "Visual identity pass and weighted primary palette Delta E <= 3",
+  "species": [
+    {
+      "species": "rabbit",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 2.8,
+      "palette_delta_e_weighted": 0.52,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "otter",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 3.92,
+      "palette_delta_e_weighted": 0.62,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "squirrel",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 1.27,
+      "palette_delta_e_weighted": 0.37,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "hedgehog",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 7.53,
+      "palette_delta_e_weighted": 1.29,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "raccoon",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 0.64,
+      "palette_delta_e_weighted": 0.24,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "fox",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 3.87,
+      "palette_delta_e_weighted": 0.6,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "bear",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 2.55,
+      "palette_delta_e_weighted": 1.58,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "owl",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 4.9,
+      "palette_delta_e_weighted": 0.76,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "cat",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 2.89,
+      "palette_delta_e_weighted": 0.5,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "puppy",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 7.46,
+      "palette_delta_e_weighted": 2.67,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "hamster",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 1.91,
+      "palette_delta_e_weighted": 0.54,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "panda",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 0.81,
+      "palette_delta_e_weighted": 0.35,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "red_panda",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 3.35,
+      "palette_delta_e_weighted": 0.46,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "lamb",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 4.03,
+      "palette_delta_e_weighted": 1.92,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "koala",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 4.51,
+      "palette_delta_e_weighted": 0.43,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    },
+    {
+      "species": "penguin",
+      "palette_source": "baby.png",
+      "palette_delta_e_max": 2.99,
+      "palette_delta_e_weighted": 1,
+      "metric_pass": true,
+      "identity_errors": [],
+      "visual_review": "passed-2026-09-24",
+      "approved": true
+    }
+  ]
+}

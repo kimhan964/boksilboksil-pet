@@ -1,0 +1,48 @@
+{
+  "species": "koala",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6134969325153374,
+      "neutral_height": 326,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6230529595015576,
+      "neutral_height": 321,
+      "relative_to_idle": 1.0155763239875388
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.6097560975609756,
+      "neutral_height": 328,
+      "relative_to_idle": 0.9939024390243902
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5763688760806917,
+      "neutral_height": 347,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5830903790087464,
+      "neutral_height": 343,
+      "relative_to_idle": 1.0116618075801749
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5361930294906166,
+      "neutral_height": 373,
+      "relative_to_idle": 0.9302949061662199
+    }
+  ]
+}

@@ -5,8 +5,17 @@ const ITEMS={"bowl":16,"water":17,"basket":18,"plant":19,"lamp":20,"ball":21}
 static var icons: Array=[]
 static var new_icons: Array=[]
 static var species_icons: Dictionary={}
+static var pond_icon: Texture2D
 
 static func icon(kind: String, species: int=0) -> Texture2D:
+	if kind=="water":
+		if pond_icon==null:
+			var image=Image.load_from_file("res://assets/decor/drinking-pond-v1.png")
+			if image!=null and not image.is_empty():
+				var used=image.get_used_rect()
+				if used.has_area(): image=image.get_region(used)
+				pond_icon=ImageTexture.create_from_image(image)
+		return pond_icon
 	if kind in ["plant","lamp"]:
 		if not species_icons.has(kind):
 			var path="res://assets/decor/species-%s.png"%("toys" if kind=="plant" else "comfort")

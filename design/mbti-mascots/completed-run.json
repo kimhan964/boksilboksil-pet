@@ -1,0 +1,109 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "characters": [
+    {
+      "id": "INTJ",
+      "name": "설계자 네모",
+      "description": "미리 계획하고 조용히 판을 짜는 캐릭터",
+      "prompt": "Create ONE original non-animal abstract personality mascot for a cohesive six-character 2D CARTOON game cast inspired playfully by MBTI. This is a fantasy SHAPE CREATURE, not a human, NOT an animal. Absolutely NO animal ears, tails, snout, fur, paws, beak, wings or animal costume. Use bold thick consistent dark chocolate outlines, large memorable graphic silhouette, tiny simple mitten hands and stubby feet, wildly expressive asymmetrical eyes, brows and mouth. Strong comic character acting, charming toy-like proportions. Flat saturated candy colors, only 3-4 main color blocks, NO gradients, texture, watercolor, realistic lighting or 3D rendering. Full body, centered on pure white square canvas, 12% margin, nothing cut off. No text, letters, MBTI labels, logos, watermark, borders, panels or additional characters. Make personality readable through body shape and pose rather than clothing. A compact indigo rounded RECTANGLE being, angular flat-top silhouette with one chamfered corner, mint accent stripe. Narrow analytical half-lidded eyes, one arched brow, tiny knowing crooked smile. Tiny mitten hands precisely aligning TWO small plain geometric blocks into a tower. Upright composed stance, tiny rectangular feet. Strategic quiet mastermind, endearing perfectionist. No glasses required.",
+      "nodeId": "93f1175b-e3fc-415b-b208-e3b84047c037",
+      "textNodeId": "05fdbb93-3972-4408-99ba-dddfaa6658ba"
+    },
+    {
+      "id": "INTP",
+      "name": "물음표 꼬미",
+      "description": "생각에 빠져 엉뚱한 발견을 하는 캐릭터",
+      "prompt": "Create ONE original non-animal abstract personality mascot for a cohesive six-character 2D CARTOON game cast inspired playfully by MBTI. This is a fantasy SHAPE CREATURE, not a human, NOT an animal. Absolutely NO animal ears, tails, snout, fur, paws, beak, wings or animal costume. Use bold thick consistent dark chocolate outlines, large memorable graphic silhouette, tiny simple mitten hands and stubby feet, wildly expressive asymmetrical eyes, brows and mouth. Strong comic character acting, charming toy-like proportions. Flat saturated candy colors, only 3-4 main color blocks, NO gradients, texture, watercolor, realistic lighting or 3D rendering. Full body, centered on pure white square canvas, 12% margin, nothing cut off. No text, letters, MBTI labels, logos, watermark, borders, panels or additional characters. Make personality readable through body shape and pose rather than clothing. A mint turquoise asymmetrical comma-shaped squishy being with a SINGLE curled question-mark-like top extending directly from body, not ears. Huge mismatched circular eyes looking in different thoughtful directions, tiny off-center pondering mouth. One tiny mitten hand at chin and other holding a small simple puzzle piece upside down, leaning distractedly. Tiny mismatched feet. Curious eccentric inventor. Purple accent.",
+      "nodeId": "81fd41be-1440-4a86-9cf6-b4a43cf687df",
+      "textNodeId": "d29adbd9-13e0-4763-8bbe-3957eb2adb00"
+    },
+    {
+      "id": "ENTJ",
+      "name": "대장 척",
+      "description": "결정하면 앞장서서 움직이는 캐릭터",
+      "prompt": "Create ONE original non-animal abstract personality mascot for a cohesive six-character 2D CARTOON game cast inspired playfully by MBTI. This is a fantasy SHAPE CREATURE, not a human, NOT an animal. Absolutely NO animal ears, tails, snout, fur, paws, beak, wings or animal costume. Use bold thick consistent dark chocolate outlines, large memorable graphic silhouette, tiny simple mitten hands and stubby feet, wildly expressive asymmetrical eyes, brows and mouth. Strong comic character acting, charming toy-like proportions. Flat saturated candy colors, only 3-4 main color blocks, NO gradients, texture, watercolor, realistic lighting or 3D rendering. Full body, centered on pure white square canvas, 12% margin, nothing cut off. No text, letters, MBTI labels, logos, watermark, borders, panels or additional characters. Make personality readable through body shape and pose rather than clothing. A vermilion coral broad-shouldered rounded inverted TRAPEZOID being, very small waist and tiny planted feet, a yellow diagonal simple sash. Strong confident eyebrows, focused eyes, huge decisive asymmetrical grin. One short mitten arm pointing decisively forward and other at hip, leaning into action. Driven charismatic little captain. No hat, no weapons.",
+      "nodeId": "0cdcf224-ccdf-46b6-97ab-8f51aee3181f",
+      "textNodeId": "df2dd8e6-0716-4dda-bb4d-aae61a892462"
+    },
+    {
+      "id": "ENFP",
+      "name": "불꽃 팡",
+      "description": "새로운 일을 발견하면 신나게 뛰어드는 캐릭터",
+      "prompt": "Create ONE original non-animal abstract personality mascot for a cohesive six-character 2D CARTOON game cast inspired playfully by MBTI. This is a fantasy SHAPE CREATURE, not a human, NOT an animal. Absolutely NO animal ears, tails, snout, fur, paws, beak, wings or animal costume. Use bold thick consistent dark chocolate outlines, large memorable graphic silhouette, tiny simple mitten hands and stubby feet, wildly expressive asymmetrical eyes, brows and mouth. Strong comic character acting, charming toy-like proportions. Flat saturated candy colors, only 3-4 main color blocks, NO gradients, texture, watercolor, realistic lighting or 3D rendering. Full body, centered on pure white square canvas, 12% margin, nothing cut off. No text, letters, MBTI labels, logos, watermark, borders, panels or additional characters. Make personality readable through body shape and pose rather than clothing. A sunny yellow plump five-lobed SPARK shape being, asymmetric soft zigzag body outline, peach pink accent patches. Big bright mismatched oval eyes, eyebrows flung upward, giant open joyful mouth. Stubby arms thrown wide and tiny legs in a leaping open pose. Infectious enthusiasm, bursting with fresh ideas. No detached sparkles or second character.",
+      "nodeId": "b5c89ce3-d589-40ee-b5f0-e35223b75adb",
+      "textNodeId": "c00dab5b-55f7-4a7a-8116-e09eba16e18c"
+    },
+    {
+      "id": "INFP",
+      "name": "꿈방울 몽",
+      "description": "작은 감정과 상상을 소중히 간직하는 캐릭터",
+      "prompt": "Create ONE original non-animal abstract personality mascot for a cohesive six-character 2D CARTOON game cast inspired playfully by MBTI. This is a fantasy SHAPE CREATURE, not a human, NOT an animal. Absolutely NO animal ears, tails, snout, fur, paws, beak, wings or animal costume. Use bold thick consistent dark chocolate outlines, large memorable graphic silhouette, tiny simple mitten hands and stubby feet, wildly expressive asymmetrical eyes, brows and mouth. Strong comic character acting, charming toy-like proportions. Flat saturated candy colors, only 3-4 main color blocks, NO gradients, texture, watercolor, realistic lighting or 3D rendering. Full body, centered on pure white square canvas, 12% margin, nothing cut off. No text, letters, MBTI labels, logos, watermark, borders, panels or additional characters. Make personality readable through body shape and pose rather than clothing. A lavender soft TEARDROP being with one rounded swept-over top, rosy inner blush patches and small feet turned inward. Huge dreamy oval eyes looking upward, gentle shy curved smile, uneven tender eyebrows. Two tiny mitten hands carefully hugging ONE peach heart-shaped cushion. Curled inward soft floating-feeling pose but feet visible. Imaginative empathetic dreamer. Not a ghost, not animal.",
+      "nodeId": "62bbcfdd-ecf6-4d02-b75c-f974d3f067ff",
+      "textNodeId": "4d1a2951-42c7-4a77-9f32-fbd85865fc47"
+    },
+    {
+      "id": "ESFP",
+      "name": "리듬 톡",
+      "description": "분위기를 즐기고 몸으로 표현하는 캐릭터",
+      "prompt": "Create ONE original non-animal abstract personality mascot for a cohesive six-character 2D CARTOON game cast inspired playfully by MBTI. This is a fantasy SHAPE CREATURE, not a human, NOT an animal. Absolutely NO animal ears, tails, snout, fur, paws, beak, wings or animal costume. Use bold thick consistent dark chocolate outlines, large memorable graphic silhouette, tiny simple mitten hands and stubby feet, wildly expressive asymmetrical eyes, brows and mouth. Strong comic character acting, charming toy-like proportions. Flat saturated candy colors, only 3-4 main color blocks, NO gradients, texture, watercolor, realistic lighting or 3D rendering. Full body, centered on pure white square canvas, 12% margin, nothing cut off. No text, letters, MBTI labels, logos, watermark, borders, panels or additional characters. Make personality readable through body shape and pose rather than clothing. A vivid hot pink rounded three-tier WOBBLY JELLY being with a broad round top and two offset rounded lower lobes, turquoise accent band. One winking eye, huge smiling mouth, bold expressive eyebrows. Tiny arms in a dramatic disco pose, one up one sideways, one little foot lifted. Confident playful performer full of rhythm. No microphone, no human hair, no hat.",
+      "nodeId": "807c2d5b-726e-4a70-85df-41f568f27065",
+      "textNodeId": "67307026-60de-4c5a-83e2-232cc99ff3a3"
+    }
+  ],
+  "downloads": [
+    {
+      "nodeId": "93f1175b-e3fc-415b-b208-e3b84047c037",
+      "outputIndex": 0,
+      "type": "image",
+      "url": "/api/objects/d188693f9521c9f55dee5c2154c761fd.png",
+      "taskId": null,
+      "exportType": null,
+      "error": null
+    },
+    {
+      "nodeId": "81fd41be-1440-4a86-9cf6-b4a43cf687df",
+      "outputIndex": 0,
+      "type": "image",
+      "url": "/api/objects/9444189c698142cc5617b6fab8e554b5.png",
+      "taskId": null,
+      "exportType": null,
+      "error": null
+    },
+    {
+      "nodeId": "0cdcf224-ccdf-46b6-97ab-8f51aee3181f",
+      "outputIndex": 0,
+      "type": "image",
+      "url": "/api/objects/b345a0648e5e22c8061a59a7a647f6e3.png",
+      "taskId": null,
+      "exportType": null,
+      "error": null
+    },
+    {
+      "nodeId": "b5c89ce3-d589-40ee-b5f0-e35223b75adb",
+      "outputIndex": 0,
+      "type": "image",
+      "url": "/api/objects/40a0d215e535a92087a798ef8bd63042.png",
+      "taskId": null,
+      "exportType": null,
+      "error": null
+    },
+    {
+      "nodeId": "62bbcfdd-ecf6-4d02-b75c-f974d3f067ff",
+      "outputIndex": 0,
+      "type": "image",
+      "url": "/api/objects/a1a843ec94f3ef53a90751c57f4c237d.png",
+      "taskId": null,
+      "exportType": null,
+      "error": null
+    },
+    {
+      "nodeId": "807c2d5b-726e-4a70-85df-41f568f27065",
+      "outputIndex": 0,
+      "type": "image",
+      "url": "/api/objects/2250f614a6d48fbfefb4c666af7b0fb9.png",
+      "taskId": null,
+      "exportType": null,
+      "error": null
+    }
+  ]
+}

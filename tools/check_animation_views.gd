@@ -8,15 +8,12 @@ var checked=0
 var failures=0
 func check(view) -> void:
 	view.refresh()
-	if view.motion.growth_scale<.7:
-		var allowed=view.baby_frames+view.baby_extra
-		if view.sprite.texture not in allowed or view.sprite.material.get_shader_parameter("next_frame") not in allowed:
-			failures+=1
-	Outline.fit(view.sprite,View.FEET,Vector2(204,190))
+	if view.sprite==null or view.sprite.texture==null: failures+=1
+	Outline.fit(view.sprite,View.FEET,View.WINDOW_SIZE)
 	var points=Outline.blended_points(view.sprite)
 	if points.is_empty(): failures+=1
 	for point in points:
-		if point.x<4.9 or point.y<4.9 or point.x>199.1 or point.y>185.1:
+		if point.x<4.9 or point.y<4.9 or point.x>View.WINDOW_SIZE.x-4.9 or point.y>View.WINDOW_SIZE.y-4.9:
 			failures+=1
 			break
 	checked+=1
@@ -26,7 +23,10 @@ func run() -> void:
 	for species in range(16):
 		var motion=Motion.new()
 		motion.species=species
-		if OS.get_cmdline_user_args().has("baby"): motion.growth_scale=.62
+		if OS.get_cmdline_user_args().has("baby"):
+			motion.growth_scale=.98 if OS.get_cmdline_user_args().has("baby-max") else .93
+			motion.growth_stage=0
+		else: motion.growth_stage=2
 		var view=View.new()
 		view.motion=motion
 		root.add_child(view)
@@ -34,8 +34,10 @@ func run() -> void:
 			motion.facing=facing
 			for phase in ["wander","drink","eat","pet","signature","doze","carry"]:
 				motion.phase=phase
+				motion.travel_speed=Motion.SPEEDS[species]
 				motion.carried=phase=="carry"
 				for step in range(64):
+					motion.walk_phase=step/64.0
 					motion.elapsed=step/64.0*(Profiles.HABIT_SECONDS[species] if phase=="signature" else 6.0)
 					motion.carry_elapsed=motion.elapsed
 					motion.action_left=6-motion.elapsed

@@ -83,6 +83,9 @@ func _start_world() -> void:
 	if world_started: return
 	world_started=true
 	state.affection_changed.connect(on_affection_changed)
+	state.food_unlocked.connect(func(species,foods):
+		if is_instance_valid(pet) and species==state.selected:
+			pet.motion.say("새 먹이 %d종!"%foods.size()))
 	state.growth_changed.connect(on_growth_changed)
 	build_props()
 	choose_friend(state.selected)
@@ -193,6 +196,13 @@ func choose_friend(species: int) -> void:
 	refresh_destinations()
 	state.save_game()
 	pet.motion.react("greet",2.2 if pet.motion.affection>=18 else 1.6)
+	pet.motion.speak()
+	if not state.guide_seen: show_first_guide.call_deferred()
+
+func show_first_guide() -> void:
+	if not is_instance_valid(pet): return
+	show_info("처음 만난 우리 친구","1. 동물을 짧게 클릭해서 쓰다듬어 주세요.\n2. 꾹 잡아 끌면 편한 자리로 옮길 수 있어요.\n3. 우클릭 메뉴에서 현재 목표와 다음 해금을 확인하세요.\n\n첫 목표: 쓰다듬기 3번 → 음식 그릇 선물!\n같은 행동의 교감 보상은 8초 간격이에요.\n음식을 집어 동물의 입 근처에 놓으면 먹여줄 수 있어요.\n\n교감 10: 마우스 따라오기 / 18: 소품에 부비기\n가이드는 우클릭 → 기록에서 다시 볼 수 있어요.")
+	info.confirmed.connect(func(): state.guide_seen=true; state.save_game())
 
 func apply_personal_space(first: bool) -> void:
 	for id in ["bowl","water","plant","lamp"]:
@@ -216,13 +226,15 @@ func apply_personal_space(first: bool) -> void:
 
 func set_food(id: int, serve: bool=true) -> void:
 	if serve and not state.unlocked(state.selected,"bowl"): return
+	if serve and not state.food_available(state.selected,id): return
+	if not serve and not state.food_available(state.selected,id): id=Catalog.DEFAULT_MEALS[state.selected]
 	cancel_feeding()
 	id=clampi(id,0,31)
 	state.meals[str(state.selected)]=id
 	pet.motion.food_id=id
 	pet.motion.favorite_food=id==Profiles.FAVORITE_FOOD[state.selected]
-	props.bowl.food_texture=Food.icon(id)
-	props.bowl.title=Food.title(id)+" · 바탕화면 친구"
+	props.bowl.food_texture=Food.icon_for(state.selected,id)
+	props.bowl.title=Food.title_for(state.selected,id)+" · 바탕화면 친구"
 	props.bowl.refresh()
 	if serve:
 		if decorating: activity(5)
@@ -280,6 +292,8 @@ func persist_layout() -> void:
 	refresh_destinations()
 
 func on_visit(id: String) -> void:
+	if id in ["bowl","meal","snack","hand_feed","water"]:
+		pet.motion.say("냠냠~" if pet.motion.phase=="eat" else "꿀꺽~")
 	if id in ["plant","lamp"]: props[id].confirm_drop()
 	if id in ["bowl","water"]:
 		pet.motion.facing=1.0 if props[id].feet_point().x>=pet.motion.feet.x else -1.0
@@ -298,6 +312,13 @@ func activity(id: int) -> void:
 		set_food(id-100)
 		return
 	match id:
+		25: show_first_guide()
+		26: show_info("함께할 목표",state.goal_text(state.selected)+"\n\n"+state.progress_text(state.selected))
+		23,24:
+			cancel_hunt()
+			if decorating: activity(5)
+			if not pet.motion.start_social("follow" if id==23 else "rub",true):
+				show_info("부빌 곳이 필요해요","해금된 소품을 하나 이상 보이게 두어 주세요.")
 		1:
 			cancel_hunt()
 			if decorating: activity(5)
@@ -345,7 +366,7 @@ func activity(id: int) -> void:
 			description+="\n성격: "+pet.motion.Personality.TYPES[pet.species]+" · "+pet.motion.Personality.NAMES[pet.species]
 			description+="\n"+pet.motion.Personality.DETAILS[pet.species]
 			description+="\n침대: "+Profiles.BEDS[pet.species]+"\n쉼터: "+Profiles.RETREATS[pet.species]
-			description+="\n좋아하는 음식: "+(Food.title(Profiles.FAVORITE_FOOD[pet.species]) if state.favorite_foods.get(str(pet.species),false) else "함께 먹으며 알아가는 중")
+			description+="\n좋아하는 음식: "+(Food.title_for(pet.species,Profiles.FAVORITE_FOOD[pet.species]) if state.favorite_foods.get(str(pet.species),false) else "함께 먹으며 알아가는 중")
 			show_info("우리 친구의 취향",description)
 		14: show_info("친밀도와 선물",state.progress_text(state.selected))
 		19: show_info("전용 소품",Profiles.TOYS[state.selected]+" · "+preload("res://scripts/prop_interactions.gd").TOY_ACTIONS[state.selected]+"\n"+Profiles.COMFORTS[state.selected]+" · "+preload("res://scripts/prop_interactions.gd").COMFORT_ACTIONS[state.selected]+"\n\n소품 클릭 또는 동물 데려다 놓기 → 전용 동작\n동작 중 왼쪽 버튼을 잡고 움직이면 함께 놀아요.\n강아지 밧줄: 오른쪽으로 당기면 버티고, 놓으면 힘을 풀어요.\n우클릭으로 중단 · 사용하지 않을 때 소품 드래그로 배치")
@@ -398,7 +419,7 @@ func start_hunt() -> void:
 		bowl.number=i+1
 		bowl.interactive=true
 		bowl.palette=state.palette
-		bowl.food_texture=Food.icon(pet.motion.food_id)
+		bowl.food_texture=Food.icon_for(pet.species,pet.motion.food_id)
 		var point=Vector2(first_x+i*spacing,clampf(center.y-40,pet.motion.bounds.position.y,pet.motion.bounds.end.y))
 		bowl.position=Vector2i(point-Vector2(56,63))
 		bowl.activated.connect(func(_id): choose_bowl(i))
@@ -455,13 +476,13 @@ func pick_up_food() -> void:
 	props.bowl.food_lifted=true
 	props.bowl.refresh()
 	held_food=HeldFood.new()
-	held_food.food=Food.icon(held_food_id)
+	held_food.food=Food.icon_for(pet.species,held_food_id)
 	held_food.position=DisplayServer.mouse_get_position()-Vector2i(40,40)
 	add_child(held_food)
 
 func food_in_reach(cursor: Vector2) -> bool:
-	var height=126*Catalog.HEIGHTS[pet.species]*pet.motion.growth_scale
-	var mouth=pet.motion.feet+Vector2(pet.motion.facing*8,-height*.55)
+	var height=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[pet.species]*pet.motion.growth_scale
+	var mouth=pet.motion.feet+pet.view.mouth_offset()
 	var offset=(cursor-mouth)/Vector2(maxf(32,height*.35),maxf(28,height*.30))
 	return offset.length_squared()<=1
 
@@ -555,6 +576,10 @@ func apply_unlocks() -> void:
 		pet.refresh_unlock_menu()
 		pet.motion.affection=int(state.play_affection.get(str(state.selected),0))
 		pet.motion.can_ask_play=state.unlocked(state.selected,"basket")
+		pet.motion.can_playful=state.unlocked(state.selected,"playful")
+		pet.motion.can_personality=state.unlocked(state.selected,"personality")
+		pet.motion.can_follow=state.unlocked(state.selected,"follow")
+		pet.motion.can_rub=state.unlocked(state.selected,"rub")
 	refresh_destinations()
 
 func on_affection_changed(species: int, gifts: Array) -> void:

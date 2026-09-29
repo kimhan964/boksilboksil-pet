@@ -8,7 +8,9 @@ func add_folder(folder: String) -> void:
 		if packer.add_file(path,path)!=OK: failed=true
 	for directory in DirAccess.get_directories_at(folder): add_folder(folder.path_join(directory))
 func _initialize() -> void:
-	var destination="res://builds/DesktopFriends-0.24.3-test"
+	var destination="res://builds/DesktopFriends-0.30.3-release"
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--destination="): destination=argument.trim_prefix("--destination=")
 	DirAccess.make_dir_recursive_absolute(destination)
 	if packer.pck_start(destination+"/DesktopFriends.pck")!=OK:
 		quit(1)

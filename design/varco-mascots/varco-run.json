@@ -1,0 +1,28 @@
+{
+  "workflowId": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "model": "gpt-image-2.5-flare",
+  "nodes": [
+    "72f99007-2a29-4aae-85f3-840367761040",
+    "747ec2e1-b983-4996-9aae-edc53dcc0c3a",
+    "c9da8944-b6f7-4272-88fc-adef7da9617b",
+    "ff727b96-a5a4-46f2-bb5f-be09a962c5eb"
+  ],
+  "prompts": [
+    {
+      "id": "puppy",
+      "prompt": "Create ONE original highly stylized 2D CARTOON animal mascot for a coherent collectible game character series. Very bold uniform dark brown outlines, bright flat solid colors, oversized head fused into a tiny rounded bean body, stubby mitten paws, expressive graphic oval eyes, tiny geometric mouth. Strong memorable silhouette recognizable at 48 pixels. Cute quirky personality, NOT a naturalistic baby animal drawing. No fur strands, no watercolor, no gradients, no realistic lighting, no 3D render, no plush photography, no text, no logos, no labels, no extra characters. Full-body front-facing hero pose, centered, all ears and feet visible with 12% white margin, square plain white background. Design sophistication through shape and expression, not detail. Cream puppy with huge floppy caramel ears, tiny rounded paws, red collar with one simple yellow bell. Happy oval eyes, mischievous small open smile, one paw raised. Broad rounded-square head and tiny bean body."
+    },
+    {
+      "id": "cat",
+      "prompt": "Create ONE original highly stylized 2D CARTOON animal mascot for a coherent collectible game character series. Very bold uniform dark brown outlines, bright flat solid colors, oversized head fused into a tiny rounded bean body, stubby mitten paws, expressive graphic oval eyes, tiny geometric mouth. Strong memorable silhouette recognizable at 48 pixels. Cute quirky personality, NOT a naturalistic baby animal drawing. No fur strands, no watercolor, no gradients, no realistic lighting, no 3D render, no plush photography, no text, no logos, no labels, no extra characters. Full-body front-facing hero pose, centered, all ears and feet visible with 12% white margin, square plain white background. Design sophistication through shape and expression, not detail. Apricot orange cat with short triangular ears, cream muzzle, just three bold forehead stripes, enormous hooked tail as a distinctive silhouette, tiny sage green neckerchief. Confident half-moon eyes, playful tiny cat smile."
+    },
+    {
+      "id": "rabbit",
+      "prompt": "Create ONE original highly stylized 2D CARTOON animal mascot for a coherent collectible game character series. Very bold uniform dark brown outlines, bright flat solid colors, oversized head fused into a tiny rounded bean body, stubby mitten paws, expressive graphic oval eyes, tiny geometric mouth. Strong memorable silhouette recognizable at 48 pixels. Cute quirky personality, NOT a naturalistic baby animal drawing. No fur strands, no watercolor, no gradients, no realistic lighting, no 3D render, no plush photography, no text, no logos, no labels, no extra characters. Full-body front-facing hero pose, centered, all ears and feet visible with 12% white margin, square plain white background. Design sophistication through shape and expression, not detail. Ivory rabbit with two oversized rounded upright ears, pink inner-ear color blocks, pink circular cheeks, tiny green bow, tiny feet. Wide curious oval eyes and small cheerful mouth. Rounded pear silhouette."
+    },
+    {
+      "id": "bear",
+      "prompt": "Create ONE original highly stylized 2D CARTOON animal mascot for a coherent collectible game character series. Very bold uniform dark brown outlines, bright flat solid colors, oversized head fused into a tiny rounded bean body, stubby mitten paws, expressive graphic oval eyes, tiny geometric mouth. Strong memorable silhouette recognizable at 48 pixels. Cute quirky personality, NOT a naturalistic baby animal drawing. No fur strands, no watercolor, no gradients, no realistic lighting, no 3D render, no plush photography, no text, no logos, no labels, no extra characters. Full-body front-facing hero pose, centered, all ears and feet visible with 12% white margin, square plain white background. Design sophistication through shape and expression, not detail. Caramel bear with two small round ears, broad squarish round head blending into a sturdy bean body, cream oval muzzle and belly, short green scarf. Relaxed slightly sleepy eyes, friendly tiny smile. Chunky short limbs."
+    }
+  ]
+}

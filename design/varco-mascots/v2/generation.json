@@ -1,0 +1,134 @@
+{
+  "workflowId": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "model": "gpt-image-2.5-flare",
+  "characters": [
+    {
+      "id": "puppy",
+      "name": "강아지",
+      "personality": "사고뭉치",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Cream puppy, HUGE floppy caramel ears one kicked upward and one hanging down, red collar yellow bell. Bean head-body, tiny paws, zigzag wagging tail. Unequal raised eyebrows, one eye squeezed shut, wide sideways grin with tongue sticking out. Bounding forward with an overconfident comic stumble. Lovable chaotic optimist.",
+      "nodeId": "483ac372-3949-4f7c-9568-da1d9189a297",
+      "textNodeId": "043cb5b5-0b08-45b1-b01d-c378dc781e93"
+    },
+    {
+      "id": "cat",
+      "name": "고양이",
+      "personality": "능청쟁이",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Apricot orange cat, geometric triangular ears, gigantic question-mark curled tail, three chunky forehead stripes, tiny sage neckerchief. Narrow half-lidded eyes looking sideways, one sharply arched eyebrow, asymmetrical smug mouth. One paw on hip and other making a cheeky beckoning gesture. Mischievous self-appointed boss.",
+      "nodeId": "bd0a3399-6bd3-4809-8ec1-55aaabf4c3a8",
+      "textNodeId": "c8f920c4-4403-42a6-a2b4-49d7cbf9f364"
+    },
+    {
+      "id": "rabbit",
+      "name": "토끼",
+      "personality": "호기심 폭발",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Ivory rabbit, one enormous upright spoon-shaped ear and other sharply bent ear, hot pink inner ears, tiny leaf green bow. Tiny bean body with oversized cheeks. Wide unequal curious oval eyes, little O mouth, leaning forward on tiptoe with two paws peeking over cheeks. Eager easily startled explorer.",
+      "nodeId": "e722064b-1d50-4bbd-beab-49eec05dc990",
+      "textNodeId": "cf79e16b-87c9-4f95-b6da-b57b93f58a09"
+    },
+    {
+      "id": "bear",
+      "name": "곰",
+      "personality": "느긋한 먹보",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Caramel bear, super broad rounded-square bean body, minuscule semicircle ears, cream muzzle and belly, tiny green scarf. Very sleepy eyelids, huge relaxed toothless yawning mouth, one brow lifted. Sitting with chunky tiny feet forward and one paw patting round belly. Gentle lazy glutton.",
+      "nodeId": "95726e9a-33cf-476e-a4b4-b5ec7bfaa907",
+      "textNodeId": "d86fa32b-84dc-4f89-8984-9a799e67301e"
+    },
+    {
+      "id": "otter",
+      "name": "수달",
+      "personality": "장난꾸러기",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Chocolate brown otter with cream muzzle and belly, elongated peanut body, paddle tail sweeping outward. Two prominent rounded front teeth, laughing crescent eyes, puffed cheeks. Both tiny paws clasped as though plotting a prank, tilted leaning pose. Playful giggling trickster, teal little bow.",
+      "nodeId": "13975cc0-5f0b-428d-ba4b-fd2376a0fcca",
+      "textNodeId": "b659470b-ee21-43ab-bbdc-2bddfe41fe97"
+    },
+    {
+      "id": "squirrel",
+      "name": "다람쥐",
+      "personality": "수집광",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Cinnamon squirrel whose ENORMOUS spiral tail is larger than body, tiny chestnut bean body, pale belly and little triangular ears. Great bulging cheeks, intense wide eyes with tiny pupils, tiny crooked worried mouth. Clutching ONE simple acorn almost too large to carry, feet braced. Frantic proud collector.",
+      "nodeId": "e6a80695-aa07-4bc6-900f-62197a1363e5",
+      "textNodeId": "c06e9edd-fa61-4fa3-98b2-6dcaaf1f6026"
+    },
+    {
+      "id": "hedgehog",
+      "name": "고슴도치",
+      "personality": "까칠한 겁쟁이",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Tiny round hedgehog with five broad graphic chestnut spike lobes as a sunburst outline, peach face, tiny feet. Furrowed eyebrows over timid dot eyes, tightly puckered mouth, blushing cheeks. Arms crossed defensively while knees point inward. Pretends to be tough but shy, tiny mustard neckerchief.",
+      "nodeId": "a264a8d4-f37f-4f23-8c20-37ef4db37469",
+      "textNodeId": "426fe119-be68-4f4d-91be-b28822bf3f2d"
+    },
+    {
+      "id": "raccoon",
+      "name": "너구리",
+      "personality": "호기심 도둑",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Ash gray raccoon with oversized dark eye-mask markings, thick striped question-mark tail and tiny rounded ears, blue scarf. One suspicious squinted eye and one curious wide eye, crooked guilty grin. Sneaking sideways with raised knees and paws curled close to chest. Loveable sneaky treasure hunter.",
+      "nodeId": "8ca912ba-57c5-4a7a-a9d0-801cd28cd9fc",
+      "textNodeId": "1c9eeea8-1e0b-4825-a656-a6c60cf5eb41"
+    },
+    {
+      "id": "fox",
+      "name": "여우",
+      "personality": "잔꾀 천재",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Tangerine fox with ridiculously oversized pointed ears, tiny angular diamond face merging into pear body, giant cream-tipped flame tail, red small bandana. Slanted smart eyes, one eyebrow raised, little sideways toothy grin. One paw tapping cheek in a clever thinking pose. Dramatic witty schemer.",
+      "nodeId": "0cc024d0-0a5d-4577-90cc-d973f7b9226c",
+      "textNodeId": "f4c8c1fb-0871-4a06-956a-922a6e9e63c2"
+    },
+    {
+      "id": "owl",
+      "name": "부엉이",
+      "personality": "허당 박사",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Lavender owl shaped like a squat upside-down pear, two pointy eyebrow tufts, tiny yellow feet, yellow check scarf simplified to four squares. ENORMOUS mismatched circular eyes, one eye half closed, tiny triangular beak. One short wing raised as if lecturing, body leaning too far. Pompous but adorably absent-minded professor.",
+      "nodeId": "122b13ec-dfcf-42db-b372-d706f8d16c9c",
+      "textNodeId": "095ed332-5dac-4e45-bbd9-00fb03f682a8"
+    },
+    {
+      "id": "hamster",
+      "name": "햄스터",
+      "personality": "욕심쟁이",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Honey golden hamster, cheeks comically wider than entire body, tiny round ears, cream face-belly blob, nearly invisible feet. Tiny determined dot eyes above cheeks, miniature smug puckered mouth. Both paws pushing bulging cheeks inward. Delighted greedy snack hoarder, tiny coral bow.",
+      "nodeId": "a5a195a1-8104-4c99-80fa-f28013262d5d",
+      "textNodeId": "4e9926b6-138c-4afd-b051-657b6224b4c4"
+    },
+    {
+      "id": "panda",
+      "name": "판다",
+      "personality": "엉뚱한 장난꾼",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Black and ivory panda with squashed rounded-square head-body and asymmetric bean-shaped eye patches, minuscule ears, sage bowtie. One eye winking and other looking up, silly broad sideways grin. Wobbly one-legged balance with paws spread out, tiny feet. Clumsy cheerful show-off.",
+      "nodeId": "e7ded912-15da-4738-bdba-75f5be2362c4",
+      "textNodeId": "1d1522fc-4abe-4e14-83a9-0c6e03ec9083"
+    },
+    {
+      "id": "red_panda",
+      "name": "레서판다",
+      "personality": "쑥스러운 허세",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Rust red panda with HUGE cream brow spots and cheek crescents, enormous thick ring-striped curled tail, tiny dark mitten paws. Stern eyebrows paired with worried wide eyes and tiny trembling triangular mouth. Both paws raised over head pretending to look fierce, short legs planted wide. Shy pretend warrior.",
+      "nodeId": "a57dc553-eddd-4884-89b3-7538e5d9f17d",
+      "textNodeId": "f6a20999-13a6-47eb-956e-1da7ec02cf2c"
+    },
+    {
+      "id": "lamb",
+      "name": "양",
+      "personality": "몽상가",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Ivory lamb with exactly five big scalloped wool lobes forming a fluffy cloud silhouette, long sideways ears, peach face, tiny charcoal hooves, sage bow. Dreamy uneven half-lidded oval eyes and little content smile, pink cheeks. Tilting head dramatically while tiptoeing with hooves clasped. Airheaded sweet daydreamer. No wool texture.",
+      "nodeId": "cb58f843-97ae-45af-aea1-7429587f8484",
+      "textNodeId": "83809164-ce33-40b1-a3ba-9f997926dde8"
+    },
+    {
+      "id": "koala",
+      "name": "코알라",
+      "personality": "잠꾸러기",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Cool gray koala whose huge circular ears are almost body size, gigantic charcoal oval nose, tiny compact bean body, pale cream ear discs, sage short scarf. Nearly closed drooping eyes, one brow higher, tiny sleepy open mouth. Slumped sitting pose hugging its own knees. Sleepy clingy friend.",
+      "nodeId": "d649d12a-13d0-455b-a187-beb3efeeb645",
+      "textNodeId": "bccb1c9c-0061-49c5-ae6f-64b6c11c4841"
+    },
+    {
+      "id": "penguin",
+      "name": "펭귄",
+      "personality": "폼생폼사",
+      "prompt": "Design ONE original standout 2D CARTOON animal mascot, a member of a cohesive 16-character designer sticker/game cast. PUSH CHARACTER ACTING AND SHAPE EXAGGERATION MUCH FURTHER than generic cute animal icons. Personality must read instantly from silhouette, eyebrows, eye shape, mouth asymmetry and whole-body gesture. Bold chunky smooth dark chocolate outline, clear solid candy color blocks, very short limbs, exaggerated squash-and-stretch shapes, no realistic anatomy. Use only 3-5 colors, pure FLAT colors with NO gradients, shadows, paper texture or fur detail. Large simple graphic face, a tiny expressive body, keep each character visually distinct. Full-body single character centered on pure white square canvas with 12% safe margin, all tails and ears visible. No words, logos, watermark, speech bubbles, frames, duplicate views or other characters. Reference sheet provides broad graphic simplicity only; do not copy its identities or embroidery. Charcoal and ivory penguin shaped like a bowling pin with huge white face patch, short orange feet splayed wide, tiny orange beak and lavender scarf. Determined angry eyebrows over small round eyes, tiny proud smirk. Chest puffed out, one flipper on hip and one flipper saluting. Serious tiny captain with comic dignity.",
+      "nodeId": "65ac2975-279e-474b-b0b0-be6e3f0977c8",
+      "textNodeId": "7a1b52c1-3c68-42b8-8638-f15fe113b13e"
+    }
+  ]
+}

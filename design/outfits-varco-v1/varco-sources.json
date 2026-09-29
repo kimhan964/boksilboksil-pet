@@ -1,0 +1,517 @@
+{
+  "workflow_id": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "species": {
+    "otter": {
+      "cape": {
+        "baby": {
+          "node_id": "bcc802e9-6a58-4a82-bef2-fb11892ec3d0",
+          "url": "https://3d.varco.ai/api/objects/cc3621d5ef3ab5cd27a38dc043348df1.png"
+        },
+        "adult": {
+          "node_id": "b8847a44-28a6-4e50-9bb1-4e1c3c14dc64",
+          "url": "https://3d.varco.ai/api/objects/91c14706d59c675d88308661d5e75b85.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "fcac3a47-3b6d-4f45-b24b-ce77facfc433",
+          "url": "https://3d.varco.ai/api/objects/10dc58dd5e0c25dc50d9235b79c4fc15.png"
+        },
+        "adult": {
+          "node_id": "8b8443bf-5a2c-4535-b8f6-730abf15a380",
+          "url": "https://3d.varco.ai/api/objects/eba7dfd063d45d9335a447c203ae2072.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "73bf337b-4ec5-4d2a-b8a2-1df675ae4b7c",
+          "url": "https://3d.varco.ai/api/objects/8896ebe9d3b2f30e459357e14b6072df.png"
+        },
+        "adult": {
+          "node_id": "8650a7c8-239c-458c-9b70-1032598b051e",
+          "url": "https://3d.varco.ai/api/objects/03f989e6cc1253a62c4f7373b0af2176.png"
+        }
+      }
+    },
+    "squirrel": {
+      "cape": {
+        "baby": {
+          "node_id": "cebecedb-b5f6-4a21-8b3b-ca9c2847ccd0",
+          "url": "https://3d.varco.ai/api/objects/eef21fe09b534c55a28e35bce1042085.png"
+        },
+        "adult": {
+          "node_id": "af214006-7527-4bfe-8bfc-d82f1d420642",
+          "url": "https://3d.varco.ai/api/objects/69bd4239502043b87a033e5a9ea427e2.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "2dcf0abd-4ac6-460c-8247-440f6237eb05",
+          "url": "https://3d.varco.ai/api/objects/4668dd055ad76813dc73897fc0223a4c.png"
+        },
+        "adult": {
+          "node_id": "b6204f00-1af4-4222-ad81-8b0334cfda61",
+          "url": "https://3d.varco.ai/api/objects/30439378d5d930725d31efb1af7627b5.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "55117f86-b869-4753-9137-dd3cc71fa73b",
+          "url": "https://3d.varco.ai/api/objects/6da00dc3ecb5320e7b7bb96603dc0b0f.png"
+        },
+        "adult": {
+          "node_id": "5faf9853-095e-48cd-9923-66a88130ec7d",
+          "url": "https://3d.varco.ai/api/objects/9e4eda6c3811a77982972e676d891f9b.png"
+        }
+      }
+    },
+    "hedgehog": {
+      "cape": {
+        "baby": {
+          "node_id": "3cde2709-48c9-4109-b934-842dae770ebb",
+          "url": "https://3d.varco.ai/api/objects/cde2adb98c39d1f01d0454e30b55c7af.png"
+        },
+        "adult": {
+          "node_id": "7cd1d862-4b0a-4384-bc5c-64d3b4f095e0",
+          "url": "https://3d.varco.ai/api/objects/2efe7f4d03e3f5eee70e3aafd0008714.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "50a385a3-bd02-415e-910f-35c702bc6c6f",
+          "url": "https://3d.varco.ai/api/objects/329af02831b81193d901153b7ab0dd8b.png"
+        },
+        "adult": {
+          "node_id": "963bad58-3aeb-47d0-831d-05fb16c04ee9",
+          "url": "https://3d.varco.ai/api/objects/569208458be0e4ddaa209cfe30ccba53.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "4a331ddb-87b3-4c96-87bc-46ab68be5d31",
+          "url": "https://3d.varco.ai/api/objects/c7fb345842f1365dd6ce45dd7a66c308.png"
+        },
+        "adult": {
+          "node_id": "dc8de571-aacc-490d-aa9a-57ffb317b5bd",
+          "url": "https://3d.varco.ai/api/objects/a605463c7c51a6441b2202e84cf496bb.png"
+        }
+      }
+    },
+    "raccoon": {
+      "cape": {
+        "baby": {
+          "node_id": "f4f8d6a3-4847-498e-8514-845e63b6ba2c",
+          "url": "https://3d.varco.ai/api/objects/46995ff38ae2799cd83456a60bead069.png"
+        },
+        "adult": {
+          "node_id": "521a885e-b8bf-4709-acdb-ca5bea402192",
+          "url": "https://3d.varco.ai/api/objects/1ec507ca5c741c4104da7ee35eff5fc0.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "edf17cfb-836f-4795-9f8e-ad51da02d214",
+          "url": "https://3d.varco.ai/api/objects/52b83b218347a67bb9426b79e61ee9fc.png"
+        },
+        "adult": {
+          "node_id": "3b34d3d8-b9d2-425c-9952-c92d6725b17a",
+          "url": "https://3d.varco.ai/api/objects/3da57a218a75ee1c2baca87ca8ecd194.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "1a58ab11-04c0-4d96-bcd9-ec5bccce41b5",
+          "url": "https://3d.varco.ai/api/objects/0eda0e528320e504a7be236dd4de8c6c.png"
+        },
+        "adult": {
+          "node_id": "0f7a3111-660c-4919-be74-22045854792d",
+          "url": "https://3d.varco.ai/api/objects/bda311177fbdb5e683630510d6cb2e1f.png"
+        }
+      }
+    },
+    "fox": {
+      "cape": {
+        "baby": {
+          "node_id": "9150f2fb-b7d0-44f3-986a-7d188a8473da",
+          "url": "https://3d.varco.ai/api/objects/b5cc90a8205c834c625e343535b553ad.png"
+        },
+        "adult": {
+          "node_id": "4ef0b7b6-6086-4aba-9925-99e790619905",
+          "url": "https://3d.varco.ai/api/objects/d17e5afbe982983b385391b2c954d58d.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "fc1dfd9a-1511-45db-8733-d45608e4787f",
+          "url": "https://3d.varco.ai/api/objects/2a76d2fbb101f776f977f3586125e532.png"
+        },
+        "adult": {
+          "node_id": "1d06f4a5-610d-495a-a184-3bfe130a44b6",
+          "url": "https://3d.varco.ai/api/objects/1cfd2f4257ca6d11e8ab486c5031c268.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "cc132540-6c74-45c8-9691-56f36ff6d0b3",
+          "url": "https://3d.varco.ai/api/objects/7df568c24e7f51155c109cb4f8793bda.png"
+        },
+        "adult": {
+          "node_id": "6db6d2ab-9603-4813-94d8-8ccb7b81daac",
+          "url": "https://3d.varco.ai/api/objects/2fc5277d1a84149dd04816ea95df1681.png"
+        }
+      }
+    },
+    "bear": {
+      "cape": {
+        "baby": {
+          "node_id": "43823a78-b9bb-48d9-a2e0-94ce8fd6e7c2",
+          "url": "https://3d.varco.ai/api/objects/e228b690d470ba9fbffd500c2b1c53e2.png"
+        },
+        "adult": {
+          "node_id": "d22d006f-3462-43a1-b73f-af4fd0356804",
+          "url": "https://3d.varco.ai/api/objects/8f3ad9e0335142820ec8d5fa6b155225.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "48d129d4-a956-43fc-92de-327616ff9afe",
+          "url": "https://3d.varco.ai/api/objects/0f700dd7af62f3cd185fa99adcf3ead0.png"
+        },
+        "adult": {
+          "node_id": "671e78a5-8b7b-435b-9455-e8164307608c",
+          "url": "https://3d.varco.ai/api/objects/3f07e121da015b0af90adc91df75e492.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "aa9697b4-b644-40a8-802c-e061ebb6b1a7",
+          "url": "https://3d.varco.ai/api/objects/b7fcdaad3428c31df26a40274f6bc27c.png"
+        },
+        "adult": {
+          "node_id": "e1ea58db-21d8-4c9b-a8bb-ad15ec274c06",
+          "url": "https://3d.varco.ai/api/objects/f9dbbdfe9af964ac6e845f2584223d1f.png"
+        }
+      }
+    },
+    "owl": {
+      "cape": {
+        "baby": {
+          "node_id": "067daeec-a901-4c13-84fa-02cb22c0c8fa",
+          "url": "https://3d.varco.ai/api/objects/6631a79a803349a9dc327be7e43e2ece.png"
+        },
+        "adult": {
+          "node_id": "d882d049-a941-4ee2-8a93-579703e350cb",
+          "url": "https://3d.varco.ai/api/objects/ad6bc79adc0ba53c9a6c372c756aa9a1.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "e004f687-4f79-4298-af63-3f65e8fea972",
+          "url": "https://3d.varco.ai/api/objects/cafadf3f3996d218d17d2836a9b1849b.png"
+        },
+        "adult": {
+          "node_id": "c2ea28da-7d2a-47f7-80da-e552c7631049",
+          "url": "https://3d.varco.ai/api/objects/1b2745c1e425acd979235fc83f1e1125.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "0758f8f8-5902-45d1-b7c5-758e1f1e298c",
+          "url": "https://3d.varco.ai/api/objects/6c0a67b69fb35f88c4c7f86523d41b76.png"
+        },
+        "adult": {
+          "node_id": "ca52b04f-f5d5-48af-b4a3-8eb1fae03124",
+          "url": "https://3d.varco.ai/api/objects/1f4a50e58a7f9b427a9649a3072afe40.png"
+        }
+      }
+    },
+    "cat": {
+      "cape": {
+        "baby": {
+          "node_id": "48d3b5e2-2fdc-46c5-a997-34f636ad566d",
+          "url": "https://3d.varco.ai/api/objects/e467c2b75301e45b164756e180c91021.png"
+        },
+        "adult": {
+          "node_id": "d80c68c5-a623-49d0-87ab-1fda0bb1120b",
+          "url": "https://3d.varco.ai/api/objects/8f2d0f25926308d511dcebd110fe8ff5.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "86ff3fc6-1086-4ff3-bb5f-acaef78b91a8",
+          "url": "https://3d.varco.ai/api/objects/ee8d69f8aaa63899ec0a82fe1dbeb844.png"
+        },
+        "adult": {
+          "node_id": "1f473936-82b9-48c9-b1e4-bf992ba3c838",
+          "url": "https://3d.varco.ai/api/objects/d24341a17aa0e9398280ab6bab7b0ca2.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "98998d5e-4a9a-4a30-ad6e-87fb4e4e18f5",
+          "url": "https://3d.varco.ai/api/objects/0b35b07dd626524abeab81bf2f303fd9.png"
+        },
+        "adult": {
+          "node_id": "36e31be3-084c-4c23-9ca2-b8b4c921305d",
+          "url": "https://3d.varco.ai/api/objects/e055db01869e813dcccfcbca10f9a9b4.png"
+        }
+      }
+    },
+    "puppy": {
+      "cape": {
+        "baby": {
+          "node_id": "9aeb3bd6-221c-4d38-87f0-0fae2e5a26aa",
+          "url": "https://3d.varco.ai/api/objects/690736b2c7d29e8c22ea92298a44d1a4.png"
+        },
+        "adult": {
+          "node_id": "fae6cbf0-648f-4bb0-80ba-7a6a693d4d4c",
+          "url": "https://3d.varco.ai/api/objects/ef4c65db337022d96be9c0bd97d4f4ed.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "c6845206-058e-45b5-91e5-65f348a96c68",
+          "url": "https://3d.varco.ai/api/objects/df63b117689081b290b49431f953d090.png"
+        },
+        "adult": {
+          "node_id": "ab3d3f80-375c-45f4-b218-0e42971af9f4",
+          "url": "https://3d.varco.ai/api/objects/9d4ab21709c15ed7eb8d75a97b826b05.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "8b02d936-15a8-44e6-aca2-22fa837d5fb2",
+          "url": "https://3d.varco.ai/api/objects/f7bc291e154ea6b3b74dbf2c44fc4599.png"
+        },
+        "adult": {
+          "node_id": "4fd27d70-8c89-4e36-aa04-603b6592aa08",
+          "url": "https://3d.varco.ai/api/objects/29915aeefbcabe124b4707fc3c974bbc.png"
+        }
+      }
+    },
+    "hamster": {
+      "cape": {
+        "baby": {
+          "node_id": "c8b0112c-8a8a-4a0b-9c6c-b1e2132c4a13",
+          "url": "https://3d.varco.ai/api/objects/62c29bf915ef822adba5ebcec225f129.png"
+        },
+        "adult": {
+          "node_id": "80f45e0a-8911-4345-bbe5-d928c9d8b15f",
+          "url": "https://3d.varco.ai/api/objects/67a691360c8eeabe410f08a1aacb4555.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "1ec04ba5-d341-4ce8-a836-9d3de29b9d62",
+          "url": "https://3d.varco.ai/api/objects/0b6463023a70c7c8bd1cfb8450cc930a.png"
+        },
+        "adult": {
+          "node_id": "76e37ff3-5222-4f84-8271-0e8c7be48e9b",
+          "url": "https://3d.varco.ai/api/objects/3be37a67ff2eecbc16bd1cc31ccfe5c7.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "e061674e-f81b-4018-bcd9-5a2065cec01a",
+          "url": "https://3d.varco.ai/api/objects/a1e8551fbe1e8ab964acb292b15cb2d6.png"
+        },
+        "adult": {
+          "node_id": "9fd86917-3408-44c7-b268-b28649822dd5",
+          "url": "https://3d.varco.ai/api/objects/3f16453f1d6075218a52ac88edd9500d.png"
+        }
+      }
+    },
+    "panda": {
+      "cape": {
+        "baby": {
+          "node_id": "8cc8d6ae-4ebd-4f6b-b7ee-7a1c9ae36dce",
+          "url": "https://3d.varco.ai/api/objects/76eaef401fb8ffdaf5007bdda8ad5b7b.png"
+        },
+        "adult": {
+          "node_id": "57cd60df-e5f4-454f-a56a-5c2a262d0785",
+          "url": "https://3d.varco.ai/api/objects/177c4b463b3d36dd7b90bbc5359f61c1.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "efd3f245-e72b-464c-b9f6-58f207d2f49d",
+          "url": "https://3d.varco.ai/api/objects/f9aa25ec111ae75aaf354a961fa9a7de.png"
+        },
+        "adult": {
+          "node_id": "4474a1cb-bc5b-476d-adb2-3c5ee54d708d",
+          "url": "https://3d.varco.ai/api/objects/7eabb1d90178fd3228fd8541913337aa.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "64a2593f-4758-4b8f-a893-3e4e800383e0",
+          "url": "https://3d.varco.ai/api/objects/7bf8ebbdfd9d761e6c5e4bd678dfcaf6.png"
+        },
+        "adult": {
+          "node_id": "e878fe0f-dd10-4565-8809-551652a94aab",
+          "url": "https://3d.varco.ai/api/objects/800f69fe72774cff5cd27402cb535e81.png"
+        }
+      }
+    },
+    "red_panda": {
+      "cape": {
+        "baby": {
+          "node_id": "2f180b9e-bc2b-4ca9-a0ac-9e17e0feb327",
+          "url": "https://3d.varco.ai/api/objects/5fa4b6b8882dda9c26dd53de1e630ead.png"
+        },
+        "adult": {
+          "node_id": "696f9b15-5847-4fe7-bf8b-84fa93083063",
+          "url": "https://3d.varco.ai/api/objects/b3b0f27222ea043601491cfd7a851a1a.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "3c5fa070-e411-4d41-82ee-e52b713cfd2e",
+          "url": "https://3d.varco.ai/api/objects/1edf8f2528ef6d206ae30e8d02ad5b73.png"
+        },
+        "adult": {
+          "node_id": "f0286b19-9df7-4830-9eca-6f280c5736c4",
+          "url": "https://3d.varco.ai/api/objects/02e605ab7f70a13d4fee53d4f36461f8.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "af3117ed-2245-4a44-9a89-62375c9b65d2",
+          "url": "https://3d.varco.ai/api/objects/8537509806f03e68a26ab7803e965eb1.png"
+        },
+        "adult": {
+          "node_id": "2d6a321d-9590-458e-b452-e1882898855c",
+          "url": "https://3d.varco.ai/api/objects/fa0cda97df3b0340111bf147cbefffa6.png"
+        }
+      }
+    },
+    "lamb": {
+      "cape": {
+        "baby": {
+          "node_id": "0007004a-2902-4a13-be3b-556e9a2b495e",
+          "url": "https://3d.varco.ai/api/objects/9c16327582c8ca1b247025c55216a447.png"
+        },
+        "adult": {
+          "node_id": "3bf7bcd1-ed71-46a9-9135-bd693c974063",
+          "url": "https://3d.varco.ai/api/objects/4df12edf88bdba102a41658130442b71.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "f6ef51f0-ab9d-4b59-a581-025196401392",
+          "url": "https://3d.varco.ai/api/objects/408c5ee97b15c8ca20ce527c9a01c7ae.png"
+        },
+        "adult": {
+          "node_id": "bcac5751-40b7-4896-ba10-eb2b483dde49",
+          "url": "https://3d.varco.ai/api/objects/c35a1a85a40450b7baac07743a6d55d9.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "52aff9eb-4383-4704-a437-26345aed0a68",
+          "url": "https://3d.varco.ai/api/objects/46537860b44e66e9114b2e2343ceae0c.png"
+        },
+        "adult": {
+          "node_id": "20d2de83-3eac-4aea-a3e8-138d07f2032f",
+          "url": "https://3d.varco.ai/api/objects/be809380a90767a5c862f72791995b38.png"
+        }
+      }
+    },
+    "koala": {
+      "cape": {
+        "baby": {
+          "node_id": "576527cf-fb87-482d-bd56-74e1e4aebd2c",
+          "url": "https://3d.varco.ai/api/objects/564b963ae7b407aacb0928a9f50ceaec.png"
+        },
+        "adult": {
+          "node_id": "1f89ac19-7f07-4a9f-9f5b-5f73b2773168",
+          "url": "https://3d.varco.ai/api/objects/922c11b98581146b1a84a1a06709e5e4.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "2a0c2ab6-949b-4559-8eb0-823e409a233b",
+          "url": "https://3d.varco.ai/api/objects/f5f25cca63ae9c0fbe00a01af42e0f7f.png"
+        },
+        "adult": {
+          "node_id": "e349533b-95b9-4f60-bac2-94b5eeda6bb5",
+          "url": "https://3d.varco.ai/api/objects/74765400c69170b9fbeae09fee97e740.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "1a3b104c-5637-459d-808c-e3d3d81f5b1b",
+          "url": "https://3d.varco.ai/api/objects/072c58642e0ac3ed98f82b762ea2d2bd.png"
+        },
+        "adult": {
+          "node_id": "050435a3-1ffa-47fc-bc1e-ea225e712981",
+          "url": "https://3d.varco.ai/api/objects/57015bbd54beaf93efa06d546b618aa3.png"
+        }
+      }
+    },
+    "penguin": {
+      "cape": {
+        "baby": {
+          "node_id": "ecebbc0f-994a-4838-b213-1025a6166322",
+          "url": "https://3d.varco.ai/api/objects/8de3a8932c123258fd8505f6a181a724.png"
+        },
+        "adult": {
+          "node_id": "42d23b31-e1fe-468c-8539-a52d32f86bc3",
+          "url": "https://3d.varco.ai/api/objects/e0e9afd3cc1a440ee7c90979b70a0e9f.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "33139d1b-63da-4f06-81e2-39a31bbc8071",
+          "url": "https://3d.varco.ai/api/objects/0c7ce76e985a7558bd8802d623004a22.png"
+        },
+        "adult": {
+          "node_id": "0e5bc7a5-df59-48ec-a667-d95212a60e96",
+          "url": "https://3d.varco.ai/api/objects/a4b9548e8ca6d9e55494a26c436c7723.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "4641306c-12be-453c-af30-901cef0baf15",
+          "url": "https://3d.varco.ai/api/objects/408d2b448c2e992dfac4d27d2cefb907.png"
+        },
+        "adult": {
+          "node_id": "27625fae-486f-4feb-99ee-826a051a4d42",
+          "url": "https://3d.varco.ai/api/objects/1d08da09c3541f1594d63fe6ab3a299f.png"
+        }
+      }
+    },
+    "rabbit": {
+      "cape": {
+        "baby": {
+          "node_id": "de2f5bb2-e48c-4ad6-bcfc-f8654e8f4b78",
+          "url": "https://3d.varco.ai/api/objects/327cd35784a5e1705315bd5fdc82b0bb.png"
+        },
+        "adult": {
+          "node_id": "5c310799-b2b1-4922-89c9-e6e41102201d",
+          "url": "https://3d.varco.ai/api/objects/89609c69b571948c2e1542018bb7b3a5.png"
+        }
+      },
+      "vest": {
+        "baby": {
+          "node_id": "8ff32135-8577-431f-946a-515b42ec43d1",
+          "url": "https://3d.varco.ai/api/objects/0bf1f0bb8754ad96c5bcbaecff40ceaf.png"
+        },
+        "adult": {
+          "node_id": "6f5c7d55-18ca-459d-8547-34a9906996f2",
+          "url": "https://3d.varco.ai/api/objects/3da7e1f62af877a32677d4b51f86203f.png"
+        }
+      },
+      "sweater": {
+        "baby": {
+          "node_id": "df9c2f82-9ada-45e1-978a-43ddb3249940",
+          "url": "https://3d.varco.ai/api/objects/d33829c13a00cae9734cccd492b3f7ff.png"
+        },
+        "adult": {
+          "node_id": "d8982f40-c154-4622-a321-947ad8b64663",
+          "url": "https://3d.varco.ai/api/objects/18893d3fa35b984159aa3409f15dd3d0.png"
+        }
+      }
+    }
+  }
+}

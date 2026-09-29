@@ -1,0 +1,714 @@
+[
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "pet",
+    "status": "success",
+    "url": "/api/objects/b4ee41e12ed9d15fe1ba5938a4997fb3.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "eat",
+    "status": "success",
+    "url": "/api/objects/7d96e2401524eeff1c0a191aa261ef2c.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "drink",
+    "status": "success",
+    "url": "/api/objects/913a0f14a41fc4e436cfc1e046d73da8.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "jump",
+    "status": "success",
+    "url": "/api/objects/74aafbea7fc1dbce7e06229264729a73.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "carry",
+    "status": "success",
+    "url": "/api/objects/34597dd8be89f1c18150b90ef0a6223e.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "look",
+    "status": "success",
+    "url": "/api/objects/686827ee95c92aedceaf5369a1e7e31c.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "sniff",
+    "status": "success",
+    "url": "/api/objects/f06f464ae3a7f647fb2d5bc865fc6735.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "wave",
+    "status": "success",
+    "url": "/api/objects/a971baad48567771500daf519a1972f7.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "groom",
+    "status": "success",
+    "url": "/api/objects/4a7b812a1ebe6843dc5540c19fb3c9e3.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "stretch",
+    "status": "success",
+    "url": "/api/objects/830e0bb91c6ba57a8fce788bc3c0e6c0.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "rub",
+    "status": "success",
+    "url": "/api/objects/e769d7db97d9be7d563f18616790da65.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "toy",
+    "status": "success",
+    "url": "/api/objects/80f970bebf300ee1971b4510fcb3ef37.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "cape",
+    "action": "rest",
+    "status": "success",
+    "url": "/api/objects/be9a1266b6707c24f494e951d81a9441.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "pet",
+    "status": "success",
+    "url": "/api/objects/9e737f034b41bdd460a91a380c6bc098.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "eat",
+    "status": "success",
+    "url": "/api/objects/0de86351f933c22f995fcf2f63bbf395.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "drink",
+    "status": "success",
+    "url": "/api/objects/d906636f2e8ab648d99438ac8f437e95.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "jump",
+    "status": "success",
+    "url": "/api/objects/8c15f9c38da2890079dd1a316c13fcfa.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/29799ac8b2467600510f5878a016147d.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "walk",
+    "status": "success",
+    "url": "/api/objects/567139dcd7204e177ad641186b7caa5d.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "sleep",
+    "status": "success",
+    "url": "/api/objects/e1cd2595656c4ed72ce051d21aa685b2.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "carry",
+    "status": "success",
+    "url": "/api/objects/4ede0373345c95176907bf9180261572.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "look",
+    "status": "success",
+    "url": "/api/objects/39bc41c3001b60c38cfccbcd8bb618f3.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "sniff",
+    "status": "success",
+    "url": "/api/objects/f3926be5bfba8360771279bb5a055659.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "wave",
+    "status": "success",
+    "url": "/api/objects/7c4d86e4e38c3fb706494cca8b15aa75.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "groom",
+    "status": "success",
+    "url": "/api/objects/bdcda5b7d93e4699b822c2911bf1c747.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "stretch",
+    "status": "success",
+    "url": "/api/objects/5b370acaa52fa7de130f3211c549079a.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "rub",
+    "status": "success",
+    "url": "/api/objects/fe7dbffda059477ccd33dbc1b4f479f2.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "toy",
+    "status": "success",
+    "url": "/api/objects/de6f3866fc9bcc366981ee3262c7dcfe.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "vest",
+    "action": "rest",
+    "status": "success",
+    "url": "/api/objects/0df9adab00743276e0eb9d83facfd015.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "pet",
+    "status": "success",
+    "url": "/api/objects/e396fdffa4c611c13b34c461b27082a6.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "eat",
+    "status": "success",
+    "url": "/api/objects/dcacc87fc5fe8efcbe758ef8421caeb8.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "drink",
+    "status": "success",
+    "url": "/api/objects/b649b3ccd92f59c4228f73b46714a6a0.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "jump",
+    "status": "success",
+    "url": "/api/objects/dfff3aeb300573c145e6baa1ab38e157.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/f01a5a23d9de3ecdae81c146e75e393f.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "walk",
+    "status": "success",
+    "url": "/api/objects/9b5c85959b251f7f399300ffb92c46ea.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "sleep",
+    "status": "success",
+    "url": "/api/objects/33384905ae6754148785953db647f3ef.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "carry",
+    "status": "success",
+    "url": "/api/objects/f41af9d3ebbf86091d13c1318377d868.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "look",
+    "status": "success",
+    "url": "/api/objects/515f52ec0c825830f801c17ce8dbf327.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "sniff",
+    "status": "success",
+    "url": "/api/objects/c061711f2f9f1ffcff27a66b26e39657.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "wave",
+    "status": "success",
+    "url": "/api/objects/bbabcc7a4860f81f09fd42a0f63d457e.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "groom",
+    "status": "success",
+    "url": "/api/objects/37e6718f574b2313f860ed6500214580.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "stretch",
+    "status": "success",
+    "url": "/api/objects/9c0819fac974a990e5385875927fc6bb.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "rub",
+    "status": "success",
+    "url": "/api/objects/8549d863fd65ce28dd48f7c9fe277051.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "toy",
+    "status": "success",
+    "url": "/api/objects/7c8ac0c6f88410eff805e9ed620e2d89.png",
+    "error": null
+  },
+  {
+    "stage": "baby",
+    "style": "sweater",
+    "action": "rest",
+    "status": "success",
+    "url": "/api/objects/aac3ac7ec8e6cc8c70e4e8f81a649830.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "pet",
+    "status": "success",
+    "url": "/api/objects/b8baeff3c87b931858fe99e06dee2a32.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "eat",
+    "status": "success",
+    "url": "/api/objects/c5454bb875d577b55bacd88a6e900808.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "drink",
+    "status": "success",
+    "url": "/api/objects/a9dea9096803c51e4c3713e6d6a8f673.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "carry",
+    "status": "success",
+    "url": "/api/objects/65038fe24499b2d8097aed86de8762df.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "jump",
+    "status": "success",
+    "url": "/api/objects/75c35d4a463c3b507dc12b55498efcde.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "look",
+    "status": "success",
+    "url": "/api/objects/626d5b78bd8b8e3cd5762b59781f34a5.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "sniff",
+    "status": "success",
+    "url": "/api/objects/b65f5ddaa191f0ad4b31de1bd34f4668.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "wave",
+    "status": "success",
+    "url": "/api/objects/27277178445c34981bed79d743aefa32.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "groom",
+    "status": "success",
+    "url": "/api/objects/36c2b1421d1c3a4c22f3136695536ee4.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "stretch",
+    "status": "success",
+    "url": "/api/objects/0995c117213a05753f34e11142b56fc2.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "rub",
+    "status": "success",
+    "url": "/api/objects/63fcd25d40a36d6ef15c6dbe408a3a29.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "toy",
+    "status": "success",
+    "url": "/api/objects/b8a296199837f9d7be0d3d70f61eabd2.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "cape",
+    "action": "rest",
+    "status": "success",
+    "url": "/api/objects/48c3d81aa60d0f0da73350ee03bc109a.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "pet",
+    "status": "success",
+    "url": "/api/objects/b0ce18a9a6d68173f53c093a944facf1.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/d96d70ade5f75942854ed447e9f5e927.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "walk",
+    "status": "success",
+    "url": "/api/objects/f647ddb3ca07d4cbf9d2eb114b8ca7d7.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "sleep",
+    "status": "success",
+    "url": "/api/objects/de956b5889584141394f7624732e9aad.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "eat",
+    "status": "success",
+    "url": "/api/objects/a59f589354fe621c5680d45c6316fa44.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "drink",
+    "status": "success",
+    "url": "/api/objects/12b3ca8a5cf395e30e421a1442e6e726.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "carry",
+    "status": "success",
+    "url": "/api/objects/aec70a041a85d461fed802f33bfc3f46.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "jump",
+    "status": "success",
+    "url": "/api/objects/cf1eae0274d4147eb2a8de76d086a6e7.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "look",
+    "status": "success",
+    "url": "/api/objects/2f59ff5d6dd82eca266d613da8b92cb4.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "sniff",
+    "status": "success",
+    "url": "/api/objects/9d5e370d5b05bd3251b919c2145fa8f0.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "wave",
+    "status": "success",
+    "url": "/api/objects/13843a7a293e1d5f71cbb394011b3406.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "groom",
+    "status": "success",
+    "url": "/api/objects/0a4adf345f5b1efaa8c34b4ae2e11315.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "stretch",
+    "status": "success",
+    "url": "/api/objects/d05bd95ca7b8f51feb164c138d8a96d0.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "rub",
+    "status": "success",
+    "url": "/api/objects/8630c59ca264a61d483c20eb7f5b43fe.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "toy",
+    "status": "success",
+    "url": "/api/objects/f163eee708531bbbc0af81a391802db4.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "vest",
+    "action": "rest",
+    "status": "success",
+    "url": "/api/objects/50fc8ff30897873a74d0b7874df0d1a5.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "pet",
+    "status": "success",
+    "url": "/api/objects/8e1938ac433fe2954135ee8f49449a37.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "idle",
+    "status": "success",
+    "url": "/api/objects/5c3a62b97d7d52ace3423e5cb46e77c0.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "walk",
+    "status": "success",
+    "url": "/api/objects/309d3bc12dc4ea8b845f2816e330e758.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "sleep",
+    "status": "success",
+    "url": "/api/objects/a3657b278422f2138693eb0f4b11d1f7.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "eat",
+    "status": "success",
+    "url": "/api/objects/ca91f56d6f80f67999f8260cb816e990.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "drink",
+    "status": "success",
+    "url": "/api/objects/363a80e35a339842f723ed1f679154f2.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "carry",
+    "status": "success",
+    "url": "/api/objects/a91dc5e1a0b774fc4f97ada602bd32dc.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "jump",
+    "status": "success",
+    "url": "/api/objects/1a289bba43c2796696d0aa1cc8da2491.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "look",
+    "status": "success",
+    "url": "/api/objects/1b55feaef79a96f653c04daf7692991d.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "sniff",
+    "status": "success",
+    "url": "/api/objects/53e979eb963b9b02ff32748e57afe38d.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "wave",
+    "status": "success",
+    "url": "/api/objects/62e627eaf9cd12f3a402801daf507d8e.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "stretch",
+    "status": "success",
+    "url": "/api/objects/1dda9e7a166e6f8803ba43b191ab3eec.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "rub",
+    "status": "success",
+    "url": "/api/objects/d771a000f62a8ecf2179f2c230d95d44.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "toy",
+    "status": "success",
+    "url": "/api/objects/df671d4f50f5619b6b308bc26cf7e020.png",
+    "error": null
+  },
+  {
+    "stage": "adult",
+    "style": "sweater",
+    "action": "rest",
+    "status": "success",
+    "url": "/api/objects/c669643347b799ab3abaadce9de68fba.png",
+    "error": null
+  }
+]

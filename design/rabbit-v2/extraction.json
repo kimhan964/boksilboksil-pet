@@ -1,0 +1,101 @@
+{
+  "source": "design/rabbit-v2/parts-source.png",
+  "parts": {
+    "head": {
+      "source_rect": [
+        51,
+        120,
+        311,
+        271
+      ]
+    },
+    "body": {
+      "source_rect": [
+        441,
+        93,
+        279,
+        315
+      ]
+    },
+    "ear_up": {
+      "source_rect": [
+        876,
+        101,
+        164,
+        296
+      ]
+    },
+    "ear_out": {
+      "source_rect": [
+        1190,
+        158,
+        263,
+        238
+      ]
+    },
+    "arm_near": {
+      "source_rect": [
+        112,
+        484,
+        191,
+        223
+      ]
+    },
+    "arm_far": {
+      "source_rect": [
+        483,
+        494,
+        179,
+        211
+      ]
+    },
+    "foot_near": {
+      "source_rect": [
+        825,
+        478,
+        199,
+        267
+      ]
+    },
+    "foot_far": {
+      "source_rect": [
+        1244,
+        481,
+        196,
+        265
+      ]
+    },
+    "tail": {
+      "source_rect": [
+        109,
+        838,
+        185,
+        185
+      ]
+    },
+    "bow": {
+      "source_rect": [
+        440,
+        832,
+        279,
+        199
+      ]
+    },
+    "eyes_open": {
+      "source_rect": [
+        839,
+        873,
+        232,
+        101
+      ]
+    },
+    "eyes_closed": {
+      "source_rect": [
+        1206,
+        901,
+        250,
+        54
+      ]
+    }
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "method": "One scale per action, calibrated to its neutral head width. No per-frame height normalization.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.5730659025787965,
+      "neutralHeadWidth": 193,
+      "normalizedHeadWidths": [
+        110.6,
+        111.2,
+        111.2,
+        111.2,
+        110.6,
+        111.2,
+        111.2,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.5585945414025643,
+      "neutralHeadWidth": 198,
+      "normalizedHeadWidths": [
+        110.6,
+        111.2,
+        112.3,
+        110.6,
+        111.2,
+        110.6,
+        110.6,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5448360551611218,
+      "neutralHeadWidth": 203,
+      "normalizedHeadWidths": [
+        110.6,
+        111.1,
+        111.7,
+        109,
+        110.6,
+        108.4,
+        107.9,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "eat",
+      "scale": 0.5821143115668828,
+      "neutralHeadWidth": 190,
+      "normalizedHeadWidths": [
+        110.6,
+        110.6,
+        111.2,
+        111.8,
+        108.9,
+        108.9,
+        108.3,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "drink",
+      "scale": 0.5291948286971662,
+      "neutralHeadWidth": 209,
+      "normalizedHeadWidths": [
+        110.6,
+        111.1,
+        110.1,
+        101.6,
+        111.7,
+        111.1,
+        110.6,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "sleep",
+      "scale": 0.5448360551611218,
+      "neutralHeadWidth": 203,
+      "normalizedHeadWidths": [
+        110.6,
+        111.7,
+        110.1,
+        103,
+        138.9,
+        139.5,
+        110.6,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "carry",
+      "scale": 0.6043809792224466,
+      "neutralHeadWidth": 183,
+      "normalizedHeadWidths": [
+        110.6,
+        108.8,
+        109.4,
+        111.8,
+        110,
+        110.6,
+        114.2,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "jump",
+      "scale": 0.6356420643546421,
+      "neutralHeadWidth": 174,
+      "normalizedHeadWidths": [
+        110.6,
+        110.6,
+        109.3,
+        107.4,
+        110,
+        108.7,
+        110.6,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "look",
+      "scale": 0.5978471307984201,
+      "neutralHeadWidth": 185,
+      "normalizedHeadWidths": [
+        110.6,
+        111.8,
+        117.2,
+        115.4,
+        112.4,
+        114.8,
+        113.6,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "sniff",
+      "scale": 0.5671883035779883,
+      "neutralHeadWidth": 195,
+      "normalizedHeadWidths": [
+        110.6,
+        111.2,
+        114,
+        113.4,
+        112.9,
+        113.4,
+        114,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "wave",
+      "scale": 0.5671883035779883,
+      "neutralHeadWidth": 195,
+      "normalizedHeadWidths": [
+        110.6,
+        111.7,
+        112.3,
+        111.7,
+        110.6,
+        108.9,
+        110.6,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "groom",
+      "scale": 0.5475332633549888,
+      "neutralHeadWidth": 202,
+      "normalizedHeadWidths": [
+        110.6,
+        110.6,
+        109,
+        109,
+        109.5,
+        105.1,
+        107.9,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "stretch",
+      "scale": 0.5946328989124071,
+      "neutralHeadWidth": 186,
+      "normalizedHeadWidths": [
+        110.6,
+        111.8,
+        115.4,
+        114.2,
+        111.2,
+        110.6,
+        111.8,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "rub",
+      "scale": 0.5614300466888716,
+      "neutralHeadWidth": 197,
+      "normalizedHeadWidths": [
+        110.6,
+        113.4,
+        112.3,
+        112.3,
+        110,
+        111.2,
+        109.5,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "toy",
+      "scale": 0.5557875336568228,
+      "neutralHeadWidth": 199,
+      "normalizedHeadWidths": [
+        110.6,
+        110,
+        111.7,
+        113.4,
+        110.6,
+        107.8,
+        108.4,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "baby",
+      "action": "rest",
+      "scale": 0.5614300466888716,
+      "neutralHeadWidth": 197,
+      "normalizedHeadWidths": [
+        110.6,
+        106.7,
+        100.5,
+        110.6,
+        110.6,
+        108.9,
+        107.8,
+        110.6
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5277044854881267,
+      "neutralHeadWidth": 174,
+      "normalizedHeadWidths": [
+        91.8,
+        92.3,
+        92.9,
+        93.9,
+        91.8,
+        92.3,
+        92.3,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5187603416662939,
+      "neutralHeadWidth": 177,
+      "normalizedHeadWidths": [
+        91.8,
+        91.3,
+        91.8,
+        90.3,
+        91.3,
+        91.3,
+        91.3,
+        91.3
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5307548004331447,
+      "neutralHeadWidth": 173,
+      "normalizedHeadWidths": [
+        91.8,
+        91.8,
+        92.9,
+        92.9,
+        94.5,
+        90.8,
+        91.3,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "eat",
+      "scale": 0.540121061617259,
+      "neutralHeadWidth": 170,
+      "normalizedHeadWidths": [
+        91.8,
+        92.4,
+        91.8,
+        93.4,
+        91.8,
+        92.4,
+        91.8,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "drink",
+      "scale": 0.5369624589177429,
+      "neutralHeadWidth": 171,
+      "normalizedHeadWidths": [
+        91.8,
+        91.3,
+        92.9,
+        92.9,
+        91.3,
+        90.7,
+        92.4,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "sleep",
+      "scale": 0.5158459577243485,
+      "neutralHeadWidth": 178,
+      "normalizedHeadWidths": [
+        91.8,
+        90.3,
+        91.3,
+        86.1,
+        127.4,
+        121.7,
+        93.9,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "carry",
+      "scale": 0.592390841773768,
+      "neutralHeadWidth": 155,
+      "normalizedHeadWidths": [
+        91.8,
+        91.2,
+        90,
+        91.8,
+        90.6,
+        91.8,
+        93.6,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "jump",
+      "scale": 0.5962375355515197,
+      "neutralHeadWidth": 154,
+      "normalizedHeadWidths": [
+        91.8,
+        96,
+        98.4,
+        92.4,
+        93,
+        94.2,
+        95.4,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "look",
+      "scale": 0.5433170442303789,
+      "neutralHeadWidth": 169,
+      "normalizedHeadWidths": [
+        91.8,
+        93.5,
+        96.2,
+        92.4,
+        91.8,
+        91.8,
+        91.8,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "sniff",
+      "scale": 0.5465510742555597,
+      "neutralHeadWidth": 168,
+      "normalizedHeadWidths": [
+        91.8,
+        95.6,
+        95.6,
+        95.1,
+        92.4,
+        92.9,
+        91.8,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "wave",
+      "scale": 0.5307548004331447,
+      "neutralHeadWidth": 173,
+      "normalizedHeadWidths": [
+        91.8,
+        91.3,
+        93.4,
+        92.4,
+        91.3,
+        89.2,
+        91.3,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "groom",
+      "scale": 0.5307548004331447,
+      "neutralHeadWidth": 173,
+      "normalizedHeadWidths": [
+        91.8,
+        91.3,
+        92.4,
+        93.4,
+        91.3,
+        91.8,
+        91.8,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "stretch",
+      "scale": 0.540121061617259,
+      "neutralHeadWidth": 170,
+      "normalizedHeadWidths": [
+        91.8,
+        90.7,
+        90.2,
+        89.7,
+        89.7,
+        90.7,
+        90.7,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "rub",
+      "scale": 0.5246890312853373,
+      "neutralHeadWidth": 175,
+      "normalizedHeadWidths": [
+        91.8,
+        92.9,
+        92.3,
+        92.3,
+        89.2,
+        88.1,
+        87.1,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "toy",
+      "scale": 0.5564883665147518,
+      "neutralHeadWidth": 165,
+      "normalizedHeadWidths": [
+        91.8,
+        91.8,
+        89,
+        91.3,
+        91.3,
+        91.3,
+        90.7,
+        91.8
+      ],
+      "noseMisses": []
+    },
+    {
+      "stage": "adult",
+      "action": "rest",
+      "scale": 0.5277044854881267,
+      "neutralHeadWidth": 174,
+      "normalizedHeadWidths": [
+        91.8,
+        91.8,
+        86,
+        91.3,
+        92.3,
+        91.3,
+        89.7,
+        91.8
+      ],
+      "noseMisses": []
+    }
+  ]
+}

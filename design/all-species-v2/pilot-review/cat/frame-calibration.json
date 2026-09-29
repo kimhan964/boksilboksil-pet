@@ -1,0 +1,48 @@
+{
+  "species": "cat",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6230529595015576,
+      "neutral_height": 321,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6329113924050633,
+      "neutral_height": 316,
+      "relative_to_idle": 1.0158227848101267
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5780346820809249,
+      "neutral_height": 346,
+      "relative_to_idle": 0.9277456647398845
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5698005698005698,
+      "neutral_height": 351,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.554016620498615,
+      "neutral_height": 361,
+      "relative_to_idle": 0.9722991689750693
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.546448087431694,
+      "neutral_height": 366,
+      "relative_to_idle": 0.959016393442623
+    }
+  ]
+}

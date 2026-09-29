@@ -1,0 +1,48 @@
+{
+  "species": "hamster",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.5780346820809249,
+      "neutral_height": 346,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6172839506172839,
+      "neutral_height": 324,
+      "relative_to_idle": 1.067901234567901
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.6006006006006006,
+      "neutral_height": 333,
+      "relative_to_idle": 1.039039039039039
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5390835579514824,
+      "neutral_height": 371,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5571030640668524,
+      "neutral_height": 359,
+      "relative_to_idle": 1.0334261838440113
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5128205128205128,
+      "neutral_height": 390,
+      "relative_to_idle": 0.9512820512820512
+    }
+  ]
+}

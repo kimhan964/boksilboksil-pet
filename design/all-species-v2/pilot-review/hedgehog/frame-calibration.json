@@ -1,0 +1,48 @@
+{
+  "species": "hedgehog",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.6211180124223602,
+      "neutral_height": 322,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.6688963210702341,
+      "neutral_height": 299,
+      "relative_to_idle": 1.076923076923077
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.6024096385542169,
+      "neutral_height": 332,
+      "relative_to_idle": 0.9698795180722893
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5681818181818182,
+      "neutral_height": 352,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5934718100890207,
+      "neutral_height": 337,
+      "relative_to_idle": 1.0445103857566764
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.5509641873278237,
+      "neutral_height": 363,
+      "relative_to_idle": 0.9696969696969696
+    }
+  ]
+}

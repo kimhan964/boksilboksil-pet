@@ -1,7 +1,7 @@
 config_version=5
 
 [testing]
-unlock_all=true
+unlock_all=false
 
 [application]
 config/name="바탕화면 친구"
@@ -16,8 +16,8 @@ boot_splash/bg_color=Color(0,0,0,0)
 
 [display]
 window/per_pixel_transparency/allowed=true
-window/size/viewport_width=204
-window/size/viewport_height=190
+window/size/viewport_width=256
+window/size/viewport_height=224
 window/size/borderless=true
 window/size/transparent=true
 window/size/unresizable=true

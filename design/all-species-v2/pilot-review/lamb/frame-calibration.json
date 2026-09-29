@@ -1,0 +1,48 @@
+{
+  "species": "lamb",
+  "rule": "One scale per eight-frame action; complete cels only.",
+  "sequences": [
+    {
+      "stage": "baby",
+      "action": "idle",
+      "scale": 0.5988023952095808,
+      "neutral_height": 334,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "baby",
+      "action": "walk",
+      "scale": 0.5970149253731343,
+      "neutral_height": 335,
+      "relative_to_idle": 0.9970149253731343
+    },
+    {
+      "stage": "baby",
+      "action": "pet",
+      "scale": 0.5681818181818182,
+      "neutral_height": 352,
+      "relative_to_idle": 0.9488636363636366
+    },
+    {
+      "stage": "adult",
+      "action": "idle",
+      "scale": 0.5797101449275363,
+      "neutral_height": 345,
+      "relative_to_idle": 1
+    },
+    {
+      "stage": "adult",
+      "action": "walk",
+      "scale": 0.5633802816901409,
+      "neutral_height": 355,
+      "relative_to_idle": 0.971830985915493
+    },
+    {
+      "stage": "adult",
+      "action": "pet",
+      "scale": 0.546448087431694,
+      "neutral_height": 366,
+      "relative_to_idle": 0.9426229508196722
+    }
+  ]
+}

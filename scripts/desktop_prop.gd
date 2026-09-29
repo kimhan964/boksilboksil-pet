@@ -4,7 +4,7 @@ signal activated(id: String)
 signal recolored
 signal food_picked
 signal layer_changed
-const NAMES={"cushion":"전용 침대","bowl":"음식 그릇","water":"물그릇","basket":"장난감 바구니","plant":"전용 놀이 소품","lamp":"전용 휴식 소품","shelter":"전용 쉼터"}
+const NAMES={"cushion":"전용 침대","bowl":"음식 그릇","water":"작은 연못","basket":"장난감 바구니","plant":"전용 놀이 소품","lamp":"전용 휴식 소품","shelter":"전용 쉼터"}
 const Profiles=preload("res://scripts/companion_profiles.gd")
 const Decor=preload("res://scripts/decor_art.gd")
 const Catalog=preload("res://scripts/animal_catalog.gd")
@@ -119,8 +119,8 @@ class PropDrawing extends Node2D:
 		draw_texture_rect(artwork,Rect2(Vector2(56,86)-Vector2(dimensions.x*.5,dimensions.y),dimensions),false,tint)
 		if prop.kind=="bowl" and prop.number==0 and prop.food_texture and not prop.food_lifted:
 			var meal_size=prop.food_texture.get_size()
-			meal_size*=minf(52.0/meal_size.x,43.0/meal_size.y)
-			draw_texture_rect(prop.food_texture,Rect2(Vector2(56,67)-Vector2(meal_size.x*.5,meal_size.y),meal_size),false)
+			meal_size*=minf(76.0/meal_size.x,57.0/meal_size.y)
+			draw_texture_rect(prop.food_texture,Rect2(Vector2(56,59)-Vector2(meal_size.x*.5,meal_size.y),meal_size),false)
 		if prop.number>0:
 			draw_circle(Vector2(56,22),12,Color("fff4d6"))
 			draw_string(ThemeDB.fallback_font,Vector2(51,28),"×" if prop.empty else str(prop.number),HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("755a41"))
@@ -236,7 +236,7 @@ func dining_point(animal_bounds: Rect2) -> Vector2:
 	# Stand beside the native prop window, not underneath its artwork.
 	var animal=load(Catalog.path(species))
 	var original: Texture2D=animal.frames[0][0]
-	var width=126*Catalog.HEIGHTS[species]*original.get_width()/float(original.get_height())
+	var width=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]*original.get_width()/float(original.get_height())
 	width*=growth_scale
 	var center=feet_point()
 	var spacing=width*.5+54*art_scale+8
@@ -251,19 +251,19 @@ func resize_for_friend() -> void:
 	if kind in ["bowl","water"] and number==0:
 		var animal=load(Catalog.path(species))
 		var original: Texture2D=animal.frames[0][0]
-		var width=126*Catalog.HEIGHTS[species]*original.get_width()/float(original.get_height())
-		factor=clampf(width*.55,30,58)/108.0
+		var width=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]*original.get_width()/float(original.get_height())
+		factor=(clampf(width*growth_scale*1.12,88,124) if kind=="water" else clampf(width*growth_scale*.70,66,88))/108.0
 	if kind in ["cushion","shelter"]:
 		var animal=load(Catalog.path(species))
 		var original: Texture2D=animal.frames[0][0]
-		var height=126*Catalog.HEIGHTS[species]
+		var height=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]
 		var width=height*original.get_width()/float(original.get_height())
 		var artwork=Decor.icon(kind,species)
 		var base_size=artwork.get_size() if artwork else Vector2(108,82)
 		base_size*=minf(108.0/base_size.x,82.0/base_size.y)
 		factor=maxf(height*1.8/base_size.y,width*2.15/base_size.x) if kind=="shelter" else maxf(height*.85/base_size.y,width*1.45/base_size.x)
-	if kind in ["plant","lamp"]: factor=clampf(126*Catalog.HEIGHTS[species]/100.0,.5,1.3)
-	if kind in ["bowl","water","cushion","shelter","plant","lamp"]: factor*=growth_scale
+	if kind in ["plant","lamp"]: factor=clampf(Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]/100.0,.5,1.3)
+	if kind in ["cushion","shelter","plant","lamp"]: factor*=growth_scale
 	if not is_equal_approx(factor,art_scale):
 		var anchor=feet_point()
 		art_scale=factor

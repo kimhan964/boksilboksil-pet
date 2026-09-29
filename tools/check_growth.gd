@@ -10,14 +10,16 @@ func _initialize() -> void:
 	state.save_path="user://growth-check-only.json"
 	for species in range(16):
 		check(state.growth_stage(species)==0,"New animal must be a baby")
+		check(is_equal_approx(state.growth_scale(species),.93),"New baby must be 1.5x larger")
 		state.add_growth(species,11)
 		check(state.growth_stage(species)==0,"Baby boundary")
-		check(state.growth_scale(species)>.62 and state.growth_scale(species)<.82,"Gradual baby growth")
+		check(state.growth_scale(species)>.93 and state.growth_scale(species)<.98,"Gradual baby growth")
 		state.add_growth(species,1)
 		check(state.growth_stage(species)==1,"Middle boundary")
+		check(is_equal_approx(state.growth_scale(species),.98),"No shrink at middle boundary")
 		state.add_growth(species,23)
 		check(state.growth_stage(species)==1,"Middle upper boundary")
-		check(state.growth_scale(species)>.82 and state.growth_scale(species)<1,"Gradual middle growth")
+		check(state.growth_scale(species)>.98 and state.growth_scale(species)<1,"Gradual middle growth")
 		state.add_growth(species,1)
 		check(state.growth_stage(species)==2,"Adult boundary")
 	state.save_game()
@@ -28,6 +30,7 @@ func _initialize() -> void:
 	state.growth.clear()
 	state.reward_activity(9,"decorate")
 	check(state.growth_stage(9)==0 and state.growth.is_empty(),"Decorating must not grow animals")
+	state.play_affection["9"]=3
 	state.reward_activity(9,"hand_feed")
 	state.reward_activity(9,"hand_feed")
 	check(state.growth.get("9")==2,"Feeding reward and cooldown")
