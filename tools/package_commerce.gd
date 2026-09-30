@@ -12,6 +12,9 @@ func _initialize() -> void:
 	var site=""
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--site-url="): site=arg.trim_prefix("--site-url=").trim_suffix("/")
+	var destination="res://builds/DesktopFriends-Gift"
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--destination="): destination=arg.trim_prefix("--destination=")
 	if not site.begins_with("https://") or site.contains("\"") or site.contains("\n"):
 		push_error("Pass --site-url=https://your-deployed-site")
 		quit(1)
@@ -26,12 +29,13 @@ func _initialize() -> void:
 	if config.save(temporary)!=OK:
 		quit(1)
 		return
-	var destination="res://builds/DesktopFriends-Commerce-0.11"
 	DirAccess.make_dir_recursive_absolute(destination)
 	if packer.pck_start(destination+"/DesktopFriends.pck")!=OK:
 		quit(1)
 		return
 	for folder in ["res://assets","res://scripts","res://scenes"]: add_folder(folder)
+	if packer.add_file("res://tools/check_package.gd","res://tools/check_package.gd")!=OK: failed=true
+	if packer.add_file("res://.godot/global_script_class_cache.cfg","res://tools/runtime-global-classes.cfg")!=OK: failed=true
 	if packer.add_file("res://project.godot",ProjectSettings.globalize_path(temporary))!=OK: failed=true
 	if packer.flush()!=OK: failed=true
 	var license_file=FileAccess.open(destination+"/GODOT-LICENSE.txt",FileAccess.WRITE)

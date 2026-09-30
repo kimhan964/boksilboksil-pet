@@ -108,8 +108,7 @@ func _commerce_changed(ids: PackedStringArray) -> void:
 	if not world_started: _start_world()
 	elif not is_instance_valid(pet) or pet.is_queued_for_deletion() or not commerce_access.permits(pet.species): choose_friend(state.selected)
 	if is_instance_valid(pet) and not pet.is_queued_for_deletion():
-		var friends=pet.menu.get_node("Friends")
-		for index in range(friends.item_count): friends.set_item_disabled(index,not commerce_access.permits(friends.get_item_id(index)))
+		pet.set_available_species(ids)
 
 func usable_screen() -> Rect2i:
 	return DisplayServer.screen_get_usable_rect(DisplayServer.SCREEN_PRIMARY)
@@ -171,6 +170,9 @@ func choose_friend(species: int) -> void:
 	pet=Pet.new()
 	pet.species=species
 	pet.state=state
+	if commerce_access!=null:
+		pet.commerce_mode=true
+		pet.available_species=commerce_access.allowed.duplicate()
 	pet.theme=app_theme
 	pet.decorating=decorating
 	pet.returned.connect(shutdown)
@@ -181,8 +183,6 @@ func choose_friend(species: int) -> void:
 	pet.visibility_changed.connect(request_layer_order)
 	request_layer_order()
 	if commerce_access!=null:
-		var friends=pet.menu.get_node("Friends")
-		for index in range(friends.item_count): friends.set_item_disabled(index,not commerce_access.permits(friends.get_item_id(index)))
 		pet.menu.add_item("계정·이용권 확인",900)
 	pet.menu.about_to_popup.connect(cancel_hunt)
 	pet.motion.visited.connect(on_visit)

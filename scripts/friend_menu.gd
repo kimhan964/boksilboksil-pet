@@ -11,6 +11,7 @@ var heading: Label
 var detail: Label
 var portrait: TextureRect
 var tabs: Array=[]
+var friend_button: Button
 const SECTIONS=[[0,23,24,1,22,4,16,20],[2,15,11,12,13,21],[5,6,7,8],[26,25,18,14,9,19,10,900]]
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
@@ -115,11 +116,14 @@ func _ready() -> void:
 	scroll.add_child(body)
 	var footer=HBoxContainer.new()
 	column.add_child(footer)
-	var friends=make_button("친구 바꾸기",func(): open_source(get_node("Friends")))
-	friends.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	footer.add_child(friends)
+	friend_button=make_button("친구 바꾸기",func(): open_source(get_node("Friends")))
+	friend_button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	footer.add_child(friend_button)
 	footer.add_child(make_button("오늘은 안녕",func(): hide(); id_pressed.emit(3)))
 	about_to_popup.connect(prepare)
+
+func set_friend_count(count: int) -> void:
+	if friend_button!=null: friend_button.visible=count>1
 
 func make_button(text: String, action: Callable) -> Button:
 	var button=Button.new()

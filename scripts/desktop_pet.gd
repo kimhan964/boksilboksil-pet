@@ -12,6 +12,8 @@ const Profiles=preload("res://scripts/companion_profiles.gd")
 const Outfits=preload("res://scripts/outfit_catalog.gd")
 const Outline=preload("res://scripts/animation_outline.gd")
 var species=0
+var commerce_mode=false
+var available_species=PackedStringArray()
 var state
 var motion=Motion.new()
 var view
@@ -136,8 +138,9 @@ func _ready() -> void:
 	friends.name="Friends"
 	friends.force_native=true
 	for i in range(Catalog.NAMES.size()):
+		if commerce_mode and not available_species.has(Catalog.IDS[i]): continue
 		friends.add_radio_check_item(Catalog.NAMES[i],i)
-		friends.set_item_checked(i,i==species)
+		friends.set_item_checked(friends.item_count-1,i==species)
 	friends.id_pressed.connect(func(id): companion_selected.emit(id))
 	menu.add_child(friends)
 	menu.add_submenu_item("친구 바꾸기","Friends",17)
@@ -146,6 +149,7 @@ func _ready() -> void:
 	menu.id_pressed.connect(menu_action)
 	menu.popup_hide.connect(func(): motion.held=false)
 	add_child(menu)
+	menu.set_friend_count(friends.item_count)
 	refresh_unlock_menu()
 	motion.bonded.connect(func():
 		if state: state.reward_activity(species,"pet"))
@@ -155,6 +159,19 @@ func _ready() -> void:
 	close_requested.connect(close_companion)
 	_process(0)
 	show()
+
+func set_available_species(ids: PackedStringArray) -> void:
+	commerce_mode=true
+	available_species=ids.duplicate()
+	if menu==null: return
+	var friends: PopupMenu=menu.get_node("Friends")
+	friends.clear()
+	for i in range(Catalog.NAMES.size()):
+		if not available_species.has(Catalog.IDS[i]): continue
+		friends.add_radio_check_item(Catalog.NAMES[i],i)
+		friends.set_item_checked(friends.item_count-1,i==species)
+	menu.set_friend_count(friends.item_count)
+	if menu.visible: menu.rebuild()
 
 func desktop_bounds() -> Rect2:
 	if DisplayServer.get_name()=="headless": return Rect2(0,0,1280,720)
