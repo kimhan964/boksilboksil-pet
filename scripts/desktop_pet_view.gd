@@ -69,10 +69,11 @@ func _ready() -> void:
 	# Build textures and click outlines before the pet appears, not on its first
 	# step. The first pass through a new walk strip otherwise looks like lag.
 	var stage=GeneratedArt.stage_name(motion)
+	var base_walk=GeneratedArt.frames(motion.species,stage,"walk")
 	var walk=WalkArt.frames(motion.species,stage)
 	if motion.outfit_style>0 and motion.outfit_color==0:
 		walk=GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,"walk")
-	if walk.is_empty(): walk=GeneratedArt.frames(motion.species,stage,"walk")
+	if walk.is_empty(): walk=base_walk
 	for cel in walk: preload("res://scripts/animation_outline.gd").local_hull(cel)
 	return
 	resource=BaseArt.resource(motion.species)

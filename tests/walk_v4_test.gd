@@ -4,10 +4,22 @@ const Catalog=preload("res://scripts/animal_catalog.gd")
 const Motion=preload("res://scripts/desktop_pet_motion.gd")
 const Art=preload("res://scripts/generated_species_art.gd")
 const Walk=preload("res://scripts/walk_art.gd")
+const View=preload("res://scripts/desktop_pet_view.gd")
+const Outline=preload("res://scripts/animation_outline.gd")
 
 func _initialize() -> void: call_deferred("run")
 
 func run() -> void:
+	var startup=Motion.new()
+	startup.species=0
+	startup.growth_stage=0
+	var startup_view=View.new()
+	startup_view.motion=startup
+	root.add_child(startup_view)
+	assert(Art.cache.has("0/baby/walk") and Walk.cache.has("rabbit/baby"))
+	for image in Walk.frames(0,"baby"):
+		assert(Outline.hulls.has(image.get_instance_id()))
+	startup_view.free()
 	var checked=0
 	for species in range(Catalog.IDS.size()):
 		for stage in ["baby","adult"]:
