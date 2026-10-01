@@ -1,0 +1,58 @@
+[
+  {
+    "species": "owl",
+    "stage": "adult",
+    "action": "sleep",
+    "suspect": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "source_characters": 12,
+    "repair": true
+  },
+  {
+    "species": "rabbit",
+    "stage": "baby",
+    "action": "rest",
+    "suspect": [
+      3
+    ],
+    "source_characters": 16,
+    "repair": true
+  },
+  {
+    "species": "rabbit",
+    "stage": "adult",
+    "action": "rest",
+    "suspect": [
+      2,
+      3
+    ],
+    "source_characters": 17,
+    "repair": true
+  },
+  {
+    "species": "squirrel",
+    "stage": "adult",
+    "action": "rest",
+    "suspect": [
+      6,
+      13,
+      14
+    ],
+    "source_characters": 16,
+    "repair": true
+  }
+]

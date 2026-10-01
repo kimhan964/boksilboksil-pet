@@ -9,6 +9,14 @@ static var manifests: Dictionary={}
 static var cache: Dictionary={}
 static var dressed_cache: Dictionary={}
 
+static func release_other_species(species: int) -> void:
+	# This game shows one selected pet. Switching species must release the
+	# previous pet's predecoded action banks rather than accumulating gigabytes.
+	for key in cache.keys():
+		if not str(key).begins_with(str(species)+"/"): cache.erase(key)
+	for key in dressed_cache.keys():
+		if not str(key).begins_with(Catalog.IDS[species]+"/"): dressed_cache.erase(key)
+
 static func asset_root(species: int) -> String:
 	var v3="res://assets/species-v3/"+Catalog.IDS[species]
 	if FileAccess.file_exists(v3+"/manifest.json"):
@@ -99,7 +107,8 @@ static func sample(motion) -> Dictionary:
 	var action=action_for(motion)
 	var sequence="carry" if action=="land" else action
 	var spec=data(species).stages[stage].sequences[sequence]
-	var smooth_walk=action=="walk" and not (motion.outfit_style>0 and motion.outfit_color==0) and WalkArt.frames(species,stage).size()==32
+	var dressed_walk=motion.outfit_style>0 and motion.outfit_color==0 and not dressed_frames(species,stage,motion.outfit_style,"walk").is_empty()
+	var smooth_walk=action=="walk" and not dressed_walk and WalkArt.frames(species,stage).size()==32
 	var count=32 if smooth_walk else int(spec.count)
 	var time=motion.reaction_time if motion.phase=="react" else motion.elapsed
 	if action=="carry": time=motion.carry_elapsed
@@ -146,6 +155,7 @@ static func sample(motion) -> Dictionary:
 		result.index=index
 	apply_dressed(result,motion)
 	result.action=action
+	result.walk_32=smooth_walk
 	return result
 
 static func apply_dressed(result: Dictionary, motion) -> void:

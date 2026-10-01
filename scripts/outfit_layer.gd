@@ -6,6 +6,12 @@ const Metrics=preload("res://scripts/texture_metrics.gd")
 static var textures: Dictionary={}
 static var idle_bounds: Dictionary={}
 var view
+var fitting_material: ShaderMaterial
+
+func _ready() -> void:
+	fitting_material=ShaderMaterial.new()
+	fitting_material.shader=preload("res://scripts/outfit_mask.gdshader")
+	material=fitting_material
 
 func outfit_texture(species: int, stage: String, style: int, color: int) -> Texture2D:
 	var key="%s/%s-%s-%d"%[Catalog.IDS[species],stage,["cape","vest","sweater"][style-1],color]
@@ -44,5 +50,22 @@ func _draw() -> void:
 	var scale=Vector2(clampf(float(used.size.x)/source.size.x,.68,1.35),clampf(float(used.size.y)/source.size.y,.68,1.35))
 	var origin=Vector2(used.position)-source.position*scale
 	var fit=Transform2D(Vector2(scale.x,0),Vector2(0,scale.y),origin)
+	# Complete-body cels remain intact. Clip only the garment overlay to the
+	# current silhouette; a standing garment otherwise covers a sleeping face.
+	var sample: Dictionary=view.generated_sample
+	var neutral=preload("res://scripts/character_presentation.gd").neutral_height(species,stage)
+	var lying=sample.get("action","") in ["sleep","rest","sniff"] and used.size.y<neutral*.83
+	if lying:
+		origin.x-=used.size.x*.16
+		origin.y-=used.size.y*.12
+		fit.origin=origin
+	if fitting_material:
+		fitting_material.set_shader_parameter("body_texture",view.sprite.texture)
+		fitting_material.set_shader_parameter("fit_origin",origin)
+		fitting_material.set_shader_parameter("fit_scale",scale)
+		fitting_material.set_shader_parameter("garment_size",garment.get_size())
+		fitting_material.set_shader_parameter("lying",lying)
+		var mouth: Vector2=sample.get("mouth",Vector2(128,140))
+		fitting_material.set_shader_parameter("head_boundary",used.position.x+used.size.x*.57 if lying else mouth.y+used.size.y*.09)
 	draw_set_transform_matrix(view.sprite.transform*fit)
 	draw_texture(garment,Vector2.ZERO)

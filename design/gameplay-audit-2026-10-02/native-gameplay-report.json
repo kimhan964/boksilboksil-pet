@@ -1,0 +1,7045 @@
+{
+	"cases": [
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-idle.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-walk.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-pet.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-eat.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-drink.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-sleep.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-carry.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-jump.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-look.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-sniff.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-wave.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-groom.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-stretch.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-rub.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-toy.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-rest.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-surprised.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-happy.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-angry.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-sleepy.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-drop.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-baby-dizzy.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 8
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-idle.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-walk.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-pet.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-eat.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-drink.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-sleep.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-carry.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-jump.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-look.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-sniff.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-wave.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-groom.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-stretch.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-rub.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-toy.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-rest.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-surprised.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-happy.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-angry.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-sleepy.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-drop.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/00-adult-dizzy.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-idle.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-walk.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-pet.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-eat.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-drink.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-sleep.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-carry.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-jump.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-look.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-sniff.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-wave.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-groom.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-stretch.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-rub.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-toy.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-rest.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-surprised.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-happy.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-angry.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-sleepy.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-drop.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-baby-dizzy.png",
+			"species": "otter",
+			"stage": 0,
+			"window_id": 11
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-idle.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-walk.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-pet.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-eat.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-drink.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-sleep.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-carry.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-jump.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-look.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-sniff.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-wave.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-groom.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-stretch.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-rub.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-toy.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-rest.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-surprised.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-happy.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-angry.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-sleepy.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-drop.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/01-adult-dizzy.png",
+			"species": "otter",
+			"stage": 2,
+			"window_id": 12
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-idle.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-walk.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-pet.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-eat.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-drink.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-sleep.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-carry.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-jump.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-look.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-sniff.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-wave.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-groom.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-stretch.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-rub.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-toy.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-rest.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-surprised.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-happy.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-angry.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-sleepy.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-drop.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-baby-dizzy.png",
+			"species": "squirrel",
+			"stage": 0,
+			"window_id": 13
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-idle.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-walk.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-pet.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-eat.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-drink.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-sleep.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-carry.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-jump.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-look.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-sniff.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-wave.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-groom.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-stretch.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-rub.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-toy.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-rest.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-surprised.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-happy.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-angry.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-sleepy.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-drop.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/02-adult-dizzy.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 14
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-idle.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-walk.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-pet.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-eat.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-drink.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-sleep.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-carry.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-jump.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-look.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-sniff.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-wave.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-groom.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-stretch.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-rub.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-toy.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-rest.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-surprised.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-happy.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-angry.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-sleepy.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-drop.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-baby-dizzy.png",
+			"species": "hedgehog",
+			"stage": 0,
+			"window_id": 15
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-idle.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-walk.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-pet.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-eat.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-drink.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-sleep.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-carry.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-jump.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-look.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-sniff.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-wave.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-groom.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-stretch.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-rub.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-toy.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-rest.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-surprised.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-happy.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-angry.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-sleepy.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-drop.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/03-adult-dizzy.png",
+			"species": "hedgehog",
+			"stage": 2,
+			"window_id": 16
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-idle.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-walk.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-pet.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-eat.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-drink.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-sleep.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-carry.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-jump.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-look.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-sniff.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-wave.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-groom.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-stretch.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-rub.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-toy.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-rest.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-surprised.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-happy.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-angry.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-sleepy.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-drop.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-baby-dizzy.png",
+			"species": "raccoon",
+			"stage": 0,
+			"window_id": 17
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-idle.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-walk.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-pet.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-eat.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-drink.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-sleep.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-carry.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-jump.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-look.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-sniff.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-wave.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-groom.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-stretch.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-rub.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-toy.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-rest.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-surprised.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-happy.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-angry.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-sleepy.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-drop.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/04-adult-dizzy.png",
+			"species": "raccoon",
+			"stage": 2,
+			"window_id": 18
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-idle.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-walk.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-pet.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-eat.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-drink.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-sleep.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-carry.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-jump.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-look.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-sniff.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-wave.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-groom.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-stretch.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-rub.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-toy.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-rest.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-surprised.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-happy.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-angry.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-sleepy.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-drop.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-baby-dizzy.png",
+			"species": "fox",
+			"stage": 0,
+			"window_id": 19
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-idle.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-walk.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-pet.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-eat.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-drink.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-sleep.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-carry.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-jump.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-look.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-sniff.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-wave.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-groom.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-stretch.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-rub.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-toy.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-rest.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-surprised.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-happy.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-angry.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-sleepy.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-drop.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/05-adult-dizzy.png",
+			"species": "fox",
+			"stage": 2,
+			"window_id": 20
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-idle.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-walk.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-pet.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-eat.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-drink.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-sleep.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-carry.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-jump.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-look.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-sniff.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-wave.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-groom.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-stretch.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-rub.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-toy.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-rest.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-surprised.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-happy.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-angry.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-sleepy.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-drop.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-baby-dizzy.png",
+			"species": "bear",
+			"stage": 0,
+			"window_id": 21
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-idle.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-walk.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-pet.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-eat.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-drink.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-sleep.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-carry.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-jump.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-look.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-sniff.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-wave.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-groom.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-stretch.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-rub.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-toy.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-rest.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-surprised.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-happy.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-angry.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-sleepy.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-drop.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/06-adult-dizzy.png",
+			"species": "bear",
+			"stage": 2,
+			"window_id": 22
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-idle.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-walk.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-pet.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-eat.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-drink.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-sleep.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-carry.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-jump.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-look.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-sniff.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-wave.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-groom.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-stretch.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-rub.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-toy.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-rest.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-surprised.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-happy.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-angry.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-sleepy.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-drop.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-baby-dizzy.png",
+			"species": "owl",
+			"stage": 0,
+			"window_id": 23
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-idle.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-walk.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-pet.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-eat.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-drink.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-sleep.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-carry.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-jump.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-look.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-sniff.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-wave.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-groom.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-stretch.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-rub.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-toy.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-rest.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-surprised.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-happy.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-angry.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-sleepy.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-drop.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/07-adult-dizzy.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 24
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-idle.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-walk.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-pet.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-eat.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-drink.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-sleep.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-carry.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-jump.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-look.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-sniff.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-wave.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-groom.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-stretch.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-rub.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-toy.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-rest.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-surprised.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-happy.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-angry.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-sleepy.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-drop.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-baby-dizzy.png",
+			"species": "cat",
+			"stage": 0,
+			"window_id": 25
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-idle.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-walk.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-pet.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-eat.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-drink.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-sleep.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-carry.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-jump.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-look.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-sniff.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-wave.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-groom.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-stretch.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-rub.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-toy.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-rest.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-surprised.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-happy.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-angry.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-sleepy.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-drop.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/08-adult-dizzy.png",
+			"species": "cat",
+			"stage": 2,
+			"window_id": 26
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-idle.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-walk.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-pet.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-eat.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-drink.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-sleep.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-carry.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-jump.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-look.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-sniff.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-wave.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-groom.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-stretch.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-rub.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-toy.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-rest.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-surprised.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-happy.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-angry.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-sleepy.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-drop.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-baby-dizzy.png",
+			"species": "puppy",
+			"stage": 0,
+			"window_id": 27
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-idle.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-walk.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-pet.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-eat.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-drink.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-sleep.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-carry.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-jump.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-look.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-sniff.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-wave.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-groom.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-stretch.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-rub.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-toy.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-rest.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-surprised.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-happy.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-angry.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-sleepy.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-drop.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/09-adult-dizzy.png",
+			"species": "puppy",
+			"stage": 2,
+			"window_id": 28
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-idle.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-walk.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-pet.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-eat.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-drink.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-sleep.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-carry.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-jump.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-look.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-sniff.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-wave.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-groom.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-stretch.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-rub.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-toy.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-rest.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-surprised.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-happy.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-angry.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-sleepy.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-drop.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-baby-dizzy.png",
+			"species": "hamster",
+			"stage": 0,
+			"window_id": 29
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-idle.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-walk.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-pet.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-eat.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-drink.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-sleep.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-carry.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-jump.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-look.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-sniff.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-wave.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-groom.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-stretch.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-rub.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-toy.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-rest.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-surprised.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-happy.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-angry.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-sleepy.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-drop.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/10-adult-dizzy.png",
+			"species": "hamster",
+			"stage": 2,
+			"window_id": 30
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-idle.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-walk.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-pet.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-eat.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-drink.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-sleep.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-carry.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-jump.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-look.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-sniff.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-wave.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-groom.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-stretch.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-rub.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-toy.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-rest.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-surprised.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-happy.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-angry.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-sleepy.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-drop.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-baby-dizzy.png",
+			"species": "panda",
+			"stage": 0,
+			"window_id": 31
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-idle.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-walk.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-pet.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-eat.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-drink.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-sleep.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-carry.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-jump.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-look.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-sniff.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-wave.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-groom.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-stretch.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-rub.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-toy.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-rest.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-surprised.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-happy.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-angry.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-sleepy.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-drop.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/11-adult-dizzy.png",
+			"species": "panda",
+			"stage": 2,
+			"window_id": 32
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-idle.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-walk.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-pet.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-eat.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-drink.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-sleep.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-carry.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-jump.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-look.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-sniff.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-wave.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-groom.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-stretch.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-rub.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-toy.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-rest.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-surprised.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-happy.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-angry.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-sleepy.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-drop.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-baby-dizzy.png",
+			"species": "red_panda",
+			"stage": 0,
+			"window_id": 33
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-idle.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-walk.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-pet.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-eat.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-drink.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-sleep.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-carry.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-jump.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-look.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-sniff.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-wave.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-groom.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-stretch.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-rub.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-toy.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-rest.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-surprised.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-happy.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-angry.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-sleepy.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-drop.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/12-adult-dizzy.png",
+			"species": "red_panda",
+			"stage": 2,
+			"window_id": 34
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-idle.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-walk.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-pet.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-eat.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-drink.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-sleep.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-carry.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-jump.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-look.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-sniff.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-wave.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-groom.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-stretch.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-rub.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-toy.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-rest.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-surprised.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-happy.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-angry.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-sleepy.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-drop.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-baby-dizzy.png",
+			"species": "lamb",
+			"stage": 0,
+			"window_id": 35
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-idle.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-walk.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-pet.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-eat.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-drink.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-sleep.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-carry.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-jump.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-look.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-sniff.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-wave.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-groom.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-stretch.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-rub.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-toy.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-rest.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-surprised.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-happy.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-angry.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-sleepy.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-drop.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/13-adult-dizzy.png",
+			"species": "lamb",
+			"stage": 2,
+			"window_id": 36
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-idle.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-walk.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-pet.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-eat.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-drink.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-sleep.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-carry.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-jump.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-look.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-sniff.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-wave.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-groom.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-stretch.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-rub.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-toy.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-rest.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-surprised.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-happy.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-angry.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-sleepy.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-drop.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-baby-dizzy.png",
+			"species": "koala",
+			"stage": 0,
+			"window_id": 37
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-idle.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-walk.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-pet.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-eat.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-drink.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-sleep.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-carry.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-jump.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-look.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-sniff.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-wave.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-groom.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-stretch.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-rub.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-toy.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-rest.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-surprised.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-happy.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-angry.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-sleepy.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-drop.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/14-adult-dizzy.png",
+			"species": "koala",
+			"stage": 2,
+			"window_id": 38
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-idle.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-walk.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-pet.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-eat.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-drink.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-sleep.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-carry.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-jump.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-look.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-sniff.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-wave.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-groom.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-stretch.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-rub.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-toy.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-rest.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-surprised.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-happy.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-angry.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-sleepy.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-drop.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-baby-dizzy.png",
+			"species": "penguin",
+			"stage": 0,
+			"window_id": 39
+		},
+		{
+			"action": "idle",
+			"actual_art": "idle",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-idle.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "walk",
+			"actual_art": "walk",
+			"actual_phase": "wander",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-walk.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "pet",
+			"actual_art": "pet",
+			"actual_phase": "pet",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-pet.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "eat",
+			"actual_art": "eat",
+			"actual_phase": "eat",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-eat.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "drink",
+			"actual_art": "sniff",
+			"actual_phase": "drink",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-drink.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-sleep.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "carry",
+			"actual_art": "carry",
+			"actual_phase": "idle",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-carry.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "jump",
+			"actual_art": "jump",
+			"actual_phase": "playful",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-jump.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "look",
+			"actual_art": "look",
+			"actual_phase": "look",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-look.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "sniff",
+			"actual_art": "sniff",
+			"actual_phase": "sniff",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-sniff.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "wave",
+			"actual_art": "wave",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-wave.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "groom",
+			"actual_art": "groom",
+			"actual_phase": "groom",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-groom.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "stretch",
+			"actual_art": "stretch",
+			"actual_phase": "stretch",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-stretch.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "rub",
+			"actual_art": "rub",
+			"actual_phase": "rub",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-rub.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "toy",
+			"actual_art": "toy",
+			"actual_phase": "prop_use",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-toy.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-rest.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "surprised",
+			"actual_art": "rest",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-surprised.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "happy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-happy.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "angry",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-angry.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "sleepy",
+			"actual_art": "pet",
+			"actual_phase": "react",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-sleepy.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "drop",
+			"actual_art": "land",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-drop.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		},
+		{
+			"action": "dizzy",
+			"actual_art": "idle",
+			"actual_phase": "dizzy",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/15-adult-dizzy.png",
+			"species": "penguin",
+			"stage": 2,
+			"window_id": 40
+		}
+	],
+	"native_windows": true
+}

@@ -203,6 +203,10 @@ var landing_left=0.0
 var dizzy_followup="idle"
 const DIZZY_DURATION=4.8
 const DIZZY_LANDING=0.45
+const DROP_HOLD_SECONDS=3.0
+
+func should_drop_on_release() -> bool:
+	return carry_elapsed>=DROP_HOLD_SECONDS
 var drop_start=Vector2.ZERO
 var drop_ground=Vector2.ZERO
 var drop_duration=0.0

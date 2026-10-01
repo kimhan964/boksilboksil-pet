@@ -215,14 +215,14 @@ func begin_pointer(screen_point: Vector2) -> void:
 	motion.held=true
 	dragging=false
 	gesture.reset()
-	view.dizzy_effects.burst("sparkle",(screen_point-Vector2(position)).clamp(Vector2(12,12),Vector2(244,210)),4)
+	if view: view.dizzy_effects.burst("sparkle",(screen_point-Vector2(position)).clamp(Vector2(12,12),Vector2(244,210)),4)
 	press_screen=screen_point
 	press_feet=motion.feet
 
 func move_pointer(screen_point: Vector2, delta: float=1.0/60.0) -> void:
 	var displacement=screen_point-press_screen
 	var kind=gesture.sample(displacement,delta)
-	if kind=="stroke" and gesture.stroke_distance>=14:
+	if kind=="stroke" and gesture.stroke_distance>=14 and view:
 		gesture.stroke_distance=0
 		view.dizzy_effects.burst("heart",(screen_point-Vector2(position)).clamp(Vector2(16,20),Vector2(240,200)),2)
 		motion.joy_left=.8
@@ -251,10 +251,14 @@ func release_pointer() -> void:
 		motion.pet()
 		view.dizzy_effects.burst("heart",view.dizzy_effects.orbit_layout().center+Vector2(0,18),6)
 	else:
+		var falling=motion.should_drop_on_release()
 		motion.carried=false
 		motion.rest_left=4
 		dropped_on_desktop.emit(motion.feet)
-		motion.begin_drop()
+		if falling: motion.begin_drop()
+		else:
+			motion.landing_left=0.0
+			if view: view.dizzy_effects.burst("sparkle",View.FEET-Vector2(0,12),3)
 	dragging=false
 
 func open_menu() -> void:
@@ -282,6 +286,7 @@ func menu_action(id: int) -> void:
 		state.outfits[str(species)]=motion.outfit_style
 		state.save_game()
 		refresh_unlock_menu()
+		view.prewarm_current_art()
 		view.refresh()
 		return
 	if id>=320 and id<320+Outfits.COLOR_NAMES.size():
@@ -289,6 +294,7 @@ func menu_action(id: int) -> void:
 		state.outfit_colors[str(species)]=motion.outfit_color
 		state.save_game()
 		refresh_unlock_menu()
+		view.prewarm_current_art()
 		view.refresh()
 		return
 	if not state.can_action(species,id): return

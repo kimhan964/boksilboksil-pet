@@ -236,4 +236,5 @@ async function buildSpecies(id){
 }
 
 async function main(){fs.mkdirSync(output,{recursive:true});for(const id of species)await buildSpecies(id);console.log('ALL_SPECIES_BUILT '+species.length)}
-main().catch(error=>{console.error(error);process.exit(1)});
+module.exports={components,inspect,palette,paletteTransfer,renderFrame,safeFactor,readMaster};
+if(require.main===module) main().catch(error=>{console.error(error);process.exit(1)});

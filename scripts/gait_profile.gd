@@ -7,4 +7,4 @@ static func pose(species: int, phase: float, strength: float) -> Vector3:
 	var step=phase*TAU
 	# Compress during weight transfer; rise between foot contacts.
 	return Vector3(-LIFT[species]*(1.0-cos(step*2.0))*.5,
-		SWAY[species]*sin(step),-.009*cos(step*2.0))*strength
+		SWAY[species]*sin(step),0.0)*strength

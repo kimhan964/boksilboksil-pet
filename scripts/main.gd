@@ -31,6 +31,7 @@ var gift_notice: Window
 var falling_gifts: Dictionary={}
 var pending_gift_visits: Array[String]=[]
 var layers_dirty=true
+var previous_layer_stack: Array=[]
 
 func request_layer_order() -> void:
 	layers_dirty=true
@@ -46,9 +47,15 @@ func restore_layer_order() -> void:
 	# Defer native style changes until dragging ends; they can erase the
 	# transparent OpenGL surface while Windows is moving it.
 	if pet.motion.held or pet.motion.prop_dragging or pet.dragging or objects_are_dragging(): return
+	if pet.motion.travel_speed>.01 or pet.motion.phase in ["drop","dizzy"]: return
 	if pet.menu.visible or (is_instance_valid(info) and info.visible): return
 	if DisplayServer.get_name()=="headless": return
 	layers_dirty=false
+	var stack: Array=[]
+	for window in props.values()+[pet,pet.ball_window,held_food,gift_notice]:
+		if is_instance_valid(window) and window.visible: stack.append(window.get_instance_id())
+	if stack==previous_layer_stack: return
+	previous_layer_stack=stack
 	# Reapply the borderless style: unlike the TOPMOST-only setter, this also
 	# restores native visibility with SW_SHOWNOACTIVATE after the style update.
 	# Order from back to front: props (unchanged), animal, ball, held food, notice.
@@ -177,6 +184,7 @@ func choose_friend(species: int) -> void:
 		pet.hide()
 		pet.queue_free()
 	state.selected=species
+	preload("res://scripts/generated_species_art.gd").release_other_species(species)
 	pet=Pet.new()
 	pet.species=species
 	pet.state=state
@@ -727,6 +735,7 @@ func apply_growth() -> void:
 	if not is_instance_valid(pet): return
 	pet.motion.growth_scale=state.growth_scale(state.selected)
 	pet.motion.growth_stage=state.growth_stage(state.selected)
+	pet.view.prewarm_current_art()
 	pet.title=Catalog.NAMES[state.selected]+" · "+State.GROWTH_NAMES[state.growth_stage(state.selected)]+" · 바탕화면 친구"
 	for prop in props.values():
 		prop.growth_scale=pet.motion.growth_scale

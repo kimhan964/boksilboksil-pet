@@ -40,9 +40,11 @@ func run() -> void:
 			motion.outfit_style=1
 			motion.outfit_color=0
 			sample=Art.sample(motion)
-			assert(sample.index==8)
 			if Art.dressed_frames(species,stage,1,"walk").size()==16:
+				assert(sample.index==8)
 				assert(sample.get("dressed",false))
+			else:
+				assert(sample.index==16 and sample.texture==images[16])
 	for species in range(Catalog.IDS.size()):
 		for fps in [30,60,144]:
 			var motion=Motion.new()

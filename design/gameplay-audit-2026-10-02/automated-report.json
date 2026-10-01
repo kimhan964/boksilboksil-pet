@@ -1,0 +1,198 @@
+{
+	"failures": [],
+	"poses": 71168,
+	"species": [
+		{
+			"species": "rabbit",
+			"stage": "baby",
+			"standing_height": 102.299996078014,
+			"walk_height_variation": 0.000000136921725513162
+		},
+		{
+			"species": "rabbit",
+			"stage": "adult",
+			"standing_height": 111.100006103516,
+			"walk_height_variation": 0.000000142707799577479
+		},
+		{
+			"species": "otter",
+			"stage": "baby",
+			"standing_height": 65.1429921090603,
+			"walk_height_variation": 0.000000115745183215665
+		},
+		{
+			"species": "otter",
+			"stage": "adult",
+			"standing_height": 70.7537721395493,
+			"walk_height_variation": 0.000000128890814465876
+		},
+		{
+			"species": "squirrel",
+			"stage": "baby",
+			"standing_height": 70.5870019197464,
+			"walk_height_variation": 0.000000146928025079873
+		},
+		{
+			"species": "squirrel",
+			"stage": "adult",
+			"standing_height": 76.7386749982834,
+			"walk_height_variation": 0.0000000862161870784917
+		},
+		{
+			"species": "hedgehog",
+			"stage": "baby",
+			"standing_height": 49.3507537543774,
+			"walk_height_variation": 0.000000190224700435948
+		},
+		{
+			"species": "hedgehog",
+			"stage": "adult",
+			"standing_height": 53.3360446691513,
+			"walk_height_variation": 0.000000168188335036845
+		},
+		{
+			"species": "raccoon",
+			"stage": "baby",
+			"standing_height": 78.5254776477814,
+			"walk_height_variation": 0.0000000588262574208187
+		},
+		{
+			"species": "raccoon",
+			"stage": "adult",
+			"standing_height": 83.0902433395386,
+			"walk_height_variation": 0.000000111188994011968
+		},
+		{
+			"species": "fox",
+			"stage": "baby",
+			"standing_height": 96.0951772034168,
+			"walk_height_variation": 0.000000108856829328374
+		},
+		{
+			"species": "fox",
+			"stage": "adult",
+			"standing_height": 101.76157772541,
+			"walk_height_variation": 0.0000000820019809832928
+		},
+		{
+			"species": "bear",
+			"stage": "baby",
+			"standing_height": 106.391998767853,
+			"walk_height_variation": 0.000000154625191761681
+		},
+		{
+			"species": "bear",
+			"stage": "adult",
+			"standing_height": 113.828003406525,
+			"walk_height_variation": 0.000000119389418351545
+		},
+		{
+			"species": "owl",
+			"stage": "baby",
+			"standing_height": 65.4720008373261,
+			"walk_height_variation": 0.0000000951351073474882
+		},
+		{
+			"species": "owl",
+			"stage": "adult",
+			"standing_height": 71.1039960384369,
+			"walk_height_variation": 0.000000116100976388367
+		},
+		{
+			"species": "cat",
+			"stage": "baby",
+			"standing_height": 83.4665656089783,
+			"walk_height_variation": 0.000000060699691717403
+		},
+		{
+			"species": "cat",
+			"stage": "adult",
+			"standing_height": 90.2000026702881,
+			"walk_height_variation": 0.000000112336914215305
+		},
+		{
+			"species": "puppy",
+			"stage": "baby",
+			"standing_height": 74.6790005862713,
+			"walk_height_variation": 0.0000000838051907869897
+		},
+		{
+			"species": "puppy",
+			"stage": "adult",
+			"standing_height": 80.3000003099442,
+			"walk_height_variation": 0.00000011727938042938
+		},
+		{
+			"species": "hamster",
+			"stage": "baby",
+			"standing_height": 47.0580012798309,
+			"walk_height_variation": 0.0000000930966366219366
+		},
+		{
+			"species": "hamster",
+			"stage": "adult",
+			"standing_height": 51.3628139197826,
+			"walk_height_variation": 0.000000139255568187835
+		},
+		{
+			"species": "panda",
+			"stage": "baby",
+			"standing_height": 102.299996078014,
+			"walk_height_variation": 0.000000136921725513162
+		},
+		{
+			"species": "panda",
+			"stage": "adult",
+			"standing_height": 111.100006103516,
+			"walk_height_variation": 0.000000154510700456356
+		},
+		{
+			"species": "red_panda",
+			"stage": "baby",
+			"standing_height": 78.1682586669922,
+			"walk_height_variation": 0.000000103702349596446
+		},
+		{
+			"species": "red_panda",
+			"stage": "adult",
+			"standing_height": 84.0777181088924,
+			"walk_height_variation": 0.0000000825895538625332
+		},
+		{
+			"species": "lamb",
+			"stage": "baby",
+			"standing_height": 69.5691168308258,
+			"walk_height_variation": 0.0000000646860416342321
+		},
+		{
+			"species": "lamb",
+			"stage": "adult",
+			"standing_height": 73.7000005543232,
+			"walk_height_variation": 0.000000115650805376788
+		},
+		{
+			"species": "koala",
+			"stage": "baby",
+			"standing_height": 74.4192758798599,
+			"walk_height_variation": 0.000000115333957495523
+		},
+		{
+			"species": "koala",
+			"stage": "adult",
+			"standing_height": 80.3939685821533,
+			"walk_height_variation": 0.000000103055562084009
+		},
+		{
+			"species": "penguin",
+			"stage": "baby",
+			"standing_height": 68.5358586907387,
+			"walk_height_variation": 0.000000109145534388233
+		},
+		{
+			"species": "penguin",
+			"stage": "adult",
+			"standing_height": 73.3259975910187,
+			"walk_height_variation": 0.000000167045185905934
+		}
+	]
+}

@@ -12,7 +12,7 @@ var detail: Label
 var portrait: TextureRect
 var tabs: Array=[]
 var friend_button: Button
-const SECTIONS=[[0,23,24,1,29,30,22,4,16,20],[2,15,11,12,13,21],[5,31,6,7,8],[26,25,18,14,9,19,10,900]]
+const SECTIONS=[[0,23,24,1,29,30,22,4,16,20],[2,15,11,12,13,21],[27,28,5,31,6,7,8],[26,25,18,14,9,19,10,900]]
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
 func add_check_item(text: String,id: int) -> void:

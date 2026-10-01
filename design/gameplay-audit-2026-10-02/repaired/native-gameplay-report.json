@@ -1,0 +1,45 @@
+{
+	"cases": [
+		{
+			"action": "sleep",
+			"actual_art": "sleep",
+			"actual_phase": "doze",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/repaired/07-adult-sleep.png",
+			"species": "owl",
+			"stage": 2,
+			"window_id": 8
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/repaired/00-baby-rest.png",
+			"species": "rabbit",
+			"stage": 0,
+			"window_id": 9
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/repaired/00-adult-rest.png",
+			"species": "rabbit",
+			"stage": 2,
+			"window_id": 10
+		},
+		{
+			"action": "rest",
+			"actual_art": "rest",
+			"actual_phase": "relax",
+			"error": 0,
+			"image": "res://design/gameplay-audit-2026-10-02/repaired/02-adult-rest.png",
+			"species": "squirrel",
+			"stage": 2,
+			"window_id": 11
+		}
+	],
+	"native_windows": true
+}

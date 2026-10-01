@@ -9,6 +9,7 @@ const GeneratedArt=preload("res://scripts/generated_species_art.gd")
 const EmotionArt=preload("res://scripts/emotion_art.gd")
 const DizzyArt=preload("res://scripts/dizzy_art.gd")
 const WalkArt=preload("res://scripts/walk_art.gd")
+const Presentation=preload("res://scripts/character_presentation.gd")
 var generated_sample: Dictionary={}
 var generated_last_action=""
 var generated_transition=""
@@ -52,6 +53,7 @@ var window_subpixel=Vector2.ZERO
 var voice_font: SystemFont
 var outfit_layer
 var dizzy_effects
+var warmed_art=""
 
 func _ready() -> void:
 	voice_font=SystemFont.new()
@@ -71,15 +73,42 @@ func _ready() -> void:
 	dizzy_effects.view=self
 	dizzy_effects.z_index=20
 	add_child(dizzy_effects)
+	prewarm_current_art()
+	return
+
+func prewarm_current_art() -> void:
+	if ball_only: return
+	var key="%d/%s/%d/%d"%[motion.species,GeneratedArt.stage_name(motion),motion.outfit_style,motion.outfit_color]
+	if warmed_art==key: return
+	warmed_art=key
 	# Build textures and click outlines before the pet appears, not on its first
 	# step. The first pass through a new walk strip otherwise looks like lag.
 	var stage=GeneratedArt.stage_name(motion)
 	var base_walk=GeneratedArt.frames(motion.species,stage,"walk")
 	var walk=WalkArt.frames(motion.species,stage)
 	if motion.outfit_style>0 and motion.outfit_color==0:
-		walk=GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,"walk")
+		var dressed_walk=GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,"walk")
+		if not dressed_walk.is_empty(): walk=dressed_walk
 	if walk.is_empty(): walk=base_walk
+	if motion.outfit_style>0:
+		outfit_layer.outfit_texture(motion.species,stage,motion.outfit_style,motion.outfit_color)
 	for cel in walk: preload("res://scripts/animation_outline.gd").local_hull(cel)
+	# Decode all of this pet's actions before showing its native window. Loading
+	# a new strip on the first gesture otherwise stalls the rendered surface.
+	for action in GeneratedArt.data(motion.species).stages[stage].sequences:
+		for cel in GeneratedArt.frames(motion.species,stage,action):
+			Metrics.used_rect(cel)
+			preload("res://scripts/animation_outline.gd").local_hull(cel)
+		if motion.outfit_style>0 and motion.outfit_color==0:
+			for cel in GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,action):
+				Metrics.used_rect(cel)
+				preload("res://scripts/animation_outline.gd").local_hull(cel)
+	for kind in EmotionArt.KINDS:
+		var cel=EmotionArt.texture(motion.species,stage,kind)
+		if cel: preload("res://scripts/animation_outline.gd").local_hull(cel)
+	for index in range(4):
+		var cel=DizzyArt.texture(motion.species,stage,index)
+		if cel: preload("res://scripts/animation_outline.gd").local_hull(cel)
 	return
 	resource=BaseArt.resource(motion.species)
 	baby_frames=Baby.frames(motion.species)
@@ -260,8 +289,10 @@ func show_generated_species() -> void:
 	sprite.texture=generated_sample.texture
 	sprite.rotation=0
 	var factor=Art.DISPLAY_HEIGHT*Art.HEIGHTS[motion.species]/generated_sample.height*motion.growth_scale
-	sprite.scale=Vector2(factor*motion.facing,factor)
-	sprite.position=FEET-GeneratedArt.ROOT*sprite.scale
+	var expression=motion.phase=="dizzy" or (motion.phase=="react" and motion.reaction in EmotionArt.KINDS) or (motion.held and not motion.carried and motion.joy_left>0)
+	var pose=Presentation.pose(motion.species,generated_sample,expression)
+	sprite.scale=Vector2(factor*motion.facing,factor)*pose.scale
+	sprite.position=FEET-pose.anchor*sprite.scale
 	sprite.material.set_shader_parameter("next_frame",generated_sample.get("next_texture",sprite.texture))
 	sprite.material.set_shader_parameter("frame_mix",float(generated_sample.get("frame_mix",0.0)))
 	sprite.material.set_shader_parameter("fur_match",false)
