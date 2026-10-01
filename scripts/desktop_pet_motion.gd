@@ -200,6 +200,9 @@ var held=false
 var carried=false
 var carry_elapsed=0.0
 var landing_left=0.0
+var dizzy_followup="idle"
+const DIZZY_DURATION=2.7
+const DIZZY_LANDING=0.38
 var ball_visible=false
 var ball_velocity=Vector2.ZERO
 var ball_height=0.0
@@ -225,7 +228,7 @@ func pet() -> void:
 	speak()
 	ask_left=55
 	cancel_play()
-	react("pet",3.6 if affection>=18 else 2.6)
+	react("happy",3.2 if affection>=18 else 2.4)
 	joy_left=1.8
 	cooldown=2.2
 	bonded.emit()
@@ -244,6 +247,7 @@ func cancel_play() -> void:
 	reaction_followup="idle"
 	carried=false
 	landing_left=0
+	dizzy_followup="idle"
 	ball_visible=false
 	visit_id=""
 	visit_reward=false
@@ -256,6 +260,16 @@ func move_to(point: Vector2) -> void:
 	cancel_play()
 	feet=point.clamp(bounds.position,bounds.end)
 	target=feet
+
+func begin_dizzy() -> void:
+	# Preserve a prop visit started by the drop; resume it after recovery.
+	dizzy_followup=phase if phase in ["visit","react"] else "idle"
+	carried=false
+	held=false
+	landing_left=DIZZY_LANDING
+	phase="dizzy"
+	elapsed=0.0
+	rest_left=4.0
 
 func prepare_ball() -> void:
 	cancel_play()
@@ -417,7 +431,7 @@ func choose_autonomous_action() -> void:
 		phase=chosen.action
 		elapsed=0
 		action_left=rng.randf_range(6,10) if phase=="doze" else rng.randf_range(1.4,2.8)
-		if phase=="doze": react("nest",2.4,"doze")
+		if phase=="doze": react("sleepy",2.4,"doze")
 
 func react(kind: String, duration: float=2.0, followup: String="idle") -> void:
 	ball_visible=false
@@ -527,11 +541,9 @@ func advance_travel(delta: float, multiplier: float=1.0) -> void:
 	var acceleration=maximum/0.24
 	var desired=minf(maximum,sqrt(2.0*acceleration*distance))
 	travel_speed=move_toward(travel_speed,desired,acceleration*delta)
-	# Ease forward between foot contacts and slow slightly while a paw bears
-	# weight. The average remains one, so travel speed and animation cadence stay
-	# synchronized without the constant-speed skating look.
-	var contact_speed=.82+.18*(1.0-cos(walk_phase*TAU*2.0))
-	var step=minf(distance,travel_speed*delta*contact_speed)
+	# The sprite contains the weight transfer. Keep desktop travel smooth and
+	# advance the gait by actual distance, including starts and stops.
+	var step=minf(distance,travel_speed*delta)
 	feet+=direction*step
 	# Feet cadence follows actual travel, including acceleration and slowing down.
 	var period=preload("res://scripts/gait_profile.gd").PERIOD[species]
@@ -555,6 +567,14 @@ func advance(delta: float) -> void:
 	hydration=maxf(0,hydration-delta*.1)
 	energy=maxf(0,energy-delta*(.2 if phase in ["wander","chase","return","visit"] else .025))
 	if held: return
+	if phase=="dizzy":
+		if elapsed>=DIZZY_DURATION:
+			phase=dizzy_followup
+			dizzy_followup="idle"
+			landing_left=0.0
+			elapsed=0.0
+			if phase=="react": reaction_time=0.0
+		return
 	if not social_kind.is_empty():
 		advance_social(delta)
 		return
@@ -609,10 +629,10 @@ func advance(delta: float) -> void:
 				action_left=rng.randf_range(7,12) if phase=="doze" else (rng.randf_range(3,5) if phase=="relax" else (5.5 if phase in ["eat","drink"] else 4.0))
 				elapsed=0
 				if phase=="prop_use":
-					action_left=14.0 if species==9 and visit_id=="plant" else 8.0
+					action_left=4.5 if visit_id=="acorn" else (14.0 if species==9 and visit_id=="plant" else 8.0)
 					facing=1.0
 				visited.emit(visit_id)
-				if phase=="doze": react("nest",2.4,"doze")
+				if phase=="doze": react("sleepy",2.4,"doze")
 				elif phase in ["askplay","inspect","pet"]:
 					react(phase,2.2,"interaction_done" if visit_reward else "idle")
 			elif phase=="chase":

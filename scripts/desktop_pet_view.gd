@@ -6,6 +6,9 @@ const Baby=preload("res://scripts/baby_art.gd")
 const BabyMeal=preload("res://scripts/baby_meal.gd")
 const BabyWalk=preload("res://scripts/baby_walk.gd")
 const GeneratedArt=preload("res://scripts/generated_species_art.gd")
+const EmotionArt=preload("res://scripts/emotion_art.gd")
+const DizzyArt=preload("res://scripts/dizzy_art.gd")
+const WalkArt=preload("res://scripts/walk_art.gd")
 var generated_sample: Dictionary={}
 var generated_last_action=""
 var generated_transition=""
@@ -63,6 +66,14 @@ func _ready() -> void:
 	outfit_layer=preload("res://scripts/outfit_layer.gd").new()
 	outfit_layer.view=self
 	add_child(outfit_layer)
+	# Build textures and click outlines before the pet appears, not on its first
+	# step. The first pass through a new walk strip otherwise looks like lag.
+	var stage=GeneratedArt.stage_name(motion)
+	var walk=WalkArt.frames(motion.species,stage)
+	if motion.outfit_style>0 and motion.outfit_color==0:
+		walk=GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,"walk")
+	if walk.is_empty(): walk=GeneratedArt.frames(motion.species,stage,"walk")
+	for cel in walk: preload("res://scripts/animation_outline.gd").local_hull(cel)
 	return
 	resource=BaseArt.resource(motion.species)
 	baby_frames=Baby.frames(motion.species)
@@ -222,6 +233,19 @@ func show_generated_species() -> void:
 			generated_sample=GeneratedArt.sample_frame(motion.species,generated_sample.stage,generated_transition,transition_count-2+mini(1,int(generated_transition_time/.45*2)))
 			GeneratedArt.apply_dressed(generated_sample,motion)
 		else: generated_transition=""
+	if motion.phase=="react" and motion.reaction in EmotionArt.KINDS:
+		var emotion=EmotionArt.texture(motion.species,generated_sample.stage,motion.reaction)
+		var progress=motion.reaction_time/maxf(.01,motion.reaction_duration)
+		if emotion!=null and progress>=.07 and progress<.91:
+			generated_sample.texture=emotion
+			generated_sample.dressed=false
+	if motion.phase=="dizzy" and motion.landing_left<=0:
+		var dizzy_age=maxf(0.0,motion.elapsed-motion.DIZZY_LANDING)
+		var dizzy_index=0 if dizzy_age<.46 else (3 if dizzy_age>1.95 else (1+int((dizzy_age-.46)/.30)%2))
+		var dizzy=DizzyArt.texture(motion.species,generated_sample.stage,dizzy_index)
+		if dizzy!=null:
+			generated_sample.texture=dizzy
+			generated_sample.dressed=false
 	sprite.texture=generated_sample.texture
 	sprite.rotation=0
 	var factor=Art.DISPLAY_HEIGHT*Art.HEIGHTS[motion.species]/generated_sample.height*motion.growth_scale
@@ -258,6 +282,17 @@ func show_generated_species() -> void:
 
 func apply_generated_action_motion() -> void:
 	if generated_sample.is_empty() or motion.carried or motion.held: return
+	if motion.phase=="dizzy":
+		if motion.landing_left>0:
+			var progress=clampf(1.0-motion.landing_left/motion.DIZZY_LANDING,0.0,1.0)
+			sprite.position.y-=24.0*pow(1.0-progress,1.7)
+			sprite.rotation=sin(progress*PI)*.055*motion.facing
+		else:
+			var age=maxf(0.0,motion.elapsed-motion.DIZZY_LANDING)
+			var fade=clampf((motion.DIZZY_DURATION-motion.elapsed)/1.2,0.0,1.0)
+			sprite.rotation=sin(age*TAU*1.4)*.035*fade
+			sprite.position.x+=sin(age*TAU*1.4)*2.0*fade
+		return
 	if generated_sample.action=="jump":
 		var spec=GeneratedArt.data(motion.species).stages[generated_sample.stage].sequences.jump
 		var phase=fposmod(motion.elapsed/maxf(.01,float(spec.duration)),1.0)

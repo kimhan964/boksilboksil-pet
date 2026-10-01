@@ -6,12 +6,19 @@ static var icons: Array=[]
 static var new_icons: Array=[]
 static var species_icons: Dictionary={}
 static var pond_icon: Texture2D
+static var acorn_icon: Texture2D
 
 static func icon(kind: String, species: int=0) -> Texture2D:
+	if kind=="acorn":
+		if acorn_icon==null:
+			var image=Image.new()
+			if image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/decor/acorn-wobble-v1.png"))==OK:
+				acorn_icon=ImageTexture.create_from_image(image)
+		return acorn_icon
 	if kind=="water":
 		if pond_icon==null:
-			var image=Image.load_from_file("res://assets/decor/drinking-pond-v1.png")
-			if image!=null and not image.is_empty():
+			var image=Image.new()
+			if image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/decor/drinking-pond-v1.png"))==OK:
 				var used=image.get_used_rect()
 				if used.has_area(): image=image.get_region(used)
 				pond_icon=ImageTexture.create_from_image(image)

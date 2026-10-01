@@ -1,0 +1,198 @@
+{
+  "workflowId": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "model": "gpt-image-2.5-flare",
+  "sheets": [
+    {
+      "species": "rabbit",
+      "stage": "baby",
+      "actionNode": "c0ee0649-3d96-4e5e-a1fc-065f87b6c2b5",
+      "outputUrl": "https://3d.varco.ai/api/objects/87ffea14b7d03f247529dc9adb58413e.png"
+    },
+    {
+      "species": "rabbit",
+      "stage": "adult",
+      "actionNode": "37176644-393f-415d-9850-fabf9151d553",
+      "outputUrl": "https://3d.varco.ai/api/objects/ea40cb9c7dd643238e6a431bf0443c1f.png"
+    },
+    {
+      "species": "otter",
+      "stage": "baby",
+      "actionNode": "54b50335-8cc9-4b2a-afed-2ef873b03586",
+      "outputUrl": "https://3d.varco.ai/api/objects/c0285fbde483f998314a706b10901138.png"
+    },
+    {
+      "species": "otter",
+      "stage": "adult",
+      "actionNode": "2bc16eba-8e17-476d-88c3-00838e5fb24d",
+      "outputUrl": "https://3d.varco.ai/api/objects/62f94fd98291494b30010ab2f5de9d72.png"
+    },
+    {
+      "species": "squirrel",
+      "stage": "baby",
+      "actionNode": "d00a41ae-bfac-451f-a03a-68ca50f8cb47",
+      "outputUrl": "https://3d.varco.ai/api/objects/8ddc9f86cb47d85a3df20c2c865da802.png"
+    },
+    {
+      "species": "squirrel",
+      "stage": "adult",
+      "actionNode": "9155993a-37d8-4fd2-a543-54053f252e21",
+      "outputUrl": "https://3d.varco.ai/api/objects/ed78efe5109b7682d82aada492894625.png"
+    },
+    {
+      "species": "hedgehog",
+      "stage": "baby",
+      "actionNode": "f470f4a8-5541-4b14-bfae-0efeb735d3d0",
+      "outputUrl": "https://3d.varco.ai/api/objects/929d7714f9c1fecd8d6a1606e02159cb.png"
+    },
+    {
+      "species": "hedgehog",
+      "stage": "adult",
+      "actionNode": "e204cc27-c89d-44bb-a44f-46b1dd8b82b5",
+      "outputUrl": "https://3d.varco.ai/api/objects/813f7a46d40ad00109ae06b40ba13260.png"
+    },
+    {
+      "species": "raccoon",
+      "stage": "baby",
+      "actionNode": "5cae6b8a-3e3b-4681-b5ac-6b02b2fc89a8",
+      "outputUrl": "https://3d.varco.ai/api/objects/620500ac3d939f18af70c658c828d22f.png"
+    },
+    {
+      "species": "raccoon",
+      "stage": "adult",
+      "actionNode": "9cb43cf8-ce34-4395-b470-eef2d9bc79c8",
+      "outputUrl": "https://3d.varco.ai/api/objects/a4973adefda10f2ef1e9cd2106bb6cba.png"
+    },
+    {
+      "species": "fox",
+      "stage": "baby",
+      "actionNode": "bceff444-d725-4217-b625-575743070b09",
+      "outputUrl": "https://3d.varco.ai/api/objects/8e9cf082e94bc1110ca3008b59a04819.png"
+    },
+    {
+      "species": "fox",
+      "stage": "adult",
+      "actionNode": "3df160be-ebee-4938-82b6-1fe0a9ebc6de",
+      "outputUrl": "https://3d.varco.ai/api/objects/adf3c13144b213d1623c409223644b02.png"
+    },
+    {
+      "species": "bear",
+      "stage": "baby",
+      "actionNode": "fef6c8a1-916d-4eac-b2e1-7df65942e31b",
+      "outputUrl": "https://3d.varco.ai/api/objects/ce5e4af6b3a027cad3636ee592fc7a51.png"
+    },
+    {
+      "species": "bear",
+      "stage": "adult",
+      "actionNode": "93385ad9-a465-40cc-b2a5-d1a6b1bb641a",
+      "outputUrl": "https://3d.varco.ai/api/objects/d1c242c6601244d6107b7c5fa6698155.png"
+    },
+    {
+      "species": "owl",
+      "stage": "baby",
+      "actionNode": "a37d60ed-f1d0-4f24-9ee0-7fb44cc8f893",
+      "outputUrl": "https://3d.varco.ai/api/objects/3be05fd92ba0dadfd6359ad415d55ef4.png"
+    },
+    {
+      "species": "owl",
+      "stage": "adult",
+      "actionNode": "9b21eba1-e454-4ebf-aeb8-59c8d1697ea8",
+      "outputUrl": "https://3d.varco.ai/api/objects/588d22af8a450741410bfb4806eb22c6.png"
+    },
+    {
+      "species": "cat",
+      "stage": "baby",
+      "actionNode": "6b3f2b27-4c82-4d42-801d-44b4414ce41f",
+      "outputUrl": "https://3d.varco.ai/api/objects/6deba6bd55dcb5283cd64daf06805eba.png"
+    },
+    {
+      "species": "cat",
+      "stage": "adult",
+      "actionNode": "2b6beca8-087d-4eaf-b065-7fe6068fd81d",
+      "outputUrl": "https://3d.varco.ai/api/objects/c017d00803e883511c65fe58232b7c46.png"
+    },
+    {
+      "species": "puppy",
+      "stage": "baby",
+      "actionNode": "99f6c985-8a81-4547-8c48-6bc29a91ff1b",
+      "outputUrl": "https://3d.varco.ai/api/objects/0754b72cd1c47c0a75a602baf1d86695.png"
+    },
+    {
+      "species": "puppy",
+      "stage": "adult",
+      "actionNode": "bb154393-393d-45cf-9caf-fabb0a94400f",
+      "outputUrl": "https://3d.varco.ai/api/objects/ca0190808d01f6d899cb2a0949f67190.png"
+    },
+    {
+      "species": "hamster",
+      "stage": "baby",
+      "actionNode": "c77dc202-615f-40a4-8fd6-653441a02502",
+      "outputUrl": "https://3d.varco.ai/api/objects/564b212b2d1ac8ed1b026e9d9b78eaf6.png"
+    },
+    {
+      "species": "hamster",
+      "stage": "adult",
+      "actionNode": "87b35f8e-8d99-449b-bd99-36d1dbe7c482",
+      "outputUrl": "https://3d.varco.ai/api/objects/fc8b7d4f4892bd087f40db3d33817d10.png"
+    },
+    {
+      "species": "panda",
+      "stage": "baby",
+      "actionNode": "10c0311f-3d47-48da-83d1-41720fe4f490",
+      "outputUrl": "https://3d.varco.ai/api/objects/a24ea4db675f88dd4af3e3a54b4beb69.png"
+    },
+    {
+      "species": "panda",
+      "stage": "adult",
+      "actionNode": "3dff1ba8-6642-4965-8e14-d8200ce7a6f0",
+      "outputUrl": "https://3d.varco.ai/api/objects/dbfcecb61fcc9d60dc3227ebf6dfb3d9.png"
+    },
+    {
+      "species": "red_panda",
+      "stage": "baby",
+      "actionNode": "4c299d55-9609-4f83-9e47-4219cccf6354",
+      "outputUrl": "https://3d.varco.ai/api/objects/52cac95486ec7f749ed31298758bd53e.png"
+    },
+    {
+      "species": "red_panda",
+      "stage": "adult",
+      "actionNode": "5df92412-efb1-4572-8adb-1fa993f85b1c",
+      "outputUrl": "https://3d.varco.ai/api/objects/216dc572aea76da6396da213ac815aa7.png"
+    },
+    {
+      "species": "lamb",
+      "stage": "baby",
+      "actionNode": "352ccea2-16ce-498f-b019-bf86ff257c46",
+      "outputUrl": "https://3d.varco.ai/api/objects/b757a73698406ec639feb48d1be71117.png"
+    },
+    {
+      "species": "lamb",
+      "stage": "adult",
+      "actionNode": "610297b7-69a4-4b38-9bb8-1cab43da511b",
+      "outputUrl": "https://3d.varco.ai/api/objects/7ee12a8fe9cb0cf6a96fa91f86120065.png"
+    },
+    {
+      "species": "koala",
+      "stage": "baby",
+      "actionNode": "9ba4ad90-c59d-4685-8d1d-153f032f0914",
+      "outputUrl": "https://3d.varco.ai/api/objects/c5036b5b15ff7da1ca5bda6f7f3905b0.png"
+    },
+    {
+      "species": "koala",
+      "stage": "adult",
+      "actionNode": "9d0e6bbd-bd10-4314-8716-cf3c2cfe18d1",
+      "outputUrl": "https://3d.varco.ai/api/objects/1a1f083a9f041288289628940cfe56ba.png"
+    },
+    {
+      "species": "penguin",
+      "stage": "baby",
+      "actionNode": "06336d09-49d0-4228-99ea-520e4e4d6f91",
+      "outputUrl": "https://3d.varco.ai/api/objects/797c35037a8dec8322b893db1ed2e1a4.png"
+    },
+    {
+      "species": "penguin",
+      "stage": "adult",
+      "actionNode": "99551d29-2d6b-4703-9b66-312e40acef04",
+      "outputUrl": "https://3d.varco.ai/api/objects/a34935e870d532c2d891aa9b8bed0ce1.png"
+    }
+  ]
+}

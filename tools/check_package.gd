@@ -5,6 +5,9 @@ const Main=preload("res://scripts/main.gd")
 const Catalog=preload("res://scripts/animal_catalog.gd")
 const Food=preload("res://scripts/food_catalog.gd")
 const Decor=preload("res://scripts/decor_art.gd")
+const Emotions=preload("res://scripts/emotion_art.gd")
+const Dizzy=preload("res://scripts/dizzy_art.gd")
+const Walk=preload("res://scripts/walk_art.gd")
 const Outfits=preload("res://scripts/outfit_catalog.gd")
 const State=preload("res://scripts/pet_state.gd")
 func _ready() -> void: call_deferred("run")
@@ -14,10 +17,13 @@ func run() -> void:
 	var natural_foods=0
 	var outfit_options=0
 	var outfit_images=0
+	var emotion_images=0
+	var dizzy_images=0
+	var walk_images=0
 	var app=Main.new()
 	app.free()
-	var icon=Image.load_from_file("res://assets/icon/pet-icon.png")
-	if icon==null or icon.is_empty(): failures+=1
+	var icon=Image.new()
+	if icon.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/icon/pet-icon.png"))!=OK: failures+=1
 	for species in range(16):
 		print("PACKAGE_SPECIES=",species)
 		if Food.icon_for(species,Catalog.DEFAULT_MEALS[species])==null or Food.title_for(species,Catalog.DEFAULT_MEALS[species]).is_empty(): failures+=1
@@ -36,6 +42,17 @@ func run() -> void:
 			motion.growth_scale=State.GROWTH_SCALES[stage]
 			if stage!=1:
 				var stage_name="baby" if stage==0 else "adult"
+				for kind in Emotions.KINDS:
+					var emotion=Emotions.texture(species,stage_name,kind)
+					if emotion==null or emotion.get_size()!=Vector2(256,256): failures+=1
+					else: emotion_images+=1
+				for i in range(4):
+					var dizzy=Dizzy.texture(species,stage_name,i)
+					if dizzy==null or dizzy.get_size()!=Vector2(256,256): failures+=1
+					else: dizzy_images+=1
+				var walk=Walk.frames(species,stage_name)
+				if walk.size()!=32: failures+=1
+				else: walk_images+=walk.size()
 				for style in range(1,4):
 					for color in range(6):
 						var garment=view.outfit_layer.outfit_texture(species,stage_name,style,color)
@@ -53,5 +70,6 @@ func run() -> void:
 				if view.sprite.texture==null: failures+=1
 		view.free()
 	if Decor.icon("water")==null: failures+=1
-	print("PACKAGE_POSES=",poses," NATURAL_FOODS=",natural_foods," OUTFITS=",outfit_options," OUTFIT_IMAGES=",outfit_images," FAILURES=",failures)
+	if Decor.icon("acorn")==null or not State.PROPS.has("acorn"): failures+=1
+	print("PACKAGE_POSES=",poses," NATURAL_FOODS=",natural_foods," OUTFITS=",outfit_options," OUTFIT_IMAGES=",outfit_images," EMOTION_IMAGES=",emotion_images," DIZZY_IMAGES=",dizzy_images," WALK_IMAGES=",walk_images," FAILURES=",failures)
 	get_tree().quit(0 if failures==0 else 1)

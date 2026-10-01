@@ -34,7 +34,7 @@ func food_progress(species: int) -> String:
 const GROWTH_NAMES=["새끼","중간","성체"]
 const GROWTH_SCALES=[.93,.98,1.0]
 const GROWTH_LIMITS=[0,12,36]
-const CARE_ACTIONS=["pet","ball","hand_feed","snack","cuddle","doze","relax","playful","personality","bowl","water","plant","lamp"]
+const CARE_ACTIONS=["pet","ball","hand_feed","snack","cuddle","doze","relax","playful","personality","bowl","water","plant","lamp","acorn"]
 var growth: Dictionary={}
 var guide_seen=false
 var activity_counts: Dictionary={}
@@ -71,10 +71,10 @@ func add_growth(species: int, amount: int) -> void:
 	var before=growth_stage(species)
 	growth[str(species)]=clampi(int(growth.get(str(species),0))+amount,0,9999)
 	if growth_stage(species)!=before: growth_changed.emit(species,growth_stage(species))
-const UNLOCKS={"bowl":3,"water":6,"playful":8,"follow":10,"basket":12,"snack":16,"rub":18,"cushion":20,"cuddle":24,"plant":30,"personality":36,"lamp":42,"shelter":50}
-const ACTION_UNLOCKS={1:"basket",4:"snack",5:"bowl",6:"bowl",7:"bowl",8:"bowl",11:"cushion",12:"shelter",13:"cuddle",15:"bowl",16:"personality",20:"plant",21:"lamp",22:"playful",23:"follow",24:"rub"}
-const REWARD_UNLOCKS={"follow":"follow","rub":"rub","ball":"basket","hand_feed":"bowl","snack":"snack","cuddle":"cuddle","doze":"cushion","relax":"shelter","playful":"playful","personality":"personality","decorate":"bowl","bowl":"bowl","water":"water","basket":"basket","plant":"plant","lamp":"lamp","shelter":"shelter"}
-const REWARDS={"follow":1,"rub":1,"pet":1,"ball":2,"hand_feed":2,"snack":2,"cuddle":2,"doze":1,"relax":1,"playful":1,"personality":1,"decorate":1,"bowl":1,"water":1,"basket":1,"plant":1,"lamp":1,"shelter":1}
+const UNLOCKS={"acorn":0,"bowl":3,"water":6,"playful":8,"follow":10,"basket":12,"snack":16,"rub":18,"cushion":20,"cuddle":24,"plant":30,"personality":36,"lamp":42,"shelter":50}
+const ACTION_UNLOCKS={1:"basket",4:"snack",5:"bowl",6:"bowl",7:"bowl",8:"bowl",11:"cushion",12:"shelter",13:"cuddle",15:"bowl",16:"personality",20:"plant",21:"lamp",22:"playful",23:"follow",24:"rub",29:"acorn"}
+const REWARD_UNLOCKS={"follow":"follow","rub":"rub","ball":"basket","hand_feed":"bowl","snack":"snack","cuddle":"cuddle","doze":"cushion","relax":"shelter","playful":"playful","personality":"personality","decorate":"bowl","bowl":"bowl","water":"water","basket":"basket","plant":"plant","lamp":"lamp","shelter":"shelter","acorn":"acorn"}
+const REWARDS={"follow":1,"rub":1,"pet":1,"ball":2,"hand_feed":2,"snack":2,"cuddle":2,"doze":1,"relax":1,"playful":1,"personality":1,"decorate":1,"bowl":1,"water":1,"basket":1,"plant":1,"lamp":1,"shelter":1,"acorn":1}
 var reward_times: Dictionary={}
 
 func reward_activity(species: int, action: String) -> void:
@@ -97,7 +97,7 @@ func reward_activity(species: int, action: String) -> void:
 	for food in range(32):
 		if food not in before_foods and food_available(species,food): new_foods.append(food)
 	if not new_foods.is_empty(): food_unlocked.emit(species,new_foods)
-const GIFT_NAMES={"follow":"마우스 따라오기","rub":"소품에 부비기","bowl":"음식 그릇·먹여주기·꾸미기","water":"작은 연못","playful":"킁킁·폴짝 놀이","basket":"장난감 바구니·공 던지기","snack":"간식 찾기","cushion":"전용 침대·잠자리","cuddle":"잠자리 토닥이기","plant":"동물 전용 놀이 소품","personality":"MBTI 성격 행동","lamp":"동물 전용 휴식 소품","shelter":"전용 집·쉼터"}
+const GIFT_NAMES={"follow":"마우스 따라오기","rub":"소품에 부비기","bowl":"음식 그릇·먹여주기·꾸미기","water":"작은 연못","playful":"킁킁·폴짝 놀이","acorn":"모두의 도토리 오뚝이","basket":"장난감 바구니·공 던지기","snack":"간식 찾기","cushion":"전용 침대·잠자리","cuddle":"잠자리 토닥이기","plant":"동물 전용 놀이 소품","personality":"MBTI 성격 행동","lamp":"동물 전용 휴식 소품","shelter":"전용 집·쉼터"}
 
 func unlocked(species: int, id: String) -> bool:
 	return UNLOCKS.has(id) and (test_unlocks() or int(play_affection.get(str(species),0))>=int(UNLOCKS[id]))
@@ -132,7 +132,7 @@ func next_gift(species: int) -> String:
 	for id in UNLOCKS:
 		if not unlocked(species,id): return "다음 선물: %s · %d 더 친해지면"%[GIFT_NAMES[id],UNLOCKS[id]-score]
 	return "모든 선물을 받았어요"
-const PROPS=["cushion","bowl","water","basket","plant","lamp","shelter"]
+const PROPS=["cushion","bowl","water","basket","plant","lamp","shelter","acorn"]
 var save_path="user://friends-release.json"
 var selected=0
 var palette=0

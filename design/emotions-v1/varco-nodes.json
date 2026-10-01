@@ -1,0 +1,203 @@
+{
+  "workflowId": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "source": "VARCO MCP EditImage",
+  "layout": "2x2: surprised, happy, angry, sleepy",
+  "toy": {
+    "nodeId": "82cd25b7-8f64-4b62-9bbb-a440b5a21263",
+    "output": "/api/objects/2eb24d3cda28b1040fa5c9d13d814655.png"
+  },
+  "emotions": [
+    {
+      "species": "rabbit",
+      "stage": "baby",
+      "nodeId": "fa7c5ae9-fd70-41c6-bbd6-1e06702a523c",
+      "output": "/api/objects/9b9846e8de3b330a31cae44e67fb2477.png"
+    },
+    {
+      "species": "rabbit",
+      "stage": "adult",
+      "nodeId": "7944a1aa-cc67-4c52-a34a-f6150ef36a92",
+      "output": "/api/objects/309ef81940bb0781122ff8b60e9095c0.png"
+    },
+    {
+      "species": "otter",
+      "stage": "baby",
+      "nodeId": "53ac4773-9451-40f1-a6d6-c78bee4b3f96",
+      "output": "/api/objects/eb16ad53cedaa507b1c1ca9cbbd7c046.png"
+    },
+    {
+      "species": "otter",
+      "stage": "adult",
+      "nodeId": "4ec46887-2a8a-48c0-a93d-80f160b56f8e",
+      "output": "/api/objects/f6543b4b3139e4a5f401e278080e0e92.png"
+    },
+    {
+      "species": "squirrel",
+      "stage": "baby",
+      "nodeId": "088f66bd-f5a3-412e-b3ce-c25f0ec2c48e",
+      "output": "/api/objects/15742d71de4865382ff478951f3e7312.png"
+    },
+    {
+      "species": "squirrel",
+      "stage": "adult",
+      "nodeId": "ab8f0490-aed4-4a34-bee0-03431f33986f",
+      "output": "/api/objects/f4734c8bbcdd036d85a27989309a2347.png"
+    },
+    {
+      "species": "hedgehog",
+      "stage": "baby",
+      "nodeId": "7b80867b-4fa1-4553-b323-6d9067b026d3",
+      "output": "/api/objects/05fe3ed0c0f1b72642daa194a2c129f1.png"
+    },
+    {
+      "species": "hedgehog",
+      "stage": "adult",
+      "nodeId": "0f9a4691-ac6b-4f79-81fc-5bed74baa823",
+      "output": "/api/objects/185f89ba05bcde50dd5da3f543293ea1.png"
+    },
+    {
+      "species": "raccoon",
+      "stage": "baby",
+      "nodeId": "13246892-bfad-4a6c-a236-1c64a7844001",
+      "output": "/api/objects/3367e029c72eb601455150c80dde9869.png"
+    },
+    {
+      "species": "raccoon",
+      "stage": "adult",
+      "nodeId": "b8292a1f-947e-49ec-9872-ee689197bd5d",
+      "output": "/api/objects/aa210e4ecec862e7b2e088af4a73a748.png"
+    },
+    {
+      "species": "fox",
+      "stage": "baby",
+      "nodeId": "d8e34ed7-7575-4b3f-bc77-5d25318ebccb",
+      "output": "/api/objects/e4e0f570b54918c197103463f82642bb.png"
+    },
+    {
+      "species": "fox",
+      "stage": "adult",
+      "nodeId": "919ae151-1783-4f42-804b-efa715268282",
+      "output": "/api/objects/ae34f09045917daad1bf29f4d5e84bea.png"
+    },
+    {
+      "species": "bear",
+      "stage": "baby",
+      "nodeId": "6447d856-2b92-4bee-aac7-5d66797f1723",
+      "output": "/api/objects/87e8b0d73f6b5882f1abe916edb6bb5d.png"
+    },
+    {
+      "species": "bear",
+      "stage": "adult",
+      "nodeId": "9ff8bf0e-6b64-439d-8e3d-ffed4a8c8226",
+      "output": "/api/objects/4393f32b40a8c0f8e18c15efbe303fe2.png"
+    },
+    {
+      "species": "owl",
+      "stage": "baby",
+      "nodeId": "ec95cf8b-d54a-47d1-95a9-c1899207eb83",
+      "output": "/api/objects/06b1e4ba81f697411568d2fa52639b5f.png"
+    },
+    {
+      "species": "owl",
+      "stage": "adult",
+      "nodeId": "806820e3-d682-4f6d-9088-9167b87d115f",
+      "output": "/api/objects/6faefd7a3b162d3c4f9ff6359ad6bb81.png"
+    },
+    {
+      "species": "cat",
+      "stage": "baby",
+      "nodeId": "933b391d-641b-40b8-b3f9-2ae136a094b5",
+      "output": "/api/objects/95bc0a6be9b09de6f968b4d051fd2543.png"
+    },
+    {
+      "species": "cat",
+      "stage": "adult",
+      "nodeId": "a741b4f6-f0e9-48d1-a723-6bbf017f8ddd",
+      "output": "/api/objects/2fb9ddf2d71df409c689bb33ef4a08dc.png"
+    },
+    {
+      "species": "puppy",
+      "stage": "baby",
+      "nodeId": "7df26e7f-af39-462e-81e9-9c3421dcd3ec",
+      "output": "/api/objects/ffa7d2153af3252eb58bbc7727b39c78.png"
+    },
+    {
+      "species": "puppy",
+      "stage": "adult",
+      "nodeId": "2baf6f05-c663-45da-9301-e1879e1cf35e",
+      "output": "/api/objects/62e17c0bf573a584578e0f1690baace9.png"
+    },
+    {
+      "species": "hamster",
+      "stage": "baby",
+      "nodeId": "878871e6-f491-45e9-b1a9-c71fdfb2b214",
+      "output": "/api/objects/afafd65bbac78a9807c62d50e2a793c2.png"
+    },
+    {
+      "species": "hamster",
+      "stage": "adult",
+      "nodeId": "6d532ba0-8777-4862-9521-6d43be6820a2",
+      "output": "/api/objects/2d57a4afce32b9227fed55509394e656.png"
+    },
+    {
+      "species": "panda",
+      "stage": "baby",
+      "nodeId": "cd3f408a-5932-4977-bb77-9e542f518de3",
+      "output": "/api/objects/23824d6568a11d77ace1e361b7dff650.png"
+    },
+    {
+      "species": "panda",
+      "stage": "adult",
+      "nodeId": "56b93cfe-a980-47f1-b280-73988d6b4cd6",
+      "output": "/api/objects/2676d50ffdc008c275cdce7baea91dba.png"
+    },
+    {
+      "species": "red_panda",
+      "stage": "baby",
+      "nodeId": "9785a6ab-0327-4989-97bd-4de1211bec38",
+      "output": "/api/objects/f4bdc7da4fa2ba972f88c3b4cd84f0ea.png"
+    },
+    {
+      "species": "red_panda",
+      "stage": "adult",
+      "nodeId": "b45c3f04-0524-4492-8a6e-001d7e314903",
+      "output": "/api/objects/db5d4a0401ab8408a2b864ad390312c1.png"
+    },
+    {
+      "species": "lamb",
+      "stage": "baby",
+      "nodeId": "ebba833b-6271-4fee-85e1-824c15a91c7d",
+      "output": "/api/objects/2928b5a73e893b1e4054a9d328fd5934.png"
+    },
+    {
+      "species": "lamb",
+      "stage": "adult",
+      "nodeId": "ec18f28b-e450-400a-a580-efbd8e7e0835",
+      "output": "/api/objects/f0a523cf1d7fa2a6f270a3ae95bd6cfc.png"
+    },
+    {
+      "species": "koala",
+      "stage": "baby",
+      "nodeId": "ea645a97-1834-4e4e-88f6-ab33b27ddf12",
+      "output": "/api/objects/7588c4774aa7ef45488458c6e5be2cf7.png"
+    },
+    {
+      "species": "koala",
+      "stage": "adult",
+      "nodeId": "7a4c798a-e33b-4f08-9494-2b869a203a2c",
+      "output": "/api/objects/0433c1487bc5c11514afc6515343c3b1.png"
+    },
+    {
+      "species": "penguin",
+      "stage": "baby",
+      "nodeId": "c57289a1-d909-414b-aebd-472f8ab1d101",
+      "output": "/api/objects/0b85f1f47e023f60ffa6c9e0c2456f85.png"
+    },
+    {
+      "species": "penguin",
+      "stage": "adult",
+      "nodeId": "da372200-3337-4a11-a1cd-a4621edb9e1e",
+      "output": "/api/objects/1401997bd25f475ba54f11a0f765a198.png"
+    }
+  ]
+}

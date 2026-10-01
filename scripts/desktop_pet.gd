@@ -97,6 +97,14 @@ func _ready() -> void:
 	menu.add_item("친밀도와 선물",14)
 	menu.add_item("전용 소품 안내",19)
 	menu.add_item("킁킁 · 폴짝 놀이",22)
+	menu.add_item("도토리 오뚝이로 놀기",29)
+	var emotions=PopupMenu.new()
+	emotions.name="Emotions"
+	emotions.force_native=true
+	for i in range(4): emotions.add_item(["깜짝 놀라기","활짝 웃기","토라지기","졸린 표정"][i],400+i)
+	emotions.id_pressed.connect(func(id): activity_requested.emit(id))
+	menu.add_child(emotions)
+	menu.add_submenu_item("표정 짓기 · 놀람 / 웃음 / 화남 / 졸림","Emotions",30)
 	menu.add_item(Profiles.TOYS[species]+"에서 놀기",20)
 	menu.add_item(Profiles.COMFORTS[species]+"에서 쉬기",21)
 	menu.add_item("성장 기록 · 새끼 → 중간 → 성체",18)
@@ -233,6 +241,7 @@ func release_pointer() -> void:
 		motion.landing_left=.24
 		motion.rest_left=4
 		dropped_on_desktop.emit(motion.feet)
+		motion.begin_dizzy()
 	dragging=false
 
 func open_menu() -> void:

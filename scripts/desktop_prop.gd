@@ -4,7 +4,7 @@ signal activated(id: String)
 signal recolored
 signal food_picked
 signal layer_changed
-const NAMES={"cushion":"전용 침대","bowl":"음식 그릇","water":"작은 연못","basket":"장난감 바구니","plant":"전용 놀이 소품","lamp":"전용 휴식 소품","shelter":"전용 쉼터"}
+const NAMES={"cushion":"전용 침대","bowl":"음식 그릇","water":"작은 연못","basket":"장난감 바구니","plant":"전용 놀이 소품","lamp":"전용 휴식 소품","shelter":"전용 쉼터","acorn":"도토리 오뚝이"}
 const Profiles=preload("res://scripts/companion_profiles.gd")
 const Decor=preload("res://scripts/decor_art.gd")
 const Catalog=preload("res://scripts/animal_catalog.gd")
@@ -31,6 +31,13 @@ var drop_hover=false
 var drop_flash=0.0
 var glow_time=0.0
 var in_use=false
+var wobbling=false
+var wobble_time=0.0
+
+func set_wobbling(value: bool) -> void:
+	if wobbling==value: return
+	wobbling=value
+	if drawing: drawing.queue_redraw()
 
 func set_in_use(value: bool) -> void:
 	if in_use==value: return
@@ -114,9 +121,16 @@ class PropDrawing extends Node2D:
 
 	func draw_artwork(artwork: Texture2D) -> void:
 		var dimensions=artwork.get_size()
-		dimensions*=minf(108.0/dimensions.x,82.0/dimensions.y)
+		var limit=Vector2(47,57) if prop.kind=="acorn" else Vector2(108,82)
+		dimensions*=minf(limit.x/dimensions.x,limit.y/dimensions.y)
 		var tint=[Color.WHITE,Color(1,.93,.90),Color(.90,.95,1)][prop.palette]
-		draw_texture_rect(artwork,Rect2(Vector2(56,86)-Vector2(dimensions.x*.5,dimensions.y),dimensions),false,tint)
+		if prop.kind=="acorn":
+			var angle=sin(prop.wobble_time*TAU*1.8)*.19 if prop.wobbling else 0.0
+			draw_set_transform(Vector2(56,86),angle,Vector2.ONE)
+			draw_texture_rect(artwork,Rect2(Vector2(-dimensions.x*.5,-dimensions.y),dimensions),false,tint)
+			draw_set_transform(Vector2.ZERO)
+		else:
+			draw_texture_rect(artwork,Rect2(Vector2(56,86)-Vector2(dimensions.x*.5,dimensions.y),dimensions),false,tint)
 		if prop.kind=="bowl" and prop.number==0 and prop.food_texture and not prop.food_lifted:
 			var meal_size=prop.food_texture.get_size()
 			meal_size*=minf(76.0/meal_size.x,57.0/meal_size.y)
@@ -218,6 +232,7 @@ func _ready() -> void:
 
 func refresh() -> void:
 	if kind in ["plant","lamp"]: title=(Profiles.TOYS[species] if kind=="plant" else Profiles.COMFORTS[species])+" · 클릭하면 친구가 찾아와요"
+	if kind=="acorn": title="도토리 오뚝이 · 클릭하면 함께 놀아요"
 	resize_for_friend()
 	mouse_passthrough=in_use
 	var polygon=PackedVector2Array([Vector2(1,1),Vector2(111,1),Vector2(111,95),Vector2(1,95)])
@@ -227,7 +242,7 @@ func refresh() -> void:
 	layer_changed.emit()
 
 func anchor_offset() -> Vector2:
-	return Vector2(56,75 if kind in ["cushion","shelter"] else 63)*art_scale
+	return Vector2(56,75 if kind in ["cushion","shelter"] else (86 if kind=="acorn" else 63))*art_scale
 
 func feet_point() -> Vector2:
 	return Vector2(position)+anchor_offset()
@@ -280,7 +295,7 @@ func finish_drag() -> void:
 	dragging=false
 	if drag_moved:
 		moved.emit()
-	elif (interactive or kind in ["plant","lamp"]) and not editing and drag_button==MOUSE_BUTTON_LEFT:
+	elif (interactive or kind in ["plant","lamp","acorn"]) and not editing and drag_button==MOUSE_BUTTON_LEFT:
 		activated.emit(prop_id)
 	layer_changed.emit()
 
@@ -305,6 +320,9 @@ func handle_input(event: InputEvent) -> void:
 	layer_changed.emit()
 
 func _process(_delta: float) -> void:
+	if wobbling:
+		wobble_time+=_delta
+		if drawing: drawing.queue_redraw()
 	if drop_hover or drop_flash>0:
 		glow_time+=_delta
 		drop_flash=maxf(0,drop_flash-_delta)

@@ -12,8 +12,8 @@ func outfit_texture(species: int, stage: String, style: int, color: int) -> Text
 	if not textures.has(key):
 		var path="res://assets/outfits-varco-v1/"+key+".png"
 		if not FileAccess.file_exists(path): return null
-		var image=Image.load_from_file(path)
-		if image==null or image.is_empty(): return null
+		var image=Image.new()
+		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
 		textures[key]=ImageTexture.create_from_image(image)
 	return textures[key]
 

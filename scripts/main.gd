@@ -24,6 +24,8 @@ var decorating=false
 var info: AcceptDialog
 var app_theme: Theme
 var gift_notice: Window
+var falling_gifts: Dictionary={}
+var pending_gift_visits: Array[String]=[]
 var layers_dirty=true
 
 func request_layer_order() -> void:
@@ -56,8 +58,8 @@ func _ready() -> void:
 		return
 	# Load the raw packaged PNG so the window icon also works without editor imports.
 	if DisplayServer.get_name()!="headless":
-		var icon=Image.load_from_file("res://assets/icon/pet-icon.png")
-		if icon!=null: DisplayServer.set_icon(icon)
+		var icon=Image.new()
+		if icon.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/icon/pet-icon.png"))==OK: DisplayServer.set_icon(icon)
 	Engine.max_fps=60
 	get_tree().auto_accept_quit=false
 	get_window().transparent_bg=true
@@ -116,6 +118,7 @@ func usable_screen() -> Rect2i:
 func default_prop_position(index: int) -> Vector2i:
 	var rect=usable_screen()
 	if index==6: return rect.position+Vector2i(int(rect.size.x*.75)-56,int(rect.size.y*.62)-48)
+	if index==7: return rect.position+Vector2i(int(rect.size.x*.43)-56,int(rect.size.y*.72)-48)
 	return rect.position+Vector2i(int(rect.size.x*(.11+.13*index))-56,int(rect.size.y*.84)-48)
 
 func build_props() -> void:
@@ -141,6 +144,7 @@ func build_props() -> void:
 		prop.recolored.connect(func(): activity(6))
 		if id=="bowl": prop.food_picked.connect(pick_up_food)
 		if id in ["plant","lamp"]: prop.activated.connect(use_species_prop)
+		if id=="acorn": prop.activated.connect(use_common_toy)
 		add_child(prop)
 		props[id]=prop
 
@@ -149,6 +153,7 @@ func choose_friend(species: int) -> void:
 	if commerce_access!=null and not commerce_access.permits(species):
 		commerce_access.show_account("선물받은 동물만 선택할 수 있어요.")
 		return
+	clear_falling_gifts()
 	if is_instance_valid(gift_notice):
 		gift_notice.hide()
 		gift_notice.queue_free()
@@ -246,6 +251,7 @@ func set_food(id: int, serve: bool=true) -> void:
 
 func ensure_prop_nearby(id: String) -> void:
 	if not state.unlocked(state.selected,id): return
+	if falling_gifts.has(id): finish_unlock_fall(id,false)
 	var prop=props[id]
 	prop.show()
 	state.hidden.erase(id)
@@ -265,6 +271,7 @@ func on_activity_finished(id: String) -> void:
 			state.add_affection(pet.species)
 	if id in ["meal","bowl","snack","hand_feed"]:
 		pet.motion.react("yum",2.8 if pet.motion.favorite_food else 1.6)
+	if id=="acorn": pet.motion.react("happy",2.4)
 	if id=="snack": cancel_hunt()
 
 func refresh_destinations() -> void:
@@ -274,17 +281,19 @@ func refresh_destinations() -> void:
 	for id in props:
 		var prop=props[id]
 		if not prop.visible: continue
+		if falling_gifts.has(id): continue
 		var point=prop.feet_point()
 		if id in ["bowl","water"]: point=prop.dining_point(pet.motion.bounds)
+		if id=="acorn": point=(point+Vector2(-48,0)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
 		if not pet.motion.bounds.has_point(point): continue
-		var action={"cushion":"doze","bowl":Food.action(pet.motion.food_id),"water":"drink","basket":"sniff","plant":"prop_use","lamp":"prop_use","shelter":"relax"}[id]
+		var action={"cushion":"doze","bowl":Food.action(pet.motion.food_id),"water":"drink","basket":"sniff","plant":"prop_use","lamp":"prop_use","shelter":"relax","acorn":"prop_use"}[id]
 		var destination={"point":point,"action":action,"id":id}
 		pet.motion.destinations.append(destination)
 
 func persist_layout() -> void:
 	var places: Dictionary={}
 	for id in props:
-		var point=props[id].position
+		var point: Vector2i=falling_gifts[id].target if falling_gifts.has(id) else props[id].position
 		state.layout[id]=[point.x,point.y]
 		if id in ["cushion","shelter"]: places[id]=[point.x,point.y]
 	state.personal_layout[str(state.selected)]=places
@@ -294,7 +303,8 @@ func persist_layout() -> void:
 func on_visit(id: String) -> void:
 	if id in ["bowl","meal","snack","hand_feed","water"]:
 		pet.motion.say("냠냠~" if pet.motion.phase=="eat" else "꿀꺽~")
-	if id in ["plant","lamp"]: props[id].confirm_drop()
+	if id in ["plant","lamp","acorn"]: props[id].confirm_drop()
+	if id=="acorn": pet.motion.react("surprised",1.1,"prop_use")
 	if id in ["bowl","water"]:
 		pet.motion.facing=1.0 if props[id].feet_point().x>=pet.motion.feet.x else -1.0
 	if id==FAVORITES[pet.species] and not state.discoveries.has(str(pet.species)):
@@ -310,6 +320,12 @@ func activity(id: int) -> void:
 	cancel_feeding()
 	if id>=100 and id<132:
 		set_food(id-100)
+		return
+	if id>=400 and id<404:
+		cancel_hunt()
+		if decorating: activity(5)
+		pet.motion.cancel_play()
+		pet.motion.react(["surprised","happy","angry","sleepy"][id-400],2.5)
 		return
 	match id:
 		25: show_first_guide()
@@ -371,6 +387,7 @@ func activity(id: int) -> void:
 		14: show_info("친밀도와 선물",state.progress_text(state.selected))
 		19: show_info("전용 소품",Profiles.TOYS[state.selected]+" · "+preload("res://scripts/prop_interactions.gd").TOY_ACTIONS[state.selected]+"\n"+Profiles.COMFORTS[state.selected]+" · "+preload("res://scripts/prop_interactions.gd").COMFORT_ACTIONS[state.selected]+"\n\n소품 클릭 또는 동물 데려다 놓기 → 전용 동작\n동작 중 왼쪽 버튼을 잡고 움직이면 함께 놀아요.\n강아지 밧줄: 오른쪽으로 당기면 버티고, 놓으면 힘을 풀어요.\n우클릭으로 중단 · 사용하지 않을 때 소품 드래그로 배치")
 		20: use_species_prop("plant")
+		29: use_common_toy("acorn")
 		21: use_species_prop("lamp")
 		22:
 			cancel_hunt()
@@ -492,6 +509,7 @@ func nearby_drop_prop(point: Vector2) -> String:
 	var best=INF
 	for id in props:
 		var prop=props[id]
+		if falling_gifts.has(id): continue
 		if not prop.visible or not state.unlocked(state.selected,id): continue
 		# Select the closest visible prop surface, including generous space around
 		# small bowls. Large beds remain easy to target across their full artwork.
@@ -514,12 +532,15 @@ func on_pet_dropped(point: Vector2) -> void:
 	if id=="bowl" and pet.motion.satiety>=97 and Food.action(pet.motion.food_id)=="eat":
 		pet.motion.react("full",2.2)
 		return
-	var action={"bowl":Food.action(pet.motion.food_id),"water":"drink","cushion":"doze","shelter":"pet","plant":"prop_use","lamp":"prop_use","basket":"askplay"}[id]
+	var action={"bowl":Food.action(pet.motion.food_id),"water":"drink","cushion":"doze","shelter":"pet","plant":"prop_use","lamp":"prop_use","basket":"askplay","acorn":"prop_use"}[id]
 	var destination=prop.dining_point(pet.motion.bounds) if id in ["bowl","water"] else prop.feet_point()
+	if id=="acorn": destination=(destination+Vector2(-48,0)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
 	pet.motion.visit(destination,action,id,id not in ["bowl","water"])
 	pet.motion.stay_after_visit=id=="cushion"
 
 func _process(_delta: float) -> void:
+	advance_unlock_falls(_delta)
+	try_gift_visit()
 	restore_layer_order()
 	for id in ["plant","lamp"]:
 		if not props.has(id): continue
@@ -528,6 +549,12 @@ func _process(_delta: float) -> void:
 			pet.motion.cancel_play()
 			active=false
 		props[id].set_in_use(active)
+	if props.has("acorn"):
+		var playing=is_instance_valid(pet) and pet.motion.phase=="prop_use" and pet.motion.visit_id=="acorn"
+		if playing and (not props.acorn.visible or decorating):
+			pet.motion.cancel_play()
+			playing=false
+		props.acorn.set_wobbling(playing)
 	var hovered=""
 	if is_instance_valid(pet) and pet.dragging and pet.motion.carried:
 		hovered=nearby_drop_prop(pet.motion.feet)
@@ -588,7 +615,76 @@ func on_affection_changed(species: int, gifts: Array) -> void:
 	for id in gifts: state.hidden.erase(id)
 	if not gifts.is_empty(): state.save_game()
 	apply_unlocks()
+	for id in gifts:
+		if props.has(id): start_unlock_fall(id)
 	if not gifts.is_empty(): show_gift.call_deferred(species,gifts)
+
+func clear_falling_gifts() -> void:
+	for id in falling_gifts:
+		if props.has(id):
+			props[id].position=falling_gifts[id].target
+			props[id].mouse_passthrough=false
+	falling_gifts.clear()
+	pending_gift_visits.clear()
+
+func start_unlock_fall(id: String) -> void:
+	if not props.has(id) or falling_gifts.has(id): return
+	var prop=props[id]
+	var target: Vector2i=prop.position
+	var screen=DisplayServer.get_screen_from_rect(Rect2i(target,prop.size))
+	if screen<0: screen=DisplayServer.SCREEN_PRIMARY
+	var usable=DisplayServer.screen_get_usable_rect(screen)
+	var start=Vector2i(target.x,usable.position.y-prop.size.y-12)
+	falling_gifts[id]={"start":start,"target":target,"time":0.0,"duration":1.25}
+	prop.position=start
+	prop.show()
+	prop.mouse_passthrough=true
+	if is_instance_valid(pet) and not pet.motion.held and pet.motion.phase=="idle":
+		pet.motion.react("surprised",1.15)
+	refresh_destinations()
+
+func finish_unlock_fall(id: String,visit: bool=true) -> void:
+	if not falling_gifts.has(id): return
+	var target: Vector2i=falling_gifts[id].target
+	falling_gifts.erase(id)
+	if props.has(id):
+		props[id].position=target
+		props[id].mouse_passthrough=false
+		props[id].confirm_drop()
+	if visit and not pending_gift_visits.has(id): pending_gift_visits.append(id)
+	refresh_destinations()
+
+func advance_unlock_falls(delta: float) -> void:
+	for id in falling_gifts.keys():
+		if not props.has(id): continue
+		var fall: Dictionary=falling_gifts[id]
+		fall.time=float(fall.time)+delta
+		var progress=clampf(float(fall.time)/float(fall.duration),0.0,1.0)
+		var start: Vector2i=fall.start
+		var target: Vector2i=fall.target
+		var y: float
+		if progress<.78:
+			var descent=progress/.78
+			y=lerpf(float(start.y),float(target.y),descent*descent)
+		else:
+			var bounce=(progress-.78)/.22
+			y=float(target.y)-sin(bounce*PI)*20.0*(1.0-bounce)
+		props[id].position=Vector2i(target.x,roundi(y))
+		falling_gifts[id]=fall
+		if progress>=1.0: finish_unlock_fall(id)
+
+func try_gift_visit() -> void:
+	if pending_gift_visits.is_empty() or not is_instance_valid(pet) or decorating: return
+	if pet.motion.held or pet.motion.carried or pet.motion.resting or pet.motion.phase!="idle": return
+	if pet.menu.visible or is_instance_valid(held_food): return
+	var id: String=pending_gift_visits.pop_front()
+	if not props.has(id) or not props[id].visible or not state.unlocked(state.selected,id): return
+	var prop=props[id]
+	var point=prop.dining_point(pet.motion.bounds) if id in ["bowl","water"] else prop.feet_point()
+	if id=="acorn": point+=Vector2(-48,0)
+	point=point.clamp(pet.motion.bounds.position,pet.motion.bounds.end)
+	var action={"bowl":"inspect","water":"inspect","basket":"inspect","cushion":"relax","shelter":"relax","plant":"prop_use","lamp":"prop_use","acorn":"prop_use"}.get(id,"inspect")
+	pet.motion.visit(point,action,id,false)
 
 func apply_growth() -> void:
 	if not is_instance_valid(pet): return
@@ -646,3 +742,13 @@ func use_species_prop(id: String) -> void:
 	ensure_prop_nearby(id)
 	props[id].confirm_drop()
 	pet.motion.visit(props[id].feet_point(),"prop_use",id,true)
+
+func use_common_toy(id: String) -> void:
+	if not is_instance_valid(pet) or id!="acorn": return
+	if not state.unlocked(state.selected,id): return
+	cancel_hunt()
+	if decorating: activity(5)
+	ensure_prop_nearby(id)
+	props[id].confirm_drop()
+	var point=(props[id].feet_point()+Vector2(-48,0)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
+	pet.motion.visit(point,"prop_use",id,true)

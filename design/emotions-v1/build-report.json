@@ -1,0 +1,1198 @@
+{
+  "frames": [
+    {
+      "name": "rabbit",
+      "stage": "baby",
+      "scale": 0.44719101123595506,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 133,
+          "top": 33,
+          "width": 280,
+          "height": 438,
+          "pixels": 81590
+        },
+        {
+          "left": 87,
+          "top": 33,
+          "width": 279,
+          "height": 438,
+          "pixels": 81549
+        },
+        {
+          "left": 131,
+          "top": 17,
+          "width": 287,
+          "height": 445,
+          "pixels": 86324
+        },
+        {
+          "left": 86,
+          "top": 20,
+          "width": 281,
+          "height": 442,
+          "pixels": 83158
+        }
+      ],
+      "file": "rabbit/baby.png"
+    },
+    {
+      "name": "rabbit",
+      "stage": "adult",
+      "scale": 0.4424778761061947,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 144,
+          "top": 19,
+          "width": 280,
+          "height": 450,
+          "pixels": 86650
+        },
+        {
+          "left": 101,
+          "top": 19,
+          "width": 280,
+          "height": 450,
+          "pixels": 86989
+        },
+        {
+          "left": 144,
+          "top": 17,
+          "width": 280,
+          "height": 451,
+          "pixels": 86842
+        },
+        {
+          "left": 101,
+          "top": 16,
+          "width": 280,
+          "height": 452,
+          "pixels": 87546
+        }
+      ],
+      "file": "rabbit/adult.png"
+    },
+    {
+      "name": "otter",
+      "stage": "baby",
+      "scale": 0.48655256723716384,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 78,
+          "top": 55,
+          "width": 351,
+          "height": 404,
+          "pixels": 97485
+        },
+        {
+          "left": 35,
+          "top": 55,
+          "width": 348,
+          "height": 404,
+          "pixels": 97346
+        },
+        {
+          "left": 76,
+          "top": 37,
+          "width": 355,
+          "height": 408,
+          "pixels": 100195
+        },
+        {
+          "left": 31,
+          "top": 36,
+          "width": 355,
+          "height": 409,
+          "pixels": 100799
+        }
+      ],
+      "file": "otter/baby.png"
+    },
+    {
+      "name": "otter",
+      "stage": "adult",
+      "scale": 0.5025252525252525,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 69,
+          "top": 64,
+          "width": 369,
+          "height": 385,
+          "pixels": 100579
+        },
+        {
+          "left": 23,
+          "top": 64,
+          "width": 369,
+          "height": 385,
+          "pixels": 100644
+        },
+        {
+          "left": 69,
+          "top": 29,
+          "width": 369,
+          "height": 395,
+          "pixels": 103727
+        },
+        {
+          "left": 23,
+          "top": 28,
+          "width": 370,
+          "height": 396,
+          "pixels": 103810
+        }
+      ],
+      "file": "otter/adult.png"
+    },
+    {
+      "name": "squirrel",
+      "stage": "baby",
+      "scale": 0.48418491484184917,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 61,
+          "top": 56,
+          "width": 382,
+          "height": 401,
+          "pixels": 104005
+        },
+        {
+          "left": 27,
+          "top": 56,
+          "width": 387,
+          "height": 402,
+          "pixels": 104696
+        },
+        {
+          "left": 60,
+          "top": 23,
+          "width": 390,
+          "height": 410,
+          "pixels": 107760
+        },
+        {
+          "left": 26,
+          "top": 23,
+          "width": 387,
+          "height": 411,
+          "pixels": 107270
+        }
+      ],
+      "file": "squirrel/baby.png"
+    },
+    {
+      "name": "squirrel",
+      "stage": "adult",
+      "scale": 0.45707070707070707,
+      "target": 181,
+      "sourceBounds": [
+        {
+          "left": 60,
+          "top": 73,
+          "width": 407,
+          "height": 391,
+          "pixels": 115676
+        },
+        {
+          "left": 21,
+          "top": 79,
+          "width": 409,
+          "height": 387,
+          "pixels": 114242
+        },
+        {
+          "left": 61,
+          "top": 35,
+          "width": 413,
+          "height": 394,
+          "pixels": 117803
+        },
+        {
+          "left": 20,
+          "top": 36,
+          "width": 410,
+          "height": 396,
+          "pixels": 117639
+        }
+      ],
+      "file": "squirrel/adult.png"
+    },
+    {
+      "name": "hedgehog",
+      "stage": "baby",
+      "scale": 0.48655256723716384,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 79,
+          "top": 41,
+          "width": 357,
+          "height": 401,
+          "pixels": 105852
+        },
+        {
+          "left": 36,
+          "top": 42,
+          "width": 362,
+          "height": 400,
+          "pixels": 106803
+        },
+        {
+          "left": 79,
+          "top": 32,
+          "width": 360,
+          "height": 409,
+          "pixels": 109015
+        },
+        {
+          "left": 36,
+          "top": 32,
+          "width": 362,
+          "height": 409,
+          "pixels": 109267
+        }
+      ],
+      "file": "hedgehog/baby.png"
+    },
+    {
+      "name": "hedgehog",
+      "stage": "adult",
+      "scale": 0.5457063711911357,
+      "target": 197,
+      "sourceBounds": [
+        {
+          "left": 57,
+          "top": 88,
+          "width": 400,
+          "height": 356,
+          "pixels": 108518
+        },
+        {
+          "left": 38,
+          "top": 88,
+          "width": 412,
+          "height": 355,
+          "pixels": 111617
+        },
+        {
+          "left": 57,
+          "top": 47,
+          "width": 400,
+          "height": 360,
+          "pixels": 110351
+        },
+        {
+          "left": 40,
+          "top": 46,
+          "width": 412,
+          "height": 361,
+          "pixels": 113509
+        }
+      ],
+      "file": "hedgehog/adult.png"
+    },
+    {
+      "name": "raccoon",
+      "stage": "baby",
+      "scale": 0.49261083743842365,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 69,
+          "top": 55,
+          "width": 372,
+          "height": 397,
+          "pixels": 94361
+        },
+        {
+          "left": 25,
+          "top": 55,
+          "width": 374,
+          "height": 397,
+          "pixels": 95695
+        },
+        {
+          "left": 67,
+          "top": 33,
+          "width": 384,
+          "height": 406,
+          "pixels": 100037
+        },
+        {
+          "left": 22,
+          "top": 37,
+          "width": 382,
+          "height": 403,
+          "pixels": 98819
+        }
+      ],
+      "file": "raccoon/baby.png"
+    },
+    {
+      "name": "raccoon",
+      "stage": "adult",
+      "scale": 0.42377260981912146,
+      "target": 164,
+      "sourceBounds": [
+        {
+          "left": 59,
+          "top": 67,
+          "width": 424,
+          "height": 385,
+          "pixels": 104197
+        },
+        {
+          "left": 19,
+          "top": 67,
+          "width": 422,
+          "height": 385,
+          "pixels": 104066
+        },
+        {
+          "left": 59,
+          "top": 39,
+          "width": 423,
+          "height": 387,
+          "pixels": 105707
+        },
+        {
+          "left": 17,
+          "top": 39,
+          "width": 424,
+          "height": 387,
+          "pixels": 105537
+        }
+      ],
+      "file": "raccoon/adult.png"
+    },
+    {
+      "name": "fox",
+      "stage": "baby",
+      "scale": 0.4830097087378641,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 78,
+          "top": 44,
+          "width": 358,
+          "height": 403,
+          "pixels": 90986
+        },
+        {
+          "left": 55,
+          "top": 46,
+          "width": 355,
+          "height": 401,
+          "pixels": 90653
+        },
+        {
+          "left": 78,
+          "top": 28,
+          "width": 367,
+          "height": 412,
+          "pixels": 96427
+        },
+        {
+          "left": 54,
+          "top": 28,
+          "width": 361,
+          "height": 412,
+          "pixels": 94122
+        }
+      ],
+      "file": "fox/baby.png"
+    },
+    {
+      "name": "fox",
+      "stage": "adult",
+      "scale": 0.4810126582278481,
+      "target": 190,
+      "sourceBounds": [
+        {
+          "left": 64,
+          "top": 64,
+          "width": 379,
+          "height": 394,
+          "pixels": 95106
+        },
+        {
+          "left": 33,
+          "top": 66,
+          "width": 379,
+          "height": 391,
+          "pixels": 94496
+        },
+        {
+          "left": 63,
+          "top": 31,
+          "width": 381,
+          "height": 395,
+          "pixels": 95338
+        },
+        {
+          "left": 32,
+          "top": 33,
+          "width": 381,
+          "height": 394,
+          "pixels": 95632
+        }
+      ],
+      "file": "fox/adult.png"
+    },
+    {
+      "name": "bear",
+      "stage": "baby",
+      "scale": 0.45852534562211983,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 110,
+          "top": 42,
+          "width": 315,
+          "height": 425,
+          "pixels": 100759
+        },
+        {
+          "left": 71,
+          "top": 42,
+          "width": 317,
+          "height": 425,
+          "pixels": 100944
+        },
+        {
+          "left": 110,
+          "top": 26,
+          "width": 317,
+          "height": 430,
+          "pixels": 102107
+        },
+        {
+          "left": 70,
+          "top": 24,
+          "width": 322,
+          "height": 434,
+          "pixels": 103989
+        }
+      ],
+      "file": "bear/baby.png"
+    },
+    {
+      "name": "bear",
+      "stage": "adult",
+      "scale": 0.4819277108433735,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 114,
+          "top": 55,
+          "width": 317,
+          "height": 411,
+          "pixels": 98551
+        },
+        {
+          "left": 75,
+          "top": 55,
+          "width": 317,
+          "height": 411,
+          "pixels": 98443
+        },
+        {
+          "left": 114,
+          "top": 26,
+          "width": 317,
+          "height": 415,
+          "pixels": 100042
+        },
+        {
+          "left": 74,
+          "top": 26,
+          "width": 319,
+          "height": 415,
+          "pixels": 100607
+        }
+      ],
+      "file": "bear/adult.png"
+    },
+    {
+      "name": "owl",
+      "stage": "baby",
+      "scale": 0.4694835680751174,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 95,
+          "top": 43,
+          "width": 322,
+          "height": 420,
+          "pixels": 94867
+        },
+        {
+          "left": 71,
+          "top": 41,
+          "width": 328,
+          "height": 423,
+          "pixels": 97028
+        },
+        {
+          "left": 92,
+          "top": 19,
+          "width": 330,
+          "height": 426,
+          "pixels": 98645
+        },
+        {
+          "left": 66,
+          "top": 19,
+          "width": 333,
+          "height": 426,
+          "pixels": 99576
+        }
+      ],
+      "file": "owl/baby.png"
+    },
+    {
+      "name": "owl",
+      "stage": "adult",
+      "scale": 0.4807692307692308,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 90,
+          "top": 51,
+          "width": 352,
+          "height": 409,
+          "pixels": 101893
+        },
+        {
+          "left": 44,
+          "top": 51,
+          "width": 355,
+          "height": 409,
+          "pixels": 103133
+        },
+        {
+          "left": 85,
+          "top": 29,
+          "width": 358,
+          "height": 416,
+          "pixels": 105598
+        },
+        {
+          "left": 42,
+          "top": 29,
+          "width": 358,
+          "height": 416,
+          "pixels": 105979
+        }
+      ],
+      "file": "owl/adult.png"
+    },
+    {
+      "name": "cat",
+      "stage": "baby",
+      "scale": 0.48426150121065376,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 60,
+          "top": 61,
+          "width": 389,
+          "height": 412,
+          "pixels": 100944
+        },
+        {
+          "left": 17,
+          "top": 62,
+          "width": 384,
+          "height": 410,
+          "pixels": 100474
+        },
+        {
+          "left": 62,
+          "top": 38,
+          "width": 393,
+          "height": 413,
+          "pixels": 102526
+        },
+        {
+          "left": 17,
+          "top": 38,
+          "width": 391,
+          "height": 413,
+          "pixels": 101785
+        }
+      ],
+      "file": "cat/baby.png"
+    },
+    {
+      "name": "cat",
+      "stage": "adult",
+      "scale": 0.4897959183673469,
+      "target": 192,
+      "sourceBounds": [
+        {
+          "left": 48,
+          "top": 76,
+          "width": 397,
+          "height": 385,
+          "pixels": 97847
+        },
+        {
+          "left": 35,
+          "top": 76,
+          "width": 403,
+          "height": 385,
+          "pixels": 98455
+        },
+        {
+          "left": 45,
+          "top": 37,
+          "width": 406,
+          "height": 392,
+          "pixels": 101726
+        },
+        {
+          "left": 33,
+          "top": 37,
+          "width": 406,
+          "height": 391,
+          "pixels": 100599
+        }
+      ],
+      "file": "cat/adult.png"
+    },
+    {
+      "name": "puppy",
+      "stage": "baby",
+      "scale": 0.4849246231155779,
+      "target": 193,
+      "sourceBounds": [
+        {
+          "left": 86,
+          "top": 68,
+          "width": 377,
+          "height": 393,
+          "pixels": 103147
+        },
+        {
+          "left": 48,
+          "top": 68,
+          "width": 374,
+          "height": 393,
+          "pixels": 103044
+        },
+        {
+          "left": 85,
+          "top": 27,
+          "width": 380,
+          "height": 398,
+          "pixels": 104661
+        },
+        {
+          "left": 46,
+          "top": 29,
+          "width": 382,
+          "height": 396,
+          "pixels": 104503
+        }
+      ],
+      "file": "puppy/baby.png"
+    },
+    {
+      "name": "puppy",
+      "stage": "adult",
+      "scale": 0.4712041884816754,
+      "target": 180,
+      "sourceBounds": [
+        {
+          "left": 59,
+          "top": 65,
+          "width": 405,
+          "height": 374,
+          "pixels": 104174
+        },
+        {
+          "left": 40,
+          "top": 65,
+          "width": 411,
+          "height": 375,
+          "pixels": 105396
+        },
+        {
+          "left": 56,
+          "top": 26,
+          "width": 412,
+          "height": 382,
+          "pixels": 107690
+        },
+        {
+          "left": 40,
+          "top": 26,
+          "width": 412,
+          "height": 382,
+          "pixels": 107269
+        }
+      ],
+      "file": "puppy/adult.png"
+    },
+    {
+      "name": "hamster",
+      "stage": "baby",
+      "scale": 0.47721822541966424,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 90,
+          "top": 60,
+          "width": 354,
+          "height": 411,
+          "pixels": 110273
+        },
+        {
+          "left": 51,
+          "top": 60,
+          "width": 355,
+          "height": 411,
+          "pixels": 109991
+        },
+        {
+          "left": 90,
+          "top": 30,
+          "width": 356,
+          "height": 415,
+          "pixels": 112149
+        },
+        {
+          "left": 51,
+          "top": 30,
+          "width": 356,
+          "height": 417,
+          "pixels": 112722
+        }
+      ],
+      "file": "hamster/baby.png"
+    },
+    {
+      "name": "hamster",
+      "stage": "adult",
+      "scale": 0.47721822541966424,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 82,
+          "top": 56,
+          "width": 372,
+          "height": 417,
+          "pixels": 118639
+        },
+        {
+          "left": 39,
+          "top": 56,
+          "width": 379,
+          "height": 417,
+          "pixels": 120329
+        },
+        {
+          "left": 81,
+          "top": 38,
+          "width": 379,
+          "height": 417,
+          "pixels": 120711
+        },
+        {
+          "left": 39,
+          "top": 39,
+          "width": 379,
+          "height": 417,
+          "pixels": 120656
+        }
+      ],
+      "file": "hamster/adult.png"
+    },
+    {
+      "name": "panda",
+      "stage": "baby",
+      "scale": 0.4617169373549884,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 110,
+          "top": 46,
+          "width": 332,
+          "height": 423,
+          "pixels": 107352
+        },
+        {
+          "left": 67,
+          "top": 47,
+          "width": 331,
+          "height": 422,
+          "pixels": 106859
+        },
+        {
+          "left": 110,
+          "top": 29,
+          "width": 336,
+          "height": 431,
+          "pixels": 110366
+        },
+        {
+          "left": 66,
+          "top": 29,
+          "width": 335,
+          "height": 431,
+          "pixels": 110548
+        }
+      ],
+      "file": "panda/baby.png"
+    },
+    {
+      "name": "panda",
+      "stage": "adult",
+      "scale": 0.47961630695443647,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 87,
+          "top": 50,
+          "width": 358,
+          "height": 413,
+          "pixels": 107961
+        },
+        {
+          "left": 44,
+          "top": 51,
+          "width": 359,
+          "height": 412,
+          "pixels": 108294
+        },
+        {
+          "left": 87,
+          "top": 20,
+          "width": 359,
+          "height": 417,
+          "pixels": 108626
+        },
+        {
+          "left": 45,
+          "top": 20,
+          "width": 359,
+          "height": 417,
+          "pixels": 108799
+        }
+      ],
+      "file": "panda/adult.png"
+    },
+    {
+      "name": "red_panda",
+      "stage": "baby",
+      "scale": 0.45232273838630804,
+      "target": 185,
+      "sourceBounds": [
+        {
+          "left": 63,
+          "top": 66,
+          "width": 400,
+          "height": 406,
+          "pixels": 111437
+        },
+        {
+          "left": 22,
+          "top": 66,
+          "width": 393,
+          "height": 406,
+          "pixels": 110746
+        },
+        {
+          "left": 63,
+          "top": 27,
+          "width": 402,
+          "height": 409,
+          "pixels": 112187
+        },
+        {
+          "left": 22,
+          "top": 31,
+          "width": 396,
+          "height": 405,
+          "pixels": 110683
+        }
+      ],
+      "file": "red_panda/baby.png"
+    },
+    {
+      "name": "red_panda",
+      "stage": "adult",
+      "scale": 0.45219638242894056,
+      "target": 175,
+      "sourceBounds": [
+        {
+          "left": 47,
+          "top": 70,
+          "width": 420,
+          "height": 387,
+          "pixels": 108662
+        },
+        {
+          "left": 36,
+          "top": 71,
+          "width": 428,
+          "height": 386,
+          "pixels": 110481
+        },
+        {
+          "left": 46,
+          "top": 42,
+          "width": 425,
+          "height": 386,
+          "pixels": 109654
+        },
+        {
+          "left": 34,
+          "top": 42,
+          "width": 427,
+          "height": 386,
+          "pixels": 109655
+        }
+      ],
+      "file": "red_panda/adult.png"
+    },
+    {
+      "name": "lamb",
+      "stage": "baby",
+      "scale": 0.4694835680751174,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 76,
+          "top": 56,
+          "width": 379,
+          "height": 424,
+          "pixels": 108043
+        },
+        {
+          "left": 37,
+          "top": 56,
+          "width": 388,
+          "height": 424,
+          "pixels": 109362
+        },
+        {
+          "left": 75,
+          "top": 17,
+          "width": 387,
+          "height": 426,
+          "pixels": 109546
+        },
+        {
+          "left": 38,
+          "top": 19,
+          "width": 387,
+          "height": 425,
+          "pixels": 109673
+        }
+      ],
+      "file": "lamb/baby.png"
+    },
+    {
+      "name": "lamb",
+      "stage": "adult",
+      "scale": 0.48184019370460046,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 77,
+          "top": 41,
+          "width": 382,
+          "height": 407,
+          "pixels": 104312
+        },
+        {
+          "left": 37,
+          "top": 42,
+          "width": 382,
+          "height": 406,
+          "pixels": 104375
+        },
+        {
+          "left": 77,
+          "top": 30,
+          "width": 385,
+          "height": 413,
+          "pixels": 107443
+        },
+        {
+          "left": 37,
+          "top": 30,
+          "width": 384,
+          "height": 413,
+          "pixels": 106882
+        }
+      ],
+      "file": "lamb/adult.png"
+    },
+    {
+      "name": "koala",
+      "stage": "baby",
+      "scale": 0.4765432098765432,
+      "target": 193,
+      "sourceBounds": [
+        {
+          "left": 82,
+          "top": 62,
+          "width": 358,
+          "height": 399,
+          "pixels": 99790
+        },
+        {
+          "left": 59,
+          "top": 63,
+          "width": 358,
+          "height": 398,
+          "pixels": 98995
+        },
+        {
+          "left": 81,
+          "top": 32,
+          "width": 369,
+          "height": 405,
+          "pixels": 103152
+        },
+        {
+          "left": 59,
+          "top": 33,
+          "width": 361,
+          "height": 404,
+          "pixels": 100942
+        }
+      ],
+      "file": "koala/baby.png"
+    },
+    {
+      "name": "koala",
+      "stage": "adult",
+      "scale": 0.5,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 87,
+          "top": 46,
+          "width": 371,
+          "height": 398,
+          "pixels": 100998
+        },
+        {
+          "left": 44,
+          "top": 46,
+          "width": 375,
+          "height": 398,
+          "pixels": 101582
+        },
+        {
+          "left": 87,
+          "top": 34,
+          "width": 374,
+          "height": 398,
+          "pixels": 101496
+        },
+        {
+          "left": 44,
+          "top": 34,
+          "width": 375,
+          "height": 398,
+          "pixels": 101636
+        }
+      ],
+      "file": "koala/adult.png"
+    },
+    {
+      "name": "penguin",
+      "stage": "baby",
+      "scale": 0.5050761421319797,
+      "target": 199,
+      "sourceBounds": [
+        {
+          "left": 111,
+          "top": 64,
+          "width": 305,
+          "height": 391,
+          "pixels": 89573
+        },
+        {
+          "left": 74,
+          "top": 64,
+          "width": 305,
+          "height": 392,
+          "pixels": 90490
+        },
+        {
+          "left": 113,
+          "top": 36,
+          "width": 305,
+          "height": 394,
+          "pixels": 90520
+        },
+        {
+          "left": 74,
+          "top": 36,
+          "width": 304,
+          "height": 394,
+          "pixels": 90351
+        }
+      ],
+      "file": "penguin/baby.png"
+    },
+    {
+      "name": "penguin",
+      "stage": "adult",
+      "scale": 0.5076142131979695,
+      "target": 200,
+      "sourceBounds": [
+        {
+          "left": 90,
+          "top": 67,
+          "width": 357,
+          "height": 387,
+          "pixels": 96991
+        },
+        {
+          "left": 54,
+          "top": 67,
+          "width": 352,
+          "height": 387,
+          "pixels": 96726
+        },
+        {
+          "left": 95,
+          "top": 34,
+          "width": 344,
+          "height": 393,
+          "pixels": 98006
+        },
+        {
+          "left": 58,
+          "top": 33,
+          "width": 345,
+          "height": 394,
+          "pixels": 98695
+        }
+      ],
+      "file": "penguin/adult.png"
+    }
+  ],
+  "toy": {
+    "file": "assets/decor/acorn-wobble-v1.png",
+    "bound": {
+      "left": 330,
+      "top": 198,
+      "width": 368,
+      "height": 561,
+      "pixels": 145991
+    }
+  }
+}

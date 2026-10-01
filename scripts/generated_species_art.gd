@@ -2,6 +2,7 @@ extends RefCounted
 ## VARCO full-character cels for all species, with separate baby/adult masters.
 ## Uses complete raster frames only; no anatomical part rig or recomposition.
 const Catalog=preload("res://scripts/animal_catalog.gd")
+const WalkArt=preload("res://scripts/walk_art.gd")
 const ROOT=Vector2(128,232)
 const SIZE=256
 static var manifests: Dictionary={}
@@ -29,7 +30,8 @@ static func frames(species: int, stage: String, action: String) -> Array:
 	var key=str(species)+"/"+stage+"/"+action
 	if not cache.has(key):
 		var spec=data(species).stages[stage].sequences[action]
-		var sheet=Image.load_from_file(asset_root(species)+"/"+str(spec.file))
+		var sheet=Image.new()
+		if sheet.load_png_from_buffer(FileAccess.get_file_as_bytes(asset_root(species)+"/"+str(spec.file)))!=OK: return []
 		var sequence: Array=[]
 		var columns=int(spec.get("columns",8))
 		for i in range(int(spec.count)):
@@ -42,7 +44,8 @@ static func dressed_frames(species: int, stage: String, style: int, action: Stri
 	if not dressed_cache.has(key):
 		var path="res://assets/outfits-dressed-v2/"+key+".png"
 		if not FileAccess.file_exists(path): return []
-		var strip=Image.load_from_file(path)
+		var strip=Image.new()
+		if strip.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
 		if strip==null or strip.get_width()!=SIZE*16 or strip.get_height()!=SIZE: return []
 		var sequence: Array=[]
 		for i in range(16):
@@ -65,7 +68,7 @@ static func action_for(motion) -> String:
 		"signature","playful": return "jump"
 		"askplay","greet": return "wave"
 		"inspect","ball_ready": return "look"
-		"prop_use": return "toy" if motion.visit_id=="plant" else "rest"
+		"prop_use": return "toy" if motion.visit_id in ["plant","acorn"] else "rest"
 		"react":
 			match motion.reaction:
 				"pet","yum","full","gift","nest": return "pet"
@@ -95,7 +98,8 @@ static func sample(motion) -> Dictionary:
 	var action=action_for(motion)
 	var sequence="carry" if action=="land" else action
 	var spec=data(species).stages[stage].sequences[sequence]
-	var count=int(spec.count)
+	var smooth_walk=action=="walk" and not (motion.outfit_style>0 and motion.outfit_color==0) and WalkArt.frames(species,stage).size()==32
+	var count=32 if smooth_walk else int(spec.count)
 	var time=motion.reaction_time if motion.phase=="react" else motion.elapsed
 	if action=="carry": time=motion.carry_elapsed
 	var phase=fposmod(time/float(spec.duration),1.0)
@@ -131,10 +135,14 @@ static func sample(motion) -> Dictionary:
 		index=mini(quarter-1,int(time/.18*quarter)) if time<.18 else quarter+int((time-.18)/.16)%maxi(2,count-quarter*2)
 	elif action=="land":
 		var quarter=maxi(2,count/4)
-		index=count-quarter+mini(quarter-1,int(clampf(1-motion.landing_left/.24,0,.99999)*quarter))
+		var landing_duration=motion.DIZZY_LANDING if motion.phase=="dizzy" else .24
+		index=count-quarter+mini(quarter-1,int(clampf(1-motion.landing_left/landing_duration,0,.99999)*quarter))
 	elif motion.phase=="react" and action in ["pet","wave"]:
 		index=mini(count-1,int(clampf(time/maxf(.01,motion.reaction_duration),0,.99999)*count))
-	var result=sample_frame(species,stage,sequence,index)
+	var result=sample_frame(species,stage,sequence,index >> 1 if smooth_walk else index)
+	if smooth_walk:
+		result.texture=WalkArt.texture(species,stage,index)
+		result.index=index
 	apply_dressed(result,motion)
 	result.action=action
 	return result
