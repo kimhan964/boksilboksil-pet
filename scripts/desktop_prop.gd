@@ -235,11 +235,28 @@ func refresh() -> void:
 	if kind=="acorn": title="도토리 오뚝이 · 클릭하면 함께 놀아요"
 	resize_for_friend()
 	mouse_passthrough=in_use
-	var polygon=PackedVector2Array([Vector2(1,1),Vector2(111,1),Vector2(111,95),Vector2(1,95)])
-	for i in range(polygon.size()): polygon[i]*=art_scale
+	var polygon=input_polygon()
 	if mouse_passthrough_polygon!=polygon: mouse_passthrough_polygon=polygon
 	if drawing: drawing.queue_redraw()
 	layer_changed.emit()
+
+func input_polygon() -> PackedVector2Array:
+	var artwork=Decor.icon(kind,species)
+	if not artwork or editing:
+		return Transform2D.IDENTITY.scaled(Vector2.ONE*art_scale)*PackedVector2Array([Vector2(1,1),Vector2(111,1),Vector2(111,95),Vector2(1,95)])
+	var limit=Vector2(47,57) if kind=="acorn" else Vector2(108,82)
+	var factor=minf(limit.x/artwork.get_width(),limit.y/artwork.get_height())
+	var dimensions=artwork.get_size()*factor
+	var origin=Vector2(56,86)-Vector2(dimensions.x*.5,dimensions.y)
+	var points=PackedVector2Array()
+	for point in preload("res://scripts/animation_outline.gd").local_hull(artwork):
+		points.append((origin+point*factor)*art_scale)
+	if kind=="bowl" and food_texture and not food_lifted:
+		var meal_size=food_texture.get_size()
+		meal_size*=minf(76.0/meal_size.x,57.0/meal_size.y)
+		var meal=Rect2(Vector2(56,59)-Vector2(meal_size.x*.5,meal_size.y),meal_size)
+		for point in [meal.position,Vector2(meal.end.x,meal.position.y),meal.end,Vector2(meal.position.x,meal.end.y)]: points.append(point*art_scale)
+	return Geometry2D.convex_hull(points)
 
 func anchor_offset() -> Vector2:
 	return Vector2(56,75 if kind in ["cushion","shelter"] else (86 if kind=="acorn" else 63))*art_scale
@@ -279,6 +296,7 @@ func resize_for_friend() -> void:
 		factor=maxf(height*1.8/base_size.y,width*2.15/base_size.x) if kind=="shelter" else maxf(height*.85/base_size.y,width*1.45/base_size.x)
 	if kind in ["plant","lamp"]: factor=clampf(Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]/100.0,.5,1.3)
 	if kind in ["cushion","shelter","plant","lamp"]: factor*=growth_scale
+	factor=preload("res://scripts/desktop_clutter.gd").capped_scale(kind,factor)
 	if not is_equal_approx(factor,art_scale):
 		var anchor=feet_point()
 		art_scale=factor
@@ -295,7 +313,7 @@ func finish_drag() -> void:
 	dragging=false
 	if drag_moved:
 		moved.emit()
-	elif (interactive or kind in ["plant","lamp","acorn"]) and not editing and drag_button==MOUSE_BUTTON_LEFT:
+	elif (interactive or kind in ["plant","lamp","acorn","cushion","shelter","water","basket"]) and not editing and drag_button==MOUSE_BUTTON_LEFT:
 		activated.emit(prop_id)
 	layer_changed.emit()
 

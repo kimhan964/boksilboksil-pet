@@ -51,6 +51,7 @@ var was_walking=false
 var window_subpixel=Vector2.ZERO
 var voice_font: SystemFont
 var outfit_layer
+var dizzy_effects
 
 func _ready() -> void:
 	voice_font=SystemFont.new()
@@ -66,6 +67,10 @@ func _ready() -> void:
 	outfit_layer=preload("res://scripts/outfit_layer.gd").new()
 	outfit_layer.view=self
 	add_child(outfit_layer)
+	dizzy_effects=preload("res://scripts/dizzy_effects.gd").new()
+	dizzy_effects.view=self
+	dizzy_effects.z_index=20
+	add_child(dizzy_effects)
 	# Build textures and click outlines before the pet appears, not on its first
 	# step. The first pass through a new walk strip otherwise looks like lag.
 	var stage=GeneratedArt.stage_name(motion)
@@ -234,6 +239,11 @@ func show_generated_species() -> void:
 			generated_sample=GeneratedArt.sample_frame(motion.species,generated_sample.stage,generated_transition,transition_count-2+mini(1,int(generated_transition_time/.45*2)))
 			GeneratedArt.apply_dressed(generated_sample,motion)
 		else: generated_transition=""
+	if motion.held and not motion.carried and motion.joy_left>0:
+		var happy=EmotionArt.texture(motion.species,generated_sample.stage,"happy")
+		if happy:
+			generated_sample.texture=happy
+			generated_sample.dressed=false
 	if motion.phase=="react" and motion.reaction in EmotionArt.KINDS:
 		var emotion=EmotionArt.texture(motion.species,generated_sample.stage,motion.reaction)
 		var progress=motion.reaction_time/maxf(.01,motion.reaction_duration)
@@ -242,7 +252,7 @@ func show_generated_species() -> void:
 			generated_sample.dressed=false
 	if motion.phase=="dizzy" and motion.landing_left<=0:
 		var dizzy_age=maxf(0.0,motion.elapsed-motion.DIZZY_LANDING)
-		var dizzy_index=0 if dizzy_age<.46 else (3 if dizzy_age>1.95 else (1+int((dizzy_age-.46)/.30)%2))
+		var dizzy_index=0 if dizzy_age<.5 else (3 if dizzy_age>3.8 else (1+int((dizzy_age-.5)/.48)%2))
 		var dizzy=DizzyArt.texture(motion.species,generated_sample.stage,dizzy_index)
 		if dizzy!=null:
 			generated_sample.texture=dizzy
@@ -282,17 +292,25 @@ func show_generated_species() -> void:
 	sprite.position+=window_subpixel
 
 func apply_generated_action_motion() -> void:
-	if generated_sample.is_empty() or motion.carried or motion.held: return
+	if generated_sample.is_empty() or motion.carried: return
+	if motion.held:
+		apply_dizzy_transform(sin(motion.elapsed*8)*.012,Vector2(0,1.5),Vector2(1.025,.975))
+		return
+	if motion.phase=="drop":
+		var progress=clampf(motion.elapsed/maxf(.01,motion.drop_duration),0,1)
+		apply_dizzy_transform(sin(progress*PI)*.09*motion.facing,Vector2(0,0),Vector2(.98,1.02))
+		return
 	if motion.phase=="dizzy":
 		if motion.landing_left>0:
 			var progress=clampf(1.0-motion.landing_left/motion.DIZZY_LANDING,0.0,1.0)
-			sprite.position.y-=24.0*pow(1.0-progress,1.7)
-			sprite.rotation=sin(progress*PI)*.055*motion.facing
+			var squash=sin(clampf(progress/.5,0,1)*PI) if progress<.5 else 0.0
+			var rebound=sin(clampf((progress-.5)/.5,0,1)*PI) if progress>=.5 else 0.0
+			apply_dizzy_transform(sin(progress*PI)*.07*motion.facing,Vector2(0,-rebound*10),Vector2(1+squash*.13,1-squash*.18))
 		else:
 			var age=maxf(0.0,motion.elapsed-motion.DIZZY_LANDING)
-			var fade=clampf((motion.DIZZY_DURATION-motion.elapsed)/1.2,0.0,1.0)
-			sprite.rotation=sin(age*TAU*1.4)*.035*fade
-			sprite.position.x+=sin(age*TAU*1.4)*2.0*fade
+			var fade=clampf((motion.DIZZY_DURATION-motion.elapsed)/1.0,0.0,1.0)
+			var sway=sin(age*TAU*1.04)
+			apply_dizzy_transform(sway*.12*fade,Vector2(sway*6*fade,-absf(sin(age*TAU*2.08))*2*fade),Vector2.ONE)
 		return
 	if generated_sample.action=="jump":
 		var spec=GeneratedArt.data(motion.species).stages[generated_sample.stage].sequences.jump
@@ -302,6 +320,12 @@ func apply_generated_action_motion() -> void:
 		sprite.position.y-=arc*jump_height
 		var compression=(1.0-arc)*sin(phase*PI*2.0)*.012
 		sprite.scale*=Vector2(1.0+compression,1.0-compression)
+
+func apply_dizzy_transform(angle: float,offset: Vector2,stretch: Vector2) -> void:
+	var pivot=Transform2D(angle,stretch,0.0,Vector2.ZERO)
+	sprite.position=FEET+pivot*(sprite.position-FEET)+offset
+	sprite.rotation+=angle
+	sprite.scale*=stretch
 
 func mouth_offset() -> Vector2:
 	if not generated_sample.is_empty():
@@ -438,7 +462,7 @@ func show_habit_frame() -> void:
 	sprite.material.set_shader_parameter("frame_mix",smoothstep(.78,1,phase-index))
 
 func _draw() -> void:
-	if not ball_only and motion.voice_left>0 and not motion.carried:
+	if not ball_only and motion.voice_left>0 and not motion.carried and motion.phase not in ["drop","dizzy"]:
 		var words=motion.voice_text if not motion.voice_text.is_empty() else motion.VOICES[motion.species]
 		draw_voice_bubble(words)
 	if ball_only:

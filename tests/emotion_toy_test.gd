@@ -56,10 +56,10 @@ func _run() -> void:
 	motion.reaction=""
 	motion.begin_dizzy()
 	assert(motion.phase=="dizzy" and motion.landing_left>0)
-	motion.advance(.4)
+	motion.advance(.5)
 	view.refresh()
 	assert(view.sprite.texture==Dizzy.texture(0,"baby",0))
-	motion.advance(2.4)
+	motion.advance(Motion.DIZZY_DURATION)
 	assert(motion.phase=="idle")
 	print("EMOTION_TOY_TEST_PASSED: %d expression and %d dizzy cels"%[checked,dizzy_checked])
 	quit()

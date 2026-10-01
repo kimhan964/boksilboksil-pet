@@ -201,8 +201,11 @@ var carried=false
 var carry_elapsed=0.0
 var landing_left=0.0
 var dizzy_followup="idle"
-const DIZZY_DURATION=2.7
-const DIZZY_LANDING=0.38
+const DIZZY_DURATION=4.8
+const DIZZY_LANDING=0.45
+var drop_start=Vector2.ZERO
+var drop_ground=Vector2.ZERO
+var drop_duration=0.0
 var ball_visible=false
 var ball_velocity=Vector2.ZERO
 var ball_height=0.0
@@ -248,6 +251,7 @@ func cancel_play() -> void:
 	carried=false
 	landing_left=0
 	dizzy_followup="idle"
+	drop_duration=0.0
 	ball_visible=false
 	visit_id=""
 	visit_reward=false
@@ -261,9 +265,27 @@ func move_to(point: Vector2) -> void:
 	feet=point.clamp(bounds.position,bounds.end)
 	target=feet
 
+func begin_drop() -> void:
+	dizzy_followup=phase if phase in ["visit","react"] else "idle"
+	drop_start=feet
+	# Keep a deliberate drop onto a prop; ordinary releases fall to the desktop
+	# floor. Moving the native window avoids clipping or shrinking tall falls.
+	var floor_y=maxf(feet.y,target.y) if phase=="visit" else maxf(feet.y,bounds.end.y)
+	drop_ground=Vector2(feet.x,floor_y)
+	if dizzy_followup!="visit": target=drop_ground
+	drop_duration=clampf(sqrt(2.0*maxf(0.0,floor_y-feet.y)/1600.0),.18,1.25)
+	carried=false
+	held=false
+	landing_left=0.0
+	phase="drop"
+	elapsed=0.0
+	carry_elapsed=0.0
+	voice_left=0.0
+	joy_left=0.0
+
 func begin_dizzy() -> void:
 	# Preserve a prop visit started by the drop; resume it after recovery.
-	dizzy_followup=phase if phase in ["visit","react"] else "idle"
+	if phase!="drop": dizzy_followup=phase if phase in ["visit","react"] else "idle"
 	carried=false
 	held=false
 	landing_left=DIZZY_LANDING
@@ -567,6 +589,12 @@ func advance(delta: float) -> void:
 	hydration=maxf(0,hydration-delta*.1)
 	energy=maxf(0,energy-delta*(.2 if phase in ["wander","chase","return","visit"] else .025))
 	if held: return
+	if phase=="drop":
+		carry_elapsed=elapsed
+		var progress=clampf(elapsed/maxf(.01,drop_duration),0.0,1.0)
+		feet=drop_start.lerp(drop_ground,progress*progress)
+		if progress>=1.0: begin_dizzy()
+		return
 	if phase=="dizzy":
 		if elapsed>=DIZZY_DURATION:
 			phase=dizzy_followup

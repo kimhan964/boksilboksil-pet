@@ -23,6 +23,10 @@ var menu
 var press_screen=Vector2.ZERO
 var press_feet=Vector2.ZERO
 var dragging=false
+var gesture=preload("res://scripts/pointer_gesture.gd").new()
+var hover_cooldown=0.0
+var hover_age=0.0
+var was_hovered=false
 var monitor_timer=0.0
 var mask_key=""
 var masks: Dictionary={}
@@ -87,6 +91,7 @@ func _ready() -> void:
 	menu.add_item("소품 색상 바꾸기",6)
 	menu.add_item("소품 모두 보이기 / 숨기기",7)
 	menu.add_item("소품 위치 정리",8)
+	menu.add_item("소품 표시 · 간결하게 / 모두 펼치기",31)
 	menu.add_item("발견한 취향",9)
 	menu.add_item("성격 행동 · "+motion.Personality.TYPES[species]+" · "+motion.Personality.NAMES[species],16)
 	menu.add_item("사용법",10)
@@ -209,12 +214,19 @@ func begin_pointer(screen_point: Vector2) -> void:
 	motion.cancel_play()
 	motion.held=true
 	dragging=false
+	gesture.reset()
+	view.dizzy_effects.burst("sparkle",(screen_point-Vector2(position)).clamp(Vector2(12,12),Vector2(244,210)),4)
 	press_screen=screen_point
 	press_feet=motion.feet
 
-func move_pointer(screen_point: Vector2) -> void:
+func move_pointer(screen_point: Vector2, delta: float=1.0/60.0) -> void:
 	var displacement=screen_point-press_screen
-	if displacement.length()>6 and not dragging:
+	var kind=gesture.sample(displacement,delta)
+	if kind=="stroke" and gesture.stroke_distance>=14:
+		gesture.stroke_distance=0
+		view.dizzy_effects.burst("heart",(screen_point-Vector2(position)).clamp(Vector2(16,20),Vector2(240,200)),2)
+		motion.joy_left=.8
+	if kind=="drag" and not dragging:
 		dragging=true
 		motion.carried=true
 		motion.carry_elapsed=0
@@ -235,13 +247,14 @@ func sync_position() -> void:
 func release_pointer() -> void:
 	if not motion.held or menu.visible: return
 	motion.held=false
-	if not dragging: motion.pet()
+	if not dragging:
+		motion.pet()
+		view.dizzy_effects.burst("heart",view.dizzy_effects.orbit_layout().center+Vector2(0,18),6)
 	else:
 		motion.carried=false
-		motion.landing_left=.24
 		motion.rest_left=4
 		dropped_on_desktop.emit(motion.feet)
-		motion.begin_dizzy()
+		motion.begin_drop()
 	dragging=false
 
 func open_menu() -> void:
@@ -350,7 +363,7 @@ func _process(delta: float) -> void:
 	# release outside the shaped window cannot leave the pet stuck to the cursor.
 	if motion.held and not ball_dragging and not feeding and not menu.visible and DisplayServer.get_name()!="headless":
 		if DisplayServer.mouse_get_button_state() & MOUSE_BUTTON_MASK_LEFT:
-			move_pointer(Vector2(DisplayServer.mouse_get_position()))
+			move_pointer(Vector2(DisplayServer.mouse_get_position()),delta)
 		else: release_pointer()
 	monitor_timer+=delta
 	if monitor_timer>=2 and not motion.held:
@@ -367,12 +380,26 @@ func _process(delta: float) -> void:
 	Outline.fit(view.sprite,View.FEET,Vector2(size))
 	sync_position()
 	update_mouse_region()
+	update_hover(delta)
 	if motion.ball_visible:
 		ball_window.position=Vector2i(motion.ball_position-Vector2(16,16+motion.ball_height))
 		ball_window.mouse_passthrough=motion.phase!="ball_ready"
 		if not ball_window.visible: ball_window.show()
 		ball_view.queue_redraw()
 	elif ball_window.visible: ball_window.hide()
+
+func update_hover(delta: float) -> void:
+	if DisplayServer.get_name()=="headless": return
+	hover_cooldown=maxf(0,hover_cooldown-delta)
+	var hovered=not mouse_passthrough and not motion.held and not menu.visible
+	hover_age=hover_age+delta if hovered else 0.0
+	if hovered and not was_hovered and hover_cooldown<=0 and motion.phase in ["idle","look"]:
+		view.dizzy_effects.hover_left=1.2
+		hover_cooldown=5.0
+	if hovered and hover_age>.35 and motion.phase in ["idle","look"]:
+		var dx=float(DisplayServer.mouse_get_position().x)-motion.feet.x
+		if absf(dx)>22: motion.facing=signf(dx)
+	was_hovered=hovered
 
 func update_mouse_region() -> void:
 	# Never change the Win32 drawing region during animation. SetWindowRgn

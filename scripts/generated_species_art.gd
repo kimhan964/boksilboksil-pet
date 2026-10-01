@@ -54,6 +54,7 @@ static func dressed_frames(species: int, stage: String, style: int, action: Stri
 	return dressed_cache[key]
 
 static func action_for(motion) -> String:
+	if motion.phase=="drop": return "carry"
 	if motion.carried: return "carry"
 	if motion.landing_left>0: return "land"
 	if motion.phase=="drink" and motion.visit_id=="water": return "sniff"

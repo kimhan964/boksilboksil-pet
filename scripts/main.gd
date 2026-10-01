@@ -21,6 +21,10 @@ var hidden_snack=0
 var hunt_resolved=false
 var hunt_previous_resting=false
 var decorating=false
+var expanded_props=false
+var focus_prop=""
+var preferred_rest=""
+var preferred_toy=""
 var info: AcceptDialog
 var app_theme: Theme
 var gift_notice: Window
@@ -145,6 +149,7 @@ func build_props() -> void:
 		if id=="bowl": prop.food_picked.connect(pick_up_food)
 		if id in ["plant","lamp"]: prop.activated.connect(use_species_prop)
 		if id=="acorn": prop.activated.connect(use_common_toy)
+		if id in ["cushion","shelter","water","basket"]: prop.activated.connect(use_desktop_prop)
 		add_child(prop)
 		props[id]=prop
 
@@ -253,13 +258,26 @@ func ensure_prop_nearby(id: String) -> void:
 	if not state.unlocked(state.selected,id): return
 	if falling_gifts.has(id): finish_unlock_fall(id,false)
 	var prop=props[id]
-	prop.show()
 	state.hidden.erase(id)
+	focus_prop=id
+	apply_prop_visibility()
 	var point=prop.feet_point()
 	if not pet.motion.bounds.has_point(point):
 		point=(pet.motion.feet+Vector2(120,20)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
 		prop.position=Vector2i(point-prop.anchor_offset())
 	persist_layout()
+
+func use_desktop_prop(id: String) -> void:
+	if not is_instance_valid(pet) or not state.unlocked(state.selected,id): return
+	if id not in ["cushion","shelter","water","basket"]: return
+	cancel_hunt()
+	cancel_feeding()
+	if decorating: return
+	ensure_prop_nearby(id)
+	props[id].confirm_drop()
+	var point=props[id].dining_point(pet.motion.bounds) if id=="water" else props[id].feet_point()
+	pet.motion.visit(point,{"cushion":"doze","shelter":"relax","water":"drink","basket":"askplay"}[id],id,true)
+	pet.motion.stay_after_visit=id=="cushion"
 
 func on_activity_finished(id: String) -> void:
 	if id=="basket" and pet.motion.visit_action=="askplay": pet.motion.prepare_ball()
@@ -328,6 +346,10 @@ func activity(id: int) -> void:
 		pet.motion.react(["surprised","happy","angry","sleepy"][id-400],2.5)
 		return
 	match id:
+		31:
+			expanded_props=not expanded_props
+			apply_prop_visibility()
+			refresh_destinations()
 		25: show_first_guide()
 		26: show_info("함께할 목표",state.goal_text(state.selected)+"\n\n"+state.progress_text(state.selected))
 		23,24:
@@ -354,6 +376,8 @@ func activity(id: int) -> void:
 				prop.editing=decorating
 				prop.refresh()
 			persist_layout()
+			apply_prop_visibility()
+			refresh_destinations()
 		6:
 			state.palette=(state.palette+1)%3
 			state.reward_activity(state.selected,"decorate")
@@ -394,7 +418,7 @@ func activity(id: int) -> void:
 			if decorating: activity(5)
 			pet.motion.start_playful(true)
 		18: show_info("우리 친구의 성장 기록",state.growth_text(state.selected))
-		10: show_info("바탕화면 친구 사용법","처음에는 동물만 함께해요. 쓰다듬고 놀며 선물을 받아요.\n우클릭 → 다음 선물: 친밀도와 해금 목록\n가만히 두면 스스로 산책·몸단장·기지개·낮잠을 즐겨요.\n각자의 침대와 쉼터, 음식과 물도 찾아가요.\n\n클릭: 쓰다듬기 · 드래그: 자리 옮기기\n우클릭 → 식당 음식 차려주기: 음식 32종 선택\n그릇의 음식을 입으로 드래그 → 초록 테두리에서 놓기\n다른 곳에 놓거나 우클릭하면 그릇으로 돌아와요\n침대에서 쉬기 / 쉼터로 가기 / 잠자리 토닥이기\n\n꾸미기 모드: 소품 드래그로 배치, 우클릭으로 색상 변경\n다시 선택하면 꾸미기를 마칩니다.\n동물별 침대·쉼터 배치와 음식, 교감은 자동 저장됩니다.")
+		10: show_info("바탕화면 친구 사용법","처음에는 동물만 함께해요. 쓰다듬고 놀며 선물을 받아요.\n우클릭 → 다음 선물: 친밀도와 해금 목록\n가만히 두면 스스로 산책·몸단장·기지개·낮잠을 즐겨요.\n각자의 침대와 쉼터, 음식과 물도 찾아가요.\n\n클릭: 쓰다듬기 · 누른 채 작게 좌우: 연속 쓰다듬기\n위로/멀리 드래그: 들어 올리기 · 놓기: 낙하와 해롱해롱\n연못·침대·장난감 클릭: 찾아가 사용하기\n꾸미기 → 소품 표시: 간결하게 / 모두 펼치기\n우클릭 → 식당 음식 차려주기: 음식 32종 선택\n그릇의 음식을 입으로 드래그 → 초록 테두리에서 놓기\n다른 곳에 놓거나 우클릭하면 그릇으로 돌아와요\n침대에서 쉬기 / 쉼터로 가기 / 잠자리 토닥이기\n\n꾸미기 모드: 소품 드래그로 배치, 우클릭으로 색상 변경\n다시 선택하면 꾸미기를 마칩니다.\n동물별 침대·쉼터 배치와 음식, 교감은 자동 저장됩니다.")
 		11,12,13:
 			if decorating: activity(5)
 			var place="shelter" if id==12 else "cushion"
@@ -597,8 +621,7 @@ func cancel_feeding() -> void:
 		pet.motion.rest_left=4
 
 func apply_unlocks() -> void:
-	for id in props:
-		props[id].visible=state.unlocked(state.selected,id) and id not in state.hidden
+	apply_prop_visibility()
 	if is_instance_valid(pet):
 		pet.refresh_unlock_menu()
 		pet.motion.affection=int(state.play_affection.get(str(state.selected),0))
@@ -608,6 +631,16 @@ func apply_unlocks() -> void:
 		pet.motion.can_follow=state.unlocked(state.selected,"follow")
 		pet.motion.can_rub=state.unlocked(state.selected,"rub")
 	refresh_destinations()
+
+func apply_prop_visibility() -> void:
+	if focus_prop in ["cushion","shelter","lamp"]: preferred_rest=focus_prop
+	if focus_prop in ["acorn","plant","basket"]: preferred_toy=focus_prop
+	var eligible: Array=[]
+	for id in props:
+		if state.unlocked(state.selected,id) and id not in state.hidden: eligible.append(id)
+	var selected=eligible if expanded_props or decorating else preload("res://scripts/desktop_clutter.gd").visible_ids(eligible,preferred_rest,preferred_toy)
+	for id in props:
+		props[id].visible=id in selected or (id in eligible and (falling_gifts.has(id) or pending_gift_visits.has(id)))
 
 func on_affection_changed(species: int, gifts: Array) -> void:
 	if species!=state.selected: return
@@ -629,6 +662,8 @@ func clear_falling_gifts() -> void:
 
 func start_unlock_fall(id: String) -> void:
 	if not props.has(id) or falling_gifts.has(id): return
+	focus_prop=id
+	apply_prop_visibility()
 	var prop=props[id]
 	var target: Vector2i=prop.position
 	var screen=DisplayServer.get_screen_from_rect(Rect2i(target,prop.size))
@@ -678,6 +713,8 @@ func try_gift_visit() -> void:
 	if pet.motion.held or pet.motion.carried or pet.motion.resting or pet.motion.phase!="idle": return
 	if pet.menu.visible or is_instance_valid(held_food): return
 	var id: String=pending_gift_visits.pop_front()
+	focus_prop=id
+	apply_prop_visibility()
 	if not props.has(id) or not props[id].visible or not state.unlocked(state.selected,id): return
 	var prop=props[id]
 	var point=prop.dining_point(pet.motion.bounds) if id in ["bowl","water"] else prop.feet_point()
