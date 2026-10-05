@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "cat",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 179.28565788640233,
+      "cycle_seconds": 2.1,
+      "stride": 45.57047223781497,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 173.0193844707451,
+      "cycle_seconds": 2.1,
+      "stride": 45.04249863373583,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

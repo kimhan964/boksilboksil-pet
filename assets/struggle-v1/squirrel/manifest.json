@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "species": "squirrel",
+  "method": "Generated whole poses, offline RIFE, no runtime blending or limb rigs",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 202.92493946731236,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        120.3912832929782
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 188.29154518950438,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        128.4396501457726
+      ]
+    }
+  }
+}

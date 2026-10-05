@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "penguin",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 200.0,
+      "cycle_seconds": 2.25,
+      "stride": 44.471727634979956,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 199.99999999999997,
+      "cycle_seconds": 2.25,
+      "stride": 39.45591766927102,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

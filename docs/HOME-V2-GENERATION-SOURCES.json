@@ -1,0 +1,280 @@
+[
+  {
+    "species": "rabbit",
+    "age": "baby",
+    "asset": "assets/home-v2/rabbit/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-678314ea-0c57-4221-8017-cf93a86cb469.png"
+  },
+  {
+    "species": "rabbit",
+    "age": "adult",
+    "asset": "assets/home-v2/rabbit/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-6d51ff16-56f4-4234-960c-2e42afc5ac29.png"
+  },
+  {
+    "species": "otter",
+    "age": "baby",
+    "asset": "assets/home-v2/otter/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-3626f9d1-121d-4b0c-b92e-1705d48ba98f.png"
+  },
+  {
+    "species": "otter",
+    "age": "adult",
+    "asset": "assets/home-v2/otter/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-7d5f8703-f6b5-44b0-833f-cb66d5d9ff5a.png"
+  },
+  {
+    "species": "squirrel",
+    "age": "baby",
+    "asset": "assets/home-v2/squirrel/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-9debc0b7-c938-498d-8622-1e70ceedda60.png"
+  },
+  {
+    "species": "squirrel",
+    "age": "baby",
+    "action": "play",
+    "asset": "assets/home-v2/squirrel/baby-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-1705ddeb-63a0-4fb8-b83b-602b27ce517e.png"
+  },
+  {
+    "species": "squirrel",
+    "age": "adult",
+    "asset": "assets/home-v2/squirrel/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-02ee0fae-aaba-4ff0-9ccb-72e8b19ac04f.png"
+  },
+  {
+    "species": "squirrel",
+    "age": "adult",
+    "action": "play",
+    "asset": "assets/home-v2/squirrel/adult-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-d32840a4-38fe-4172-98f6-ec6c6745f882.png"
+  },
+  {
+    "species": "hedgehog",
+    "age": "baby",
+    "asset": "assets/home-v2/hedgehog/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-7e56f28c-c90e-480c-b515-6a4105170803.png"
+  },
+  {
+    "species": "hedgehog",
+    "age": "baby",
+    "action": "play",
+    "asset": "assets/home-v2/hedgehog/baby-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-13d8209d-ab16-40a4-b822-05637e75449f.png"
+  },
+  {
+    "species": "hedgehog",
+    "age": "adult",
+    "asset": "assets/home-v2/hedgehog/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-76a84d49-afe2-4d0b-8536-e57435d82b48.png"
+  },
+  {
+    "species": "hedgehog",
+    "age": "adult",
+    "action": "play",
+    "asset": "assets/home-v2/hedgehog/adult-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-8b6574a2-f812-46d6-b203-8c6cb1d19733.png"
+  },
+  {
+    "species": "raccoon",
+    "age": "baby",
+    "asset": "assets/home-v2/raccoon/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-863eecb8-927a-464e-967b-851a794db13d.png"
+  },
+  {
+    "species": "raccoon",
+    "age": "adult",
+    "asset": "assets/home-v2/raccoon/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-aae8042a-a412-4db4-ae08-dd19253856dc.png"
+  },
+  {
+    "species": "fox",
+    "age": "baby",
+    "asset": "assets/home-v2/fox/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-e6f2bb00-f49a-43f9-8aaa-20b1c236947f.png"
+  },
+  {
+    "species": "fox",
+    "age": "adult",
+    "asset": "assets/home-v2/fox/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-69f12942-ac99-45d3-9cd5-ec4090459648.png"
+  },
+  {
+    "species": "bear",
+    "age": "baby",
+    "asset": "assets/home-v2/bear/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-6bbad3ad-0cec-419d-b2f1-fa1ac2d2e539.png"
+  },
+  {
+    "species": "bear",
+    "age": "adult",
+    "asset": "assets/home-v2/bear/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-ce3520dc-a028-4407-9a45-77090ff4544a.png"
+  },
+  {
+    "species": "owl",
+    "age": "baby",
+    "asset": "assets/home-v2/owl/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-37b56c47-2f1b-45c4-b921-0dfbbd7c5258.png"
+  },
+  {
+    "species": "owl",
+    "age": "adult",
+    "asset": "assets/home-v2/owl/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-e0efbb8a-78e1-4f5c-a3be-9e014ac57d91.png"
+  },
+  {
+    "species": "cat",
+    "age": "baby",
+    "asset": "assets/home-v2/cat/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-882ed673-711c-4e7f-bb4c-3f332e1d0602.png"
+  },
+  {
+    "species": "cat",
+    "age": "baby",
+    "action": "play",
+    "asset": "assets/home-v2/cat/baby-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-b5b97aa9-4469-49e1-ad0f-5abf4ad6c51f.png"
+  },
+  {
+    "species": "cat",
+    "age": "adult",
+    "asset": "assets/home-v2/cat/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-b7180048-8a12-49c6-99ad-4e4907fddd4e.png"
+  },
+  {
+    "species": "cat",
+    "age": "adult",
+    "action": "play",
+    "asset": "assets/home-v2/cat/adult-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-b8041b99-4514-49b2-bf45-a4d3891fb94c.png"
+  },
+  {
+    "species": "puppy",
+    "age": "baby",
+    "asset": "assets/home-v2/puppy/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-eebf0a62-3961-411e-b63d-7c4d732b8d8b.png"
+  },
+  {
+    "species": "puppy",
+    "age": "adult",
+    "asset": "assets/home-v2/puppy/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-cc2be7b0-2bed-4739-925b-e3fcbbbd6bcb.png"
+  },
+  {
+    "species": "hamster",
+    "age": "baby",
+    "asset": "assets/home-v2/hamster/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-5bf6ba96-0c14-45f9-8393-38dfe37dc52c.png"
+  },
+  {
+    "species": "hamster",
+    "age": "adult",
+    "asset": "assets/home-v2/hamster/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-c1346d2a-ab18-4954-bfab-8e805877e7dc.png"
+  },
+  {
+    "species": "panda",
+    "age": "baby",
+    "asset": "assets/home-v2/panda/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-1e6c89a7-0183-49ad-90c8-3cb321b55fd9.png"
+  },
+  {
+    "species": "panda",
+    "age": "adult",
+    "asset": "assets/home-v2/panda/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-b9f70ed2-bd29-4269-9873-78271d0568ae.png"
+  },
+  {
+    "species": "red_panda",
+    "age": "baby",
+    "asset": "assets/home-v2/red_panda/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-4600a083-dbb8-416c-93af-c3ddf3bfb933.png"
+  },
+  {
+    "species": "red_panda",
+    "age": "baby",
+    "action": "play",
+    "asset": "assets/home-v2/red_panda/baby-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-0c7be190-810a-4dc2-b63f-570ed4e13757.png"
+  },
+  {
+    "species": "red_panda",
+    "age": "adult",
+    "asset": "assets/home-v2/red_panda/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-f8c782bf-5a39-48a1-9756-334d6256deff.png"
+  },
+  {
+    "species": "lamb",
+    "age": "baby",
+    "asset": "assets/home-v2/lamb/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-4a371a79-1b2d-4216-bba6-32e2b5d9feaf.png"
+  },
+  {
+    "species": "lamb",
+    "age": "adult",
+    "asset": "assets/home-v2/lamb/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-49c02f37-872c-42d7-8dcc-f1ac4d44c1b7.png"
+  },
+  {
+    "species": "koala",
+    "age": "baby",
+    "asset": "assets/home-v2/koala/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-396ebf7b-a26a-40ee-b26b-4967ae3267ca.png"
+  },
+  {
+    "species": "koala",
+    "age": "baby",
+    "action": "play",
+    "asset": "assets/home-v2/koala/baby-play.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-5ff376cd-920a-4c80-84f9-ddbba56dca14.png"
+  },
+  {
+    "species": "koala",
+    "age": "adult",
+    "asset": "assets/home-v2/koala/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-00f75165-5d81-45ae-8288-8eb073e239d8.png"
+  },
+  {
+    "species": "penguin",
+    "age": "baby",
+    "asset": "assets/home-v2/penguin/baby.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-b10f2252-f3b6-4f17-9cfc-5b62eff2e95e.png"
+  },
+  {
+    "species": "penguin",
+    "age": "adult",
+    "asset": "assets/home-v2/penguin/adult.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-505aaf0b-e6f1-4d45-bba9-db9e0ba2df22.png"
+  },
+  {
+    "furniture": "reading_chair",
+    "asset": "assets/furniture-v2/reading_chair.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-af63bc05-e355-4dd8-9fe3-9ff88d419550.png"
+  },
+  {
+    "furniture": "daybed",
+    "asset": "assets/furniture-v2/daybed.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-87e6b15b-f7d1-49a3-9318-56d40444ecdd.png"
+  },
+  {
+    "furniture": "vanity",
+    "asset": "assets/furniture-v2/vanity.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-5c749ace-0ab9-4ef3-ac03-eb8852bfbc43.png"
+  },
+  {
+    "furniture": "record_player",
+    "asset": "assets/furniture-v2/record_player.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-bd1f6396-1731-431b-a539-3383da2a28bb.png"
+  },
+  {
+    "furniture": "play_rug",
+    "asset": "assets/furniture-v2/play_rug.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-b35243b1-d0fb-428f-95fe-8b99ff3f75ff.png"
+  },
+  {
+    "furniture": "window_seat",
+    "asset": "assets/furniture-v2/window_seat.png",
+    "original": "C:\\Users\\rlagk\\.codex\\generated_images\\01a0ce8c-8610-76d1-9980-15b2dcaa3342\\exec-4cd6573b-1e3c-4b31-9f1c-6dd2db605787.png"
+  }
+]

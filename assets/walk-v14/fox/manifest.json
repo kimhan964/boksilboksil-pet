@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "fox",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 167.7938941836199,
+      "cycle_seconds": 2.05,
+      "stride": 23.060038088114013,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 155.10077920079874,
+      "cycle_seconds": 2.05,
+      "stride": 21.921999893127936,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

@@ -7,6 +7,7 @@ const BabyMeal=preload("res://scripts/baby_meal.gd")
 const BabyWalk=preload("res://scripts/baby_walk.gd")
 const GeneratedArt=preload("res://scripts/generated_species_art.gd")
 const EmotionArt=preload("res://scripts/emotion_art.gd")
+const ExpressionBehavior=preload("res://scripts/expression_behavior.gd")
 const DizzyArt=preload("res://scripts/dizzy_art.gd")
 const WalkArt=preload("res://scripts/walk_art.gd")
 const Presentation=preload("res://scripts/character_presentation.gd")
@@ -17,6 +18,8 @@ var generated_transition_time=0.0
 var baby_walk: Array=[]
 const RaccoonPalette=preload("res://scripts/raccoon_palette.gd")
 const Metrics=preload("res://scripts/texture_metrics.gd")
+const CharacterSize=preload("res://scripts/character_size.gd")
+const VisualStyle=preload("res://scripts/pet_visual_style.gd")
 const Special=preload("res://scripts/shared_special.gd")
 var adult_special: Array=[]
 var adult_special_bounds=Rect2i()
@@ -84,12 +87,36 @@ func prewarm_current_art() -> void:
 	# Build textures and click outlines before the pet appears, not on its first
 	# step. The first pass through a new walk strip otherwise looks like lag.
 	var stage=GeneratedArt.stage_name(motion)
+	CharacterSize.size_reference(motion)
+	var home=preload("res://scripts/home_animation.gd")
+	if home.available(motion):
+		for kind in home.TRACKS:
+			for cel in home.frames(motion,kind):
+				Metrics.used_rect(cel)
+				preload("res://scripts/animation_outline.gd").local_hull(cel)
+	for name in preload("res://scripts/hold_transition_art.gd").NAMES:
+		for cel in preload("res://scripts/hold_transition_art.gd").frames(motion.species,stage,name):
+			Metrics.used_rect(cel)
+			Metrics.opaque_area(cel)
+			preload("res://scripts/animation_outline.gd").local_hull(cel)
+	for cel in preload("res://scripts/struggle_art.gd").frames(motion.species,stage):
+		Metrics.used_rect(cel)
+		Metrics.opaque_area(cel)
+		preload("res://scripts/animation_outline.gd").local_hull(cel)
+	if motion.rabbit_pilot and motion.species==0:
+		preload("res://scripts/rabbit_pilot_art.gd").prewarm(stage)
+		for action in preload("res://scripts/rabbit_pilot_art.gd").data().stages[stage].sequences:
+			for cel in preload("res://scripts/rabbit_pilot_art.gd").frames(stage,action): Metrics.opaque_area(cel)
 	var base_walk=GeneratedArt.frames(motion.species,stage,"walk")
 	var walk=WalkArt.frames(motion.species,stage)
-	if motion.outfit_style>0 and motion.outfit_color==0:
-		var dressed_walk=GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,"walk")
-		if not dressed_walk.is_empty(): walk=dressed_walk
+	if preload("res://scripts/smooth_species_art.gd").enabled(motion):
+		walk=preload("res://scripts/smooth_species_art.gd").frames(motion.species,stage)
 	if walk.is_empty(): walk=base_walk
+	if preload("res://scripts/dining_species_art.gd").enabled(motion):
+		for cel in preload("res://scripts/dining_species_art.gd").frames(motion):
+			Metrics.used_rect(cel)
+			Metrics.opaque_area(cel)
+			preload("res://scripts/animation_outline.gd").local_hull(cel)
 	if motion.outfit_style>0:
 		outfit_layer.outfit_texture(motion.species,stage,motion.outfit_style,motion.outfit_color)
 	for cel in walk: preload("res://scripts/animation_outline.gd").local_hull(cel)
@@ -98,16 +125,15 @@ func prewarm_current_art() -> void:
 	for action in GeneratedArt.data(motion.species).stages[stage].sequences:
 		for cel in GeneratedArt.frames(motion.species,stage,action):
 			Metrics.used_rect(cel)
+			Metrics.opaque_area(cel)
 			preload("res://scripts/animation_outline.gd").local_hull(cel)
-		if motion.outfit_style>0 and motion.outfit_color==0:
-			for cel in GeneratedArt.dressed_frames(motion.species,stage,motion.outfit_style,action):
-				Metrics.used_rect(cel)
-				preload("res://scripts/animation_outline.gd").local_hull(cel)
 	for kind in EmotionArt.KINDS:
 		var cel=EmotionArt.texture(motion.species,stage,kind)
+		if cel: Metrics.opaque_area(cel)
 		if cel: preload("res://scripts/animation_outline.gd").local_hull(cel)
 	for index in range(4):
 		var cel=DizzyArt.texture(motion.species,stage,index)
+		if cel: Metrics.opaque_area(cel)
 		if cel: preload("res://scripts/animation_outline.gd").local_hull(cel)
 	return
 	resource=BaseArt.resource(motion.species)
@@ -252,6 +278,7 @@ func refresh(delta: float=0.0) -> void:
 
 func show_generated_species() -> void:
 	generated_sample=GeneratedArt.sample(motion)
+	if ExpressionBehavior.active(motion): generated_sample=ExpressionBehavior.sample(motion)
 	var action: String=generated_sample.action
 	if action!=generated_last_action:
 		generated_transition=""
@@ -268,75 +295,141 @@ func show_generated_species() -> void:
 			generated_sample=GeneratedArt.sample_frame(motion.species,generated_sample.stage,generated_transition,transition_count-2+mini(1,int(generated_transition_time/.45*2)))
 			GeneratedArt.apply_dressed(generated_sample,motion)
 		else: generated_transition=""
-	if motion.held and not motion.carried and motion.joy_left>0:
+	# During pointer capture, a small rub can precede a lift. Replacing the
+	# calibrated idle cel with a differently framed expression makes the body
+	# change size before pickup. Hearts already provide the petting feedback.
+	if motion.held and not motion.pointer_grab and not motion.carried and motion.joy_left>0:
 		var happy=EmotionArt.texture(motion.species,generated_sample.stage,"happy")
 		if happy:
 			generated_sample.texture=happy
 			generated_sample.dressed=false
-	if motion.phase=="react" and motion.reaction in EmotionArt.KINDS:
+			generated_sample.action="expression"
+			generated_sample.anchor=Vector2(128,Metrics.used_rect(happy).end.y)
+			generated_sample.fixed_cels=true
+	if motion.phase=="react" and motion.reaction in EmotionArt.KINDS and not generated_sample.get("expression_behavior",false):
 		var emotion=EmotionArt.texture(motion.species,generated_sample.stage,motion.reaction)
 		var progress=motion.reaction_time/maxf(.01,motion.reaction_duration)
 		if emotion!=null and progress>=.07 and progress<.91:
 			generated_sample.texture=emotion
 			generated_sample.dressed=false
-	if motion.phase=="dizzy" and motion.landing_left<=0:
+			generated_sample.action="expression"
+			generated_sample.anchor=Vector2(128,Metrics.used_rect(emotion).end.y)
+			generated_sample.fixed_cels=true
+	if motion.phase=="dizzy" and motion.landing_left<=0 and not generated_sample.get("hold_visual",false):
 		var dizzy_age=maxf(0.0,motion.elapsed-motion.DIZZY_LANDING)
 		var dizzy_index=0 if dizzy_age<.5 else (3 if dizzy_age>3.8 else (1+int((dizzy_age-.5)/.48)%2))
 		var dizzy=DizzyArt.texture(motion.species,generated_sample.stage,dizzy_index)
 		if dizzy!=null:
 			generated_sample.texture=dizzy
 			generated_sample.dressed=false
+			generated_sample.action="dizzy"
+			generated_sample.anchor=Vector2(128,Metrics.used_rect(dizzy).end.y)
+			generated_sample.fixed_cels=true
 	sprite.texture=generated_sample.texture
 	sprite.rotation=0
 	var factor=Art.DISPLAY_HEIGHT*Art.HEIGHTS[motion.species]/generated_sample.height*motion.growth_scale
-	var expression=motion.phase=="dizzy" or (motion.phase=="react" and motion.reaction in EmotionArt.KINDS) or (motion.held and not motion.carried and motion.joy_left>0)
-	var pose=Presentation.pose(motion.species,generated_sample,expression)
+	var expression=motion.phase=="dizzy" or (motion.phase=="react" and motion.reaction in EmotionArt.KINDS) or (motion.held and not motion.pointer_grab and not motion.carried and motion.joy_left>0)
+	var fixed_cels=generated_sample.get("pilot",false) or generated_sample.get("smooth_walk",false) or generated_sample.get("fixed_cels",false)
+	var pose={"scale":Vector2.ONE,"anchor":generated_sample.get("anchor",Vector2(128,232))} if fixed_cels else Presentation.pose(motion.species,generated_sample,expression)
 	sprite.scale=Vector2(factor*motion.facing,factor)*pose.scale
 	sprite.position=FEET-pose.anchor*sprite.scale
+	if generated_sample.get("pilot",false): sprite.position+=generated_sample.get("root_offset",Vector2.ZERO)*sprite.scale
 	sprite.material.set_shader_parameter("next_frame",generated_sample.get("next_texture",sprite.texture))
 	sprite.material.set_shader_parameter("frame_mix",float(generated_sample.get("frame_mix",0.0)))
 	sprite.material.set_shader_parameter("fur_match",false)
 	sprite.material.set_shader_parameter("has_meal",false)
 	sprite.material.set_shader_parameter("baby_meal",false)
-	var water=motion.phase=="drink" and motion.visit_id=="water"
-	var serving=motion.phase in ["eat","drink"] and not water and motion.food_id>=0 and motion.visit_id in ["bowl","meal","snack","hand_feed"]
+	sprite.material.set_shader_parameter("meal_opacity",1.0)
+	var water=motion.phase=="drink" and motion.visit_id in ["water","home_water"]
+	var serving=motion.phase in ["eat","drink"] and not water and motion.food_id>=0 and motion.visit_id in ["bowl","meal","snack","hand_feed","home_food"]
 	var toy=motion.phase=="prop_use" and motion.visit_id=="plant"
-	if serving or toy:
+	if (serving and not generated_sample.get("embedded_food",false)) or toy:
 		var meal: Texture2D=Decor.icon("plant",motion.species) if toy else Food.icon_for(motion.species,motion.food_id)
 		var hand: Vector2=generated_sample.hand
 		var width=34.0
 		var height=minf(47.0,width*meal.get_height()/float(meal.get_width()))
 		var rect=Vector4((hand.x-width*.45)/256.0,(hand.y-height*.55)/256.0,width/256.0,height/256.0)
+		if serving and motion.phase=="eat":
+			var food_pose=preload("res://scripts/eating_timing.gd").food_pose(generated_sample,meal,motion.elapsed)
+			rect=food_pose.rect
+			hand=food_pose.grip
+			sprite.material.set_shader_parameter("meal_opacity",food_pose.opacity)
 		sprite.material.set_shader_parameter("has_meal",true)
-		sprite.material.set_shader_parameter("baby_meal",true)
+		sprite.material.set_shader_parameter("baby_meal",motion.phase!="eat")
 		sprite.material.set_shader_parameter("modern_meal",true)
 		sprite.material.set_shader_parameter("menu_texture",meal)
 		sprite.material.set_shader_parameter("old_rect",rect)
 		sprite.material.set_shader_parameter("prop_rect",rect)
 		sprite.material.set_shader_parameter("baby_grip",Vector4(hand.x/256.0,hand.y/256.0,9.0/256.0,10.0/256.0))
 		sprite.material.set_shader_parameter("food_bite",motion.phase!="drink")
+	if motion.phase=="drink" and motion.visit_id=="home_water":
+		var cup=preload("res://scripts/furniture_catalog.gd").texture("water-cup")
+		if cup!=null:
+			var cup_pose=preload("res://scripts/eating_timing.gd").cup_pose(generated_sample,cup,motion.elapsed)
+			sprite.material.set_shader_parameter("has_meal",true)
+			sprite.material.set_shader_parameter("baby_meal",false)
+			sprite.material.set_shader_parameter("modern_meal",true)
+			sprite.material.set_shader_parameter("food_bite",false)
+			sprite.material.set_shader_parameter("menu_texture",cup)
+			sprite.material.set_shader_parameter("meal_opacity",cup_pose.opacity)
+			sprite.material.set_shader_parameter("old_rect",cup_pose.rect)
+			sprite.material.set_shader_parameter("prop_rect",cup_pose.rect)
 	# Generated full-character cels still need a small whole-body weight shift.
 	# Without it the window travels while the body stays mechanically level,
 	# which makes an otherwise valid walk cycle read as skating.
-	apply_weight_motion()
+	CharacterSize.apply(self)
+	if not fixed_cels: apply_weight_motion()
 	apply_generated_action_motion()
+	if motion.visit_id=="home_sofa" and motion.phase=="relax":
+		var seated=smoothstep(0.0,.5,motion.elapsed)*smoothstep(0.0,.5,motion.action_left)
+		sprite.position.y-=18*seated
+	if generated_sample.get("home_animation",false):
+		var lift={"home_sofa":18.0,"home_reading_chair":22.0,"home_daybed":26.0,"home_window_seat":18.0}.get(motion.visit_id,0.0)
+		var settled=smoothstep(0.0,.6,motion.elapsed)*smoothstep(0.0,.6,motion.action_left)
+		sprite.position.y-=lift*settled
 	sprite.position+=window_subpixel
 
 func apply_generated_action_motion() -> void:
-	if generated_sample.is_empty() or motion.carried: return
+	if generated_sample.is_empty(): return
+	if ExpressionBehavior.active(motion):
+		var gesture=ExpressionBehavior.pose(motion)
+		apply_dizzy_transform(gesture.angle,gesture.offset,Vector2.ONE)
+		return
+	if motion.carried:
+		if motion.is_struggling():
+			var age=float(generated_sample.get("hold_loop_age",motion.struggle_age()))
+			var amount=smoothstep(0.0,.22,age)
+			var angle=sin(age*TAU/1.4)*.065*amount
+			# One rigid pendulum around the held upper body; the generated cels
+			# supply the kicks. No anatomical transforms or pulsing body scale.
+			var grip=sprite.transform*generated_sample.get("grip",Vector2(128,130))
+			sprite.position=grip+(sprite.position-grip).rotated(angle)
+			sprite.rotation=angle
+		return
 	if motion.held:
-		apply_dizzy_transform(sin(motion.elapsed*8)*.012,Vector2(0,1.5),Vector2(1.025,.975))
+		return
+	if motion.phase=="idle" and not motion.hold_release.is_empty() and generated_sample.get("hold_visual",false):
+		# A protest can now be released between 2 and 3 seconds without a fall.
+		# Preserve its angle on that release too, then settle it gently.
+		var inherited=float(motion.hold_release.get("angle",0.0))*(1.0-smoothstep(0.0,.18,motion.hold_release.elapsed))
+		var grip=sprite.transform*generated_sample.get("grip",Vector2(128,130))
+		sprite.position=grip+(sprite.position-grip).rotated(inherited)
+		sprite.rotation=inherited
 		return
 	if motion.phase=="drop":
 		var progress=clampf(motion.elapsed/maxf(.01,motion.drop_duration),0,1)
-		apply_dizzy_transform(sin(progress*PI)*.09*motion.facing,Vector2(0,0),Vector2(.98,1.02))
+		var inherited=float(motion.hold_release.get("angle",0.0))*(1.0-smoothstep(0.0,.16,motion.elapsed))
+		var grip=sprite.transform*generated_sample.get("grip",Vector2(128,130))
+		sprite.position=grip+(sprite.position-grip).rotated(inherited)
+		sprite.rotation=inherited
+		apply_dizzy_transform(sin(progress*PI)*.09*motion.facing,Vector2.ZERO,Vector2.ONE)
 		return
 	if motion.phase=="dizzy":
 		if motion.landing_left>0:
 			var progress=clampf(1.0-motion.landing_left/motion.DIZZY_LANDING,0.0,1.0)
 			var squash=sin(clampf(progress/.5,0,1)*PI) if progress<.5 else 0.0
 			var rebound=sin(clampf((progress-.5)/.5,0,1)*PI) if progress>=.5 else 0.0
-			apply_dizzy_transform(sin(progress*PI)*.07*motion.facing,Vector2(0,-rebound*10),Vector2(1+squash*.13,1-squash*.18))
+			apply_dizzy_transform(sin(progress*PI)*.07*motion.facing,Vector2(0,squash*3-rebound*6),Vector2.ONE)
 		else:
 			var age=maxf(0.0,motion.elapsed-motion.DIZZY_LANDING)
 			var fade=clampf((motion.DIZZY_DURATION-motion.elapsed)/1.0,0.0,1.0)
@@ -349,8 +442,6 @@ func apply_generated_action_motion() -> void:
 		var arc=pow(maxf(0.0,sin(phase*PI)),1.12)
 		var jump_height=lerpf(18.0,30.0,sqrt(clampf(motion.growth_scale,0.0,1.0)))
 		sprite.position.y-=arc*jump_height
-		var compression=(1.0-arc)*sin(phase*PI*2.0)*.012
-		sprite.scale*=Vector2(1.0+compression,1.0-compression)
 
 func apply_dizzy_transform(angle: float,offset: Vector2,stretch: Vector2) -> void:
 	var pivot=Transform2D(angle,stretch,0.0,Vector2.ZERO)
@@ -493,7 +584,13 @@ func show_habit_frame() -> void:
 	sprite.material.set_shader_parameter("frame_mix",smoothstep(.78,1,phase-index))
 
 func _draw() -> void:
-	if not ball_only and motion.voice_left>0 and not motion.carried and motion.phase not in ["drop","dizzy"]:
+	if not ball_only and motion.is_struggling():
+		draw_voice_bubble("내려줄래?",smoothstep(0.0,.2,motion.struggle_age()))
+	elif not ball_only and ExpressionBehavior.active(motion):
+		var age=motion.reaction_time
+		var opacity=smoothstep(0,.15,age)*(1.0-smoothstep(1.1,1.6,age))
+		if opacity>0: draw_voice_bubble(motion.reaction_words if not motion.reaction_words.is_empty() else ExpressionBehavior.WORDS[motion.reaction],opacity)
+	elif not ball_only and motion.voice_left>0 and not motion.carried and motion.phase not in ["drop","dizzy"]:
 		var words=motion.voice_text if not motion.voice_text.is_empty() else motion.VOICES[motion.species]
 		draw_voice_bubble(words)
 	if ball_only:
@@ -511,18 +608,18 @@ func _draw() -> void:
 		draw_line(Vector2(72,174),Vector2(132,174),Color("705d49"),4,true)
 		draw_line(Vector2(72,174),Vector2(72+60*motion.prop_strength,174),Color("efc778"),4,true)
 	if motion.phase=="doze":
-		var top=FEET.y-Art.DISPLAY_HEIGHT*Art.HEIGHTS[motion.species]*motion.growth_scale
-		for i in range(2):
-			var rise=fposmod(motion.elapsed*7+i*12,24)
-			draw_string(ThemeDB.fallback_font,Vector2(121+i*8,maxf(12,top-rise)),"z",HORIZONTAL_ALIGNMENT_LEFT,-1,12+i*2,Color(.72,.78,.9,1-rise/30))
-	if motion.joy_left>0:
-		for i in range(3):
-			var center=FEET+Vector2(-23+i*23,-Art.DISPLAY_HEIGHT*Art.HEIGHTS[motion.species]*motion.growth_scale-8-(1.8-motion.joy_left)*9)
+		var age=fposmod(motion.elapsed,4.2)
+		if age<2.0:
+			var at=dizzy_effects.orbit_layout().center+Vector2(14,-age*4)
+			draw_string(voice_font,at,"z",HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color(VisualStyle.MIST,sin(age/2.0*PI)*.6))
+	if motion.joy_left>0 and not ExpressionBehavior.active(motion):
+		for i in range(1):
+			var center=dizzy_effects.orbit_layout().center+Vector2(0,-(1.8-motion.joy_left)*5)
 			var points=PackedVector2Array()
 			for n in range(33):
 				var t=n*TAU/32
-				points.append(center+Vector2(16*pow(sin(t),3),-(13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t)))*.32)
-			draw_colored_polygon(points,Color(.85,.38,.43,minf(1,motion.joy_left)))
+				points.append(center+Vector2(16*pow(sin(t),3),-(13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t)))*.21)
+			draw_colored_polygon(points,Color(VisualStyle.ROSE,minf(.7,motion.joy_left)))
 
 func visible_pet_bounds() -> Rect2:
 	if sprite==null or sprite.texture==null:
@@ -547,41 +644,65 @@ func visible_pet_bounds() -> Rect2:
 		bottom=maxf(bottom,point.y)
 	return Rect2(left,top,maxf(1,right-left),maxf(1,bottom-top))
 
+func visible_head_bounds() -> Rect2:
+	if sprite==null or sprite.texture==null: return visible_pet_bounds()
+	var points=sprite.transform*preload("res://scripts/animation_outline.gd").local_hull(sprite.texture)
+	var top=INF
+	var bottom=-INF
+	for point in points:
+		top=minf(top,point.y)
+		bottom=maxf(bottom,point.y)
+	var left=INF
+	var right=-INF
+	for point in points:
+		if point.y<=top+(bottom-top)*.4:
+			left=minf(left,point.x)
+			right=maxf(right,point.x)
+	if left==INF: return visible_pet_bounds()
+	return Rect2(left,top,maxf(1,right-left),(bottom-top)*.4)
+
 func voice_bubble_layout(words: String) -> Dictionary:
-	var pet=visible_pet_bounds()
-	var font_size=14
-	var width=clampf(voice_font.get_string_size(words,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x+28,58,188)
-	var height=32.0
-	var center_x=clampf(pet.get_center().x,width*.5+6,WINDOW_SIZE.x-width*.5-6)
+	var pet=visible_head_bounds()
+	var font_size=13
+	var width=clampf(voice_font.get_string_size(words,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x+24,48,188)
+	var height=28.0
 	# Baby artwork is shorter, so its bubble follows its real head instead of
 	# remaining at the adult's fixed top-of-window position.
-	var area_y=clampf(pet.position.y-height-12,4,145)
+	var canvas=get_viewport_rect().size
+	var center_x=clampf(pet.get_center().x,width*.5+6-position.x,canvas.x-position.x-width*.5-6)
+	var safe_top=4.0-position.y
+	var safe_bottom=maxf(safe_top,canvas.y-position.y-height-12)
+	var area_y=clampf(pet.position.y-height-22,safe_top,safe_bottom)
 	var area=Rect2(center_x-width*.5,area_y,width,height)
 	var tail_x=clampf(pet.get_center().x,area.position.x+16,area.end.x-16)
-	var tip_y=minf(pet.position.y-3,area.end.y+10)
+	var tip_y=minf(pet.position.y-3,area.end.y+5)
 	return {"area":area,"tail_x":tail_x,"tip_y":tip_y,"pet":pet}
 
-func draw_voice_bubble(words: String) -> void:
+func draw_voice_bubble(words: String,opacity: float=1.0) -> void:
 	var layout=voice_bubble_layout(words)
 	var area: Rect2=layout.area
 	var tail_x: float=layout.tail_x
 	var tip_y: float=layout.tip_y
-	var fill=Color("fffdf8")
-	var border=Color("8d6b52")
+	var fill=VisualStyle.PAPER
+	var border=VisualStyle.LINE
+	fill.a=opacity
+	border.a=opacity
 	var tail=PackedVector2Array([
-		Vector2(tail_x-7,area.end.y-2),Vector2(tail_x+7,area.end.y-2),Vector2(tail_x,tip_y)
+		Vector2(tail_x-4,area.end.y-1),Vector2(tail_x+4,area.end.y-1),Vector2(tail_x,tip_y)
 	])
 	draw_colored_polygon(tail,border)
 	var bubble=StyleBoxFlat.new()
 	bubble.bg_color=fill
 	bubble.border_color=border
-	bubble.set_border_width_all(2)
-	bubble.set_corner_radius_all(12)
+	bubble.set_border_width_all(1)
+	bubble.set_corner_radius_all(9)
 	draw_style_box(bubble,area)
 	draw_colored_polygon(PackedVector2Array([
-		Vector2(tail_x-4,area.end.y-2),Vector2(tail_x+4,area.end.y-2),Vector2(tail_x,tip_y-3)
+		Vector2(tail_x-3,area.end.y-2),Vector2(tail_x+3,area.end.y-2),Vector2(tail_x,tip_y-1)
 	]),fill)
-	draw_string(voice_font,area.position+Vector2(14,21),words,HORIZONTAL_ALIGNMENT_CENTER,area.size.x-28,14,Color("503b30"))
+	var ink=VisualStyle.INK
+	ink.a=opacity
+	draw_string(voice_font,area.position+Vector2(12,19),words,HORIZONTAL_ALIGNMENT_CENTER,area.size.x-24,13,ink)
 
 func show_baby() -> void:
 	var index=0
@@ -716,10 +837,9 @@ func apply_weight_motion() -> void:
 		pose.y=motion.facing*(lower*.14+lap*.009)
 		pose.z=-lower*.07+swallow*.012
 	# Transform around the feet, not the sprite's top-left corner.
-	var pivot=Transform2D(pose.y,Vector2(1.0-pose.z,1.0+pose.z),0.0,Vector2.ZERO)
+	var pivot=Transform2D(pose.y,Vector2.ONE,0.0,Vector2.ZERO)
 	sprite.position=FEET+pivot*(sprite.position-FEET)+Vector2(0,pose.x)
 	sprite.rotation+=pose.y
-	sprite.scale*=Vector2(1.0-pose.z,1.0+pose.z)
 	previous_gait=pose
 	was_walking=walking
 

@@ -34,18 +34,18 @@ func food_progress(species: int) -> String:
 const GROWTH_NAMES=["새끼","중간","성체"]
 const GROWTH_SCALES=[.93,.98,1.0]
 const GROWTH_LIMITS=[0,12,36]
-const CARE_ACTIONS=["pet","ball","hand_feed","snack","cuddle","doze","relax","playful","personality","bowl","water","plant","lamp","acorn"]
+const CARE_ACTIONS=["pet","ball","hand_feed","snack","cuddle","doze","relax","playful","personality","bowl","water","plant","lamp","acorn","home_rest","home_play","home_music","home_read","home_groom","home_tea"]
 var growth: Dictionary={}
 var guide_seen=false
 var activity_counts: Dictionary={}
 const GOALS=[["pet",3,"쓰다듬기로 첫 인사 3번"],["hand_feed",1,"음식을 집어 직접 먹여주기"],["follow",1,"마우스 따라오기 함께하기"],["ball",1,"공을 직접 던지고 돌려받기"],["rub",1,"소품에 부비는 모습 보기"],["cuddle",1,"잠자리에서 토닥여주기"],["personality",1,"성격 행동 함께하기"]]
 
 func goal_text(species: int) -> String:
-	var counts: Dictionary=activity_counts.get(str(species),{})
-	for goal in GOALS:
-		var count=int(counts.get(goal[0],0))
-		if count<int(goal[1]): return "목표: %s (%d/%d)"%[goal[2],count,goal[1]]
-	return "첫 교감 목표 완료! · "+next_gift(species)
+	for id in UNLOCKS:
+		if not unlocked(species,id) and ACTION_ROUTES.has(id):
+			var route=ACTION_ROUTES[id]
+			return "다음 함께하기 · %s %d회 더"%[ACTION_LABELS[route[0]],maxi(0,route[1]-route_count(species,id))]
+	return "모든 생활 선물이 열렸어요. 오늘도 편하게 함께해요."
 
 func growth_stage(species: int) -> int:
 	var points=int(growth.get(str(species),0))
@@ -74,16 +74,39 @@ func add_growth(species: int, amount: int) -> void:
 const UNLOCKS={"acorn":0,"bowl":3,"water":6,"playful":8,"follow":10,"basket":12,"snack":16,"rub":18,"cushion":20,"cuddle":24,"plant":30,"personality":36,"lamp":42,"shelter":50}
 const ACTION_UNLOCKS={1:"basket",4:"snack",5:"bowl",6:"bowl",7:"bowl",8:"bowl",11:"cushion",12:"shelter",13:"cuddle",15:"bowl",16:"personality",20:"plant",21:"lamp",22:"playful",23:"follow",24:"rub",29:"acorn"}
 const REWARD_UNLOCKS={"follow":"follow","rub":"rub","ball":"basket","hand_feed":"bowl","snack":"snack","cuddle":"cuddle","doze":"cushion","relax":"shelter","playful":"playful","personality":"personality","decorate":"bowl","bowl":"bowl","water":"water","basket":"basket","plant":"plant","lamp":"lamp","shelter":"shelter","acorn":"acorn"}
-const REWARDS={"follow":1,"rub":1,"pet":1,"ball":2,"hand_feed":2,"snack":2,"cuddle":2,"doze":1,"relax":1,"playful":1,"personality":1,"decorate":1,"bowl":1,"water":1,"basket":1,"plant":1,"lamp":1,"shelter":1,"acorn":1}
+const REWARDS={"follow":1,"rub":1,"pet":1,"ball":2,"hand_feed":2,"snack":2,"cuddle":2,"doze":1,"relax":1,"playful":1,"personality":1,"decorate":1,"bowl":1,"water":1,"basket":1,"plant":1,"lamp":1,"shelter":1,"acorn":1,"home_rest":1,"home_play":1,"home_music":1,"home_read":1,"home_groom":1,"home_tea":1}
+const ACTION_LABELS={"pet":"쓰다듬기","hand_feed":"직접 먹여주기","acorn":"도토리 놀이","follow":"마우스 따라오기","ball":"공 가져오기","playful":"폴짝 놀이","home_rest":"가구에서 휴식","home_music":"음악 감상","home_play":"러그 놀이","home_read":"독서","home_groom":"단장","home_tea":"티타임","water":"물 마시기","bowl":"식사","doze":"낮잠","cuddle":"토닥이기","snack":"간식 찾기","rub":"부비기","personality":"성격 놀이","plant":"식물 놀이","lamp":"조명 곁 휴식","decorate":"공간 꾸미기"}
+const ACTION_ROUTES={"bowl":["pet",3],"water":["hand_feed",1],"playful":["acorn",2],"follow":["pet",5],"basket":["acorn",3],"snack":["hand_feed",3],"rub":["follow",2],"cushion":["home_rest",2],"cuddle":["home_rest",3],"plant":["ball",3],"personality":["playful",3],"lamp":["home_music",3],"shelter":["home_rest",6]}
+var last_reward_action: Dictionary={}
 var reward_times: Dictionary={}
+func route_count(species: int,id: String) -> int:
+	if not ACTION_ROUTES.has(id): return 0
+	return int(activity_counts.get(str(species),{}).get(ACTION_ROUTES[id][0],0))
+func route_hint(species: int,id: String) -> String:
+	if not ACTION_ROUTES.has(id): return "처음부터 함께해요"
+	var route=ACTION_ROUTES[id]
+	return "%s %d/%d회 또는 교감 %d/%d"%[ACTION_LABELS[route[0]],mini(route_count(species,id),route[1]),route[1],mini(int(play_affection.get(str(species),0)),UNLOCKS[id]),UNLOCKS[id]]
+func unlock_rows(species: int) -> Array:
+	var rows=[]
+	for id in UNLOCKS:
+		var ratio=1.0 if unlocked(species,id) else float(play_affection.get(str(species),0))/maxf(1,UNLOCKS[id])
+		if ACTION_ROUTES.has(id): ratio=maxf(ratio,float(route_count(species,id))/ACTION_ROUTES[id][1])
+		rows.append({"id":id,"title":GIFT_NAMES[id],"open":unlocked(species,id),"hint":route_hint(species,id),"progress":clampf(ratio,0,1)})
+	return rows
+func unlocked_ids(species: int) -> Array:
+	var ids=[]
+	for id in UNLOCKS:
+		if unlocked(species,id): ids.append(id)
+	return ids
 
 func reward_activity(species: int, action: String) -> void:
 	if species<0 or species>=Catalog.IDS.size() or not REWARDS.has(action): return
 	if REWARD_UNLOCKS.has(action) and not unlocked(species,REWARD_UNLOCKS[action]): return
 	var key=str(species)+":"+action
 	var now=Time.get_ticks_msec()/1000.0
-	var interval=45.0 if action in ["bowl","water"] else 8.0
+	var interval=45.0 if action in ["bowl","water"] or action.begins_with("home_") else 8.0
 	if reward_times.has(key) and now-float(reward_times[key])<interval: return
+	var before_gifts=unlocked_ids(species)
 	var before_foods: Array=[]
 	for food in range(32):
 		if food_available(species,food): before_foods.append(food)
@@ -91,8 +114,9 @@ func reward_activity(species: int, action: String) -> void:
 	var counts: Dictionary=activity_counts.get(str(species),{})
 	counts[action]=int(counts.get(action,0))+1
 	activity_counts[str(species)]=counts
+	last_reward_action[str(species)]=action
 	if action in CARE_ACTIONS: add_growth(species,int(REWARDS[action]))
-	add_affection(species,int(REWARDS[action]))
+	add_affection(species,int(REWARDS[action]),before_gifts)
 	var new_foods: Array=[]
 	for food in range(32):
 		if food not in before_foods and food_available(species,food): new_foods.append(food)
@@ -100,7 +124,7 @@ func reward_activity(species: int, action: String) -> void:
 const GIFT_NAMES={"follow":"마우스 따라오기","rub":"소품에 부비기","bowl":"음식 그릇·먹여주기·꾸미기","water":"작은 연못","playful":"킁킁·폴짝 놀이","acorn":"모두의 도토리 오뚝이","basket":"장난감 바구니·공 던지기","snack":"간식 찾기","cushion":"전용 침대·잠자리","cuddle":"잠자리 토닥이기","plant":"동물 전용 놀이 소품","personality":"MBTI 성격 행동","lamp":"동물 전용 휴식 소품","shelter":"전용 집·쉼터"}
 
 func unlocked(species: int, id: String) -> bool:
-	return UNLOCKS.has(id) and (test_unlocks() or int(play_affection.get(str(species),0))>=int(UNLOCKS[id]))
+	return UNLOCKS.has(id) and (test_unlocks() or int(play_affection.get(str(species),0))>=int(UNLOCKS[id]) or (ACTION_ROUTES.has(id) and route_count(species,id)>=int(ACTION_ROUTES[id][1])))
 
 func test_unlocks() -> bool:
 	return OS.has_feature("editor") and bool(ProjectSettings.get_setting("testing/unlock_all",false))
@@ -114,23 +138,23 @@ func action_hint(species: int, id: int) -> String:
 	if id>=100 and id<132: return food_hint(species,id-100)
 	var key="bowl" if id>=100 and id<132 else str(ACTION_UNLOCKS.get(id,""))
 	if key.is_empty() or unlocked(species,key): return ""
-	return "교감 %d에 해금 · %d 더 필요"%[UNLOCKS[key],maxi(0,int(UNLOCKS[key])-int(play_affection.get(str(species),0)))]
+	return route_hint(species,key)
 
 func progress_text(species: int) -> String:
 	var score=int(play_affection.get(str(species),0))
-	var lines=PackedStringArray(["친밀도 %d · 쓰다듬기와 함께하는 놀이로 친해져요."%score])
+	var lines=PackedStringArray(["교감 %d · 함께한 행동이 새로운 생활을 열어요."%score])
 	if test_unlocks(): lines.append("테스트 모드 · 모든 음식·놀이·소품이 해금되어 있어요.")
-	lines.append("처음에는 쓰다듬기와 자리 옮기기로 알아가요.\n공 가져오기·먹여주기·간식 찾기·토닥이기 완료 +2\n쓰다듬기·잠자리·쉼터·성격 놀이·꾸미기·식사/물 마시기 +1\n같은 행동은 8초, 식사·물은 45초마다 교감을 얻어요.\n친구마다 따로 진행되며, 해금은 계속 유지돼요.")
+	lines.append("처음에는 쓰다듬기와 자리 옮기기로 알아가요.\n공 가져오기·먹여주기·간식 찾기·토닥이기 완료 +2\n쓰다듬기·잠자리·쉼터·성격 놀이·꾸미기·식사/물 마시기 +1\n같은 행동은 8초, 식사·물·가구 활동은 45초마다 기록돼요.\n가구에서 쉬기·독서·음악·단장·티타임도 교감 +1이에요.\n친구마다 따로 진행되며, 해금은 계속 유지돼요.")
 	lines.append(food_progress(species))
 	for id in UNLOCKS:
-		lines.append(("받았어요 · " if unlocked(species,id) else "친밀도 %d · "%UNLOCKS[id])+GIFT_NAMES[id])
+		lines.append(("이용 가능 · " if unlocked(species,id) else "준비 중 · ")+GIFT_NAMES[id]+("" if unlocked(species,id) else "\n"+route_hint(species,id)))
 	return "\n".join(lines)
 
 func next_gift(species: int) -> String:
 	if test_unlocks(): return "테스트 모드 · 모든 선물 해금"
 	var score=int(play_affection.get(str(species),0))
 	for id in UNLOCKS:
-		if not unlocked(species,id): return "다음 선물: %s · %d 더 친해지면"%[GIFT_NAMES[id],UNLOCKS[id]-score]
+		if not unlocked(species,id): return "다음 선물 · "+GIFT_NAMES[id]+"\n"+route_hint(species,id)
 	return "모든 선물을 받았어요"
 const PROPS=["cushion","bowl","water","basket","plant","lamp","shelter","acorn"]
 var save_path="user://friends-release.json"
@@ -146,11 +170,24 @@ var meals: Dictionary={}
 var favorite_foods: Dictionary={}
 var outfits: Dictionary={}
 var outfit_colors: Dictionary={}
+var furniture: Dictionary={}
+var activity_space="floor"
+
+func load_furniture(value) -> void:
+	furniture.clear()
+	if not value is Dictionary: return
+	for id in preload("res://scripts/furniture_catalog.gd").ITEMS:
+		var point=value.get(id)
+		if point is Array and point.size() in [2,3] and numeric(point[0]) and numeric(point[1]):
+			furniture[id]=[clampf(float(point[0]),-100000,100000),clampf(float(point[1]),-100000,100000)]
+			if point.size()==3 and point[2]==true: furniture[id].append(true)
 
 func load_game() -> void:
 	if not FileAccess.file_exists(save_path): return
 	var data=JSON.parse_string(FileAccess.get_file_as_string(save_path))
 	if not data is Dictionary: return
+	load_furniture(data.get("furniture",{}))
+	activity_space=preload("res://scripts/living_space.gd").clean(data.get("activity_space"))
 	guide_seen=data.get("guide_seen",false)==true
 	if data.get("activity_counts") is Dictionary:
 		for i in range(Catalog.IDS.size()):
@@ -198,16 +235,17 @@ func save_game() -> void:
 	if file==null:
 		save_failed=true
 		return
-	file.store_string(JSON.stringify({"version":5,"guide_seen":guide_seen,"activity_counts":activity_counts,"growth":growth,"selected":selected,"palette":palette,"affection":play_affection,"layout":layout,"hidden":hidden,"discoveries":discoveries,"personal_layout":personal_layout,"meals":meals,"favorite_foods":favorite_foods,"outfits":outfits,"outfit_colors":outfit_colors}))
+	file.store_string(JSON.stringify({"version":6,"activity_space":activity_space,"guide_seen":guide_seen,"activity_counts":activity_counts,"growth":growth,"selected":selected,"palette":palette,"affection":play_affection,"layout":layout,"hidden":hidden,"discoveries":discoveries,"personal_layout":personal_layout,"meals":meals,"favorite_foods":favorite_foods,"outfits":outfits,"outfit_colors":outfit_colors,"furniture":furniture}))
 	file.close()
 	save_failed=DirAccess.rename_absolute(save_path+".tmp",save_path)!=OK
 
-func add_affection(species: int, amount: int=1) -> void:
+func add_affection(species: int, amount: int=1, before_unlocks: Array=[]) -> void:
 	if species<0 or species>=Catalog.IDS.size(): return
+	if before_unlocks.is_empty(): before_unlocks=unlocked_ids(species)
 	var before=int(play_affection.get(str(species),0))
 	play_affection[str(species)]=clampi(before+amount,0,9999)
 	var gifts: Array=[]
 	for id in UNLOCKS:
-		if not test_unlocks() and before<int(UNLOCKS[id]) and unlocked(species,id): gifts.append(id)
+		if not test_unlocks() and id not in before_unlocks and unlocked(species,id): gifts.append(id)
 	save_game()
 	affection_changed.emit(species,gifts)

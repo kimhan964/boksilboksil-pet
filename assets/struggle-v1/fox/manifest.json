@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "species": "fox",
+  "method": "Generated whole poses, offline RIFE, no runtime blending or limb rigs",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 193.9090909090909,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        125.35000000000001
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 186.35294117647058,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        129.50588235294117
+      ]
+    }
+  }
+}

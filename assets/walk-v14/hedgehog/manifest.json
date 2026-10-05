@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "hedgehog",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 180.3323617395622,
+      "cycle_seconds": 2.3,
+      "stride": 42.642503005049036,
+      "source_key_count": 4,
+      "gait": "quadruped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 157.37745363201773,
+      "cycle_seconds": 2.3,
+      "stride": 39.33099739495273,
+      "source_key_count": 4,
+      "gait": "quadruped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

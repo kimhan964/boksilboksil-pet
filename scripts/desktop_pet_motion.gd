@@ -17,6 +17,10 @@ var reaction_time=0.0
 var reaction_duration=2.0
 var reaction_followup="idle"
 var reaction_variant=0
+var reaction_context=""
+var reaction_words=""
+var reaction_strength=1.0
+var context_reactions=preload("res://scripts/context_reactions.gd").new()
 var pending_reaction=""
 var affection=0
 var can_ask_play=false
@@ -58,6 +62,16 @@ var bounds=Rect2(100,160,1080,520)
 var feet=Vector2.ZERO
 var travel_speed=0.0
 var walk_phase=0.0
+var rabbit_pilot=false
+var smooth_walk_enabled=false # v5 rejected by user; only explicitly enabled in review scenes.
+var smooth_walk_cycle=preload("res://scripts/smooth_species_motion.gd").new()
+var pilot_hop=preload("res://scripts/rabbit_hop_motion.gd").new()
+var pilot_start_left=0.0
+var pilot_settle_left=0.0
+var pilot_stop_phase=0.0
+var pilot_contact_phase=0.0
+var pilot_idle_index=0
+var pilot_was_traveling=false
 var can_playful=false
 var can_personality=false
 var can_follow=false
@@ -73,6 +87,23 @@ var voice_cooldown=0.0
 var voice_text=""
 var initiative_cooldown=5.0
 var last_initiative=""
+var tool_interest_left=7.0
+
+func try_tool_interest() -> bool:
+	# Basic needs and a deliberate rest take precedence over playing.
+	if tool_interest_left>0 or energy<35 or satiety<48 or hydration<45 or resting or held: return false
+	var choices: Array=[]
+	for destination in destinations:
+		if destination.id in ["acorn","plant","basket"]: choices.append(destination)
+	if choices.is_empty(): return false
+	var different=choices.filter(func(d): return d.id!=last_destination)
+	if not different.is_empty(): choices=different
+	var chosen=choices[rng.randi_range(0,choices.size()-1)]
+	tool_interest_left=rng.randf_range(12,20)
+	last_destination=chosen.id
+	remember(chosen.action)
+	visit(chosen.point,chosen.action,chosen.id,false)
+	return true
 
 func say(words: String) -> void:
 	voice_text=words
@@ -86,7 +117,7 @@ func try_initiative() -> bool:
 	var wanted="bowl" if satiety<48 else ("water" if hydration<45 else ("cushion" if energy<35 else ""))
 	if not wanted.is_empty():
 		for destination in destinations:
-			if destination.id==wanted:
+			if destination.id==wanted or destination.id=={"bowl":"home_food","water":"home_water","cushion":"home_sofa"}[wanted]:
 				last_initiative=wanted
 				visit(destination.point,destination.action,destination.id)
 				say({"bowl":"밥 먹으러 가자~","water":"목말라~","cushion":"졸려…"}[wanted])
@@ -161,7 +192,7 @@ func advance_social(delta: float) -> void:
 		var offset=cursor_position-feet
 		if offset.length()>500 or not bounds.grow(80).has_point(cursor_position): social_left=0
 		target=(cursor_position-offset.normalized()*65).clamp(bounds.position,bounds.end)
-		if offset.length()>80:
+		if offset.length()>80 or smooth_walk_cycle.active or (rabbit_pilot and pilot_hop.active):
 			phase="wander"
 			advance_travel(delta,.85)
 			if travel_speed>5: social_contact+=delta
@@ -171,14 +202,14 @@ func advance_social(delta: float) -> void:
 			if absf(offset.x)>2: facing=signf(offset.x)
 	else:
 		target=social_anchor
-		if feet.distance_to(target)>2:
+		if not travel_complete(2.0):
 			phase="wander"
 			advance_travel(delta,.7)
 		else:
 			phase="rub"
 			social_contact+=delta
 			if social_contact>=3: social_left=0
-	if social_left<=0:
+	if social_left<=0 and not smooth_walk_cycle.active and not (rabbit_pilot and pilot_hop.active):
 		var finished=social_kind
 		var earned=social_reward and social_contact>=1.0
 		social_kind=""
@@ -197,13 +228,29 @@ var joy_left=0.0
 var cooldown=0.0
 var resting=false
 var held=false
+var pointer_grab=false
 var carried=false
 var carry_elapsed=0.0
+var carry_started_at=0.0
+var hold_release: Dictionary={}
+const CARRY_PICKUP_SECONDS=.24
+const STRUGGLE_ENTRY_SECONDS=.32
+
+func capture_hold_release() -> void:
+	if not pointer_grab or not carried: return
+	hold_release={"clock":carry_elapsed,"pickup":carry_started_at,"long":is_struggling(),"elapsed":0.0}
 var landing_left=0.0
 var dizzy_followup="idle"
 const DIZZY_DURATION=4.8
 const DIZZY_LANDING=0.45
 const DROP_HOLD_SECONDS=3.0
+const STRUGGLE_HOLD_SECONDS=2.0
+
+func is_struggling() -> bool:
+	return pointer_grab and held and carried and carry_elapsed>=STRUGGLE_HOLD_SECONDS
+
+func struggle_age() -> float:
+	return maxf(0.0,carry_elapsed-STRUGGLE_HOLD_SECONDS)
 
 func should_drop_on_release() -> bool:
 	return carry_elapsed>=DROP_HOLD_SECONDS
@@ -235,12 +282,23 @@ func pet() -> void:
 	speak()
 	ask_left=55
 	cancel_play()
-	react("happy",3.2 if affection>=18 else 2.4)
+	context_reactions.play(self,"pet")
 	joy_left=1.8
 	cooldown=2.2
 	bonded.emit()
 
 func cancel_play() -> void:
+	context_reactions.clear()
+	hold_release.clear()
+	carry_started_at=0.0
+	pointer_grab=false
+	carry_elapsed=0.0
+	smooth_walk_cycle.reset()
+	pilot_hop.reset()
+	pilot_was_traveling=false
+	pilot_start_left=0.0
+	pilot_settle_left=0.0
+	if rabbit_pilot: walk_phase=0.0
 	social_kind=""
 	social_reward=false
 	prop_dragging=false
@@ -269,13 +327,18 @@ func move_to(point: Vector2) -> void:
 	feet=point.clamp(bounds.position,bounds.end)
 	target=feet
 
-func begin_drop() -> void:
+var floor_space=false
+var drop_dizzy=true
+func begin_drop(with_dizzy: bool=true) -> void:
+	drop_dizzy=with_dizzy
+	pointer_grab=false
 	dizzy_followup=phase if phase in ["visit","react"] else "idle"
 	drop_start=feet
 	# Keep a deliberate drop onto a prop; ordinary releases fall to the desktop
 	# floor. Moving the native window avoids clipping or shrinking tall falls.
 	var floor_y=maxf(feet.y,target.y) if phase=="visit" else maxf(feet.y,bounds.end.y)
 	drop_ground=Vector2(feet.x,floor_y)
+	if floor_space: drop_ground=drop_ground.clamp(bounds.position,bounds.end)
 	if dizzy_followup!="visit": target=drop_ground
 	drop_duration=clampf(sqrt(2.0*maxf(0.0,floor_y-feet.y)/1600.0),.18,1.25)
 	carried=false
@@ -288,6 +351,7 @@ func begin_drop() -> void:
 	joy_left=0.0
 
 func begin_dizzy() -> void:
+	pointer_grab=false
 	# Preserve a prop visit started by the drop; resume it after recovery.
 	if phase!="drop": dizzy_followup=phase if phase in ["visit","react"] else "idle"
 	carried=false
@@ -392,6 +456,7 @@ func remember(action: String) -> void:
 	if recent_actions.size()>2: recent_actions.pop_front()
 
 func choose_autonomous_action() -> void:
+	if try_tool_interest(): return
 	if try_initiative(): return
 	if social_cooldown<=0 and energy>30:
 		if can_follow and feet.distance_to(cursor_position)<260 and feet.distance_to(cursor_position)>85:
@@ -421,7 +486,7 @@ func choose_autonomous_action() -> void:
 		options.append({"action":action,"weight":weight})
 	for destination in destinations:
 		var action=destination.action
-		var weight=8.0
+		var weight=24.0 if destination.id in ["acorn","plant","basket"] and energy>=35 else 8.0
 		if action=="eat": weight+=(100-satiety)*.55
 		elif action=="drink": weight+=(100-hydration)*.45
 		elif action in ["relax","doze"]:
@@ -460,6 +525,9 @@ func choose_autonomous_action() -> void:
 		if phase=="doze": react("sleepy",2.4,"doze")
 
 func react(kind: String, duration: float=2.0, followup: String="idle") -> void:
+	reaction_context=""
+	reaction_words=""
+	reaction_strength=1.0
 	ball_visible=false
 	reaction=kind
 	reaction_time=0
@@ -504,7 +572,7 @@ func next_personality_step() -> void:
 func advance_personality(delta: float) -> void:
 	if phase=="wander":
 		advance_travel(delta,personality_speed)
-		if feet.distance_to(target)<.5: next_personality_step()
+		if travel_complete(): next_personality_step()
 	elif reaction_time>=reaction_duration:
 		next_personality_step()
 
@@ -552,7 +620,21 @@ func advance_habit() -> void:
 		target=feet
 		rest_left=rng.randf_range(.8,2)
 
+func travel_complete(tolerance: float=.5) -> bool:
+	if preload("res://scripts/smooth_species_art.gd").enabled(self):
+		return smooth_walk_cycle.arrived(self,preload("res://scripts/smooth_species_art.gd").spec(self))
+	# Default legacy arrivals must consume the final fraction of the step.
+	# Stopping .5px early accumulated a phase error on every preview reversal.
+	var arrival_tolerance=.001 if not rabbit_pilot and is_equal_approx(tolerance,.5) else tolerance
+	return feet.distance_to(target)<arrival_tolerance and not (rabbit_pilot and pilot_hop.active)
+
 func advance_travel(delta: float, multiplier: float=1.0) -> void:
+	if rabbit_pilot and species==0:
+		advance_pilot_travel(delta,multiplier)
+		return
+	if preload("res://scripts/smooth_species_art.gd").enabled(self):
+		smooth_walk_cycle.advance(self,delta,preload("res://scripts/smooth_species_art.gd").spec(self),multiplier)
+		return
 	var offset=target-feet
 	var distance=offset.length()
 	if distance<=.001:
@@ -563,20 +645,83 @@ func advance_travel(delta: float, multiplier: float=1.0) -> void:
 	travel_direction=direction
 	if absf(offset.x)>.5: facing=1.0 if offset.x>0 else -1.0
 	var nominal=SPEEDS[species]*lerpf(.72,1.0,clampf(inverse_lerp(.62,1.0,growth_scale),0,1))
-	var maximum=nominal*multiplier
+	var gait=preload("res://scripts/gait_profile.gd")
+	var maximum=nominal*gait.STRIDE_PERIOD[species]/gait.PERIOD[species]*gait.TRAVEL_RATE*clampf(multiplier,0.0,gait.MAX_WALK_MULTIPLIER)
 	var acceleration=maximum/0.24
 	var desired=minf(maximum,sqrt(2.0*acceleration*distance))
 	travel_speed=move_toward(travel_speed,desired,acceleration*delta)
 	# The sprite contains the weight transfer. Keep desktop travel smooth and
 	# advance the gait by actual distance, including starts and stops.
 	var step=minf(distance,travel_speed*delta)
+	var previous_feet=feet
 	feet+=direction*step
 	# Feet cadence follows actual travel, including acceleration and slowing down.
-	var period=preload("res://scripts/gait_profile.gd").PERIOD[species]
-	walk_phase=fposmod(walk_phase+step/maxf(16.0,nominal*period),1.0)
+	# Vector2 rounds to float32: use the displacement actually stored, so many
+	# short frames do not accumulate a foot-phase error over repeated trips.
+	walk_phase=fposmod(walk_phase+feet.distance_to(previous_feet)/maxf(16.0,nominal*gait.STRIDE_PERIOD[species]),1.0)
+
+func advance_pilot_travel(delta: float,multiplier: float) -> void:
+	var spec=preload("res://scripts/rabbit_pilot_art.gd").data().stages["baby" if growth_stage==0 else "adult"]
+	if spec.get("locomotion","")=="short_hop":
+		pilot_hop.advance(self,delta,spec)
+		return
+	var offset=target-feet
+	var distance=offset.length()
+	if not pilot_was_traveling:
+		pilot_was_traveling=true
+		pilot_start_left=.24
+		walk_phase=float(pilot_idle_index)*.5
+		travel_speed=0.0
+	if absf(offset.x)>.5: facing=signf(offset.x)
+	if pilot_start_left>0:
+		pilot_start_left=maxf(0,pilot_start_left-delta)
+		return
+	if distance<=.001:
+		travel_speed=0
+		return
+	var direction=offset/distance
+	travel_direction=direction
+	# Whole illustrated cels; the loop follows travel distance rather than the
+	# wall clock, so slowing the window also slows the illustrated step.
+	var height=float(preload("res://scripts/rabbit_pilot_art.gd").data().stages["baby" if growth_stage==0 else "adult"].reference_height)
+	var stride=float(preload("res://scripts/rabbit_pilot_art.gd").data().stages["baby" if growth_stage==0 else "adult"].stride)*110.0*preload("res://scripts/animal_catalog.gd").HEIGHTS[0]*growth_scale/height
+	var cycle=float(preload("res://scripts/rabbit_pilot_art.gd").data().stages["baby" if growth_stage==0 else "adult"].cycle_seconds)
+	var maximum=stride/cycle*preload("res://scripts/gait_profile.gd").TRAVEL_RATE*minf(multiplier,1.3)
+	var acceleration=maximum/.62
+	var desired=minf(maximum,sqrt(2*acceleration*distance))
+	travel_speed=move_toward(travel_speed,desired,acceleration*delta)
+	var step=minf(distance,travel_speed*delta)
+	feet+=direction*step
+	walk_phase=fposmod(walk_phase+step/stride,1.0)
+	if feet.distance_to(target)<.5:
+		walk_phase=fposmod(walk_phase+feet.distance_to(target)/stride,1.0)
+		feet=target
+		pilot_idle_index=int(round(fposmod(walk_phase,1.0)*2.0))%2
+
+func update_pilot_settle(delta: float) -> void:
+	if not rabbit_pilot: return
+	var traveling=phase in ["wander","chase","return","visit"] and not carried and not held
+	if not traveling and pilot_was_traveling:
+		pilot_was_traveling=false
+		pilot_start_left=0
+		pilot_stop_phase=walk_phase
+		pilot_contact_phase=roundf(walk_phase*2.0)/2.0
+		pilot_idle_index=int(round(fposmod(pilot_contact_phase,1.0)*2.0))
+		if pilot_hop.active: pilot_hop.reset()
+		if preload("res://scripts/rabbit_pilot_art.gd").data().stages["baby" if growth_stage==0 else "adult"].get("locomotion","")=="short_hop": pilot_idle_index=0
+		# The pilot plans its destination at contact, so do not move the feet
+		# through extra walk drawings after desktop travel has stopped.
+		pilot_settle_left=0.0
+		travel_speed=0
+	pilot_settle_left=maxf(0,pilot_settle_left-delta)
 
 func advance(delta: float) -> void:
+	context_reactions.tick(delta)
+	if phase not in ["wander","chase","return","visit"] or carried or held or not preload("res://scripts/smooth_species_art.gd").enabled(self):
+		smooth_walk_cycle.reset()
+	update_pilot_settle(delta)
 	initiative_cooldown=maxf(0,initiative_cooldown-delta)
+	if not held and not resting: tool_interest_left=maxf(0,tool_interest_left-delta)
 	voice_left=maxf(0,voice_left-delta)
 	voice_cooldown=maxf(0,voice_cooldown-delta)
 	social_cooldown=maxf(0,social_cooldown-delta)
@@ -584,8 +729,9 @@ func advance(delta: float) -> void:
 		travel_speed=0.0
 		travel_direction=Vector2.ZERO
 	elapsed+=delta
+	if not hold_release.is_empty(): hold_release.elapsed+=delta
 	if not reaction.is_empty(): reaction_time+=delta
-	if carried: carry_elapsed+=delta
+	if carried or (pointer_grab and held): carry_elapsed+=delta
 	landing_left=maxf(0,landing_left-delta)
 	cooldown=maxf(0,cooldown-delta)
 	joy_left=maxf(0,joy_left-delta)
@@ -593,11 +739,17 @@ func advance(delta: float) -> void:
 	hydration=maxf(0,hydration-delta*.1)
 	energy=maxf(0,energy-delta*(.2 if phase in ["wander","chase","return","visit"] else .025))
 	if held: return
+	if context_reactions.advance(self): return
 	if phase=="drop":
 		carry_elapsed=elapsed
 		var progress=clampf(elapsed/maxf(.01,drop_duration),0.0,1.0)
 		feet=drop_start.lerp(drop_ground,progress*progress)
-		if progress>=1.0: begin_dizzy()
+		if progress>=1.0:
+			if drop_dizzy: begin_dizzy()
+			else:
+				phase=dizzy_followup
+				elapsed=0
+				landing_left=0
 		return
 	if phase=="dizzy":
 		if elapsed>=DIZZY_DURATION:
@@ -616,6 +768,18 @@ func advance(delta: float) -> void:
 		if prop_dragging: action_left=maxf(action_left,1.0)
 		if visit_id=="lamp": energy=minf(100,energy+delta*2)
 		if action_left<=0: finish_prop_use()
+		return
+	if phase=="home_use":
+		action_left-=delta
+		if visit_id in ["home_sofa","home_daybed","home_lamp","home_window_seat"]: energy=minf(100,energy+delta*1.5)
+		if visit_id=="home_tea": hydration=minf(100,hydration+delta*5)
+		if action_left<=0:
+			var completed=visit_id
+			visit_id=""
+			phase="idle"
+			elapsed=0
+			rest_left=2.5
+			activity_finished.emit(completed)
 		return
 	if phase=="ball_ready": return
 	if phase=="interaction_done":
@@ -649,17 +813,23 @@ func advance(delta: float) -> void:
 		pending_reaction=""
 		react(next_reaction,2.4)
 		return
+	if phase=="idle" and autonomy and not resting and energy<30:
+		context_reactions.queue("tired")
 	habit_cooldown=maxf(0,habit_cooldown-delta)
 	if phase=="signature":
 		advance_habit()
 	elif phase in ["wander","chase","return","visit"]:
 		advance_travel(delta,1.5 if phase in ["chase","return"] else 1.0)
 		if phase=="return": ball_position=feet+Vector2(facing*22,-28)
-		if feet.distance_to(target)<.5:
+		if travel_complete():
 			if phase=="visit":
 				phase=visit_action
 				action_left=rng.randf_range(7,12) if phase=="doze" else (rng.randf_range(3,5) if phase=="relax" else (5.5 if phase in ["eat","drink"] else 4.0))
+				if phase=="drink" and visit_id=="water" and preload("res://scripts/dining_species_art.gd").enabled(self):
+					# Finish the authored recovery instead of cutting off a bowed pose.
+					action_left=float(preload("res://scripts/dining_species_art.gd").spec(self).duration)*2.0
 				elapsed=0
+				if phase=="home_use": action_left=preload("res://scripts/home_animation.gd").duration(visit_id)
 				if phase=="prop_use":
 					action_left=4.5 if visit_id=="acorn" else (14.0 if species==9 and visit_id=="plant" else 8.0)
 					facing=1.0
@@ -672,6 +842,7 @@ func advance(delta: float) -> void:
 				target=throw_origin
 			elif phase=="return":
 				react("askplay",1.8,"ball_ready")
+				context_reactions.queue("ball")
 				ball_visible=true
 				ball_height=0
 				ball_position=(feet+Vector2(70*facing,0)).clamp(bounds.position,bounds.end)
@@ -680,6 +851,7 @@ func advance(delta: float) -> void:
 			else:
 				phase="idle"
 				rest_left=rng.randf_range(.7,1.8)
+				if rabbit_pilot: elapsed=0.0
 	elif phase in ["eat","drink","relax","sniff","look","groom","stretch","doze","cuddle","playful"]:
 		action_left-=delta
 		# A deliberate bed command keeps the actual sleeping pose until interrupted.
@@ -691,13 +863,14 @@ func advance(delta: float) -> void:
 		elif phase=="drink": hydration=minf(100,hydration+delta*9)
 		elif phase in ["relax","doze","cuddle"]: energy=minf(100,energy+delta*(2 if phase=="doze" else 1))
 		if action_left<=0:
-			var completed_id=visit_id
+			var completed_id=visit_id if not visit_id.is_empty() else phase
 			if visit_reward:
 				activity_bonded.emit(visit_action if visit_action in ["doze","relax","cuddle"] else visit_id)
 				joy_left=1.8
 			visit_reward=false
 			phase="idle"
 			rest_left=rng.randf_range(1,2.5)
+			if rabbit_pilot: elapsed=0.0
 			if stay_after_visit: resting=true
 			stay_after_visit=false
 			visit_id=""

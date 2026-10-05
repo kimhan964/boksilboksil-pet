@@ -1,0 +1,13 @@
+{
+  "generator": "built-in image_gen",
+  "date": "2026-10-05",
+  "transparent_background": true,
+  "prompts": {
+    "tv": "Create a polished 2D game furniture sprite: a compact modern flat-screen television on a low rounded honey-oak console with two cream linen cabinet doors, tiny cat-paw drawer pulls and subtle small cat-ear corners on the console. TV screen displays a simple tranquil sage-green hills and cream-cloud illustration without text. Cute sophisticated cozy home decor for a desktop pet game aimed at women in their twenties, not a nursery toy. Hand-painted warm watercolor/gouache wood grain, restrained soft brown outlines, sage/cream/honey palette, slight front three-quarter view, feet on one horizontal baseline. Single complete isolated furniture object centered with generous empty margin, readable at 160 pixels wide. Genuine transparent background alpha, no ground plane, no scenery outside the TV screen, no floor shadow or halo, no lettering, no logo, no animals, no cropping.",
+    "turntable": "Create a polished 2D game furniture sprite: a small freestanding vinyl listening stand, low rounded honey-oak legs and cabinet, a sage-green vinyl record on a cream turntable with clearly visible tonearm, one neat cubby containing three muted colored record sleeves, a small integrated cream fabric speaker. Subtle round bear-ear corners and tiny paw detail, elegant and understated. Cute sophisticated cozy home decor for a desktop pet game aimed at women in their twenties, not a nursery toy. Hand-painted warm watercolor/gouache wood grain, restrained soft brown outlines, sage/cream/honey palette, slight front three-quarter view, feet on one horizontal baseline. Single complete isolated furniture object centered with generous empty margin, readable at 140 pixels wide. Genuine transparent background alpha, no ground plane, no background, no floor shadow or halo, no lettering, no logo, no animals, no cropping."
+  },
+  "assets": {
+    "tv": "assets/furniture-v3/tv.png",
+    "turntable": "assets/furniture-v3/turntable.png"
+  }
+}

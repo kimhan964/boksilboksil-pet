@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "lamb",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 183.32465761302672,
+      "cycle_seconds": 2.2,
+      "stride": 64.06904185439898,
+      "source_key_count": 4,
+      "gait": "quadruped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 171.37242236725012,
+      "cycle_seconds": 2.2,
+      "stride": 55.38945802744629,
+      "source_key_count": 4,
+      "gait": "quadruped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

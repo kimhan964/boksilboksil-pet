@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "squirrel",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 156.6403401424694,
+      "cycle_seconds": 2.0,
+      "stride": 21.781871805918964,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 143.03850309699772,
+      "cycle_seconds": 2.0,
+      "stride": 14.409251761369504,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

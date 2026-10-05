@@ -33,6 +33,7 @@ var glow_time=0.0
 var in_use=false
 var wobbling=false
 var wobble_time=0.0
+const WOBBLE_ANGLE=.19
 
 func set_wobbling(value: bool) -> void:
 	if wobbling==value: return
@@ -125,7 +126,7 @@ class PropDrawing extends Node2D:
 		dimensions*=minf(limit.x/dimensions.x,limit.y/dimensions.y)
 		var tint=[Color.WHITE,Color(1,.93,.90),Color(.90,.95,1)][prop.palette]
 		if prop.kind=="acorn":
-			var angle=sin(prop.wobble_time*TAU*1.8)*.19 if prop.wobbling else 0.0
+			var angle=sin(prop.wobble_time*TAU*1.8)*prop.WOBBLE_ANGLE if prop.wobbling else 0.0
 			draw_set_transform(Vector2(56,86),angle,Vector2.ONE)
 			draw_texture_rect(artwork,Rect2(Vector2(-dimensions.x*.5,-dimensions.y),dimensions),false,tint)
 			draw_set_transform(Vector2.ZERO)
@@ -249,6 +250,22 @@ func input_polygon() -> PackedVector2Array:
 	var dimensions=artwork.get_size()*factor
 	var origin=Vector2(56,86)-Vector2(dimensions.x*.5,dimensions.y)
 	var points=PackedVector2Array()
+	if kind=="acorn":
+		# On Windows this polygon also clips the rendered native surface.
+		# Keep one mask covering the ENTIRE wobble, not the upright silhouette.
+		# Changing a native region every frame would reintroduce flicker.
+		var local_hull=preload("res://scripts/animation_outline.gd").local_hull(artwork)
+		for step in range(17):
+			var angle=lerpf(-WOBBLE_ANGLE,WOBBLE_ANGLE,step/16.0)
+			for point in local_hull:
+				var rotated=Vector2(56,86)+(point*factor-Vector2(dimensions.x*.5,dimensions.y)).rotated(angle)
+				for margin in [Vector2(-2,-2),Vector2(2,-2),Vector2(2,2),Vector2(-2,2)]:
+					points.append((rotated+margin)*art_scale)
+		# Reserve the existing landing/hover effects without changing the mask
+		# when those effects appear. These bounds remain within the small window.
+		for corner in [Vector2(5,16),Vector2(107,16),Vector2(107,95),Vector2(5,95)]:
+			points.append(corner*art_scale)
+		return Geometry2D.convex_hull(points)
 	for point in preload("res://scripts/animation_outline.gd").local_hull(artwork):
 		points.append((origin+point*factor)*art_scale)
 	if kind=="bowl" and food_texture and not food_lifted:
@@ -263,6 +280,10 @@ func anchor_offset() -> Vector2:
 
 func feet_point() -> Vector2:
 	return Vector2(position)+anchor_offset()
+
+func drinking_surface_point(facing: float) -> Vector2:
+	# A point inside the water near the bank, in the prop's authored 112x96 view.
+	return Vector2(position)+Vector2(33 if facing>0 else 79,60)*art_scale
 
 func dining_point(animal_bounds: Rect2) -> Vector2:
 	# Stand beside the native prop window, not underneath its artwork.
@@ -338,6 +359,7 @@ func handle_input(event: InputEvent) -> void:
 	layer_changed.emit()
 
 func _process(_delta: float) -> void:
+	preload("res://scripts/native_mouse.gd").apply(self,mouse_passthrough)
 	if wobbling:
 		wobble_time+=_delta
 		if drawing: drawing.queue_redraw()

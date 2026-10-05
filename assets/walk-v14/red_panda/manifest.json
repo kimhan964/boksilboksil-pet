@@ -1,0 +1,37 @@
+{
+  "version": 14,
+  "species": "red_panda",
+  "method": "Built-in image generation whole poses; offline RIFE to 60 cels; no runtime crossfade",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 170.3177154694004,
+      "cycle_seconds": 2.1,
+      "stride": 35.810481178131006,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 162.42347796838212,
+      "cycle_seconds": 2.1,
+      "stride": 29.908306904201453,
+      "source_key_count": 4,
+      "gait": "biped",
+      "root": [
+        128,
+        232
+      ]
+    }
+  }
+}

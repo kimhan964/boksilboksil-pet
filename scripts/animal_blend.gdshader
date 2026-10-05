@@ -2,6 +2,7 @@ shader_type canvas_item;
 uniform sampler2D next_frame : filter_linear;
 uniform float frame_mix = 0.0;
 uniform bool has_meal = false;
+uniform float meal_opacity = 1.0;
 uniform bool modern_meal = false;
 uniform bool baby_meal = false;
 uniform vec4 baby_grip;
@@ -39,6 +40,7 @@ void fragment() {
    vec2 p=(UV-prop_rect.xy)/prop_rect.zw;
    if(p.x>=0.0 && p.x<=1.0 && p.y>=0.0 && p.y<=1.0) {
      vec4 dish=texture(menu_texture,p);
+     dish.a*=meal_opacity;
      c=mix(c,dish,dish.a);
      c.a=max(original.a,dish.a);
    }

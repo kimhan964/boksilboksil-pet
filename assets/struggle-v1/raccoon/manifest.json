@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "species": "raccoon",
+  "method": "Generated whole poses, offline RIFE, no runtime blending or limb rigs",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 160.93280632411066,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        143.48695652173916
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 163.58399999999997,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        142.02880000000002
+      ]
+    }
+  }
+}

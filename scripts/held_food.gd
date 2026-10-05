@@ -36,6 +36,7 @@ func _ready() -> void:
 	drawing.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
 	add_child(drawing)
 	show()
+	preload("res://scripts/native_mouse.gd").apply(self,true,true)
 
 func follow_cursor(cursor: Vector2, ready_to_feed: bool) -> void:
 	if in_reach!=ready_to_feed:

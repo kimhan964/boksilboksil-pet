@@ -12,7 +12,7 @@ var detail: Label
 var portrait: TextureRect
 var tabs: Array=[]
 var friend_button: Button
-const SECTIONS=[[0,23,24,1,29,30,22,4,16,20],[2,15,11,12,13,21],[27,28,5,31,6,7,8],[26,25,18,14,9,19,10,900]]
+const SECTIONS=[[0,23,24,1,29,30,22,4,16,20],[2,15,11,12,13,21],[32,33,27,28,5,31,6,7,8],[26,25,18,14,9,19,10,900]]
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
 func add_check_item(text: String,id: int) -> void:
@@ -46,24 +46,8 @@ static func box(color: String, radius: int=14) -> StyleBoxFlat:
 func _ready() -> void:
 	transparent=true
 	transparent_bg=true
-	size=Vector2i(408,564)
-	var skin=Theme.new()
-	var font=SystemFont.new()
-	font.font_names=PackedStringArray(["Malgun Gothic"])
-	skin.default_font=font
-	skin.default_font_size=14
-	skin.set_stylebox("panel","PopupPanel",box("f8f1e5",22))
-	for state_name in ["normal","hover","pressed","disabled","focus"]:
-		var color={"normal":"fffaf2","hover":"e7eddc","pressed":"d3dfc2","disabled":"ece7de","focus":"e7eddc"}[state_name]
-		var style=box(color)
-		if state_name=="focus":
-			style.bg_color=Color.TRANSPARENT
-			style.border_color=Color("71865b")
-			style.set_border_width_all(2)
-		skin.set_stylebox(state_name,"Button",style)
-	for state_name in ["font_color","font_hover_color","font_pressed_color","font_focus_color"]: skin.set_color(state_name,"Button",Color("594a3c"))
-	skin.set_color("font_disabled_color","Button",Color("a79e91"))
-	skin.set_color("font_color","Label",Color("594a3c"))
+	size=Vector2i(440,646)
+	var skin=preload("res://scripts/cozy_ui.gd").theme()
 	theme=skin
 	var column=VBoxContainer.new()
 	column.add_theme_constant_override("separation",12)
@@ -79,7 +63,7 @@ func _ready() -> void:
 	title_column.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	top.add_child(title_column)
 	var eyebrow=Label.new()
-	eyebrow.text="바탕화면 친구"
+	eyebrow.text="복슬복슬펫 · 함께하는 하루"
 	eyebrow.add_theme_color_override("font_color",Color("85906c"))
 	eyebrow.add_theme_font_size_override("font_size",12)
 	title_column.add_child(eyebrow)
@@ -96,7 +80,7 @@ func _ready() -> void:
 	var tab_row=HBoxContainer.new()
 	column.add_child(tab_row)
 	for i in range(4):
-		var button=make_button(["함께 놀기","돌보기","꾸미기","기록"][i],func():
+		var button=make_button(["함께하기","돌보기","내 공간","성장·선물"][i],func():
 			section=i
 			source=null
 			history.clear()
@@ -153,7 +137,7 @@ func rebuild() -> void:
 		body.remove_child(child)
 		child.queue_free()
 	for i in range(tabs.size()):
-		tabs[i].add_theme_stylebox_override("normal",box("dce6cc" if i==section and source==null else "eee7da"))
+		tabs[i].add_theme_stylebox_override("normal",box("dce5d2" if i==section and source==null else "f2f0e9"))
 	if source!=null:
 		body.add_child(make_button("‹  돌아가기",func(): source=history.pop_back(); rebuild()))
 		var pet=get_parent()
@@ -192,11 +176,21 @@ func rebuild() -> void:
 		return
 	var caption=Label.new()
 	caption.text=["오늘은 어떤 놀이를 해볼까?","먹고 쉬며, 조금 더 가까이","우리 친구의 자리를 꾸며요","함께 쌓아가는 작은 기록"][section]
-	caption.text+="\n"+get_parent().state.next_gift(get_parent().species)
 	caption.text+="\n"+get_parent().state.goal_text(get_parent().species)
 	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	caption.add_theme_color_override("font_color",Color("8b806e"))
 	body.add_child(caption)
+	var progress=get_parent().state.unlock_rows(get_parent().species)
+	if section==3:
+		for row in progress:
+			if not row.open: add_unlock_card(row)
+		for row in progress:
+			if row.open: add_unlock_card(row)
+	else:
+		for row in progress:
+			if not row.open:
+				add_unlock_card(row)
+				break
 	for id in SECTIONS[section]:
 		var index=get_item_index(id)
 		if index<0: continue
@@ -216,3 +210,27 @@ func style_action(button: Button) -> void:
 	button.custom_minimum_size.y=44
 	button.alignment=HORIZONTAL_ALIGNMENT_LEFT
 	button.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+
+func add_unlock_card(row: Dictionary) -> void:
+	var card=PanelContainer.new()
+	card.add_theme_stylebox_override("panel",box("f1f4ec" if row.open else "ffffff",12))
+	body.add_child(card)
+	var column=VBoxContainer.new()
+	column.add_theme_constant_override("separation",7)
+	card.add_child(column)
+	var title=Label.new()
+	title.text=("이용 가능  ·  " if row.open else "다음 생활  ·  ")+row.title
+	title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(title)
+	if not row.open:
+		var hint=Label.new()
+		hint.text=row.hint
+		hint.add_theme_font_size_override("font_size",12)
+		hint.add_theme_color_override("font_color",Color("817d73"))
+		hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		column.add_child(hint)
+		var bar=ProgressBar.new()
+		bar.custom_minimum_size.y=7
+		bar.show_percentage=false
+		bar.value=row.progress*100
+		column.add_child(bar)

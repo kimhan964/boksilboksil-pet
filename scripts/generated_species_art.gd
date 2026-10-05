@@ -10,6 +10,8 @@ static var cache: Dictionary={}
 static var dressed_cache: Dictionary={}
 
 static func release_other_species(species: int) -> void:
+	preload("res://scripts/hold_transition_art.gd").release_other_species(species)
+	preload("res://scripts/struggle_art.gd").release_other_species(species)
 	# This game shows one selected pet. Switching species must release the
 	# previous pet's predecoded action banks rather than accumulating gigabytes.
 	for key in cache.keys():
@@ -64,8 +66,11 @@ static func dressed_frames(species: int, stage: String, style: int, action: Stri
 static func action_for(motion) -> String:
 	if motion.phase=="drop": return "carry"
 	if motion.carried: return "carry"
+	if motion.pointer_grab and motion.held: return "idle"
 	if motion.landing_left>0: return "land"
-	if motion.phase=="drink" and motion.visit_id=="water": return "sniff"
+	if motion.phase=="drink" and motion.visit_id=="water":
+		if preload("res://scripts/dining_species_art.gd").enabled(motion): return "drink"
+		return "drink" if motion.rabbit_pilot and preload("res://scripts/rabbit_pilot_art.gd").data().stages[stage_name(motion)].sequences.has("drink") else "sniff"
 	match motion.phase:
 		"wander","chase","return","visit":
 			return "idle" if motion.held else "walk"
@@ -102,19 +107,34 @@ static func consumption_phase(action: String, phase: float) -> float:
 	return phase
 
 static func sample(motion) -> Dictionary:
+	if preload("res://scripts/home_animation.gd").active(motion): return preload("res://scripts/home_animation.gd").sample(motion)
 	var species: int=motion.species
 	var stage=stage_name(motion)
 	var action=action_for(motion)
+	var hold_sample=preload("res://scripts/hold_transition_art.gd").sample(motion)
+	if not hold_sample.is_empty(): return hold_sample
+	if motion.is_struggling() and preload("res://scripts/struggle_art.gd").available(motion):
+		return preload("res://scripts/struggle_art.gd").sample(motion)
+	if action in ["idle","walk"] and preload("res://scripts/smooth_species_art.gd").enabled(motion):
+		return preload("res://scripts/smooth_species_art.gd").sample(motion,action)
+	if action=="drink" and motion.visit_id=="water" and preload("res://scripts/dining_species_art.gd").enabled(motion):
+		return preload("res://scripts/dining_species_art.gd").sample(motion,action)
+	var pilot_action=action in ["idle","walk"] or (action=="eat" and motion.food_id==Catalog.DEFAULT_MEALS[0]) or (action=="drink" and motion.visit_id=="water")
+	if motion.rabbit_pilot and species==0 and pilot_action and preload("res://scripts/rabbit_pilot_art.gd").data().stages[stage].sequences.has(action):
+		return preload("res://scripts/rabbit_pilot_art.gd").sample(motion,stage,action)
 	var sequence="carry" if action=="land" else action
 	var spec=data(species).stages[stage].sequences[sequence]
-	var dressed_walk=motion.outfit_style>0 and motion.outfit_color==0 and not dressed_frames(species,stage,motion.outfit_style,"walk").is_empty()
-	var smooth_walk=action=="walk" and not dressed_walk and WalkArt.frames(species,stage).size()==32
+	var smooth_walk=action=="walk" and WalkArt.frames(species,stage).size()==32
 	var count=32 if smooth_walk else int(spec.count)
 	var time=motion.reaction_time if motion.phase=="react" else motion.elapsed
 	if action=="carry": time=motion.carry_elapsed
 	var phase=fposmod(time/float(spec.duration),1.0)
 	if motion.phase=="drink" and motion.visit_id=="water": phase=fposmod(time/3.2,1.0)
 	if action=="walk": phase=fposmod(motion.walk_phase,1.0)
+	# One complete approach/bite/recovery. The old 3.2 s modulo restarted
+	# midway through the 5.5 s meal, then cut the second bite off abruptly.
+	if action=="eat": phase=preload("res://scripts/eating_timing.gd").progress(time)
+	if action=="drink" and motion.visit_id=="home_water": phase=preload("res://scripts/eating_timing.gd").progress(time)
 	if action=="stretch": phase=clampf(time/float(spec.duration),0,.99999)
 	if action in ["eat","drink"]: phase=consumption_phase(action,phase)
 	var index=mini(count-1,int(phase*count))
@@ -142,7 +162,8 @@ static func sample(motion) -> Dictionary:
 		else: index=quarter+int(time/.55)%maxi(2,count-quarter*2)
 	elif action=="carry":
 		var quarter=maxi(2,count/4)
-		index=mini(quarter-1,int(time/.18*quarter)) if time<.18 else quarter+int((time-.18)/.16)%maxi(2,count-quarter*2)
+		index=quarter # Quiet suspended pose until the deliberate three-second protest.
+		if motion.phase=="drop": index=quarter
 	elif action=="land":
 		var quarter=maxi(2,count/4)
 		var landing_duration=motion.DIZZY_LANDING if motion.phase=="dizzy" else .24
@@ -151,22 +172,29 @@ static func sample(motion) -> Dictionary:
 		index=mini(count-1,int(clampf(time/maxf(.01,motion.reaction_duration),0,.99999)*count))
 	var result=sample_frame(species,stage,sequence,index >> 1 if smooth_walk else index)
 	if smooth_walk:
+		# Koala v4 alternates two incompatible paint styles. Retain the
+		# original complete cels until a coherent replacement passes review.
+		# Keep phase timing; omitting a rejected cel must not double playback.
+		if species==14: index=(index >> 1)*2
 		result.texture=WalkArt.texture(species,stage,index)
 		result.index=index
+		if species==14: result.fixed_cels=true
 	apply_dressed(result,motion)
 	result.action=action
+	if action=="eat":
+		result.fixed_cels=true
+		result.mouth=preload("res://scripts/eating_timing.gd").mouth_point(species,stage,result.mouth,spec.anchors[4].mouth)
+	if action=="drink" and motion.visit_id=="home_water":
+		result.fixed_cels=true
+		result.mouth=preload("res://scripts/eating_timing.gd").mouth_point(species,stage,result.mouth,data(species).stages[stage].sequences.eat.anchors[4].mouth)
 	result.walk_32=smooth_walk
 	return result
 
 static func apply_dressed(result: Dictionary, motion) -> void:
-	if motion.outfit_style<=0 or motion.outfit_color!=0: return
-	var action: String=result.action
-	var stage: String=result.stage
-	var species: int=motion.species
-	var dressed=dressed_frames(species,stage,int(motion.outfit_style),action)
-	if dressed.size()!=frames(species,stage,action).size(): return
-	result.texture=dressed[int(result.index)]
-	result.dressed=true
+	# The legacy dressed bank contains the OLD animal, not just its clothing.
+	# Every palette must keep the same current character and animation bank.
+	# Garments are drawn by OutfitLayer without replacing the animal cel.
+	pass
 
 static func sample_frame(species: int, stage: String, action: String, index: int) -> Dictionary:
 	var spec=data(species).stages[stage].sequences[action]

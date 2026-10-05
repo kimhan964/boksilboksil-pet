@@ -1,5 +1,7 @@
 extends Node
 
+signal friend_changed(species: int)
+
 const Pet=preload("res://scripts/desktop_pet.gd")
 const Prop=preload("res://scripts/desktop_prop.gd")
 const State=preload("res://scripts/pet_state.gd")
@@ -8,8 +10,10 @@ const Food=preload("res://scripts/food_catalog.gd")
 const HeldFood=preload("res://scripts/held_food.gd")
 const Catalog=preload("res://scripts/animal_catalog.gd")
 const CommerceAccess=preload("res://scripts/commerce_access.gd")
+const NativeMouse=preload("res://scripts/native_mouse.gd")
 var commerce_access
 var world_started=false
+var rabbit_pilot_mode=true
 var held_food
 var held_food_id=-1
 const FAVORITES=["cushion","water","basket","plant","cushion","plant","cushion","lamp","shelter","basket","bowl","plant","shelter","cushion","cushion","water"]
@@ -27,17 +31,26 @@ var preferred_rest=""
 var preferred_toy=""
 var info: AcceptDialog
 var app_theme: Theme
+var gift_notices: Array=[]
+var gift_notice_gap=0.0
 var gift_notice: Window
 var falling_gifts: Dictionary={}
 var pending_gift_visits: Array[String]=[]
+var delivery_queue: Array[String]=[]
+var delivery_seen: Dictionary={}
+var delivery_delay=3.0
+const SMALL_TOOLS=["acorn","basket","plant"]
 var layers_dirty=true
-var previous_layer_stack: Array=[]
+var furniture_room
 
 func request_layer_order() -> void:
 	layers_dirty=true
 
 func objects_are_dragging() -> bool:
 	if is_instance_valid(held_food): return true
+	if is_instance_valid(furniture_room):
+		for piece in furniture_room.pieces.values():
+			if piece.dragging: return true
 	for prop in props.values()+hunt:
 		if is_instance_valid(prop) and prop.dragging: return true
 	return false
@@ -47,21 +60,23 @@ func restore_layer_order() -> void:
 	# Defer native style changes until dragging ends; they can erase the
 	# transparent OpenGL surface while Windows is moving it.
 	if pet.motion.held or pet.motion.prop_dragging or pet.dragging or objects_are_dragging(): return
-	if pet.motion.travel_speed>.01 or pet.motion.phase in ["drop","dizzy"]: return
+	# A furniture click raises its native window immediately. Restore on the
+	# next frame even during an approach, rather than hiding the pet until it
+	# arrives. This runs only on layer-changing events, never every walk frame.
 	if pet.menu.visible or (is_instance_valid(info) and info.visible): return
+	if is_instance_valid(furniture_room) and is_instance_valid(furniture_room.panel) and furniture_room.panel.visible: return
 	if DisplayServer.get_name()=="headless": return
 	layers_dirty=false
-	var stack: Array=[]
-	for window in props.values()+[pet,pet.ball_window,held_food,gift_notice]:
-		if is_instance_valid(window) and window.visible: stack.append(window.get_instance_id())
-	if stack==previous_layer_stack: return
-	previous_layer_stack=stack
+	# Clicking/dragging can reorder the SAME windows. A membership comparison
+	# cannot tell whether the animal is still in front of its furniture.
 	# Reapply the borderless style: unlike the TOPMOST-only setter, this also
 	# restores native visibility with SW_SHOWNOACTIVATE after the style update.
 	# Order from back to front: props (unchanged), animal, ball, held food, notice.
 	for window in [pet,pet.ball_window,held_food,gift_notice]:
 		if is_instance_valid(window) and window.visible:
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true,window.get_window_id())
+			# Native style reconstruction clears WS_EX_LAYERED/TRANSPARENT.
+			NativeMouse.apply(window,window.mouse_passthrough,true)
 
 func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--check-package"):
@@ -77,11 +92,8 @@ func _ready() -> void:
 	# Godot cannot hide its primary window; keep this transparent host passive.
 	get_window().mouse_passthrough=true
 	get_window().unfocusable=true
-	var font=SystemFont.new()
-	font.font_names=PackedStringArray(["Malgun Gothic","sans-serif"])
-	app_theme=Theme.new()
-	app_theme.default_font=font
-	app_theme.default_font_size=16
+	NativeMouse.apply(get_window(),true,true)
+	app_theme=preload("res://scripts/cozy_ui.gd").theme()
 	state.load_game()
 	if state.test_unlocks(): state.hidden.clear()
 	if bool(ProjectSettings.get_setting("commerce/enabled",false)):
@@ -96,12 +108,13 @@ func _start_world() -> void:
 	if world_started: return
 	world_started=true
 	state.affection_changed.connect(on_affection_changed)
-	state.food_unlocked.connect(func(species,foods):
-		if is_instance_valid(pet) and species==state.selected:
-			pet.motion.say("새 먹이 %d종!"%foods.size()))
+	state.food_unlocked.connect(show_food_unlock)
 	state.growth_changed.connect(on_growth_changed)
 	build_props()
 	choose_friend(state.selected)
+	furniture_room=preload("res://scripts/furniture_room.gd").new()
+	furniture_room.app=self
+	add_child(furniture_room)
 	var timer=Timer.new()
 	timer.wait_time=3
 	timer.autostart=true
@@ -110,6 +123,7 @@ func _start_world() -> void:
 
 func _commerce_changed(ids: PackedStringArray) -> void:
 	if ids.is_empty():
+		clear_falling_gifts()
 		cancel_feeding()
 		cancel_hunt()
 		if is_instance_valid(pet):
@@ -124,7 +138,38 @@ func _commerce_changed(ids: PackedStringArray) -> void:
 		pet.set_available_species(ids)
 
 func usable_screen() -> Rect2i:
+	if DisplayServer.get_name()=="headless": return Rect2i(0,0,1280,720)
 	return DisplayServer.screen_get_usable_rect(DisplayServer.SCREEN_PRIMARY)
+
+func floor_prop(prop) -> void:
+	if state.activity_space!="floor": return
+	var area=preload("res://scripts/living_space.gd").bounds(Rect2(usable_screen()),"floor")
+	var feet=prop.feet_point().clamp(area.position,area.end)
+	prop.position=Vector2i(feet-prop.anchor_offset())
+
+func set_activity_space(mode: String) -> void:
+	mode=preload("res://scripts/living_space.gd").clean(mode)
+	if state.activity_space==mode: return
+	cancel_feeding()
+	cancel_hunt()
+	clear_falling_gifts()
+	persist_layout()
+	if is_instance_valid(furniture_room): furniture_room.save()
+	state.activity_space=mode
+	if is_instance_valid(pet):
+		pet.motion.floor_space=mode=="floor"
+		pet.motion.bounds=pet.activity_bounds(pet.desktop_bounds())
+		pet.motion.move_to(pet.motion.feet)
+	for id in props:
+		if mode=="desktop" and state.layout.has(id):
+			var at=state.layout[id]
+			props[id].position=Vector2i(at[0],at[1])
+		floor_prop(props[id])
+	if is_instance_valid(furniture_room): furniture_room.apply_space()
+	state.save_game()
+	refresh_destinations()
+	request_layer_order()
+	if is_instance_valid(pet): pet.motion.say("아래쪽에서 함께할게" if mode=="floor" else "화면 전체를 산책할게")
 
 func default_prop_position(index: int) -> Vector2i:
 	var rect=usable_screen()
@@ -160,12 +205,18 @@ func build_props() -> void:
 		add_child(prop)
 		props[id]=prop
 
+func rabbit_hop_available(species: int,stage: int) -> bool:
+	# v9 contains the approved adult hop only. Never index an absent baby bank.
+	return rabbit_pilot_mode and species==0 and preload("res://scripts/rabbit_pilot_art.gd").data().stages.has("baby" if stage==0 else "adult")
+
 func choose_friend(species: int) -> void:
 	if species<0 or species>=Catalog.IDS.size(): return
 	if commerce_access!=null and not commerce_access.permits(species):
 		commerce_access.show_account("선물받은 동물만 선택할 수 있어요.")
 		return
 	clear_falling_gifts()
+	gift_notices.clear()
+	gift_notice_gap=0.0
 	if is_instance_valid(gift_notice):
 		gift_notice.hide()
 		gift_notice.queue_free()
@@ -187,6 +238,8 @@ func choose_friend(species: int) -> void:
 	preload("res://scripts/generated_species_art.gd").release_other_species(species)
 	pet=Pet.new()
 	pet.species=species
+	pet.motion.rabbit_pilot=rabbit_hop_available(species,state.growth_stage(species))
+	pet.motion.smooth_walk_enabled=species>0
 	pet.state=state
 	if commerce_access!=null:
 		pet.commerce_mode=true
@@ -209,13 +262,16 @@ func choose_friend(species: int) -> void:
 	if previous_position.is_finite(): pet.motion.move_to(previous_position)
 	apply_personal_space(first)
 	apply_growth()
+	for prop in props.values(): floor_prop(prop)
 	set_food(int(state.meals.get(str(species),Catalog.DEFAULT_MEALS[species])),false)
 	apply_unlocks()
 	refresh_destinations()
 	state.save_game()
 	pet.motion.react("greet",2.2 if pet.motion.affection>=18 else 1.6)
 	pet.motion.speak()
+	queue_welcome_tools()
 	if not state.guide_seen: show_first_guide.call_deferred()
+	friend_changed.emit(species)
 
 func show_first_guide() -> void:
 	if not is_instance_valid(pet): return
@@ -256,14 +312,21 @@ func set_food(id: int, serve: bool=true) -> void:
 	props.bowl.refresh()
 	if serve:
 		if decorating: activity(5)
-		ensure_prop_nearby("bowl")
-		pet.motion.cancel_play()
-		pet.motion.rest_left=12
+		if is_instance_valid(furniture_room) and furniture_room.pieces.has("table"):
+			furniture_room.use_piece("table","eat")
+		else:
+			ensure_prop_nearby("bowl")
+			pet.motion.cancel_play()
+			pet.motion.rest_left=12
 	state.save_game()
 	refresh_destinations()
 
 func ensure_prop_nearby(id: String) -> void:
+	if is_instance_valid(furniture_room) and furniture_room.replaces(id):
+		return
 	if not state.unlocked(state.selected,id): return
+	delivery_queue.erase(id)
+	delivery_seen["%d/%s"%[state.selected,id]]=true
 	if falling_gifts.has(id): finish_unlock_fall(id,false)
 	var prop=props[id]
 	state.hidden.erase(id)
@@ -275,7 +338,24 @@ func ensure_prop_nearby(id: String) -> void:
 		prop.position=Vector2i(point-prop.anchor_offset())
 	persist_layout()
 
+func pet_dining_point(prop) -> Vector2:
+	if prop.kind=="water" and preload("res://scripts/dining_species_art.gd").enabled(pet.motion):
+		var dining=preload("res://scripts/dining_species_art.gd")
+		var left=prop.drinking_surface_point(1)-dining.contact_offset(pet.motion,1)
+		if pet.motion.bounds.has_point(left): return left
+		return (prop.drinking_surface_point(-1)-dining.contact_offset(pet.motion,-1)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
+	if pet.motion.rabbit_pilot and prop.kind=="water" and preload("res://scripts/rabbit_pilot_art.gd").data().stages["baby" if pet.motion.growth_stage==0 else "adult"].sequences.has("drink"):
+		# The new drinking cel reaches the near side of the pond with its muzzle.
+		var center=prop.feet_point()
+		var left=center-Vector2(68,5)
+		if pet.motion.bounds.has_point(left): return left
+		return (center+Vector2(68,-5)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
+	return prop.dining_point(pet.motion.bounds)
+
 func use_desktop_prop(id: String) -> void:
+	if is_instance_valid(furniture_room) and furniture_room.replaces(id):
+		furniture_room.use_piece("table" if id=="water" else "sofa","drink" if id=="water" else "default")
+		return
 	if not is_instance_valid(pet) or not state.unlocked(state.selected,id): return
 	if id not in ["cushion","shelter","water","basket"]: return
 	cancel_hunt()
@@ -283,11 +363,17 @@ func use_desktop_prop(id: String) -> void:
 	if decorating: return
 	ensure_prop_nearby(id)
 	props[id].confirm_drop()
-	var point=props[id].dining_point(pet.motion.bounds) if id=="water" else props[id].feet_point()
+	var point=pet_dining_point(props[id]) if id=="water" else props[id].feet_point()
 	pet.motion.visit(point,{"cushion":"doze","shelter":"relax","water":"drink","basket":"askplay"}[id],id,true)
 	pet.motion.stay_after_visit=id=="cushion"
 
 func on_activity_finished(id: String) -> void:
+	var home_care={"home_sofa":"home_rest","home_daybed":"home_rest","home_lamp":"home_rest","home_window_seat":"home_rest","home_tv":"home_rest","home_play_rug":"home_play","home_shelf":"home_read","home_reading_chair":"home_read","home_vanity":"home_groom","home_record_player":"home_music","home_turntable":"home_music","home_tea":"home_tea"}
+	if home_care.has(id): state.reward_activity(pet.species,home_care[id])
+	var event=preload("res://scripts/context_reactions.gd").completed_event(id,pet.motion)
+	if not event.is_empty(): pet.motion.context_reactions.queue(event)
+	if id=="home_food": id="bowl"
+	elif id=="home_water": id="water"
 	if id=="basket" and pet.motion.visit_action=="askplay": pet.motion.prepare_ball()
 	if id in ["bowl","water"]: state.reward_activity(pet.species,id)
 	if id in ["meal","bowl","snack","hand_feed"] and pet.motion.favorite_food:
@@ -295,9 +381,6 @@ func on_activity_finished(id: String) -> void:
 		if not state.favorite_foods.get(str(pet.species),false):
 			state.favorite_foods[str(pet.species)]=true
 			state.add_affection(pet.species)
-	if id in ["meal","bowl","snack","hand_feed"]:
-		pet.motion.react("yum",2.8 if pet.motion.favorite_food else 1.6)
-	if id=="acorn": pet.motion.react("happy",2.4)
 	if id=="snack": cancel_hunt()
 
 func refresh_destinations() -> void:
@@ -307,26 +390,36 @@ func refresh_destinations() -> void:
 	for id in props:
 		var prop=props[id]
 		if not prop.visible: continue
-		if falling_gifts.has(id): continue
+		if falling_gifts.has(id) or id in delivery_queue: continue
 		var point=prop.feet_point()
-		if id in ["bowl","water"]: point=prop.dining_point(pet.motion.bounds)
+		if id in ["bowl","water"]: point=pet_dining_point(prop)
 		if id=="acorn": point=(point+Vector2(-48,0)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
-		if not pet.motion.bounds.has_point(point): continue
+		if state.activity_space=="floor": point=point.clamp(pet.motion.bounds.position,pet.motion.bounds.end)
+		elif not pet.motion.bounds.has_point(point): continue
 		var action={"cushion":"doze","bowl":Food.action(pet.motion.food_id),"water":"drink","basket":"sniff","plant":"prop_use","lamp":"prop_use","shelter":"relax","acorn":"prop_use"}[id]
 		var destination={"point":point,"action":action,"id":id}
 		pet.motion.destinations.append(destination)
+	if is_instance_valid(furniture_room): pet.motion.destinations.append_array(furniture_room.destinations())
 
 func persist_layout() -> void:
 	var places: Dictionary={}
 	for id in props:
+		if not falling_gifts.has(id): floor_prop(props[id])
 		var point: Vector2i=falling_gifts[id].target if falling_gifts.has(id) else props[id].position
-		state.layout[id]=[point.x,point.y]
-		if id in ["cushion","shelter"]: places[id]=[point.x,point.y]
+		var saved_y=state.layout[id][1] if state.activity_space=="floor" and state.layout.has(id) else point.y
+		state.layout[id]=[point.x,saved_y]
+		if id in ["cushion","shelter"]: places[id]=[point.x,saved_y]
 	state.personal_layout[str(state.selected)]=places
 	state.save_game()
 	refresh_destinations()
 
 func on_visit(id: String) -> void:
+	if is_instance_valid(furniture_room) and id in furniture_room.HOME_IDS:
+		furniture_room.on_visit(id)
+		return
+	if id in SMALL_TOOLS:
+		pet.motion.last_destination=id
+		pet.motion.tool_interest_left=pet.motion.rng.randf_range(10,16)
 	if id in ["bowl","meal","snack","hand_feed","water"]:
 		pet.motion.say("냠냠~" if pet.motion.phase=="eat" else "꿀꺽~")
 	if id in ["plant","lamp","acorn"]: props[id].confirm_drop()
@@ -342,6 +435,13 @@ func activity(id: int) -> void:
 		commerce_access.show_account("연결한 계정의 동물 이용권을 확인할 수 있어요.")
 		return
 	if commerce_access!=null and not commerce_access.permits(state.selected): return
+	if is_instance_valid(furniture_room):
+		if id in [11,12,13] and furniture_room.pieces.has("sofa"):
+			furniture_room.use_piece("sofa")
+			return
+		if id==21 and furniture_room.pieces.has("lamp"):
+			furniture_room.use_piece("lamp")
+			return
 	if not state.can_action(state.selected,id): return
 	cancel_feeding()
 	if id>=100 and id<132:
@@ -351,9 +451,14 @@ func activity(id: int) -> void:
 		cancel_hunt()
 		if decorating: activity(5)
 		pet.motion.cancel_play()
-		pet.motion.react(["surprised","happy","angry","sleepy"][id-400],2.5)
+		var kind=["surprised","happy","angry","sleepy"][id-400]
+		pet.motion.react(kind,preload("res://scripts/expression_behavior.gd").duration(pet.species,kind))
 		return
 	match id:
+		33:
+			set_activity_space("desktop" if state.activity_space=="floor" else "floor")
+		32:
+			if is_instance_valid(furniture_room): furniture_room.open()
 		31:
 			expanded_props=not expanded_props
 			apply_prop_visibility()
@@ -555,8 +660,11 @@ func nearby_drop_prop(point: Vector2) -> String:
 	return chosen
 
 func on_pet_dropped(point: Vector2) -> void:
-	var id=nearby_drop_prop(point)
 	for prop in props.values(): prop.set_drop_hover(false)
+	if is_instance_valid(furniture_room) and furniture_room.accept_drop(point,pet.pointer_desktop_position()):
+		pet.furniture_drop_accepted=true
+		return
+	var id=nearby_drop_prop(point)
 	if id.is_empty(): return
 	var prop=props[id]
 	prop.confirm_drop()
@@ -565,14 +673,16 @@ func on_pet_dropped(point: Vector2) -> void:
 		pet.motion.react("full",2.2)
 		return
 	var action={"bowl":Food.action(pet.motion.food_id),"water":"drink","cushion":"doze","shelter":"pet","plant":"prop_use","lamp":"prop_use","basket":"askplay","acorn":"prop_use"}[id]
-	var destination=prop.dining_point(pet.motion.bounds) if id in ["bowl","water"] else prop.feet_point()
+	var destination=pet_dining_point(prop) if id in ["bowl","water"] else prop.feet_point()
 	if id=="acorn": destination=(destination+Vector2(-48,0)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
 	pet.motion.visit(destination,action,id,id not in ["bowl","water"])
 	pet.motion.stay_after_visit=id=="cushion"
 
 func _process(_delta: float) -> void:
+	advance_gift_notices(_delta)
 	advance_unlock_falls(_delta)
 	try_gift_visit()
+	advance_deliveries(_delta)
 	restore_layer_order()
 	for id in ["plant","lamp"]:
 		if not props.has(id): continue
@@ -588,8 +698,13 @@ func _process(_delta: float) -> void:
 			playing=false
 		props.acorn.set_wobbling(playing)
 	var hovered=""
+	var furniture_hover=""
+	if is_instance_valid(furniture_room):
+		if is_instance_valid(pet) and pet.dragging and pet.motion.carried:
+			furniture_hover=furniture_room.preview_drop(pet.motion.feet,pet.pointer_desktop_position())
+		else: furniture_room.preview_drop()
 	if is_instance_valid(pet) and pet.dragging and pet.motion.carried:
-		hovered=nearby_drop_prop(pet.motion.feet)
+		if furniture_hover.is_empty(): hovered=nearby_drop_prop(pet.motion.feet)
 	for id in props: props[id].set_drop_hover(id==hovered)
 	if is_instance_valid(pet): pet.motion.cursor_position=Vector2(DisplayServer.mouse_get_position())
 	if not is_instance_valid(held_food): return
@@ -649,6 +764,8 @@ func apply_prop_visibility() -> void:
 	var selected=eligible if expanded_props or decorating else preload("res://scripts/desktop_clutter.gd").visible_ids(eligible,preferred_rest,preferred_toy)
 	for id in props:
 		props[id].visible=id in selected or (id in eligible and (falling_gifts.has(id) or pending_gift_visits.has(id)))
+		if id in delivery_queue: props[id].visible=false
+		if is_instance_valid(furniture_room) and furniture_room.replaces(id): props[id].visible=false
 
 func on_affection_changed(species: int, gifts: Array) -> void:
 	if species!=state.selected: return
@@ -657,7 +774,7 @@ func on_affection_changed(species: int, gifts: Array) -> void:
 	if not gifts.is_empty(): state.save_game()
 	apply_unlocks()
 	for id in gifts:
-		if props.has(id): start_unlock_fall(id)
+		if props.has(id): queue_delivery(id)
 	if not gifts.is_empty(): show_gift.call_deferred(species,gifts)
 
 func clear_falling_gifts() -> void:
@@ -667,9 +784,69 @@ func clear_falling_gifts() -> void:
 			props[id].mouse_passthrough=false
 	falling_gifts.clear()
 	pending_gift_visits.clear()
+	delivery_queue.clear()
+	delivery_delay=3.0
+
+func queue_delivery(id: String) -> void:
+	if not props.has(id) or id in delivery_queue or falling_gifts.has(id) or id in pending_gift_visits: return
+	if not state.unlocked(state.selected,id) or id in state.hidden: return
+	delivery_queue.append(id)
+	apply_prop_visibility()
+	refresh_destinations()
+
+func queue_welcome_tools() -> void:
+	for id in SMALL_TOOLS:
+		if not delivery_seen.has("%d/%s"%[state.selected,id]): queue_delivery(id)
+
+func delivery_paused() -> bool:
+	if not is_instance_valid(pet) or decorating or is_instance_valid(held_food) or not hunt.is_empty(): return true
+	var m=pet.motion
+	return m.held or m.carried or m.resting or pet.menu.visible or objects_are_dragging()
+
+func place_delivery_tool(id: String) -> void:
+	if id not in SMALL_TOOLS or not is_instance_valid(pet): return
+	var prop=props[id]
+	var origin=pet.motion.feet
+	# Keep nearby saved positions. A distant tool lands near the pet so its
+	# first interaction does not require a minute-long desktop crossing.
+	if state.layout.has(id) and origin.distance_to(prop.feet_point())<110: return
+	var chosen=prop.position
+	var best=INF
+	for offset in [Vector2(100,0),Vector2(-100,0),Vector2(145,30),Vector2(-145,30),Vector2(100,-65),Vector2(-100,-65),Vector2(190,-35),Vector2(-190,-35)]:
+		var margin=Vector2(52,0 if state.activity_space=="floor" else 10)
+		var feet=(origin+offset).clamp(pet.motion.bounds.position+margin,pet.motion.bounds.end-margin)
+		var point=Vector2i(feet-prop.anchor_offset())
+		var area=Rect2i(point,prop.size).grow(12)
+		var blocked=false
+		for other in props:
+			if other!=id and props[other].visible and area.intersects(Rect2i(props[other].position,props[other].size)): blocked=true
+		if not blocked and origin.distance_to(feet)<best:
+			best=origin.distance_to(feet)
+			chosen=point
+	prop.position=chosen
+
+func advance_deliveries(delta: float) -> void:
+	if delivery_queue.is_empty() or delivery_paused(): return
+	if pet.motion.energy<35 or pet.motion.satiety<48 or pet.motion.hydration<45: return
+	delivery_delay=maxf(0,delivery_delay-delta)
+	# Reserve this short idle pause for the pending arrival. Otherwise the AI
+	# can choose a long trip to a bowl before the first three-second delay ends.
+	if pet.motion.phase=="idle" and falling_gifts.is_empty() and pending_gift_visits.is_empty():
+		pet.motion.rest_left=maxf(pet.motion.rest_left,delivery_delay+.1)
+	if delivery_delay>0 or not falling_gifts.is_empty() or not pending_gift_visits.is_empty(): return
+	# Finish the approach, play and reaction before revealing another tool.
+	if pet.motion.phase!="idle": return
+	var id: String=delivery_queue.pop_front()
+	if not props.has(id) or not state.unlocked(state.selected,id) or id in state.hidden:
+		apply_prop_visibility()
+		return
+	place_delivery_tool(id)
+	start_unlock_fall(id)
+	delivery_delay=2.5
 
 func start_unlock_fall(id: String) -> void:
 	if not props.has(id) or falling_gifts.has(id): return
+	delivery_seen["%d/%s"%[state.selected,id]]=true
 	focus_prop=id
 	apply_prop_visibility()
 	var prop=props[id]
@@ -683,7 +860,7 @@ func start_unlock_fall(id: String) -> void:
 	prop.show()
 	prop.mouse_passthrough=true
 	if is_instance_valid(pet) and not pet.motion.held and pet.motion.phase=="idle":
-		pet.motion.react("surprised",1.15)
+		pet.motion.context_reactions.queue("gift")
 	refresh_destinations()
 
 func finish_unlock_fall(id: String,visit: bool=true) -> void:
@@ -718,14 +895,17 @@ func advance_unlock_falls(delta: float) -> void:
 
 func try_gift_visit() -> void:
 	if pending_gift_visits.is_empty() or not is_instance_valid(pet) or decorating: return
+	if delivery_paused(): return
+	if pet.motion.energy<35 or pet.motion.satiety<48 or pet.motion.hydration<45: return
 	if pet.motion.held or pet.motion.carried or pet.motion.resting or pet.motion.phase!="idle": return
 	if pet.menu.visible or is_instance_valid(held_food): return
 	var id: String=pending_gift_visits.pop_front()
+	if id in state.hidden: return
 	focus_prop=id
 	apply_prop_visibility()
 	if not props.has(id) or not props[id].visible or not state.unlocked(state.selected,id): return
 	var prop=props[id]
-	var point=prop.dining_point(pet.motion.bounds) if id in ["bowl","water"] else prop.feet_point()
+	var point=pet_dining_point(prop) if id in ["bowl","water"] else prop.feet_point()
 	if id=="acorn": point+=Vector2(-48,0)
 	point=point.clamp(pet.motion.bounds.position,pet.motion.bounds.end)
 	var action={"bowl":"inspect","water":"inspect","basket":"inspect","cushion":"relax","shelter":"relax","plant":"prop_use","lamp":"prop_use","acorn":"prop_use"}.get(id,"inspect")
@@ -735,6 +915,7 @@ func apply_growth() -> void:
 	if not is_instance_valid(pet): return
 	pet.motion.growth_scale=state.growth_scale(state.selected)
 	pet.motion.growth_stage=state.growth_stage(state.selected)
+	pet.motion.rabbit_pilot=rabbit_hop_available(state.selected,pet.motion.growth_stage)
 	pet.view.prewarm_current_art()
 	pet.title=Catalog.NAMES[state.selected]+" · "+State.GROWTH_NAMES[state.growth_stage(state.selected)]+" · 바탕화면 친구"
 	for prop in props.values():
@@ -747,10 +928,28 @@ func on_growth_changed(species: int, stage: int) -> void:
 	apply_growth()
 	show_gift.call_deferred(species,[],stage)
 
+func show_food_unlock(species: int,foods: Array) -> void:
+	if species!=state.selected or foods.is_empty(): return
+	gift_notices.append({"title":"식탁에 새 메뉴가 열렸어요","body":Food.title_for(species,foods[0])+(" 외 %d종"%(foods.size()-1) if foods.size()>1 else ""),"hint":"돌보기 → 먹이 고르기에서 차려주세요"})
+
 func show_gift(species: int, gifts: Array, growth_stage: int=-1) -> void:
 	if species!=state.selected or not is_instance_valid(pet): return
-	pet.motion.pending_reaction="gift"
-	if is_instance_valid(gift_notice): gift_notice.queue_free()
+	if gifts.is_empty() and growth_stage<0: return
+	var names=PackedStringArray()
+	for id in gifts.slice(0,2): names.append(State.GIFT_NAMES[id])
+	var body=" · ".join(names)
+	if gifts.size()>2: body+=" 외 %d개"%(gifts.size()-2)
+	var action=str(state.last_reward_action.get(str(species),""))
+	var cause=State.ACTION_LABELS.get(action,"함께한 시간")
+	gift_notices.append({"title":"새로운 생활이 열렸어요" if growth_stage<0 else "한 뼘 더 자랐어요","body":body if growth_stage<0 else State.GROWTH_NAMES[growth_stage]+"가 되었어요","hint":cause+"로 가까워졌어요 · 성장·선물에서 확인"})
+	if gift_notices.size()>6: gift_notices.pop_front()
+
+func advance_gift_notices(delta: float) -> void:
+	gift_notice_gap=maxf(0,gift_notice_gap-delta)
+	if gift_notices.is_empty() or is_instance_valid(gift_notice) or gift_notice_gap>0 or not is_instance_valid(pet): return
+	if pet.motion.held or pet.motion.phase in ["drop","dizzy"] or pet.menu.visible or objects_are_dragging(): return
+	var message: Dictionary=gift_notices.pop_front()
+	pet.motion.context_reactions.queue("gift")
 	var notice=Window.new()
 	gift_notice=notice
 	notice.visible=false
@@ -759,24 +958,29 @@ func show_gift(species: int, gifts: Array, growth_stage: int=-1) -> void:
 	notice.always_on_top=true
 	notice.unfocusable=true
 	notice.mouse_passthrough=true
-	notice.size=Vector2i(390,86)
-	notice.title="친구의 선물"
-	var panel=Panel.new()
-	var background=StyleBoxFlat.new()
-	background.bg_color=Color("fff3da")
-	panel.add_theme_stylebox_override("panel",background)
+	notice.size=Vector2i(390,124)
+	notice.title="복슬복슬펫 · 새로운 생활"
+	notice.theme=app_theme
+	var panel=PanelContainer.new()
+	panel.add_theme_stylebox_override("panel",preload("res://scripts/cozy_ui.gd").box("f1f4ec",12))
 	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	notice.add_child(panel)
-	var label=Label.new()
-	label.theme=app_theme
-	label.add_theme_color_override("font_color",Color("604732"))
-	label.position=Vector2(16,12)
-	label.text=("함께 돌보며 자랐어요!\n성장: "+State.GROWTH_NAMES[growth_stage]) if growth_stage>=0 else ("조금 더 가까워졌어요!\n선물: "+State.GIFT_NAMES[gifts[0]])
-	panel.add_child(label)
+	var column=VBoxContainer.new()
+	column.add_theme_constant_override("separation",6)
+	panel.add_child(column)
+	for key in ["title","body","hint"]:
+		var label=Label.new()
+		label.text=message[key]
+		label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		label.add_theme_font_size_override("font_size",12 if key=="hint" else 14)
+		label.add_theme_color_override("font_color",Color("817d73" if key=="hint" else "4d6045"))
+		column.add_child(label)
 	add_child(notice)
 	var area=Rect2i(pet.desktop_bounds())
-	notice.position=Vector2i((pet.motion.feet+Vector2(-195,-240)).clamp(Vector2(area.position),Vector2((area.end-notice.size).max(area.position))))
+	notice.position=Vector2i((pet.motion.feet+Vector2(-195,-275)).clamp(Vector2(area.position),Vector2((area.end-notice.size).max(area.position))))
 	notice.show()
+	NativeMouse.apply(notice,true,true)
+	gift_notice_gap=7.0
 	get_tree().create_timer(5).timeout.connect(func():
 		if is_instance_valid(notice): notice.queue_free())
 

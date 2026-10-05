@@ -1,0 +1,47 @@
+{
+  "version": 13,
+  "species": "koala",
+  "method": "Reviewed chubby full-image poses, 60 cels, constant scale and travel speed",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "idle_file": "adult-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 200,
+      "cycle_seconds": 2.45,
+      "stride": 22.11811106694337,
+      "source_phase_offset": 30,
+      "canvas": [
+        256,
+        256
+      ],
+      "root": [
+        128,
+        232
+      ],
+      "source_key_count": 4,
+      "interpolation": "RIFE v4.6 temporal ensemble; baked whole-image cels"
+    },
+    "baby": {
+      "file": "baby.png",
+      "idle_file": "baby-idle.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 200,
+      "cycle_seconds": 2.45,
+      "stride": 19.69021666094283,
+      "source_phase_offset": 30,
+      "canvas": [
+        256,
+        256
+      ],
+      "root": [
+        128,
+        232
+      ],
+      "source_key_count": 4,
+      "interpolation": "RIFE v4.6 temporal ensemble; baked whole-image cels"
+    }
+  }
+}

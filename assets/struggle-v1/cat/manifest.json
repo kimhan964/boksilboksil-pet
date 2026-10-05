@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "species": "cat",
+  "method": "Generated whole poses, offline RIFE, no runtime blending or limb rigs",
+  "stages": {
+    "adult": {
+      "file": "adult.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 181.0909090909091,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        132.4
+      ]
+    },
+    "baby": {
+      "file": "baby.png",
+      "count": 60,
+      "columns": 8,
+      "reference_height": 176.53846153846155,
+      "cycle_seconds": 1.4,
+      "root": [
+        128,
+        232
+      ],
+      "grip": [
+        128,
+        134.90384615384613
+      ]
+    }
+  }
+}
