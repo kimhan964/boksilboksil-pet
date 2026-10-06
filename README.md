@@ -1,4 +1,12 @@
-# 복슬복슬펫 · 2026-10-05 개발 스냅샷
+# 복슬복슬펫과 복슬복슬 타자친구
+
+## 복슬복슬 타자친구 · 별도 게임
+
+[타자친구 0.1.0 Windows 다운로드](https://github.com/kimhan964/boksilboksil-pet/releases/tag/typing-v0.1.0) · [기획과 사용법](games/typing-pet/README.md)
+
+16종 타자 펫, APM·활동 시간, 입력 불빛, 액세서리 4종/톤 스킨 3종의 해금·장착을 담은 독립 게임입니다. `TypingFriends.exe`로 실행하며 데스크톱 펫과 저장·설정·종료를 분리했습니다. 소스 프로젝트: `games/typing-pet/project.godot`.
+
+## 복슬복슬펫 · 데스크톱 생활 게임
 
 [Windows 다운로드와 변경 사항](https://github.com/kimhan964/boksilboksil-pet/releases/tag/v0.31.0-preview.20261005)
 
