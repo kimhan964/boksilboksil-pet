@@ -5,6 +5,9 @@ const NAMES=["모루 · 토끼","보리 · 수달","도토 · 다람쥐","밤이
 const PINS=[Vector2(.64,.38),Vector2(.66,.32),Vector2(.66,.33),Vector2(.65,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.68,.34),Vector2(.65,.34),Vector2(.66,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.65,.34),Vector2(.65,.34),Vector2(.65,.34)]
 static func folder(species: int) -> String:
 	return "res://assets/typing-rabbit-v1" if species==0 else "res://assets/typing-animals-v1/"+IDS[species]
+const HATS=[Vector2(.50,.305),Vector2(.50,.255),Vector2(.51,.25),Vector2(.50,.19),Vector2(.50,.25),Vector2(.50,.25),Vector2(.50,.22),Vector2(.50,.25),Vector2(.50,.235),Vector2(.50,.195),Vector2(.50,.24),Vector2(.50,.215),Vector2(.50,.25),Vector2(.50,.19),Vector2(.50,.25),Vector2(.50,.21)]
+static func accessory_anchor(species: int,id: String) -> Vector2:
+	return HATS[species] if preload("res://scripts/pin.gd").is_hat(id) else PINS[species]
 static func frames(species: int) -> Array[Texture2D]:
 	var result: Array[Texture2D]=[]
 	for pose in ["idle","left","right"]:

@@ -6,7 +6,9 @@ func folder(path: String) -> void:
 		if file.ends_with(".import") or file.ends_with(".uid") or file.ends_with(".log"): continue
 		if file=="generation-records.json": continue
 		if packer.add_file(path.path_join(file),path.path_join(file))!=OK: failed=true
-	for child in DirAccess.get_directories_at(path): folder(path.path_join(child))
+	for child in DirAccess.get_directories_at(path):
+		if child=="source" and path.ends_with("accessories-varco-v1"): continue
+		folder(path.path_join(child))
 func _initialize() -> void:
 	var destination="res://builds/release"
 	for arg in OS.get_cmdline_user_args():

@@ -42,8 +42,8 @@ func run() -> void:
 	check(restored.selected(0,"pin")=="ribbon" and restored.actions==60,"progress save roundtrip")
 	c.credit(10000,3600000)
 	for item in c.ITEMS:
-		if item.id not in c.claimed: check(c.claim(item.id),"all seven rewards claimable")
-	check(c.claimed.size()==7,"complete collection")
+		if item.id not in c.claimed: check(c.claim(item.id),"all rewards claimable")
+	check(c.claimed.size()==Collection.ITEMS.size(),"complete collection")
 	for species in range(16):
 		var frames=Catalog.frames(species)
 		check(frames.size()==3,"three full cels per species")

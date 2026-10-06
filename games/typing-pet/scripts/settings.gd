@@ -63,7 +63,8 @@ func rebuild() -> void:
 	preview.add_child(hero)
 	preview_pin=Pin.new()
 	preview_pin.kind=app.collection.selected(app.species,"pin")
-	preview_pin.position=hero.position+Catalog.PINS[app.species]*104
+	preview_pin.worn=true
+	preview_pin.position=hero.position+Catalog.accessory_anchor(app.species,preview_pin.kind)*104
 	preview_pin.scale=Vector2.ONE*.52
 	preview.add_child(preview_pin)
 	tabs=TabContainer.new()
@@ -156,7 +157,7 @@ func rebuild() -> void:
 	var reset=HBoxContainer.new()
 	gifts.add_child(reset)
 	for slot in ["pin","skin"]:
-		var clear=button("핀 벗기기" if slot=="pin" else "기본 색상",func():
+		var clear=button("액세서리 벗기기" if slot=="pin" else "기본 색상",func():
 			app.collection.equip(app.species,slot,"")
 			app.widget.apply_cosmetics()
 			app.save_game()
@@ -180,16 +181,16 @@ func add_item_card(grid: GridContainer,entry: Dictionary) -> void:
 	body.add_theme_constant_override("separation",4)
 	card.add_child(body)
 	var icon=Control.new()
-	icon.custom_minimum_size=Vector2(180,28)
+	icon.custom_minimum_size=Vector2(180,52)
 	body.add_child(icon)
 	if entry.slot=="pin":
 		var badge=Pin.new()
 		badge.kind=entry.id
-		badge.position=Vector2(90,12)
+		badge.position=Vector2(90,26)
 		icon.add_child(badge)
 	else:
 		var swatch=Panel.new()
-		swatch.position=Vector2(65,3)
+		swatch.position=Vector2(65,16)
 		swatch.size=Vector2(50,20)
 		swatch.add_theme_stylebox_override("panel",preload("res://scripts/widget.gd").box(entry.color,8))
 		icon.add_child(swatch)

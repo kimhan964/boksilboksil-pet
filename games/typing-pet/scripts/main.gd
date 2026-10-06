@@ -21,6 +21,10 @@ var instance_socket: TCPServer
 var save_path="user://typing-friends.json"
 
 func _ready() -> void:
+	# The primary Window is still adding this scene during _ready. Add its UI after that.
+	start_game.call_deferred()
+
+func start_game() -> void:
 	Engine.max_fps=60
 	# Keep all controls in the primary Windows input window, never a passive host.
 	get_tree().root.transparent=false
@@ -47,6 +51,16 @@ func _ready() -> void:
 	get_tree().auto_accept_quit=false
 	get_tree().root.close_requested.connect(shutdown)
 	if "--settings" in OS.get_cmdline_user_args(): open_settings.call_deferred()
+	if "--startup-check" in OS.get_cmdline_user_args(): check_startup.call_deferred()
+
+func check_startup() -> void:
+	await get_tree().process_frame
+	open_settings()
+	await get_tree().process_frame
+	var ok=widget.header_root.is_inside_tree() and widget.settings_button.is_inside_tree() and settings.visible and not widget.header.mouse_passthrough
+	print("NATIVE_STARTUP_PASS" if ok else "NATIVE_STARTUP_FAILED")
+	bridge.stop()
+	get_tree().quit(0 if ok else 1)
 
 func _process(delta: float) -> void:
 	if not is_instance_valid(widget): return

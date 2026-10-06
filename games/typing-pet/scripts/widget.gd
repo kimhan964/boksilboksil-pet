@@ -53,6 +53,7 @@ func _ready() -> void:
 	sprite.material=material_
 	root.add_child(sprite)
 	pin=preload("res://scripts/pin.gd").new()
+	pin.worn=true
 	root.add_child(pin)
 	var tray=Panel.new()
 	light_tray=tray
@@ -168,7 +169,9 @@ func load_friend() -> void:
 	update_input_region()
 func apply_cosmetics() -> void:
 	pin.kind=app.collection.selected(app.species,"pin")
+	pin.position=sprite.position+Catalog.accessory_anchor(app.species,pin.kind)*200
 	sprite.material.set_shader_parameter("shift",app.collection.TINTS.get(app.collection.selected(app.species,"skin"),Vector3.ZERO))
+	update_input_region()
 func place() -> void:
 	screen_rect=DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
 	if screen_rect.size.x<=0: screen_rect=Rect2i(0,0,1280,720)
@@ -199,6 +202,9 @@ func update_input_region() -> void:
 		for polygon in bitmap.opaque_to_polygons(Rect2i(Vector2i.ZERO,image_.get_size()),8):
 			for point in polygon: points.append((sprite.position+point*sprite.scale)*root.scale)
 	for point in [Vector2(22,200),Vector2(198,200),Vector2(198,228),Vector2(22,228)]: points.append(point*root.scale)
+	if not pin.kind.is_empty():
+		var rect=pin.asset_rect()
+		for point in [rect.position,Vector2(rect.end.x,rect.position.y),rect.end,Vector2(rect.position.x,rect.end.y)]: points.append((pin.position+point)*root.scale)
 	mouse_passthrough_polygon=Geometry2D.convex_hull(points)
 	Native.apply(self,false,true)
 func on_input(event: InputEvent) -> void:

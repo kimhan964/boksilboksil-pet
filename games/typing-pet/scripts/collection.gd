@@ -3,10 +3,15 @@ extends RefCounted
 const ITEMS=[
 	{"id":"ribbon","name":"로즈 리본","slot":"pin","actions":60,"seconds":15,"color":"c99eaa"},
 	{"id":"clover","name":"클로버 핀","slot":"pin","actions":300,"seconds":120,"color":"95af89"},
+	{"id":"sprout","name":"쑥쑥 새싹 핀","slot":"pin","actions":500,"seconds":180,"color":"95af89"},
 	{"id":"daisy","name":"데이지 브로치","slot":"pin","actions":1000,"seconds":300,"color":"e9d7a5"},
+	{"id":"beret","name":"산책 베레모","slot":"pin","actions":1200,"seconds":420,"color":"a5b888"},
 	{"id":"oat","name":"오트 라떼","slot":"skin","actions":1500,"seconds":600,"color":"d1b990"},
+	{"id":"jester","name":"장난꾸러기 삐에로","slot":"pin","actions":2000,"seconds":720,"color":"d6a29b"},
 	{"id":"star","name":"작은 별 핀","slot":"pin","actions":3000,"seconds":900,"color":"d2b578"},
+	{"id":"crown","name":"오늘의 작은 왕관","slot":"pin","actions":4000,"seconds":1200,"color":"e4c787"},
 	{"id":"rose","name":"로즈 밀크","slot":"skin","actions":5000,"seconds":1800,"color":"ceabb7"},
+	{"id":"wizard","name":"달빛 마법사","slot":"pin","actions":7000,"seconds":2400,"color":"b4a1c8"},
 	{"id":"mist","name":"안개 세이지","slot":"skin","actions":10000,"seconds":3600,"color":"a6bcae"}]
 const TINTS={"":Vector3.ZERO,"oat":Vector3(.045,.018,-.035),"rose":Vector3(.045,-.018,.025),"mist":Vector3(-.035,.02,.018)}
 var actions=0
@@ -47,7 +52,7 @@ func summary() -> String:
 		if entry.id not in claimed:
 			if eligible(entry.id): return "선물 도착 · "+entry.name
 			return "다음 선물 · %s %d%%"%[entry.name,roundi(progress(entry)*100)]
-	return "작은 선물 7종을 모두 모았어요"
+	return "작은 선물 %d종을 모두 모았어요"%ITEMS.size()
 func serialize() -> Dictionary:
 	return {"actions":actions,"active_ms":active_ms,"claimed":claimed,"equipped":equipped}
 func restore(value) -> void:
