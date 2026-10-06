@@ -78,6 +78,7 @@ func visual() -> void:
 		widget.refresh_text()
 		await process_frame
 		check(not widget.header.transparent and not widget.header.mouse_passthrough,"opaque header always receives native input")
+		check(widget.header==root and not root.unfocusable,"settings controls must use the focusable primary OS window")
 		check(not Rect2i(widget.position,widget.size).intersects(Rect2i(widget.header.position,widget.header.size)),"pet surface must never cover settings controls")
 		check(not widget.mouse_passthrough and widget.mouse_passthrough_polygon.size()>3,"pet uses a fixed native input region")
 		var point=widget.settings_button.get_global_rect().get_center()

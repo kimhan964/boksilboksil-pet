@@ -22,11 +22,11 @@ var save_path="user://typing-friends.json"
 
 func _ready() -> void:
 	Engine.max_fps=60
-	# Exported Godot cannot hide its primary window. Keep the empty host 1px and passive.
-	get_tree().root.size=Vector2i.ONE
-	get_tree().root.transparent_bg=true
-	get_tree().root.unfocusable=true
-	preload("res://scripts/native_mouse.gd").apply(get_tree().root,true,true)
+	# Keep all controls in the primary Windows input window, never a passive host.
+	get_tree().root.transparent=false
+	get_tree().root.transparent_bg=false
+	get_tree().root.unfocusable=false
+	get_tree().root.mouse_passthrough=false
 	var icon=Image.new()
 	if icon.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/icon/pet-icon.png"))==OK:
 		DisplayServer.set_icon(icon)
@@ -46,6 +46,7 @@ func _ready() -> void:
 	bridge.start()
 	get_tree().auto_accept_quit=false
 	get_tree().root.close_requested.connect(shutdown)
+	if "--settings" in OS.get_cmdline_user_args(): open_settings.call_deferred()
 
 func _process(delta: float) -> void:
 	if not is_instance_valid(widget): return
@@ -72,6 +73,9 @@ func choose_friend(value: int) -> void:
 	save_game()
 	settings.rebuild.call_deferred()
 func open_settings() -> void:
+	if settings.visible:
+		settings.grab_focus()
+		return
 	settings.rebuild()
 	var screen=DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
 	settings.position=screen.position+(screen.size-settings.size)/2

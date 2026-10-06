@@ -74,10 +74,8 @@ func _ready() -> void:
 		light_nodes.append(tile)
 		lights.append(style)
 		levels.append(0)
-	# Header uses its OWN native window, never subject to the pet's WS_EX_TRANSPARENT.
-	header=Window.new()
-	header.visible=false
-	header.force_native=true
+	# Controls live in the PRIMARY OS window. No transparent/passive root ancestor.
+	header=get_tree().root
 	header.borderless=true
 	# Opaque native header: Windows must not alpha-hit-test the controls.
 	header.transparent=false
@@ -89,7 +87,7 @@ func _ready() -> void:
 	header.exclusive=false
 	header.title="타자친구 · 설정"
 	header.theme=app.skin
-	add_child(header)
+	header.mouse_passthrough=false
 	header_root=Node2D.new()
 	header.add_child(header_root)
 	var panel=Panel.new()
@@ -109,17 +107,27 @@ func _ready() -> void:
 	for state_ in ["normal","hover","pressed"]:
 		settings_button.add_theme_stylebox_override(state_,box("e5eadd" if state_=="normal" else "cfddc4",7))
 	settings_button.focus_mode=Control.FOCUS_ALL
+	settings_button.action_mode=BaseButton.ACTION_MODE_BUTTON_PRESS
 	settings_button.pressed.connect(func(): app.open_settings())
 	header_root.add_child(settings_button)
 	gift_button=preload("res://scripts/gift_button.gd").new()
 	gift_button.position=Vector2(140,45)
 	gift_button.size=Vector2(44,30)
+	gift_button.action_mode=BaseButton.ACTION_MODE_BUTTON_PRESS
 	gift_button.add_theme_stylebox_override("normal",box("f4e9e2",8))
 	gift_button.add_theme_stylebox_override("hover",box("ead7ce",8))
 	gift_button.pressed.connect(func(): app.open_gifts())
 	header_root.add_child(gift_button)
 	header.window_input.connect(func(event):
-		if event is InputEventMouseButton and (event.position.y/header_root.scale.y<45 or moving): on_input(event))
+		if event is InputEventMouseButton:
+			if event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
+				if settings_button.get_global_rect().has_point(event.position):
+					app.open_settings.call_deferred()
+					return
+				if gift_button.get_global_rect().has_point(event.position):
+					app.open_gifts.call_deferred()
+					return
+			if event.position.y/header_root.scale.y<45 or moving: on_input(event))
 	window_input.connect(on_input)
 	load_friend()
 	place()
@@ -175,11 +183,7 @@ func place() -> void:
 	if app.custom_position: anchor_position=app.saved_position
 	anchor_position=anchor_position.clamp(screen_rect.position,(screen_rect.end-footprint).max(screen_rect.position))
 	header.size=Vector2i(Vector2(192,76)*zoom_)
-	var rounded=PackedVector2Array()
-	for corner_ in [Vector2(180,12),Vector2(180,64),Vector2(12,64),Vector2(12,12)]:
-		var start=[-PI/2,0.0,PI/2,PI][int(rounded.size()/7)]
-		for step in range(7): rounded.append((corner_+Vector2.from_angle(start+step*PI/12)*12)*zoom_)
-	header.mouse_passthrough_polygon=rounded
+	header.mouse_passthrough_polygon=PackedVector2Array()
 	sync_positions()
 	update_input_region()
 func sync_positions() -> void:
