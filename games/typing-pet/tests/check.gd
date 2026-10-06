@@ -77,9 +77,9 @@ func visual() -> void:
 		widget.place()
 		widget.refresh_text()
 		await process_frame
-		# Explicitly leave the PET window click-through: settings must still receive input.
-		preload("res://scripts/native_mouse.gd").apply(widget,true,true)
-		check(not widget.header.mouse_passthrough,"header remains interactive when pet is click-through")
+		check(not widget.header.transparent and not widget.header.mouse_passthrough,"opaque header always receives native input")
+		check(not Rect2i(widget.position,widget.size).intersects(Rect2i(widget.header.position,widget.header.size)),"pet surface must never cover settings controls")
+		check(not widget.mouse_passthrough and widget.mouse_passthrough_polygon.size()>3,"pet uses a fixed native input region")
 		var point=widget.settings_button.get_global_rect().get_center()
 		for down in [true,false]:
 			var event=InputEventMouseButton.new()
@@ -91,8 +91,11 @@ func visual() -> void:
 		check(settings.visible,"header button opens settings at every size")
 		settings.hide()
 		await RenderingServer.frame_post_draw
-		var composed=widget.get_texture().get_image()
-		composed.blend_rect(widget.header.get_texture().get_image(),Rect2i(Vector2i.ZERO,widget.header.size),widget.header.position-widget.position)
+		var composed=Image.create(int(220*widget.root.scale.x),int(312*widget.root.scale.y),false,Image.FORMAT_RGBA8)
+		composed.blend_rect(widget.get_texture().get_image(),Rect2i(Vector2i.ZERO,widget.size),widget.position-widget.anchor_position)
+		var header_image=widget.header.get_texture().get_image()
+		header_image.convert(Image.FORMAT_RGBA8)
+		composed.blend_rect(header_image,Rect2i(Vector2i.ZERO,widget.header.size),widget.header.position-widget.anchor_position)
 		composed.save_png(folder+"/widget-%d.png"%zoom_)
 	app.zoom=1
 	widget.place()
@@ -101,15 +104,20 @@ func visual() -> void:
 	app.set_size(1.5)
 	check(is_equal_approx(widget.root.scale.x,1.5),"150% size slider")
 	app.set_size(1)
-	widget.move_enabled=true
+	widget.move_enabled=false
 	var down=InputEventMouseButton.new()
 	down.button_index=MOUSE_BUTTON_LEFT
 	down.pressed=true
 	widget.on_input(down)
 	check(widget.moving,"move tool captures a held pet")
+	var destination=widget.anchor_position-Vector2i(100,60)
+	widget.grab_offset=DisplayServer.mouse_get_position()-destination
+	widget.advance(0,0)
+	check(widget.anchor_position==destination,"drag updates real window position")
+	check(widget.header.position==destination+Vector2i(14,2),"header follows drag exactly")
 	down.pressed=false
 	widget.on_input(down)
-	check(app.custom_position and not widget.moving and app.saved_position==widget.position,"drag release persists position")
+	check(app.custom_position and not widget.moving and app.saved_position==widget.anchor_position,"drag release persists position without enabling a mode")
 	app.show_lights=false
 	widget.advance(0,0)
 	check(not widget.light_tray.visible,"input light setting hides tray")
@@ -174,4 +182,4 @@ func visual() -> void:
 		widget.get_texture().get_image().save_png(folder+"/species-%02d.png"%species)
 	app.queue_free()
 	await process_frame
-	print("PASS: independent header click while pet passthrough / 3 sizes / 16 species / centered settings and collection renders")
+	print("PASS: opaque non-overlapping header / static native input region / direct drag / 3 sizes / 16 species / settings and collection renders")

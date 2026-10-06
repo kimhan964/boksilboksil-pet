@@ -23,6 +23,7 @@ var light_nodes: Array[Panel]=[]
 var move_enabled=false
 var moving=false
 var grab_offset=Vector2i.ZERO
+var anchor_position=Vector2i.ZERO
 var lights: Array[StyleBoxFlat]=[]
 var levels: Array[float]=[]
 var light_index=-1
@@ -35,7 +36,7 @@ func _init() -> void:
 	transparent=true
 	transparent_bg=true
 	always_on_top=true
-	unfocusable=true
+	unfocusable=false
 	unresizable=true
 	title="복슬복슬 타자친구"
 func _ready() -> void:
@@ -45,7 +46,7 @@ func _ready() -> void:
 	add_child(root)
 	sprite=Sprite2D.new()
 	sprite.centered=false
-	sprite.position=Vector2(10,80)
+	sprite.position=Vector2(10,0)
 	sprite.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
 	var material_=ShaderMaterial.new()
 	material_.shader=preload("res://scripts/tone.gdshader")
@@ -55,14 +56,14 @@ func _ready() -> void:
 	root.add_child(pin)
 	var tray=Panel.new()
 	light_tray=tray
-	tray.position=Vector2(22,280)
+	tray.position=Vector2(22,200)
 	tray.size=Vector2(176,28)
 	tray.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	tray.add_theme_stylebox_override("panel",box("faf8f3",9))
 	root.add_child(tray)
 	for i in range(8):
 		var tile=Panel.new()
-		tile.position=Vector2(32+i*20,286)
+		tile.position=Vector2(32+i*20,206)
 		tile.size=Vector2(16,16)
 		tile.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		var style=box("e4e2d8",3)
@@ -78,10 +79,14 @@ func _ready() -> void:
 	header.visible=false
 	header.force_native=true
 	header.borderless=true
-	header.transparent=true
-	header.transparent_bg=true
+	# Opaque native header: Windows must not alpha-hit-test the controls.
+	header.transparent=false
+	header.transparent_bg=false
 	header.always_on_top=true
 	header.unresizable=true
+	header.unfocusable=false
+	header.transient=false
+	header.exclusive=false
 	header.title="타자친구 · 설정"
 	header.theme=app.skin
 	add_child(header)
@@ -89,7 +94,7 @@ func _ready() -> void:
 	header.add_child(header_root)
 	var panel=Panel.new()
 	panel.size=Vector2(192,76)
-	panel.add_theme_stylebox_override("panel",box("faf8f3",12))
+	panel.add_theme_stylebox_override("panel",box("faf8f3",0))
 	panel.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	header_root.add_child(panel)
 	status=label(Vector2(6,3),Vector2(180,26),18)
@@ -113,6 +118,8 @@ func _ready() -> void:
 	gift_button.add_theme_stylebox_override("hover",box("ead7ce",8))
 	gift_button.pressed.connect(func(): app.open_gifts())
 	header_root.add_child(gift_button)
+	header.window_input.connect(func(event):
+		if event is InputEventMouseButton and (event.position.y/header_root.scale.y<45 or moving): on_input(event))
 	window_input.connect(on_input)
 	load_friend()
 	place()
@@ -150,6 +157,7 @@ func load_friend() -> void:
 	sprite.scale=Vector2.ONE*(200.0/frames[0].get_width())
 	pin.position=sprite.position+Catalog.PINS[app.species]*200
 	apply_cosmetics()
+	update_input_region()
 func apply_cosmetics() -> void:
 	pin.kind=app.collection.selected(app.species,"pin")
 	sprite.material.set_shader_parameter("shift",app.collection.TINTS.get(app.collection.selected(app.species,"skin"),Vector3.ZERO))
@@ -159,31 +167,54 @@ func place() -> void:
 	var zoom_=app.scale_factor if app.scale_factor>0 else [.85,1.0,1.2][app.zoom]
 	root.scale=Vector2.ONE*zoom_
 	header_root.scale=Vector2.ONE*zoom_
-	size=Vector2i(Vector2(220,312)*zoom_)
-	position=screen_rect.position+Vector2i(12,12)
-	if app.corner in [1,3]: position.x=screen_rect.end.x-size.x-12
-	if app.corner in [2,3]: position.y=screen_rect.end.y-size.y-12
-	if app.custom_position: position=app.saved_position
-	position=position.clamp(screen_rect.position,(screen_rect.end-size).max(screen_rect.position))
+	size=Vector2i(Vector2(220,232)*zoom_)
+	var footprint=Vector2i(Vector2(220,312)*zoom_)
+	anchor_position=screen_rect.position+Vector2i(12,12)
+	if app.corner in [1,3]: anchor_position.x=screen_rect.end.x-footprint.x-12
+	if app.corner in [2,3]: anchor_position.y=screen_rect.end.y-footprint.y-12
+	if app.custom_position: anchor_position=app.saved_position
+	anchor_position=anchor_position.clamp(screen_rect.position,(screen_rect.end-footprint).max(screen_rect.position))
 	header.size=Vector2i(Vector2(192,76)*zoom_)
-	header.position=position+Vector2i(Vector2(14,2)*zoom_)
+	var rounded=PackedVector2Array()
+	for corner_ in [Vector2(180,12),Vector2(180,64),Vector2(12,64),Vector2(12,12)]:
+		var start=[-PI/2,0.0,PI/2,PI][int(rounded.size()/7)]
+		for step in range(7): rounded.append((corner_+Vector2.from_angle(start+step*PI/12)*12)*zoom_)
+	header.mouse_passthrough_polygon=rounded
+	sync_positions()
+	update_input_region()
+func sync_positions() -> void:
+	position=anchor_position+Vector2i(Vector2(0,80)*root.scale)
+	header.position=anchor_position+Vector2i(Vector2(14,2)*root.scale)
+func update_input_region() -> void:
+	if frames.is_empty(): return
+	# Fixed Windows region, encompassing all cels. Never flip WS_EX_TRANSPARENT while clicking.
+	var points=PackedVector2Array()
+	for image_ in images:
+		var bitmap=BitMap.new()
+		bitmap.create_from_image_alpha(image_,.1)
+		for polygon in bitmap.opaque_to_polygons(Rect2i(Vector2i.ZERO,image_.get_size()),8):
+			for point in polygon: points.append((sprite.position+point*sprite.scale)*root.scale)
+	for point in [Vector2(22,200),Vector2(198,200),Vector2(198,228),Vector2(22,228)]: points.append(point*root.scale)
+	mouse_passthrough_polygon=Geometry2D.convex_hull(points)
+	Native.apply(self,false,true)
 func on_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index==MOUSE_BUTTON_RIGHT: app.open_settings()
-		if event.button_index==MOUSE_BUTTON_LEFT and move_enabled:
+		if event.button_index==MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				moving=true
-				grab_offset=DisplayServer.mouse_get_position()-position
+				grab_offset=DisplayServer.mouse_get_position()-anchor_position
 			else:
 				moving=false
 				move_enabled=false
 				app.custom_position=true
-				app.saved_position=position
+				app.saved_position=anchor_position
 				app.save_game()
 func advance(delta: float,count: int) -> void:
 	if moving:
-		position=(DisplayServer.mouse_get_position()-grab_offset).clamp(screen_rect.position,(screen_rect.end-size).max(screen_rect.position))
-		header.position=position+Vector2i(Vector2(14,2)*root.scale)
+		var footprint=Vector2i(Vector2(220,312)*root.scale)
+		anchor_position=(DisplayServer.mouse_get_position()-grab_offset).clamp(screen_rect.position,(screen_rect.end-footprint).max(screen_rect.position))
+		sync_positions()
 	age+=delta
 	if count>0: pending=true
 	if pending and age>=.22:
@@ -202,9 +233,6 @@ func advance(delta: float,count: int) -> void:
 		lights[i].border_color=Color("d3d5c8").lerp(Color("8eac67"),levels[i])
 	refresh_text()
 	light_tray.visible=app.show_lights
-	var local=sprite.get_global_transform().affine_inverse()*Vector2(DisplayServer.mouse_get_position()-position)
-	var hit=frames.size()==3 and sprite.get_rect().has_point(local) and images[index].get_pixelv(Vector2i(local)).a>.1
-	Native.apply(self,not hit and not moving)
 	monitor_time+=delta
 	if monitor_time>1:
 		monitor_time=0
