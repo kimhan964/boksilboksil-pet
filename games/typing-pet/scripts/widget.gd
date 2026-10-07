@@ -34,6 +34,7 @@ var header_panel: Panel
 var header_rule: ColorRect
 var header_action_pending=false
 var header_action_gifts=false
+var text_refresh_time=0.0
 func header_width() -> float:
 	return 180+maxf(0,app.text_scale-1)*160
 func _init() -> void:
@@ -295,25 +296,31 @@ func advance(delta: float,count: int) -> void:
 		age=0
 		side=1-side
 	index=(side+1) if age<.17 else 0
-	if frames.size()==3: sprite.texture=frames[index]
+	if frames.size()==3 and sprite.texture!=frames[index]: sprite.texture=frames[index]
 	for i in range(8): levels[i]=maxf(0,levels[i]-delta/.32)
 	for i in range(mini(count,8)):
 		light_index=(light_index+1)%8
 		levels[light_index]=1
 	for i in range(8):
-		lights[i].bg_color=Color("e4e2d8").lerp(app.collection.light_color(),levels[i])
+		var fill=Color("e4e2d8").lerp(app.collection.light_color(),levels[i])
+		if lights[i].bg_color!=fill: lights[i].bg_color=fill
 		light_nodes[i].visible=app.show_lights
-		lights[i].border_color=Color("d3d5c8").lerp(Color("8eac67"),levels[i])
-	refresh_text()
+		var border=Color("d3d5c8").lerp(Color("8eac67"),levels[i])
+		if lights[i].border_color!=border: lights[i].border_color=border
+	text_refresh_time+=delta
+	if text_refresh_time>=.1:
+		text_refresh_time=0.0
+		refresh_text()
 	light_tray.visible=app.show_lights
 	monitor_time+=delta
 	if monitor_time>1:
 		monitor_time=0
 		if screen_rect!=DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen()): place()
 func refresh_text() -> void:
-	status.text="APM —"
+	var apm_text="APM —"
 	if app.bridge.connected and not app.paused:
-		status.text="APM %d"%app.activity.apm
+		apm_text="APM %d"%app.activity.apm
+	status.text=apm_text
 	detail.text="활동 "+app.activity.time_text()
 	if app.paused: detail.text="잠시 쉬는 중 · "+app.activity.time_text()
 	elif not app.bridge.connected: detail.text="입력 연결 확인 · 설정에서 다시 시작"

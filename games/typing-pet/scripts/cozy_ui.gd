@@ -4,12 +4,15 @@ const INK="59564f"
 const SAGE="e5eadd"
 static var body_font: FontFile
 static var title_font: FontFile
+static var icon_cache: Dictionary={}
 static func heading_font() -> FontFile:
 	if title_font==null:
 		title_font=FontFile.new()
 		title_font.data=FileAccess.get_file_as_bytes("res://assets/fonts/Jua-Regular.ttf")
 	return title_font
 static func icon(kind: String,pixels: int=24) -> Texture2D:
+	var key=kind+str(pixels)
+	if icon_cache.has(key): return icon_cache[key]
 	var path_=''
 	match kind:
 		"settings": path_='<path d="M9 2H15L16 6L20 7L22 12L19 15L18 20L13 22L9 19L4 18L2 13L5 9L6 4Z" fill="#a7b694"/><circle cx="12" cy="12" r="4" fill="#fff9ef"/>'
@@ -23,7 +26,8 @@ static func icon(kind: String,pixels: int=24) -> Texture2D:
 		_: path_='<path d="M5 9L12 16L19 9" fill="none" stroke="#796657" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
 	var image=Image.new()
 	image.load_svg_from_string('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 24 24"><g fill="#b68f89">'%[pixels,pixels]+path_+'</g></svg>')
-	return ImageTexture.create_from_image(image)
+	icon_cache[key]=ImageTexture.create_from_image(image)
+	return icon_cache[key]
 static func box(color: String,radius: int=10) -> StyleBoxFlat:
 	var style=StyleBoxFlat.new()
 	style.bg_color=Color(color)

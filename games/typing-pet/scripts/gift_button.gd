@@ -5,12 +5,16 @@ var age=10.0
 var opened=false
 var compact=false
 var count=0
+var previous_visual_state=[]
 func arrive() -> void:
 	age=0
 	delivered=true
 func _process(delta: float) -> void:
 	age+=delta
-	queue_redraw()
+	var state=[delivered,effects,opened,compact,count]
+	if (delivered and effects and is_visible_in_tree()) or state!=previous_visual_state:
+		previous_visual_state=state
+		queue_redraw()
 func _draw() -> void:
 	var bounce=absf(sin(age*3))*2 if delivered and effects else 0.0
 	var center=size/2+Vector2(0,1-bounce)

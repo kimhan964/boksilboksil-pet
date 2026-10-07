@@ -11,6 +11,8 @@ static func texture_for(id: String) -> Texture2D:
 	if not textures.has(id):
 		var image=Image.new()
 		if image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/accessories-varco-v2/"+id+".png"))!=OK: return null
+		if image.get_width()>192:
+			image.resize(192,maxi(1,roundi(image.get_height()*192.0/image.get_width())),Image.INTERPOLATE_LANCZOS)
 		image.generate_mipmaps()
 		textures[id]=ImageTexture.create_from_image(image)
 	return textures[id]

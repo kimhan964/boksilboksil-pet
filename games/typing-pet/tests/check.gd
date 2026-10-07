@@ -73,6 +73,9 @@ func run() -> void:
 		for frame in frames:
 			check(frame.get_image().get_pixelv(Vector2i(anchor)).a>.8,"pin must rest on opaque fur in every pose")
 	if failures==0: print("PASS: APMAlert rate/decay/stable numeric start; activity/pause; permanent claims/save/equip; 48 cels and pin anchors")
+	var cached=Catalog.frames(0)
+	check(cached[0]==Catalog.frames(0)[0],"reopening same pet reuses texture")
+	check(Catalog.frame_cache.size()<=2 and cached[0].get_width()==512,"pet cache is bounded and uses runtime resolution")
 	if "--capture" in OS.get_cmdline_user_args(): await visual()
 	quit(1 if failures else 0)
 

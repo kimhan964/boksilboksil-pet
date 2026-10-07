@@ -27,12 +27,23 @@ const TONES=[
 	Vector4(.080,.94,-.012,.010)] # penguin: soften charcoal
 static func accessory_anchor(species: int,id: String) -> Vector2:
 	return HATS[species] if preload("res://scripts/pin.gd").is_hat(id) else PINS[species]
+const TEXTURE_SIZE=512
+static var frame_cache: Dictionary={}
+static var recent_species: Array[int]=[]
 static func frames(species: int) -> Array[Texture2D]:
+	if frame_cache.has(species):
+		recent_species.erase(species)
+		recent_species.append(species)
+		return frame_cache[species]
 	var result: Array[Texture2D]=[]
 	for pose in ["idle","left","right"]:
 		var image=Image.new()
 		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(folder(species)+"/"+pose+".png"))!=OK: return []
+		if image.get_width()>TEXTURE_SIZE: image.resize(TEXTURE_SIZE,TEXTURE_SIZE,Image.INTERPOLATE_LANCZOS)
 		if not result.is_empty() and image.get_size()!=Vector2i(result[0].get_size()): return []
 		image.generate_mipmaps()
 		result.append(ImageTexture.create_from_image(image))
+	frame_cache[species]=result
+	recent_species.append(species)
+	while recent_species.size()>2: frame_cache.erase(recent_species.pop_front())
 	return result

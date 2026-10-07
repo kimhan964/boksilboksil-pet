@@ -112,9 +112,7 @@ func rebuild() -> void:
 	preview.add_child(inventory)
 	var hero=Sprite2D.new()
 	hero.centered=false
-	var hero_image=app.widget.frames[0].get_image()
-	hero_image.generate_mipmaps()
-	hero.texture=ImageTexture.create_from_image(hero_image)
+	hero.texture=app.widget.frames[0]
 	hero.scale=Vector2.ONE*(92.0/hero.texture.get_width())
 	hero.position=Vector2(22,0)
 	hero.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS

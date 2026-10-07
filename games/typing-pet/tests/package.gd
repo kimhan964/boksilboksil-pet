@@ -5,8 +5,27 @@ func folder(path: String) -> void:
 	for file in DirAccess.get_files_at(path):
 		if file.ends_with(".import") or file.ends_with(".uid") or file.ends_with(".log"): continue
 		if file=="generation-records.json": continue
-		if packer.add_file(path.path_join(file),path.path_join(file))!=OK: failed=true
+		if file in ["typing-friends-source.png","typing-friends.ico"]: continue
+		var source=path.path_join(file)
+		var limit=0
+		if file.ends_with(".png"):
+			if "typing-rabbit-v1" in path or "typing-animals-v1" in path: limit=512
+			elif "accessories-varco-v2" in path: limit=192
+		var packed_source=source
+		if limit>0:
+			var image=Image.new()
+			if image.load_png_from_buffer(FileAccess.get_file_as_bytes(source))!=OK:
+				failed=true
+				continue
+			if image.get_width()>limit: image.resize(limit,maxi(1,roundi(image.get_height()*float(limit)/image.get_width())),Image.INTERPOLATE_LANCZOS)
+			packed_source="res://builds/runtime-assets/"+source.trim_prefix("res://")
+			DirAccess.make_dir_recursive_absolute(packed_source.get_base_dir())
+			if image.save_png(packed_source)!=OK:
+				failed=true
+				continue
+		if packer.add_file(source,packed_source)!=OK: failed=true
 	for child in DirAccess.get_directories_at(path):
+		if child=="accessories-varco-v1": continue
 		if child=="source" and "accessories-varco-" in path: continue
 		folder(path.path_join(child))
 func _initialize() -> void:

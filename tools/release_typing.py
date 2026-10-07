@@ -7,9 +7,9 @@ import release_snapshot as github
 
 ROOT = Path(__file__).resolve().parents[1]
 INSTALL = ROOT.parent / "복슬복슬타자친구"
-OUT = ROOT / "builds/typing-release-0.1.4"
-TAG = "typing-v0.1.4"
-NAME = "BoksilBoksilMate-0.1.4-Windows.zip"
+OUT = ROOT / "builds/typing-release-0.1.5"
+TAG = "typing-v0.1.5"
+NAME = "BoksilBoksilMate-0.1.5-Windows.zip"
 
 
 def package(commit):
@@ -41,8 +41,8 @@ def publish(commit):
     if release is None:
         release = github.api("/releases", headers, "POST", {
             "tag_name": TAG, "target_commitish": commit,
-            "name": "복슬복슬메이트 0.1.4 · 액세서리 14종과 UI 개선",
-            "body": (ROOT / "docs/RELEASE-TYPING-0.1.4.md").read_text(encoding="utf-8"),
+            "name": "복슬복슬메이트 0.1.5 · 메모리·로딩·용량 최적화",
+            "body": (ROOT / "docs/RELEASE-TYPING-0.1.5.md").read_text(encoding="utf-8"),
             "draft": True, "prerelease": True,
         })
     for file in [OUT / NAME, OUT / "SHA256SUMS.txt"]:
