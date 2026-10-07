@@ -51,14 +51,14 @@ static func texture(id: String,design: int=0) -> Texture2D:
 	var key=id+str(design) if id=="alarm_clock" else id
 	if not textures.has(key):
 		var path="res://assets/furniture-v1/"+id+".png"
-		if FileAccess.file_exists("res://assets/furniture-v2/"+id+".png"): path="res://assets/furniture-v2/"+id+".png"
-		if FileAccess.file_exists("res://assets/furniture-v3/"+id+".png"): path="res://assets/furniture-v3/"+id+".png"
-		if FileAccess.file_exists("res://assets/furniture-v4/"+id+".png"): path="res://assets/furniture-v4/"+id+".png"
+		if preload("res://scripts/asset_images.gd").exists("res://assets/furniture-v2/"+id+".png"): path="res://assets/furniture-v2/"+id+".png"
+		if preload("res://scripts/asset_images.gd").exists("res://assets/furniture-v3/"+id+".png"): path="res://assets/furniture-v3/"+id+".png"
+		if preload("res://scripts/asset_images.gd").exists("res://assets/furniture-v4/"+id+".png"): path="res://assets/furniture-v4/"+id+".png"
 		if id in ["toy_ball","toy_mouse"]: path="res://assets/furniture-v6/"+id+".png"
 		if id=="alarm_clock": path="res://assets/furniture-v5/alarm-%s.png"%["rabbit","cat","bear"][clampi(design,0,2)]
-		if not FileAccess.file_exists(path): return null
+		if not preload("res://scripts/asset_images.gd").exists(path): return null
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return null
 		var used=image.get_used_rect()
 		# This generated cup includes almost invisible alpha specks far from
 		# the ceramic. Use its reviewed atlas region; preserve the PNG original.

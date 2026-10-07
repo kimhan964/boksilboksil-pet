@@ -6,7 +6,7 @@ static var manifest={}
 static var banks={}
 static func select_version(version: int) -> void:
 	var next_path="res://assets/rabbit-frame-pilot-v9/"
-	if not FileAccess.file_exists(next_path+"manifest.json"): return
+	if not preload("res://scripts/asset_images.gd").exists(next_path+"manifest.json"): return
 	if path==next_path: return
 	path=next_path
 	manifest={}
@@ -19,7 +19,7 @@ static func frames(stage: String,action: String) -> Array:
 	if not banks.has(key):
 		var spec=data().stages[stage].sequences[action]
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path+spec.file))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,path+spec.file)!=OK: return []
 		var result=[]
 		var columns=int(spec.get("columns",8))
 		for i in range(int(spec.count)):

@@ -8,9 +8,9 @@ static func texture(species: int,stage: String,index: int) -> Texture2D:
 	var key=Catalog.IDS[species]+"/"+stage
 	if not cache.has(key):
 		var path="res://assets/dizzy-v1/"+key+".png"
-		if not FileAccess.file_exists(path): return null
+		if not preload("res://scripts/asset_images.gd").exists(path): return null
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return null
 		if image.get_width()!=1024 or image.get_height()!=256: return null
 		var frames: Array=[]
 		for i in range(4):

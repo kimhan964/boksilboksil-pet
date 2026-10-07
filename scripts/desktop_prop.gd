@@ -287,9 +287,7 @@ func drinking_surface_point(facing: float) -> Vector2:
 
 func dining_point(animal_bounds: Rect2) -> Vector2:
 	# Stand beside the native prop window, not underneath its artwork.
-	var animal=load(Catalog.path(species))
-	var original: Texture2D=animal.frames[0][0]
-	var width=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]*original.get_width()/float(original.get_height())
+	var width=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]*Catalog.PROP_ASPECT[species]
 	width*=growth_scale
 	var center=feet_point()
 	var spacing=width*.5+54*art_scale+8
@@ -302,15 +300,11 @@ func dining_point(animal_bounds: Rect2) -> Vector2:
 func resize_for_friend() -> void:
 	var factor=1.0
 	if kind in ["bowl","water"] and number==0:
-		var animal=load(Catalog.path(species))
-		var original: Texture2D=animal.frames[0][0]
-		var width=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]*original.get_width()/float(original.get_height())
+		var width=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]*Catalog.PROP_ASPECT[species]
 		factor=(clampf(width*growth_scale*1.12,88,124) if kind=="water" else clampf(width*growth_scale*.70,66,88))/108.0
 	if kind in ["cushion","shelter"]:
-		var animal=load(Catalog.path(species))
-		var original: Texture2D=animal.frames[0][0]
 		var height=Catalog.DISPLAY_HEIGHT*Catalog.HEIGHTS[species]
-		var width=height*original.get_width()/float(original.get_height())
+		var width=height*Catalog.PROP_ASPECT[species]
 		var artwork=Decor.icon(kind,species)
 		var base_size=artwork.get_size() if artwork else Vector2(108,82)
 		base_size*=minf(108.0/base_size.x,82.0/base_size.y)

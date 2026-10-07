@@ -10,7 +10,7 @@ static func release_other_species(species: int) -> void:
 static func data(species: int) -> Dictionary:
 	if not manifests.has(species):
 		var path="res://assets/struggle-v1/%s/manifest.json"%Catalog.IDS[species]
-		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else {}
+		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if preload("res://scripts/asset_images.gd").exists(path) else {}
 	return manifests[species]
 
 static func stage_name(motion) -> String:
@@ -26,7 +26,7 @@ static func frames(species: int,stage: String) -> Array:
 		if spec.is_empty(): return []
 		var path="res://assets/struggle-v1/%s/%s"%[Catalog.IDS[species],spec.file]
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return []
 		var sequence: Array=[]
 		for i in range(int(spec.count)):
 			sequence.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%8*256,i/8*256,256,256))))

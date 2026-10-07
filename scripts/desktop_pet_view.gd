@@ -137,29 +137,6 @@ func prewarm_current_art() -> void:
 		if cel: Metrics.opaque_area(cel)
 		if cel: preload("res://scripts/animation_outline.gd").local_hull(cel)
 	return
-	resource=BaseArt.resource(motion.species)
-	baby_frames=Baby.frames(motion.species)
-	baby_extra=Baby.extra_frames(motion.species)
-	baby_walk=BabyWalk.frames(motion.species)
-	adult_special=Special.frames(motion.species)
-	if adult_special.size()==4: adult_special_bounds=adult_special[1].get_image().get_used_rect()
-	reaction_frames=Reactions.frames(motion.species)
-	habit_frames=Habits.frames(motion.species)
-	sleep_frames=Sleep.frames(motion.species)
-	if sleep_frames.size()==4: sleep_bounds=sleep_frames[0].get_image().get_used_rect()
-	carry_frames=Carry.frames(motion.species)
-	if carry_frames.size()==4: carry_bounds=carry_frames[3].get_image().get_used_rect()
-	sprite=Sprite2D.new()
-	sprite.centered=false
-	var shader_material=ShaderMaterial.new()
-	shader_material.shader=preload("res://scripts/animal_blend.gdshader")
-	sprite.material=shader_material
-	add_child(sprite)
-	if motion.species==4:
-		var reference: Texture2D=reaction_frames[0]
-		for bank in resource.frames: RaccoonPalette.register(bank,reference)
-		for sequence in [reaction_frames,habit_frames,carry_frames,sleep_frames,adult_special,baby_frames,baby_extra,baby_walk]:
-			RaccoonPalette.register(sequence,reference)
 
 func refresh(delta: float=0.0) -> void:
 	presentation_delta=delta

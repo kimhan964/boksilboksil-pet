@@ -14,19 +14,19 @@ static func icon(kind: String, species: int=0) -> Texture2D:
 		var key="toy-basket" if kind=="basket" else "carrot-plush"
 		if not cozy_icons.has(key):
 			var image=Image.new()
-			if image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/decor-cozy-v2/"+key+".png"))!=OK: return null
+			if preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/decor-cozy-v2/"+key+".png")!=OK: return null
 			cozy_icons[key]=ImageTexture.create_from_image(image.get_region(image.get_used_rect()))
 		return cozy_icons[key]
 	if kind=="acorn":
 		if acorn_icon==null:
 			var image=Image.new()
-			if image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/decor/acorn-wobble-v1.png"))==OK:
+			if preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/decor/acorn-wobble-v1.png")==OK:
 				acorn_icon=ImageTexture.create_from_image(image)
 		return acorn_icon
 	if kind=="water":
 		if pond_icon==null:
 			var image=Image.new()
-			if image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/decor/drinking-pond-v1.png"))==OK:
+			if preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/decor/drinking-pond-v1.png")==OK:
 				var used=image.get_used_rect()
 				if used.has_area(): image=image.get_region(used)
 				pond_icon=ImageTexture.create_from_image(image)

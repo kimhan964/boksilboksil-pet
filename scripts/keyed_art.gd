@@ -4,7 +4,7 @@ const AnimationRegions=preload("res://scripts/animation_regions.gd")
 # Chroma-key asset decoding; generated PNG originals remain untouched.
 static func pixels(path: String) -> Image:
 	var image=Image.new()
-	if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
+	if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return null
 	if image==null or image.is_empty(): return null
 	image.convert(Image.FORMAT_RGBA8)
 	var bytes=image.get_data()

@@ -7,7 +7,9 @@ class MemoryState extends State:
 var failures=[]
 func check(ok: bool,msg: String) -> void:
 	if not ok: failures.append(msg);push_error(msg)
-func _initialize() -> void: call_deferred("run")
+func _initialize() -> void:
+	if not preload("res://tests/pack_fixture.gd").mount(): quit(1);return
+	call_deferred("run")
 func run() -> void:
 	ProjectSettings.set_setting("commerce/enabled",false)
 	var app=Main.new();app.state=MemoryState.new()

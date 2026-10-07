@@ -81,7 +81,7 @@ def upload(url, path, headers):
     connection.putrequest("POST", endpoint)
     for key, value in headers.items():
         connection.putheader(key, value)
-    connection.putheader("Content-Type", "application/zip" if path.suffix == ".zip" else "text/plain")
+    connection.putheader("Content-Type", "application/zip" if path.suffix == ".zip" else ("application/octet-stream" if path.suffix == ".pck" else "text/plain"))
     connection.putheader("Content-Length", str(path.stat().st_size))
     connection.endheaders()
     total = path.stat().st_size

@@ -19,7 +19,7 @@ static func frames(stage: String, action: String) -> Array:
 	var key=stage+"/"+action
 	if not cache.has(key):
 		var spec=data().stages[stage].sequences[action]
-		var sheet=Image.load_from_file("res://assets/rabbit-v3/"+str(spec.file))
+		var sheet=preload("res://scripts/asset_images.gd").load_image("res://assets/rabbit-v3/"+str(spec.file))
 		var sequence: Array=[]
 		for i in range(int(spec.count)):
 			sequence.append(ImageTexture.create_from_image(sheet.get_region(Rect2i(i%8*SIZE,i/8*SIZE,SIZE,SIZE))))

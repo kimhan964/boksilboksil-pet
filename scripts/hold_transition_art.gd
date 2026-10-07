@@ -8,15 +8,15 @@ const RECOVER_SECONDS=.36
 static var banks: Dictionary={}
 
 static func available(motion) -> bool:
-	return FileAccess.file_exists("res://assets/hold-transitions-v1/%s/%s/recover.png"%[Catalog.IDS[motion.species],Struggle.stage_name(motion)])
+	return preload("res://scripts/asset_images.gd").exists("res://assets/hold-transitions-v1/%s/%s/recover.png"%[Catalog.IDS[motion.species],Struggle.stage_name(motion)])
 
 static func frames(species: int,stage: String,name: String) -> Array:
 	var key="%d/%s/%s"%[species,stage,name]
 	if not banks.has(key):
 		var path="res://assets/hold-transitions-v1/%s/%s/%s.png"%[Catalog.IDS[species],stage,name]
-		if not FileAccess.file_exists(path): return []
+		if not preload("res://scripts/asset_images.gd").exists(path): return []
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return []
 		var sequence: Array=[]
 		for i in range(COUNT): sequence.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%8*256,i/8*256,256,256))))
 		preload("res://scripts/animal_tone.gd").register(sequence,species,stage)

@@ -86,10 +86,10 @@ func _ready() -> void:
 		root.add_child(key)
 		keys.append(key)
 	var typing_art="res://assets/typing-rabbit-v1" if m.species==0 else "res://assets/typing-animals-v1/"+Catalog.IDS[m.species]
-	if FileAccess.file_exists(typing_art+"/idle.png"):
+	if preload("res://scripts/asset_images.gd").exists(typing_art+"/idle.png"):
 		for pose in ["idle","left","right"]:
 			var cel=Image.new()
-			if cel.load_png_from_buffer(FileAccess.get_file_as_bytes(typing_art+"/"+pose+".png"))!=OK:
+			if preload("res://scripts/asset_images.gd").decode_into(cel,typing_art+"/"+pose+".png")!=OK:
 				typing_frames.clear()
 				typing_images.clear()
 				break

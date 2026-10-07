@@ -3,7 +3,9 @@ const Motion=preload("res://scripts/desktop_pet_motion.gd")
 const View=preload("res://scripts/desktop_pet_view.gd")
 const Metrics=preload("res://scripts/texture_metrics.gd")
 var failures=[]
-func _initialize() -> void: call_deferred("run")
+func _initialize() -> void:
+	if not preload("res://tests/pack_fixture.gd").mount(): quit(1);return
+	call_deferred("run")
 func run() -> void:
 	for age in [0,2]:
 		var m=Motion.new();m.species=1;m.growth_stage=age;m.growth_scale=.93 if age==0 else 1.0;m.rabbit_pilot=false;m.smooth_walk_enabled=true;m.autonomy=false

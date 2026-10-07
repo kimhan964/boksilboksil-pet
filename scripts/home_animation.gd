@@ -18,7 +18,7 @@ static func age(m) -> String: return "baby" if m.growth_stage==0 else "adult"
 static func data(species: int) -> Dictionary:
 	if not manifests.has(species):
 		var path="res://assets/home-v2/%s/manifest.json"%Catalog.IDS[species]
-		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else {}
+		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if preload("res://scripts/asset_images.gd").exists(path) else {}
 	return manifests[species]
 static func available(m) -> bool:
 	return m.outfit_style==0 and data(m.species).get("stages",{}).has(age(m))
@@ -33,7 +33,7 @@ static func frames(m,kind: String) -> Array:
 		var metadata=data(m.species).stages[age(m)]
 		var source=metadata.get("overrides",{}).get(kind,metadata)
 		var image=Image.new()
-		image.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/home-v2/%s/%s"%[Catalog.IDS[m.species],source.file]))
+		preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/home-v2/%s/%s"%[Catalog.IDS[m.species],source.file])
 		var cels=[]
 		for frame in metadata.sequences[kind]:
 			var r=frame.rect

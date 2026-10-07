@@ -18,7 +18,7 @@ static func metadata(m) -> Dictionary:
 	var key=Catalog.IDS[m.species]+"/"+stage(m)
 	if not specs.has(key):
 		var file=ROOT+key+".json"
-		specs[key]=JSON.parse_string(FileAccess.get_file_as_string(file)) if FileAccess.file_exists(file) else {}
+		specs[key]=JSON.parse_string(FileAccess.get_file_as_string(file)) if preload("res://scripts/asset_images.gd").exists(file) else {}
 	return specs[key]
 static func available(m) -> bool:
 	# Additional garments need authored prone-pose fits; don't misplace a rigid cape.
@@ -27,7 +27,7 @@ static func frames(m,kind: String) -> Array:
 	var key=Catalog.IDS[m.species]+"/"+stage(m)+"-"+kind
 	if not banks.has(key):
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(ROOT+key+".png"))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,ROOT+key+".png")!=OK: return []
 		var result=[]
 		var cell=int(metadata(m).get("cell_size",256))
 		for i in range(60): result.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%8*cell,i/8*cell,cell,cell))))

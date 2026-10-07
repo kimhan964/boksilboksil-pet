@@ -3,9 +3,9 @@ static var cache={}
 static func texture(id: String) -> Texture2D:
 	if not cache.has(id):
 		var file="res://assets/ui-cozy-v1/"+id+".png"
-		if not FileAccess.file_exists(file): return null
+		if not preload("res://scripts/asset_images.gd").exists(file): return null
 		var img=Image.new()
-		if img.load_png_from_buffer(FileAccess.get_file_as_bytes(file))!=OK: return null
+		if preload("res://scripts/asset_images.gd").decode_into(img,file)!=OK: return null
 		cache[id]=ImageTexture.create_from_image(img)
 	return cache[id]
 static func decorate(button: Button,id: String,size: int=32) -> void:

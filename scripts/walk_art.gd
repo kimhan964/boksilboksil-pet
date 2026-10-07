@@ -10,9 +10,9 @@ static func frames(species: int,stage: String) -> Array:
 		# thirty-two texture strips in memory for the rest of the session.
 		if cache.size()>=4: cache.clear()
 		var file="res://assets/walk-v4/"+key+".png"
-		if not FileAccess.file_exists(file): return []
+		if not preload("res://scripts/asset_images.gd").exists(file): return []
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(file))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,file)!=OK: return []
 		if image.get_size()!=Vector2i(8192,256): return []
 		var result: Array=[]
 		for i in range(32):

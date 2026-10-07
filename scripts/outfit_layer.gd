@@ -18,9 +18,9 @@ func outfit_texture(species: int, stage: String, style: int, color: int) -> Text
 	var key="%s/%s-%s-%d"%[Catalog.IDS[species],stage,["cape","vest","sweater"][style-1],color]
 	if not textures.has(key):
 		var path="res://assets/outfits-varco-v1/"+key+".png"
-		if not FileAccess.file_exists(path): return null
+		if not preload("res://scripts/asset_images.gd").exists(path): return null
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return null
 		textures[key]=ImageTexture.create_from_image(image)
 	return textures[key]
 
@@ -28,7 +28,7 @@ func idle_box(species: int, stage: String) -> Rect2:
 	var key=Catalog.IDS[species]+"/"+stage
 	if not idle_bounds.has(key):
 		var path="res://assets/outfits-varco-v1/"+Catalog.IDS[species]+"/manifest.json"
-		if not FileAccess.file_exists(path): return Rect2(Vector2(32,20),Vector2(192,212))
+		if not preload("res://scripts/asset_images.gd").exists(path): return Rect2(Vector2(32,20),Vector2(192,212))
 		var manifest=JSON.parse_string(FileAccess.get_file_as_string(path))
 		if not manifest is Dictionary: return Rect2(Vector2(32,20),Vector2(192,212))
 		var box: Array=manifest.get(stage+"-cape",{}).get("target_box",[32,20,224,232])

@@ -37,7 +37,7 @@ static func reference_palette(species: int,age: String) -> Array:
 			var metadata=JSON.parse_string(FileAccess.get_file_as_string(root+"manifest.json"))
 			path=root+str(metadata.stages[age].idle_file)
 		var image=Image.new()
-		image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))
+		preload("res://scripts/asset_images.gd").decode_into(image,path)
 		image=image.get_region(Rect2i(0,0,256,256))
 		references[key]=palette([image])
 	return references[key]

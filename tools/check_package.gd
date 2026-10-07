@@ -7,11 +7,12 @@ const Food=preload("res://scripts/food_catalog.gd")
 const Decor=preload("res://scripts/decor_art.gd")
 const Emotions=preload("res://scripts/emotion_art.gd")
 const Dizzy=preload("res://scripts/dizzy_art.gd")
-const Walk=preload("res://scripts/walk_art.gd")
 const Outfits=preload("res://scripts/outfit_catalog.gd")
 const State=preload("res://scripts/pet_state.gd")
 func _ready() -> void: call_deferred("run")
 func run() -> void:
+	var packs=preload("res://scripts/animal_pack_manager.gd").new()
+	add_child(packs)
 	var failures=0
 	var poses=0
 	var natural_foods=0
@@ -26,8 +27,14 @@ func run() -> void:
 	var app=Main.new()
 	app.free()
 	var icon=Image.new()
-	if icon.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/icon/pet-icon.png"))!=OK: failures+=1
+	if preload("res://scripts/asset_images.gd").decode_into(icon,"res://assets/icon/pet-icon.png")!=OK: failures+=1
 	for species in range(16):
+		if not packs.available(species):
+			var id: String=Catalog.IDS[species]
+			var spec: Dictionary=packs.manifest.animals[id]
+			if not packs.mount_verified(packs.local_root.path_join(str(spec.file)),id) and not packs.mount_verified(packs.pack_path(id),id):
+				print("PACKAGE_NOT_INSTALLED=",id)
+				continue # A small installation intentionally does not contain every pet.
 		print("PACKAGE_SPECIES=",species)
 		if Food.icon_for(species,Catalog.DEFAULT_MEALS[species])==null or Food.title_for(species,Catalog.DEFAULT_MEALS[species]).is_empty(): failures+=1
 		else: natural_foods+=1
@@ -36,6 +43,8 @@ func run() -> void:
 			else: outfit_options+=1
 		var motion=Motion.new()
 		motion.species=species
+		motion.rabbit_pilot=species==0
+		motion.smooth_walk_enabled=species>0
 		motion.food_id=0
 		var view=View.new()
 		view.motion=motion
@@ -67,9 +76,7 @@ func run() -> void:
 					var dizzy=Dizzy.texture(species,stage_name,i)
 					if dizzy==null or dizzy.get_size()!=Vector2(256,256): failures+=1
 					else: dizzy_images+=1
-				var walk=Walk.frames(species,stage_name)
-				if walk.size()!=32: failures+=1
-				else: walk_images+=walk.size()
+				walk_images+=new_walk.size()
 				for style in range(1,4):
 					for color in range(6):
 						var garment=view.outfit_layer.outfit_texture(species,stage_name,style,color)

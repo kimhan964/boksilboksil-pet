@@ -45,6 +45,7 @@ var layers_dirty=true
 var layer_restore_queued=false
 var layer_settle_until=0
 var furniture_room
+var animal_packs
 
 func request_layer_order(settle: bool=true) -> void:
 	layers_dirty=true
@@ -64,7 +65,8 @@ func objects_are_dragging() -> bool:
 
 func restore_layer_order() -> void:
 	layer_restore_queued=false
-	if not layers_dirty or not is_instance_valid(pet) or not pet.visible: return
+	var download_visible=is_instance_valid(animal_packs) and is_instance_valid(animal_packs.panel) and animal_packs.panel.visible
+	if not layers_dirty or (not download_visible and (not is_instance_valid(pet) or not pet.visible)): return
 	# Raising an existing window does not change its transparent surface.
 	# Keep the animal visible even while it or a furniture piece is dragged.
 	# A furniture click raises its native window immediately. Restore on the
@@ -82,7 +84,8 @@ func restore_layer_order() -> void:
 		for piece in furniture_room.ordered_pieces():
 			if is_instance_valid(piece) and piece.visible:
 				ordered_windows.append(piece)
-	for window in [pet,pet.ball_window,held_food,gift_notice]:
+	var ball=pet.ball_window if is_instance_valid(pet) else null
+	for window in [pet,ball,held_food,gift_notice]:
 		if is_instance_valid(window) and window.visible:
 			ordered_windows.append(window)
 	if is_instance_valid(furniture_room) and is_instance_valid(furniture_room.panel) and furniture_room.panel.visible:
@@ -93,8 +96,9 @@ func restore_layer_order() -> void:
 		for piece in furniture_room.pieces.values():
 			if piece.menu.visible: ordered_windows.append(piece.menu)
 			if is_instance_valid(piece.size_editor) and piece.size_editor.visible: ordered_windows.append(piece.size_editor)
-	if pet.menu.visible: ordered_windows.append(pet.menu)
+	if is_instance_valid(pet) and pet.menu.visible: ordered_windows.append(pet.menu)
 	if is_instance_valid(info) and info.visible: ordered_windows.append(info)
+	if download_visible: ordered_windows.append(animal_packs.panel)
 	if OS.get_name()=="Windows": NativeLayer.raise_windows(ordered_windows)
 	else:
 		for window in ordered_windows: DisplayServer.window_move_to_foreground(window.get_window_id())
@@ -106,7 +110,7 @@ func _ready() -> void:
 	# Load the raw packaged PNG so the window icon also works without editor imports.
 	if DisplayServer.get_name()!="headless":
 		var icon=Image.new()
-		if icon.load_png_from_buffer(FileAccess.get_file_as_bytes("res://assets/icon/pet-icon.png"))==OK: DisplayServer.set_icon(icon)
+		if preload("res://scripts/asset_images.gd").decode_into(icon,"res://assets/icon/pet-icon.png")==OK: DisplayServer.set_icon(icon)
 	Engine.max_fps=60
 	get_tree().auto_accept_quit=false
 	get_window().transparent_bg=true
@@ -116,6 +120,8 @@ func _ready() -> void:
 	NativeMouse.apply(get_window(),true,true)
 	app_theme=preload("res://scripts/cozy_ui.gd").theme()
 	state.load_game()
+	animal_packs=preload("res://scripts/animal_pack_manager.gd").new()
+	add_child(animal_packs)
 	if state.test_unlocks(): state.hidden.clear()
 	if bool(ProjectSettings.get_setting("commerce/enabled",false)):
 		commerce_access=CommerceAccess.new()
@@ -241,6 +247,10 @@ func choose_friend(species: int) -> void:
 	if commerce_access!=null and not commerce_access.permits(species):
 		commerce_access.show_account("선물받은 동물만 선택할 수 있어요.")
 		return
+	# Keep the visible pet and saved selection until every required byte is ready.
+	if is_instance_valid(animal_packs):
+		if not await animal_packs.ensure(species,not is_instance_valid(pet)): return
+		if commerce_access!=null and not commerce_access.permits(species): return
 	clear_falling_gifts()
 	gift_notices.clear()
 	gift_notice_gap=0.0

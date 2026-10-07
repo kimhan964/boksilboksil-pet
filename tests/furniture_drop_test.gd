@@ -8,7 +8,9 @@ class TestState extends "res://scripts/pet_state.gd":
 var failures=[]
 func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
-func _initialize() -> void: call_deferred("run")
+func _initialize() -> void:
+	if not preload("res://tests/pack_fixture.gd").mount(): quit(1);return
+	call_deferred("run")
 func run() -> void:
 	var app=Main.new()
 	app.state=TestState.new()

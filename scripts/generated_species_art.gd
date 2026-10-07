@@ -20,12 +20,8 @@ static func release_other_species(species: int) -> void:
 		if not str(key).begins_with(Catalog.IDS[species]+"/"): dressed_cache.erase(key)
 
 static func asset_root(species: int) -> String:
-	var v3="res://assets/species-v3/"+Catalog.IDS[species]
-	if FileAccess.file_exists(v3+"/manifest.json"):
-		return v3
-	if species==0:
-		return "res://assets/rabbit-v3"
-	return "res://assets/species-v2/"+Catalog.IDS[species]
+	# The approved current bank is mandatory; never silently resurrect old art.
+	return "res://assets/species-v3/"+Catalog.IDS[species]
 
 static func data(species: int) -> Dictionary:
 	if not manifests.has(species):
@@ -41,7 +37,7 @@ static func frames(species: int, stage: String, action: String) -> Array:
 	if not cache.has(key):
 		var spec=data(species).stages[stage].sequences[action]
 		var sheet=Image.new()
-		if sheet.load_png_from_buffer(FileAccess.get_file_as_bytes(asset_root(species)+"/"+str(spec.file)))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(sheet,asset_root(species)+"/"+str(spec.file))!=OK: return []
 		var sequence: Array=[]
 		var columns=int(spec.get("columns",8))
 		for i in range(int(spec.count)):
@@ -54,9 +50,9 @@ static func dressed_frames(species: int, stage: String, style: int, action: Stri
 	var key="%s/%s/%s/%s"%[Catalog.IDS[species],stage,["cape","vest","sweater"][style-1],action]
 	if not dressed_cache.has(key):
 		var path="res://assets/outfits-dressed-v2/"+key+".png"
-		if not FileAccess.file_exists(path): return []
+		if not preload("res://scripts/asset_images.gd").exists(path): return []
 		var strip=Image.new()
-		if strip.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(strip,path)!=OK: return []
 		if strip==null or strip.get_width()!=SIZE*16 or strip.get_height()!=SIZE: return []
 		var sequence: Array=[]
 		for i in range(16):

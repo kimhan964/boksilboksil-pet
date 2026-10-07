@@ -11,7 +11,7 @@ static func stage(motion) -> String:
 static func data(species: int) -> Dictionary:
 	if not manifests.has(species):
 		var path="res://assets/dining-v13/"+Catalog.IDS[species]+"/manifest.json"
-		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else {}
+		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if preload("res://scripts/asset_images.gd").exists(path) else {}
 	return manifests[species]
 
 static func enabled(motion,action: String="drink") -> bool:
@@ -28,7 +28,7 @@ static func frames(motion,action: String="drink") -> Array:
 		var metadata=spec(motion,action)
 		var path="res://assets/dining-v13/"+Catalog.IDS[motion.species]+"/"+str(metadata.file)
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return []
 		var cels=[]
 		for i in range(int(metadata.count)):
 			cels.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%int(metadata.columns)*256,i/int(metadata.columns)*256,256,256))))

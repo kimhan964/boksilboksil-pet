@@ -15,7 +15,7 @@ static func stage(motion) -> String:
 static func data(species: int) -> Dictionary:
 	if not manifests.has(species):
 		var path="res://assets/walk-v%d/"%asset_version(species)+Catalog.IDS[species]+"/manifest.json"
-		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else {}
+		manifests[species]=JSON.parse_string(FileAccess.get_file_as_string(path)) if preload("res://scripts/asset_images.gd").exists(path) else {}
 	return manifests[species]
 static func enabled(motion) -> bool:
 	return motion.smooth_walk_enabled and motion.species>0 and data(motion.species).get("stages",{}).has(stage(motion))
@@ -36,7 +36,7 @@ static func frames(species: int,age: String,action: String="walk") -> Array:
 		var metadata=data(species).stages[age]
 		var path="res://assets/walk-v%d/"%asset_version(species)+Catalog.IDS[species]+"/"+str(metadata.idle_file if action=="idle" else metadata.file)
 		var image=Image.new()
-		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
+		if preload("res://scripts/asset_images.gd").decode_into(image,path)!=OK: return []
 		var result=[]
 		if action=="idle": result.append(ImageTexture.create_from_image(image))
 		else:

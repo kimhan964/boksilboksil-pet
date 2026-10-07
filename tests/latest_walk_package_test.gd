@@ -3,6 +3,7 @@ const Catalog=preload("res://scripts/animal_catalog.gd")
 const Art=preload("res://scripts/smooth_species_art.gd")
 const Rabbit=preload("res://scripts/rabbit_pilot_art.gd")
 func _initialize() -> void:
+	if not preload("res://tests/pack_fixture.gd").mount(): quit(1);return
 	var failures=[]
 	for species in range(1,16):
 		var d=Art.data(species)
