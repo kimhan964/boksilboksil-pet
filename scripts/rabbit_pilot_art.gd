@@ -5,8 +5,7 @@ static var path="res://assets/rabbit-frame-pilot-v9/"
 static var manifest={}
 static var banks={}
 static func select_version(version: int) -> void:
-	assert(version in [5,6,7,8,9])
-	var next_path="res://assets/rabbit-frame-pilot-v%d/"%version
+	var next_path="res://assets/rabbit-frame-pilot-v9/"
 	if not FileAccess.file_exists(next_path+"manifest.json"): return
 	if path==next_path: return
 	path=next_path
@@ -25,6 +24,7 @@ static func frames(stage: String,action: String) -> Array:
 		var columns=int(spec.get("columns",8))
 		for i in range(int(spec.count)):
 			result.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%columns*256,i/columns*256,256,256))))
+		preload("res://scripts/animal_tone.gd").register(result,0,stage)
 		banks[key]=result
 	return banks[key]
 static func prewarm(stage: String) -> void:

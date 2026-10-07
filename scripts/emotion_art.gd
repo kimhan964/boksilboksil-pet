@@ -9,7 +9,7 @@ static func texture(species: int,stage: String,kind: String) -> Texture2D:
 	if index<0: return null
 	var key=Catalog.IDS[species]+"/"+stage
 	if not cache.has(key):
-		var path="res://assets/emotions-v1/"+key+".png"
+		var path="res://assets/emotions-v2/"+key+".png" if species==1 else "res://assets/emotions-v1/"+key+".png"
 		if not FileAccess.file_exists(path): return null
 		var image=Image.new()
 		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
@@ -17,5 +17,6 @@ static func texture(species: int,stage: String,kind: String) -> Texture2D:
 		var frames: Array=[]
 		for i in range(4):
 			frames.append(ImageTexture.create_from_image(image.get_region(Rect2i(i*256,0,256,256))))
+		for texture in frames: preload("res://scripts/animal_tone.gd").register([texture],species,stage)
 		cache[key]=frames
 	return cache[key][index]

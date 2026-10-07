@@ -5,12 +5,9 @@ static var manifests={}
 static var banks={}
 static var version=14
 static func asset_version(species: int) -> int:
-	if version==14: return 14
-	# The reviewed koala replaces only its own bank. Other v12 work stays intact.
-	if species==14 and version>=12: return 13
-	return 12 if version==13 else version
+	return 14
 static func select_version(value: int) -> void:
-	version=value
+	version=14
 	manifests.clear()
 	banks.clear()
 static func stage(motion) -> String:
@@ -45,6 +42,7 @@ static func frames(species: int,age: String,action: String="walk") -> Array:
 		else:
 			for i in range(int(metadata.count)):
 				result.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%8*256,i/8*256,256,256))))
+		preload("res://scripts/animal_tone.gd").register(result,species,age)
 		banks[key]=result
 	return banks[key]
 static func sample(motion,action: String) -> Dictionary:

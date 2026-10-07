@@ -2,7 +2,6 @@ extends RefCounted
 ## VARCO full-character cels for all species, with separate baby/adult masters.
 ## Uses complete raster frames only; no anatomical part rig or recomposition.
 const Catalog=preload("res://scripts/animal_catalog.gd")
-const WalkArt=preload("res://scripts/walk_art.gd")
 const ROOT=Vector2(128,232)
 const SIZE=256
 static var manifests: Dictionary={}
@@ -10,6 +9,7 @@ static var cache: Dictionary={}
 static var dressed_cache: Dictionary={}
 
 static func release_other_species(species: int) -> void:
+	preload("res://scripts/slapstick.gd").release_other_species(species)
 	preload("res://scripts/hold_transition_art.gd").release_other_species(species)
 	preload("res://scripts/struggle_art.gd").release_other_species(species)
 	# This game shows one selected pet. Switching species must release the
@@ -46,6 +46,7 @@ static func frames(species: int, stage: String, action: String) -> Array:
 		var columns=int(spec.get("columns",8))
 		for i in range(int(spec.count)):
 			sequence.append(ImageTexture.create_from_image(sheet.get_region(Rect2i(i%columns*SIZE,i/columns*SIZE,SIZE,SIZE))))
+		preload("res://scripts/animal_tone.gd").register(sequence,species,stage)
 		cache[key]=sequence
 	return cache[key]
 
@@ -107,6 +108,11 @@ static func consumption_phase(action: String, phase: float) -> float:
 	return phase
 
 static func sample(motion) -> Dictionary:
+	# Walking has one current source. Missing assets must never select old cels.
+	if action_for(motion)=="walk":
+		if motion.species==0:
+			return preload("res://scripts/rabbit_pilot_art.gd").sample(motion,stage_name(motion),"walk")
+		return preload("res://scripts/smooth_species_art.gd").sample(motion,"walk")
 	if preload("res://scripts/home_animation.gd").active(motion): return preload("res://scripts/home_animation.gd").sample(motion)
 	var species: int=motion.species
 	var stage=stage_name(motion)
@@ -124,8 +130,7 @@ static func sample(motion) -> Dictionary:
 		return preload("res://scripts/rabbit_pilot_art.gd").sample(motion,stage,action)
 	var sequence="carry" if action=="land" else action
 	var spec=data(species).stages[stage].sequences[sequence]
-	var smooth_walk=action=="walk" and WalkArt.frames(species,stage).size()==32
-	var count=32 if smooth_walk else int(spec.count)
+	var count=int(spec.count)
 	var time=motion.reaction_time if motion.phase=="react" else motion.elapsed
 	if action=="carry": time=motion.carry_elapsed
 	var phase=fposmod(time/float(spec.duration),1.0)
@@ -170,15 +175,7 @@ static func sample(motion) -> Dictionary:
 		index=count-quarter+mini(quarter-1,int(clampf(1-motion.landing_left/landing_duration,0,.99999)*quarter))
 	elif motion.phase=="react" and action in ["pet","wave"]:
 		index=mini(count-1,int(clampf(time/maxf(.01,motion.reaction_duration),0,.99999)*count))
-	var result=sample_frame(species,stage,sequence,index >> 1 if smooth_walk else index)
-	if smooth_walk:
-		# Koala v4 alternates two incompatible paint styles. Retain the
-		# original complete cels until a coherent replacement passes review.
-		# Keep phase timing; omitting a rejected cel must not double playback.
-		if species==14: index=(index >> 1)*2
-		result.texture=WalkArt.texture(species,stage,index)
-		result.index=index
-		if species==14: result.fixed_cels=true
+	var result=sample_frame(species,stage,sequence,index)
 	apply_dressed(result,motion)
 	result.action=action
 	if action=="eat":
@@ -187,7 +184,6 @@ static func sample(motion) -> Dictionary:
 	if action=="drink" and motion.visit_id=="home_water":
 		result.fixed_cels=true
 		result.mouth=preload("res://scripts/eating_timing.gd").mouth_point(species,stage,result.mouth,data(species).stages[stage].sequences.eat.anchors[4].mouth)
-	result.walk_32=smooth_walk
 	return result
 
 static func apply_dressed(result: Dictionary, motion) -> void:

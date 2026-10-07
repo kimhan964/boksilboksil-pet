@@ -36,7 +36,7 @@ static func sample(m) -> Dictionary:
 		var used=Metrics.used_rect(tex)
 		# The shared character-size pass owns scale for all actions. This module
 		# supplies expression timing and ground registration only.
-		calibration[key]={"height":200.0,"anchor":Vector2(128,used.end.y)}
+		calibration[key]={"height":float(neutral.height) if m.species==1 else 200.0,"anchor":Vector2(128,232) if m.species==1 else Vector2(128,used.end.y)}
 	var spec=calibration[key]
 	var phase=clampf(m.reaction_time/maxf(.01,m.reaction_duration),0,1)
 	if phase<.08 or phase>.94:
@@ -44,7 +44,7 @@ static func sample(m) -> Dictionary:
 		return neutral
 	return {"texture":tex,"action":"expression","stage":stage,"index":mini(59,int(phase*60)),
 		"height":spec.height,"anchor":spec.anchor,"fixed_cels":true,"expression_behavior":true,
-		"bank":"expression-"+m.reaction,"mouth":Vector2(138,126),"hand":Vector2(154,171)}
+		"bank":"expression-"+m.reaction,"regenerated_expression":m.species==1,"mouth":Vector2(138,126),"hand":Vector2(154,171)}
 
 static func pulse(phase: float,start: float,end: float) -> float:
 	if phase<=start or phase>=end: return 0.0

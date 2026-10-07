@@ -1,0 +1,19 @@
+{
+  "reference_height": 162.42347796838212,
+  "method": "VARCO whole-character keys + offline RIFE v4.6 inbetweens",
+  "source": "design\\slapstick-varco-v1\\red_panda-baby-source.png",
+  "validation": {
+    "stumble": {
+      "frames": 60,
+      "distinct": 53,
+      "clipped": 0,
+      "neutral_endpoints": true
+    },
+    "sneeze": {
+      "frames": 60,
+      "distinct": 54,
+      "clipped": 0,
+      "neutral_endpoints": true
+    }
+  }
+}

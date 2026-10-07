@@ -1,7 +1,7 @@
 extends RefCounted
 ## Fresh complete-character illustrations. No limb rigging or crossfade.
 const Catalog=preload("res://scripts/animal_catalog.gd")
-const KINDS={"home_sofa":"rest","home_tea":"tea","home_shelf":"read","home_lamp":"nap","home_reading_chair":"read","home_daybed":"nap","home_vanity":"groom","home_record_player":"music","home_play_rug":"play","home_window_seat":"rest","home_tv":"rest","home_turntable":"music"}
+const KINDS={"home_sofa":"rest","home_tea":"tea","home_shelf":"read","home_lamp":"nap","home_reading_chair":"read","home_daybed":"nap","home_vanity":"groom","home_record_player":"music","home_play_rug":"play","home_window_seat":"rest","home_tv":"rest","home_turntable":"music","home_wall_shelf":"read","home_dresser":"groom","home_fireplace":"rest"}
 const DURATIONS={"rest":8.0,"tea":7.2,"read":8.4,"nap":10.8,"groom":6.8,"music":7.2,"play":6.4}
 # These are authored key poses with deliberate holds, not 60 newly drawn cels.
 const TRACKS={
@@ -38,6 +38,7 @@ static func frames(m,kind: String) -> Array:
 		for frame in metadata.sequences[kind]:
 			var r=frame.rect
 			cels.append(ImageTexture.create_from_image(image.get_region(Rect2i(r[0],r[1],r[2],r[3]))))
+		preload("res://scripts/animal_tone.gd").register(cels,m.species,age(m))
 		textures[key]=cels
 	return textures[key]
 static func sample(m) -> Dictionary:

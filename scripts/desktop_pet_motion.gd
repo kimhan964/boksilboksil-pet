@@ -241,6 +241,9 @@ func capture_hold_release() -> void:
 	hold_release={"clock":carry_elapsed,"pickup":carry_started_at,"long":is_struggling(),"elapsed":0.0}
 var landing_left=0.0
 var dizzy_followup="idle"
+var silly_kind=""
+var silly_followup="idle"
+var slapstick=preload("res://scripts/slapstick.gd").new()
 const DIZZY_DURATION=4.8
 const DIZZY_LANDING=0.45
 const DROP_HOLD_SECONDS=3.0
@@ -289,6 +292,7 @@ func pet() -> void:
 
 func cancel_play() -> void:
 	context_reactions.clear()
+	silly_kind=""
 	hold_release.clear()
 	carry_started_at=0.0
 	pointer_grab=false
@@ -338,7 +342,9 @@ func begin_drop(with_dizzy: bool=true) -> void:
 	# floor. Moving the native window avoids clipping or shrinking tall falls.
 	var floor_y=maxf(feet.y,target.y) if phase=="visit" else maxf(feet.y,bounds.end.y)
 	drop_ground=Vector2(feet.x,floor_y)
-	if floor_space: drop_ground=drop_ground.clamp(bounds.position,bounds.end)
+	if floor_space:
+		drop_ground=drop_ground.clamp(bounds.position,bounds.end)
+		drop_ground.y=bounds.get_center().y
 	if dizzy_followup!="visit": target=drop_ground
 	drop_duration=clampf(sqrt(2.0*maxf(0.0,floor_y-feet.y)/1600.0),.18,1.25)
 	carried=false
@@ -410,6 +416,7 @@ func visit(point: Vector2, action: String, id: String="", reward: bool=false) ->
 	resting=false
 	held=false
 	target=point.clamp(bounds.position,bounds.end)
+	if floor_space: target.y=bounds.get_center().y
 	visit_action=action
 	visit_id=id
 	visit_reward=reward
@@ -739,6 +746,11 @@ func advance(delta: float) -> void:
 	hydration=maxf(0,hydration-delta*.1)
 	energy=maxf(0,energy-delta*(.2 if phase in ["wander","chase","return","visit"] else .025))
 	if held: return
+	# Recover invalid elevated feet before any floor-lane walking, including
+	# furniture visits interrupted by menus or old saved movement state.
+	if floor_space and phase in ["wander","chase","return","visit"] and feet.y<bounds.position.y-2:
+		begin_drop(false)
+	if slapstick.advance(self,delta): return
 	if context_reactions.advance(self): return
 	if phase=="drop":
 		carry_elapsed=elapsed

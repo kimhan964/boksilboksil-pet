@@ -14,7 +14,7 @@ static func available() -> bool:
 	return Engine.has_singleton("MousePassthrough")
 
 static func apply(window: Window, enabled: bool, force: bool=false) -> void:
-	window.mouse_passthrough=enabled
+	if window.mouse_passthrough!=enabled: window.mouse_passthrough=enabled
 	if not window.visible or not available(): return
 	var key="native_mouse_passthrough"
 	if force or not window.has_meta(key) or window.get_meta(key)!=enabled:

@@ -30,6 +30,7 @@ static func frames(species: int,stage: String) -> Array:
 		var sequence: Array=[]
 		for i in range(int(spec.count)):
 			sequence.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%8*256,i/8*256,256,256))))
+		preload("res://scripts/animal_tone.gd").register(sequence,species,stage)
 		cache[key]=sequence
 	return cache[key]
 

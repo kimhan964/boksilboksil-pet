@@ -1,0 +1,19 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "assets/furniture-v4/wall_clock.png",
+  "transparent_background": true,
+  "prompts": [
+    {
+      "id": "rabbit",
+      "prompt": "Generate ONE isolated transparent PNG game furniture sprite, not a sheet. Match reference's soft painted 2D cozy modern illustration, small warm brown contours, muted cream/oak/sage/dusty peach, tasteful decor for women in their twenties. Full large freestanding twin-bell alarm clock with little feet and upper connecting handle, clearly different from a wall clock. Slight front three-quarter view, complete uncut object centered with transparent margin, simple dial ticks and two hands, no writing or numbers. Tiny animal charm is integrated into the clock construction, not a face pasted over dial. Detailed ceramic/wood surface but legible at 120 pixels. No background, no outside cast shadow, no text, no watermark. Rabbit twin-bell alarm clock: elongated rabbit ears subtly form the twin top bells, oatmeal cream enamel body, sage feet, little rabbit silhouette engraved at bottom of dial."
+    },
+    {
+      "id": "cat",
+      "prompt": "Generate ONE isolated transparent PNG game furniture sprite, not a sheet. Match reference's soft painted 2D cozy modern illustration, small warm brown contours, muted cream/oak/sage/dusty peach, tasteful decor for women in their twenties. Full large freestanding twin-bell alarm clock with little feet and upper connecting handle, clearly different from a wall clock. Slight front three-quarter view, complete uncut object centered with transparent margin, simple dial ticks and two hands, no writing or numbers. Tiny animal charm is integrated into the clock construction, not a face pasted over dial. Detailed ceramic/wood surface but legible at 120 pixels. No background, no outside cast shadow, no text, no watermark. Cat twin-bell alarm clock: gently triangular cat ears integrated into round top bells, muted dusty peach enamel body with cream dial, subtle whisker tick accents."
+    },
+    {
+      "id": "bear",
+      "prompt": "Generate ONE isolated transparent PNG game furniture sprite, not a sheet. Match reference's soft painted 2D cozy modern illustration, small warm brown contours, muted cream/oak/sage/dusty peach, tasteful decor for women in their twenties. Full large freestanding twin-bell alarm clock with little feet and upper connecting handle, clearly different from a wall clock. Slight front three-quarter view, complete uncut object centered with transparent margin, simple dial ticks and two hands, no writing or numbers. Tiny animal charm is integrated into the clock construction, not a face pasted over dial. Detailed ceramic/wood surface but legible at 120 pixels. No background, no outside cast shadow, no text, no watermark. Bear twin-bell alarm clock: round bear ears form two domed brass-toned bells, warm honey-oak housing with cream dial, little paw emblem."
+    }
+  ]
+}

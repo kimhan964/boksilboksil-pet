@@ -1,0 +1,20 @@
+from pathlib import Path
+root=Path(__file__).resolve().parents[1]
+def edit(name,a,b):
+ p=root/name;s=p.read_text(encoding='utf-8');assert a in s,name;p.write_text(s.replace(a,b),encoding='utf-8')
+edit('scripts/furniture_catalog.gd','"alarm_clock":{"name":"동물 귀 큰 자명종","size":Vector2(116,146)}','"alarm_clock":{"name":"동물 귀 큰 자명종","size":Vector2(116,146)},\n\t"toy_ball":{"name":"실뜨개 공 놀이감","size":Vector2(48,46)},\n\t"toy_mouse":{"name":"리넨 생쥐 놀이감","size":Vector2(60,40)}')
+edit('scripts/furniture_catalog.gd','if id=="alarm_clock": path=', 'if id in ["toy_ball","toy_mouse"]: path="res://assets/furniture-v6/"+id+".png"\n\t\tif id=="alarm_clock": path=')
+edit('scripts/pet_state.gd','"home_alarm_clock":18}', '"home_alarm_clock":18,"home_toy_ball":4,"home_toy_mouse":10}')
+edit('scripts/pet_state.gd','var furniture_styles: Dictionary={}', 'var furniture_styles: Dictionary={}\nvar arrival_seen: Dictionary={}')
+edit('scripts/pet_state.gd','furniture_styles.clear()', 'arrival_seen.clear()\n\tvar seen=data.get("arrival_seen",{})\n\tif seen is Dictionary:\n\t\tfor id in ["toy_ball","toy_mouse","alarm_clock"]:\n\t\t\tif seen.get(id,false)==true: arrival_seen[id]=true\n\tfurniture_styles.clear()')
+edit('scripts/pet_state.gd','"furniture_styles":furniture_styles}', '"furniture_styles":furniture_styles,"arrival_seen":arrival_seen}')
+edit('scripts/furniture_room.gd','"home_alarm_clock":"alarm_clock"}', '"home_alarm_clock":"alarm_clock","home_toy_ball":"toy_ball","home_toy_mouse":"toy_mouse"}')
+edit('scripts/furniture_room.gd','"home_alarm_clock":"look"}', '"home_alarm_clock":"look","home_toy_ball":"playful","home_toy_mouse":"playful"}')
+edit('scripts/furniture_room.gd','"home_alarm_clock":"아직은 여유 있어"}', '"home_alarm_clock":"아직은 여유 있어","home_toy_ball":"데굴데굴 굴려볼까","home_toy_mouse":"살짝 톡 건드려볼까"}')
+edit('scripts/furniture_room.gd','last_home=id\n\thome_delay=18', 'if id=="home_alarm_clock": m.react("surprised",1.1,"look")\n\tlast_home=id\n\thome_delay=18')
+edit('scripts/home_animation.gd','"home_fireplace":"rest"}', '"home_fireplace":"rest","home_toy_ball":"play","home_toy_mouse":"play"}')
+edit('scripts/context_reactions.gd','"acorn","home_play_rug"', '"acorn","home_play_rug","home_toy_ball","home_toy_mouse"')
+edit('scripts/main.gd','func advance_deliveries(delta: float) -> void:\n', 'func advance_deliveries(delta: float) -> void:\n\tif is_instance_valid(furniture_room) and furniture_room.arrivals.busy(): return\n')
+edit('scripts/furniture_window.gd','sin(effect_time*3.2)*9','sin(effect_time*3.2)*3')
+edit('scripts/furniture_arrivals.gd','Vector2(app.pet.motion.feet.x+dx-piece.size.x*.5,app.pet.motion.feet.y)', 'Vector2(app.pet.motion.feet.x+dx-piece.size.x*.5,app.pet.motion.feet.y-piece.size.y+10)')
+print('Sky toy catalog, arrival persistence and reactions integrated')

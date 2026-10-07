@@ -1,0 +1,31 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "assets/furniture-v3/turntable.png",
+  "transparent_background": true,
+  "prompts": [
+    {
+      "id": "wall_clock",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated transparent PNG sprite for a cozy desktop animal game aimed at women in their twenties. Match the reference's softly painted 2D storybook furniture, rounded well-crafted shapes, delicate warm brown outlines, readable silhouette at 100 pixels, restrained details. Color palette: oatmeal cream, light natural oak, muted sage green with a little dusty peach, moderate low saturation, warm daylight, no neon, no candy colors, no black backing, no floor or environment, no cast shadow outside object, no text/logo/watermark. Full object uncut with generous transparent margin. Reference is style only, don't duplicate turntable. A beautiful round oak wall clock, small rounded bear ears integrated subtly into rim, cream dial with simple brown tick marks and two hands, tiny sage leaf embellishment. Straight front view. No numbers."
+    },
+    {
+      "id": "wall_shelf",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated transparent PNG sprite for a cozy desktop animal game aimed at women in their twenties. Match the reference's softly painted 2D storybook furniture, rounded well-crafted shapes, delicate warm brown outlines, readable silhouette at 100 pixels, restrained details. Color palette: oatmeal cream, light natural oak, muted sage green with a little dusty peach, moderate low saturation, warm daylight, no neon, no candy colors, no black backing, no floor or environment, no cast shadow outside object, no text/logo/watermark. Full object uncut with generous transparent margin. Reference is style only, don't duplicate turntable. A compact oak floating wall shelf with curved corners, three cream/sage/dusty-peach books and a tiny ceramic rabbit-shaped bookend. Slight front three-quarter view."
+    },
+    {
+      "id": "plant_stand",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated transparent PNG sprite for a cozy desktop animal game aimed at women in their twenties. Match the reference's softly painted 2D storybook furniture, rounded well-crafted shapes, delicate warm brown outlines, readable silhouette at 100 pixels, restrained details. Color palette: oatmeal cream, light natural oak, muted sage green with a little dusty peach, moderate low saturation, warm daylight, no neon, no candy colors, no black backing, no floor or environment, no cast shadow outside object, no text/logo/watermark. Full object uncut with generous transparent margin. Reference is style only, don't duplicate turntable. A compact rounded oak plant stand holding a cream ceramic pot with one small paw emblem, lush rounded sage leaves, modern indoor plant. Slight front three-quarter view."
+    },
+    {
+      "id": "dresser",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated transparent PNG sprite for a cozy desktop animal game aimed at women in their twenties. Match the reference's softly painted 2D storybook furniture, rounded well-crafted shapes, delicate warm brown outlines, readable silhouette at 100 pixels, restrained details. Color palette: oatmeal cream, light natural oak, muted sage green with a little dusty peach, moderate low saturation, warm daylight, no neon, no candy colors, no black backing, no floor or environment, no cast shadow outside object, no text/logo/watermark. Full object uncut with generous transparent margin. Reference is style only, don't duplicate turntable. A compact oak two-drawer chest, rounded corners, tiny paw-shaped drawer knobs, cream drawer fronts, one small sage ceramic vase on top. Slight front three-quarter view."
+    },
+    {
+      "id": "fireplace",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated transparent PNG sprite for a cozy desktop animal game aimed at women in their twenties. Match the reference's softly painted 2D storybook furniture, rounded well-crafted shapes, delicate warm brown outlines, readable silhouette at 100 pixels, restrained details. Color palette: oatmeal cream, light natural oak, muted sage green with a little dusty peach, moderate low saturation, warm daylight, no neon, no candy colors, no black backing, no floor or environment, no cast shadow outside object, no text/logo/watermark. Full object uncut with generous transparent margin. Reference is style only, don't duplicate turntable. A compact modern cream electric fireplace with rounded oak surround, subtle bear ear corners, warm tiny amber flame behind glass, no smoke. Slight front three-quarter view."
+    },
+    {
+      "id": "aquarium",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated transparent PNG sprite for a cozy desktop animal game aimed at women in their twenties. Match the reference's softly painted 2D storybook furniture, rounded well-crafted shapes, delicate warm brown outlines, readable silhouette at 100 pixels, restrained details. Color palette: oatmeal cream, light natural oak, muted sage green with a little dusty peach, moderate low saturation, warm daylight, no neon, no candy colors, no black backing, no floor or environment, no cast shadow outside object, no text/logo/watermark. Full object uncut with generous transparent margin. Reference is style only, don't duplicate turntable. A small rounded rectangular tabletop aquarium on an oak cabinet, clear pale blue water, two tiny warm orange fish, sparse sage aquatic plants, little paw emblem on cabinet. Cozy modern furniture. Slight front three-quarter view."
+    }
+  ]
+}

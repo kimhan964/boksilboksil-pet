@@ -2,6 +2,7 @@ extends PopupPanel
 signal id_pressed(id: int)
 const Catalog=preload("res://scripts/animal_catalog.gd")
 const Food=preload("res://scripts/food_catalog.gd")
+const Icons=preload("res://scripts/ui_icons.gd")
 var entries: Array=[]
 var section=0
 var source: PopupMenu
@@ -12,7 +13,7 @@ var detail: Label
 var portrait: TextureRect
 var tabs: Array=[]
 var friend_button: Button
-const SECTIONS=[[0,23,24,1,29,30,22,4,16,20],[2,15,11,12,13,21],[32,33,27,28,5,31,6,7,8],[26,25,18,14,9,19,10,900]]
+const SECTIONS=[[32,25],[15],[32,33,27,28],[26,18,14,9,10,900]]
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
 func add_check_item(text: String,id: int) -> void:
@@ -68,7 +69,7 @@ func _ready() -> void:
 	eyebrow.add_theme_font_size_override("font_size",12)
 	title_column.add_child(eyebrow)
 	heading=Label.new()
-	heading.add_theme_font_size_override("font_size",23)
+	preload("res://scripts/cozy_ui.gd").label(heading,"title")
 	title_column.add_child(heading)
 	detail=Label.new()
 	detail.add_theme_font_size_override("font_size",12)
@@ -77,16 +78,22 @@ func _ready() -> void:
 	close.custom_minimum_size=Vector2(50,36)
 	close.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
 	top.add_child(close)
+	var placement_button=make_button("가구·아이템 배치",func(): hide(); id_pressed.emit.call_deferred(32))
+	placement_button.name="OpenFurniture"
+	Icons.decorate(placement_button,"home",40)
+	placement_button.custom_minimum_size.y=48
+	column.add_child(placement_button)
 	var tab_row=HBoxContainer.new()
 	column.add_child(tab_row)
 	for i in range(4):
-		var button=make_button(["함께하기","돌보기","내 공간","성장·선물"][i],func():
+		var button=make_button(["함께하기","식탁 준비","집 꾸미기","생활 기록"][i],func():
 			section=i
 			source=null
 			history.clear()
 			rebuild())
 		button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		button.add_theme_font_size_override("font_size",13)
+		Icons.decorate(button,["together","table","home","journal"][i],28)
+		button.add_theme_font_size_override("font_size",preload("res://scripts/cozy_ui.gd").BODY_SIZE)
 		tab_row.add_child(button)
 		tabs.append(button)
 	var scroll=ScrollContainer.new()
@@ -175,12 +182,15 @@ func rebuild() -> void:
 			body.add_child(button)
 		return
 	var caption=Label.new()
-	caption.text=["오늘은 어떤 놀이를 해볼까?","먹고 쉬며, 조금 더 가까이","우리 친구의 자리를 꾸며요","함께 쌓아가는 작은 기록"][section]
+	caption.text=["동물을 클릭해 쓰다듬고, 물건에 끌어 놓아 함께해요.\n공·생쥐를 클릭하면 놀고, 소파에 놓으면 쉬어요.","메뉴를 골라 식탁을 준비해요.\n식탁을 클릭하거나 동물을 데려다 놓으면 이용해요.\n식탁의 우클릭 메뉴에서 음식·물을 고를 수 있어요.","가구·놀이감·꾸미기 아이템을 배치해요.","물건과 함께한 생활로 새로운 아이템을 열어요."][section]
 	caption.text+="\n"+get_parent().state.goal_text(get_parent().species)
 	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	caption.add_theme_color_override("font_color",Color("8b806e"))
 	body.add_child(caption)
 	var progress=get_parent().state.unlock_rows(get_parent().species)
+	if section==0:
+		for row in progress:
+			if row.threshold==0: add_unlock_card(row)
 	if section==3:
 		for row in progress:
 			if not row.open: add_unlock_card(row)
@@ -200,15 +210,16 @@ func rebuild() -> void:
 		if not item.submenu.is_empty(): text+="  ›"
 		var button=make_button(text,func():
 			if not item.submenu.is_empty(): open_source(get_node(item.submenu))
-			else: hide(); id_pressed.emit(item.id))
+			else: hide(); id_pressed.emit.call_deferred(item.id))
 		button.disabled=item.disabled
 		if item.disabled: button.tooltip_text=get_parent().state.action_hint(get_parent().species,id)
 		style_action(button)
+		Icons.decorate(button,"home" if id==32 else ("table" if id==15 else "journal"),28)
 		body.add_child(button)
 
 func style_action(button: Button) -> void:
 	button.custom_minimum_size.y=44
-	button.alignment=HORIZONTAL_ALIGNMENT_LEFT
+	preload("res://scripts/cozy_ui.gd").button(button)
 	button.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 
 func add_unlock_card(row: Dictionary) -> void:
@@ -219,9 +230,20 @@ func add_unlock_card(row: Dictionary) -> void:
 	column.add_theme_constant_override("separation",7)
 	card.add_child(column)
 	var title=Label.new()
-	title.text=("이용 가능  ·  " if row.open else "다음 생활  ·  ")+row.title
+	var title_row=HBoxContainer.new()
+	title_row.add_theme_constant_override("separation",12)
+	column.add_child(title_row)
+	var thumb=TextureRect.new()
+	thumb.texture=preload("res://scripts/furniture_catalog.gd").texture(str(row.id).trim_prefix("home_"))
+	thumb.custom_minimum_size=Vector2(48,48)
+	thumb.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	thumb.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	thumb.modulate=Color.WHITE if row.open else Color(.75,.75,.75,.7)
+	title_row.add_child(thumb)
+	title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	title.text=("배치 가능  ·  " if row.open else "해금 준비  ·  ")+row.get("category","가구")+" · "+row.title
 	title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	column.add_child(title)
+	title_row.add_child(title)
 	if not row.open:
 		var hint=Label.new()
 		hint.text=row.hint

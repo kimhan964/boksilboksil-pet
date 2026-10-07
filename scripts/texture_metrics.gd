@@ -39,3 +39,20 @@ static func head_span(texture: Texture2D) -> float:
 		widths.sort()
 		head_spans[key]=float(widths[mini(widths.size()-1,int(widths.size()*.95))]) if not widths.is_empty() else 1.0
 	return head_spans[key]
+
+static var torso_spans: Dictionary={}
+static func torso_span(texture: Texture2D) -> float:
+	var key=texture.get_instance_id()
+	if not torso_spans.has(key):
+		var image=texture.get_image()
+		var used=used_rect(texture)
+		var widths: Array=[]
+		for y in range(used.position.y+roundi(used.size.y*.50),used.position.y+roundi(used.size.y*.85)):
+			var run=0;var longest=0
+			for x in range(used.position.x,used.end.x):
+				if image.get_pixel(x,y).a>.5: run+=1;longest=maxi(longest,run)
+				else: run=0
+			if longest>0: widths.append(longest)
+		widths.sort()
+		torso_spans[key]=float(widths[widths.size()/2]) if not widths.is_empty() else 1.0
+	return torso_spans[key]

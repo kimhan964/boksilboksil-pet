@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "assets/furniture-v4/dresser.png",
+  "transparent_background": true,
+  "prompts": [
+    {
+      "id": "toy_ball",
+      "prompt": "One transparent game sprite. Match reference's soft painted cozy 2D illustration and gentle warm contours, cream/oak/sage/dusty pink muted colors, aimed at women in their twenties. Reference style only; no cabinet. Full object centered uncut with transparent margins. No backdrop, no outside cast shadow, no text or watermark. One small cozy sage and cream wool yarn ball, clearly round with gently intertwined yarn strands and a short curled yarn tail, no face, no stand."
+    },
+    {
+      "id": "toy_mouse",
+      "prompt": "One transparent game sprite. Match reference's soft painted cozy 2D illustration and gentle warm contours, cream/oak/sage/dusty pink muted colors, aimed at women in their twenties. Reference style only; no cabinet. Full object centered uncut with transparent margins. No backdrop, no outside cast shadow, no text or watermark. One soft linen toy mouse with oatmeal rounded body, dusty rose tiny ears, stitched brown bead eyes and short curved fabric tail, small sage ribbon, tasteful pet toy."
+    }
+  ]
+}

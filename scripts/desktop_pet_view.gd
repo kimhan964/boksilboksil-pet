@@ -9,7 +9,6 @@ const GeneratedArt=preload("res://scripts/generated_species_art.gd")
 const EmotionArt=preload("res://scripts/emotion_art.gd")
 const ExpressionBehavior=preload("res://scripts/expression_behavior.gd")
 const DizzyArt=preload("res://scripts/dizzy_art.gd")
-const WalkArt=preload("res://scripts/walk_art.gd")
 const Presentation=preload("res://scripts/character_presentation.gd")
 var generated_sample: Dictionary={}
 var generated_last_action=""
@@ -87,6 +86,12 @@ func prewarm_current_art() -> void:
 	# Build textures and click outlines before the pet appears, not on its first
 	# step. The first pass through a new walk strip otherwise looks like lag.
 	var stage=GeneratedArt.stage_name(motion)
+	var silly=preload("res://scripts/slapstick.gd")
+	if silly.available(motion):
+		for kind in silly.DURATIONS:
+			for cel in silly.frames(motion,kind):
+				Metrics.used_rect(cel)
+				preload("res://scripts/animation_outline.gd").local_hull(cel)
 	CharacterSize.size_reference(motion)
 	var home=preload("res://scripts/home_animation.gd")
 	if home.available(motion):
@@ -107,11 +112,7 @@ func prewarm_current_art() -> void:
 		preload("res://scripts/rabbit_pilot_art.gd").prewarm(stage)
 		for action in preload("res://scripts/rabbit_pilot_art.gd").data().stages[stage].sequences:
 			for cel in preload("res://scripts/rabbit_pilot_art.gd").frames(stage,action): Metrics.opaque_area(cel)
-	var base_walk=GeneratedArt.frames(motion.species,stage,"walk")
-	var walk=WalkArt.frames(motion.species,stage)
-	if preload("res://scripts/smooth_species_art.gd").enabled(motion):
-		walk=preload("res://scripts/smooth_species_art.gd").frames(motion.species,stage)
-	if walk.is_empty(): walk=base_walk
+	var walk=preload("res://scripts/rabbit_pilot_art.gd").frames(stage,"walk") if motion.species==0 else preload("res://scripts/smooth_species_art.gd").frames(motion.species,stage)
 	if preload("res://scripts/dining_species_art.gd").enabled(motion):
 		for cel in preload("res://scripts/dining_species_art.gd").frames(motion):
 			Metrics.used_rect(cel)
@@ -279,6 +280,7 @@ func refresh(delta: float=0.0) -> void:
 func show_generated_species() -> void:
 	generated_sample=GeneratedArt.sample(motion)
 	if ExpressionBehavior.active(motion): generated_sample=ExpressionBehavior.sample(motion)
+	if motion.phase=="silly": generated_sample=preload("res://scripts/slapstick.gd").sample(motion)
 	var action: String=generated_sample.action
 	if action!=generated_last_action:
 		generated_transition=""
@@ -302,6 +304,8 @@ func show_generated_species() -> void:
 		var happy=EmotionArt.texture(motion.species,generated_sample.stage,"happy")
 		if happy:
 			generated_sample.texture=happy
+			generated_sample.next_texture=happy
+			generated_sample.frame_mix=0.0
 			generated_sample.dressed=false
 			generated_sample.action="expression"
 			generated_sample.anchor=Vector2(128,Metrics.used_rect(happy).end.y)
@@ -311,6 +315,8 @@ func show_generated_species() -> void:
 		var progress=motion.reaction_time/maxf(.01,motion.reaction_duration)
 		if emotion!=null and progress>=.07 and progress<.91:
 			generated_sample.texture=emotion
+			generated_sample.next_texture=emotion
+			generated_sample.frame_mix=0.0
 			generated_sample.dressed=false
 			generated_sample.action="expression"
 			generated_sample.anchor=Vector2(128,Metrics.used_rect(emotion).end.y)
@@ -321,11 +327,18 @@ func show_generated_species() -> void:
 		var dizzy=DizzyArt.texture(motion.species,generated_sample.stage,dizzy_index)
 		if dizzy!=null:
 			generated_sample.texture=dizzy
+			generated_sample.next_texture=dizzy
+			generated_sample.frame_mix=0.0
 			generated_sample.dressed=false
 			generated_sample.action="dizzy"
 			generated_sample.anchor=Vector2(128,Metrics.used_rect(dizzy).end.y)
 			generated_sample.fixed_cels=true
+	if motion.species==1 and generated_sample.action=="expression":
+		generated_sample.regenerated_expression=true
+		generated_sample.height=float(preload("res://scripts/smooth_species_art.gd").spec(motion).reference_height)
+		generated_sample.anchor=Vector2(128,232)
 	sprite.texture=generated_sample.texture
+	preload("res://scripts/animal_tone.gd").apply(sprite.material,sprite.texture)
 	sprite.rotation=0
 	var factor=Art.DISPLAY_HEIGHT*Art.HEIGHTS[motion.species]/generated_sample.height*motion.growth_scale
 	var expression=motion.phase=="dizzy" or (motion.phase=="react" and motion.reaction in EmotionArt.KINDS) or (motion.held and not motion.pointer_grab and not motion.carried and motion.joy_left>0)

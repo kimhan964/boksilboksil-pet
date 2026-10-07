@@ -65,7 +65,7 @@ static func completed_event(id: String,m) -> String:
 	if id in ["meal","bowl","snack","home_food"]: return "favorite_meal" if m.favorite_food else "meal"
 	if id=="hand_feed": return "favorite_meal" if m.favorite_food else "hand_feed"
 	if id in ["water","home_water"]: return "water"
-	if id in ["acorn","home_play_rug"]: return "toy"
+	if id in ["acorn","home_play_rug","home_toy_ball","home_toy_mouse"]: return "toy"
 	if id in ["cushion","home_daybed","home_lamp","doze"]: return "wake"
 	if id in ["shelter","home_sofa","home_window_seat","home_tv","relax","stretch"]: return "rest"
 	if id in ["home_shelf","home_reading_chair"]: return "read"

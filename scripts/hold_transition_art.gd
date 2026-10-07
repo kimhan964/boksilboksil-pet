@@ -19,6 +19,7 @@ static func frames(species: int,stage: String,name: String) -> Array:
 		if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return []
 		var sequence: Array=[]
 		for i in range(COUNT): sequence.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%8*256,i/8*256,256,256))))
+		preload("res://scripts/animal_tone.gd").register(sequence,species,stage)
 		banks[key]=sequence
 	return banks[key]
 

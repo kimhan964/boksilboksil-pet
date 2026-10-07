@@ -32,6 +32,7 @@ static func frames(motion,action: String="drink") -> Array:
 		var cels=[]
 		for i in range(int(metadata.count)):
 			cels.append(ImageTexture.create_from_image(image.get_region(Rect2i(i%int(metadata.columns)*256,i/int(metadata.columns)*256,256,256))))
+		preload("res://scripts/animal_tone.gd").register(cels,motion.species,stage(motion))
 		cache[key]=cels
 	return cache[key]
 

@@ -96,41 +96,14 @@ func _ready() -> void:
 	ball_window.add_child(ball_view)
 	menu=preload("res://scripts/friend_menu.gd").new()
 	menu.force_native=true
-	menu.add_item("쓰다듬기",0)
-	menu.add_item("공 꺼내기 · 잡아서 던지기",1)
-	menu.add_check_item("여기서 쉬기",2)
-	menu.add_item("간식 찾기",4)
-	menu.add_check_item("꾸미기 모드",5)
-	menu.add_item("소품 색상 바꾸기",6)
-	menu.add_item("소품 모두 보이기 / 숨기기",7)
-	menu.add_item("소품 위치 정리",8)
-	menu.add_item("소품 표시 · 간결하게 / 모두 펼치기",31)
 	menu.add_item("가구 배치 · 나의 작은 공간",32)
 	menu.add_check_item("활동 공간 · 화면 전체로 넓히기",33)
 	menu.add_item("발견한 취향",9)
-	menu.add_item("성격 행동 · "+motion.Personality.TYPES[species]+" · "+motion.Personality.NAMES[species],16)
 	menu.add_item("사용법",10)
 	menu.add_item("첫 만남 가이드",25)
 	menu.add_item("함께할 목표",26)
-	menu.add_item("마우스 따라오기",23)
-	menu.add_item("가까운 소품에 부비기",24)
-	menu.add_item("친밀도와 선물",14)
-	menu.add_item("전용 소품 안내",19)
-	menu.add_item("킁킁 · 폴짝 놀이",22)
-	menu.add_item("도토리 오뚝이로 놀기",29)
-	var emotions=PopupMenu.new()
-	emotions.name="Emotions"
-	emotions.force_native=true
-	for i in range(4): emotions.add_item(preload("res://scripts/expression_behavior.gd").LABELS[i],400+i)
-	emotions.id_pressed.connect(func(id): activity_requested.emit(id))
-	menu.add_child(emotions)
-	menu.add_submenu_item("표정과 행동 · 놀람 / 웃음 / 화남 / 졸림","Emotions",30)
-	menu.add_item(Profiles.TOYS[species]+"에서 놀기",20)
-	menu.add_item(Profiles.COMFORTS[species]+"에서 쉬기",21)
+	menu.add_item("우리 집 교감과 가구",14)
 	menu.add_item("성장 기록 · 새끼 → 중간 → 성체",18)
-	menu.add_item(Profiles.BEDS[species]+"에서 쉬기",11)
-	menu.add_item(Profiles.RETREATS[species]+"로 가기",12)
-	menu.add_item("잠자리에서 토닥여주기",13)
 	var foods=PopupMenu.new()
 	foods.name="Foods"
 	foods.force_native=true
@@ -145,7 +118,7 @@ func _ready() -> void:
 		foods.add_child(group)
 		foods.add_submenu_item(["기본 요리","든든한 한 끼","간식과 차","별미와 음료"][s],group.name)
 	menu.add_child(foods)
-	menu.add_submenu_item("먹이 고르기 · 해금 기록","Foods",15)
+	menu.add_submenu_item("식탁 메뉴 고르기","Foods",15)
 	var outfits=PopupMenu.new()
 	outfits.name="Outfits"
 	outfits.force_native=true
@@ -195,6 +168,21 @@ func _ready() -> void:
 		view.position=motion.feet-View.FEET-Vector2(position)
 		view.refresh(0)
 		update_mouse_region()
+
+	call_deferred("reveal_native_surface")
+
+func reveal_native_surface() -> void:
+	if not visible or DisplayServer.get_name()=="headless": return
+	# STARTF_USESHOWWINDOW from a hidden launcher can suppress the first show.
+	# Re-show once at startup, without resizing the steady animation canvas.
+	hide()
+	show()
+	if stable_surface():
+		position=pointer_surface_rect().position
+		view.position=motion.feet-View.FEET-Vector2(position)
+	view.refresh(0)
+	update_mouse_region()
+	NativeMouse.apply(self,mouse_passthrough,true)
 
 func set_available_species(ids: PackedStringArray) -> void:
 	commerce_mode=true
@@ -325,7 +313,10 @@ func release_pointer() -> void:
 		motion.rest_left=4
 		furniture_drop_accepted=false
 		dropped_on_desktop.emit(motion.feet)
-		if not furniture_drop_accepted and (falling or (motion.floor_space and not motion.bounds.has_point(motion.feet))): motion.begin_drop(falling)
+		if furniture_drop_accepted and motion.feet.y<motion.target.y-2:
+			# Land vertically before approaching the furniture; never walk in air.
+			motion.begin_drop(false)
+		elif not furniture_drop_accepted and (falling or (motion.floor_space and not motion.bounds.has_point(motion.feet))): motion.begin_drop(falling)
 		else:
 			motion.landing_left=0.0
 			if view: view.dizzy_effects.burst("sparkle",View.FEET-Vector2(0,12),3)
@@ -417,16 +408,13 @@ func update_ball_drag() -> void:
 
 func refresh_unlock_menu() -> void:
 	if menu==null: return
+	for id in [36,37]: menu.set_item_disabled(menu.get_item_index(id),not preload("res://scripts/slapstick.gd").available(motion))
 	var outfit_menu=menu.get_node("Outfits")
 	for style in range(4): outfit_menu.set_item_checked(outfit_menu.get_item_index(300+style),style==motion.outfit_style)
 	var color_menu=menu.get_node("OutfitColors")
 	for color in range(Outfits.COLOR_NAMES.size()): color_menu.set_item_checked(color_menu.get_item_index(320+color),color==motion.outfit_color)
 	menu.set_item_text(menu.get_item_index(27),"옷 입히기 · "+Outfits.style_name(species,motion.outfit_style))
 	menu.set_item_text(menu.get_item_index(28),"옷 색상 · "+Outfits.color_name(motion.outfit_color))
-	for id in state.ACTION_UNLOCKS:
-		var index=menu.get_item_index(id)
-		if index>=0:
-			menu.set_item_disabled(index,not state.can_action(species,id))
 	menu.set_item_text(menu.get_item_index(14),state.next_gift(species))
 
 func _process(delta: float) -> void:
@@ -506,5 +494,9 @@ func update_mouse_region() -> void:
 		var points=Outline.blended_points(view.sprite)
 		if points.size()>=3:
 			accept_input=Geometry2D.is_point_in_polygon(cursor,Geometry2D.convex_hull(points))
+	# A small exit margin avoids repeated native style changes when a moving
+	# paw/ear edge passes under a stationary cursor.
+		if not accept_input and not mouse_passthrough:
+			accept_input=view.visible_pet_bounds().grow(6).has_point(cursor-view.position)
 	var pass_through=not accept_input
 	NativeMouse.apply(self,pass_through)

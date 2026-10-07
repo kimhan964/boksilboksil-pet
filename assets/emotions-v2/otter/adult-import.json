@@ -1,0 +1,66 @@
+{
+	"cels": [
+		{
+			"kind": "surprised",
+			"packed_bounds": [
+				19,
+				46,
+				191,
+				187
+			],
+			"source_bounds": [
+				50,
+				61,
+				513,
+				502
+			]
+		},
+		{
+			"kind": "happy",
+			"packed_bounds": [
+				19,
+				46,
+				191,
+				187
+			],
+			"source_bounds": [
+				39,
+				61,
+				513,
+				502
+			]
+		},
+		{
+			"kind": "angry",
+			"packed_bounds": [
+				19,
+				46,
+				190,
+				187
+			],
+			"source_bounds": [
+				50,
+				55,
+				512,
+				503
+			]
+		},
+		{
+			"kind": "sleepy",
+			"packed_bounds": [
+				19,
+				46,
+				191,
+				187
+			],
+			"source_bounds": [
+				39,
+				55,
+				513,
+				503
+			]
+		}
+	],
+	"common_import_scale": 0.371769383697813,
+	"reference_height": 187
+}

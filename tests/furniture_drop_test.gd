@@ -63,14 +63,28 @@ func run() -> void:
 					var before=m.feet
 					pet.release_pointer()
 					var key="home_tea" if id=="table" else "home_"+id
-					check(pet.furniture_drop_accepted and m.phase=="visit" and m.visit_id==key,"drop not routed %s/%s/%s"%[species,stage,id])
+					check(pet.furniture_drop_accepted and m.phase in ["visit","drop"] and m.visit_id==key,"drop not routed %s/%s/%s"%[species,stage,id])
 					check(m.feet==before,"release teleported "+id)
 					check(not room.pieces[id].drop_hover,"stale highlight "+id)
 					for tick in range(1200):
-						if m.phase!="visit": break
+						if m.phase not in ["visit","drop"]: break
 						m.advance(1.0/60)
-					check(m.phase=="home_use","never reached furniture "+id)
+					check(m.phase==m.visit_action,"never reached furniture "+id)
 					count+=1
+		# A drop accepted by furniture must fall vertically, then walk on ground.
+		for other in room.pieces: room.pieces[other].visible=other=="sofa"
+		m.floor_space=true;m.bounds=Rect2(100,580,1500,1)
+		m.cancel_play();m.feet=Vector2(650,470);m.held=true;m.carried=true;m.pointer_grab=true
+		pet.dragging=true;pet.press_feet=m.feet;pet.press_screen=Vector2(650,530)
+		pet.release_pointer()
+		check(m.phase=="drop" and pet.furniture_drop_accepted,"elevated furniture release did not fall")
+		var release_x=m.feet.x
+		for tick in range(120):
+			if m.phase!="drop": break
+			m.advance(1.0/60)
+			check(is_equal_approx(m.feet.x,release_x),"walked sideways in air")
+		check(m.phase=="visit" and m.bounds.has_point(m.feet),"furniture landing did not restore floor")
+		m.floor_space=false;m.configure(Rect2(0,0,1920,1080),Vector2(650,560))
 		# A long release on empty desktop must still use the existing fall.
 		m.move_to(Vector2(1100,400))
 		m.held=true

@@ -15,5 +15,6 @@ static func texture(species: int,stage: String,index: int) -> Texture2D:
 		var frames: Array=[]
 		for i in range(4):
 			frames.append(ImageTexture.create_from_image(image.get_region(Rect2i(i*256,0,256,256))))
+		preload("res://scripts/animal_tone.gd").register(frames,species,stage)
 		cache[key]=frames
 	return cache[key][index]

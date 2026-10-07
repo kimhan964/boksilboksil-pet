@@ -31,7 +31,9 @@ static func size_reference(m) -> Dictionary:
 static func apply(view) -> void:
 	var m=view.motion
 	var sample: Dictionary=view.generated_sample
+	if sample.get("regenerated_expression",false): return
 	if sample.get("home_animation",false): return
+	if sample.get("slapstick",false): return
 	if sample.get("dining",false) or (sample.get("pilot",false) and sample.action=="drink"): return
 	# Approved locomotion retains its authored camera and low rabbit hop.
 	if sample.action in ["idle","walk"] and (sample.get("pilot",false) or sample.get("smooth_walk",false)):
