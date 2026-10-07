@@ -6,10 +6,10 @@ from pathlib import Path
 import release_snapshot as github
 
 ROOT = Path(__file__).resolve().parents[1]
-INSTALL = Path("D:/BoksilMate-Commerce-0.1.6")
-OUT = ROOT / "builds/typing-release-0.1.6-commerce"
-TAG = "typing-v0.1.6-commerce"
-NAME = "BoksilBoksilMate-0.1.6-Commerce-Windows.zip"
+INSTALL = Path("D:/BoksilMate-Commerce-0.1.7")
+OUT = ROOT / "builds/typing-release-0.1.7-commerce"
+TAG = "typing-v0.1.7-commerce"
+NAME = "BoksilBoksilMate-0.1.7-Commerce-Windows.zip"
 
 
 def package(commit):
@@ -41,8 +41,8 @@ def publish(commit):
     if release is None:
         release = github.api("/releases", headers, "POST", {
             "tag_name": TAG, "target_commitish": commit,
-            "name": "복슬복슬메이트 0.1.6 · 동물별 이용권 판매용",
-            "body": (ROOT / "docs/RELEASE-TYPING-0.1.6-COMMERCE.md").read_text(encoding="utf-8"),
+            "name": "복슬복슬메이트 0.1.7 · 동물별 이용권 판매용",
+            "body": (ROOT / "docs/RELEASE-TYPING-0.1.7-COMMERCE.md").read_text(encoding="utf-8"),
             "draft": True, "prerelease": True,
         })
     for file in [OUT / NAME, OUT / "SHA256SUMS.txt"]:
@@ -65,3 +65,4 @@ if __name__ == "__main__":
     parser.add_argument("--commit", required=True)
     args = parser.parse_args()
     (package if args.command == "package" else publish)(args.commit)
+

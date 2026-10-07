@@ -5,11 +5,12 @@ func folder(path: String) -> void:
 	for file in DirAccess.get_files_at(path):
 		if file.ends_with(".import") or file.ends_with(".uid") or file.ends_with(".log"): continue
 		if file=="generation-records.json": continue
+		if file=="source.png" and "typing-soft-v2" in path: continue
 		if file in ["typing-friends-source.png","typing-friends.ico"]: continue
 		var source=path.path_join(file)
 		var limit=0
 		if file.ends_with(".png"):
-			if "typing-rabbit-v1" in path or "typing-animals-v1" in path: limit=512
+			if "typing-rabbit-v1" in path or "typing-animals-v1" in path or "typing-soft-v2" in path: limit=512
 			elif "accessories-varco-v2" in path: limit=192
 		var packed_source=source
 		if limit>0:
@@ -48,7 +49,7 @@ func _initialize() -> void:
 		config.load(config_path)
 		config.set_value("commerce","enabled",true)
 		config.set_value("commerce","site_url",commerce_site)
-		config.set_value("application","config/version","0.1.6-commerce")
+		config.set_value("application","config/version","0.1.7-commerce")
 		config_path=destination+"/commerce-project.godot"
 		config.save(config_path)
 	if packer.add_file("res://project.godot",config_path)!=OK: failed=true
@@ -62,3 +63,4 @@ func _initialize() -> void:
 	fonts_notice.store_string(FileAccess.get_file_as_string("res://assets/fonts/Jua-OFL.txt")+"\n\n"+FileAccess.get_file_as_string("res://assets/fonts/GowunDodum-OFL.txt"))
 	print("TYPING_PCK_BUILT ",destination)
 	quit(1 if failed else 0)
+

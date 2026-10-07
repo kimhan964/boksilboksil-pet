@@ -4,6 +4,7 @@ const NAMES=["모루 · 토끼","보리 · 수달","도토 · 다람쥐","밤이
 # Pins sit on the side of the forehead, never on animated paws. Normalized cel coordinates.
 const PINS=[Vector2(.64,.38),Vector2(.66,.32),Vector2(.66,.33),Vector2(.65,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.68,.34),Vector2(.65,.34),Vector2(.66,.33),Vector2(.66,.33),Vector2(.66,.33),Vector2(.65,.34),Vector2(.65,.34),Vector2(.65,.34)]
 static func folder(species: int) -> String:
+	if species in [11,12]: return "res://assets/typing-soft-v2/"+IDS[species]
 	return "res://assets/typing-rabbit-v1" if species==0 else "res://assets/typing-animals-v1/"+IDS[species]
 const HATS=[Vector2(.50,.305),Vector2(.50,.255),Vector2(.51,.25),Vector2(.50,.19),Vector2(.50,.25),Vector2(.50,.25),Vector2(.50,.22),Vector2(.50,.25),Vector2(.50,.235),Vector2(.50,.195),Vector2(.50,.24),Vector2(.50,.215),Vector2(.50,.25),Vector2(.50,.19),Vector2(.50,.25),Vector2(.50,.21)]
 # Match the fox's warm, clear midtones without recoloring species or lifting eye ink.
@@ -20,8 +21,8 @@ const TONES=[
 	Vector4(-.016,.95,-.006,0), # cat
 	Vector4(-.035,.98,-.010,.002), # puppy
 	Vector4(-.040,.96,-.012,0), # hamster
-	Vector4(.045,.98,-.020,.004), # panda: dark fur, cream face
-	Vector4(.090,.88,-.004,.003), # red panda: soften dense russet
+	Vector4(0,1,0,0), # panda v2: gentle taupe palette baked into all full cels
+	Vector4(0,1,0,0), # red panda v2: muted cinnamon, no double color grading
 	Vector4(-.025,.95,-.030,.004), # lamb
 	Vector4(.028,.94,-.010,.010), # koala: warm grey
 	Vector4(.080,.94,-.012,.010)] # penguin: soften charcoal
