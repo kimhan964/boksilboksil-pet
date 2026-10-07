@@ -30,14 +30,28 @@ func folder(path: String) -> void:
 		folder(path.path_join(child))
 func _initialize() -> void:
 	var destination="res://builds/release"
+	var commerce_site=""
 	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--commerce-site="): commerce_site=arg.trim_prefix("--commerce-site=")
 		if arg.begins_with("--destination="): destination=arg.trim_prefix("--destination=")
 	DirAccess.make_dir_recursive_absolute(destination)
 	if packer.pck_start(destination+"/TypingFriends.pck")!=OK:
 		quit(1)
 		return
 	for path in ["res://scripts","res://scenes","res://assets","res://addons","res://tests"]: folder(path)
-	if packer.add_file("res://project.godot","res://project.godot")!=OK: failed=true
+	var config_path="res://project.godot"
+	if not commerce_site.is_empty():
+		if commerce_site!="https://boksilboksil.kr":
+			quit(1)
+			return
+		var config=ConfigFile.new()
+		config.load(config_path)
+		config.set_value("commerce","enabled",true)
+		config.set_value("commerce","site_url",commerce_site)
+		config.set_value("application","config/version","0.1.6-commerce")
+		config_path=destination+"/commerce-project.godot"
+		config.save(config_path)
+	if packer.add_file("res://project.godot",config_path)!=OK: failed=true
 	if packer.add_file("res://.godot/global_script_class_cache.cfg","res://tests/global-classes.cfg")!=OK: failed=true
 	if packer.flush()!=OK: failed=true
 	var license_=FileAccess.open(destination+"/GODOT-LICENSE.txt",FileAccess.WRITE)

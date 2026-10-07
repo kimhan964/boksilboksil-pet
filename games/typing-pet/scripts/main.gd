@@ -4,6 +4,8 @@ var collection=preload("res://scripts/collection.gd").new()
 var activity=preload("res://scripts/activity.gd").new()
 var bridge=preload("res://scripts/typing_input.gd").new()
 var skin=preload("res://scripts/cozy_ui.gd").theme()
+var commerce_enabled=bool(ProjectSettings.get_setting("commerce/enabled",false))
+var commerce
 var species=0
 var corner=3
 var zoom=1
@@ -52,12 +54,18 @@ func start_game() -> void:
 	settings=preload("res://scripts/settings.gd").new()
 	settings.app=self
 	add_child(settings)
-	bridge.start()
+	if commerce_enabled:
+		commerce=preload("res://scripts/commerce_access.gd").new()
+		add_child(commerce)
+		commerce.allowed_changed.connect(_rights_changed)
+		widget.hide()
+		commerce.begin()
+	else: bridge.start()
 	get_tree().auto_accept_quit=false
 	get_tree().root.close_requested.connect(shutdown)
 	if "--settings" in OS.get_cmdline_user_args(): open_settings.call_deferred()
 	if "--startup-check" in OS.get_cmdline_user_args(): check_startup.call_deferred()
-	elif not tutorial_seen: open_tutorial.call_deferred()
+	elif not tutorial_seen and not commerce_enabled: open_tutorial.call_deferred()
 
 func check_startup() -> void:
 	await get_tree().process_frame
@@ -70,9 +78,9 @@ func check_startup() -> void:
 
 func _process(delta: float) -> void:
 	if not is_instance_valid(widget): return
-	var count=bridge.poll() if not paused else 0
+	var count=bridge.poll() if not paused and can_use(species) else 0
 	var before=activity.active_ms
-	activity.update(Time.get_ticks_msec(),count,not paused and bridge.connected)
+	activity.update(Time.get_ticks_msec(),count,not paused and bridge.connected and can_use(species))
 	collection.credit(count,activity.active_ms-before)
 	widget.advance(delta,count)
 	save_timer+=delta
@@ -85,9 +93,10 @@ func toggle_pause() -> void:
 	activity.suspend(Time.get_ticks_msec())
 	paused=not paused
 	if paused: bridge.stop()
-	else: bridge.start()
+	elif can_use(species): bridge.start()
 	settings.rebuild.call_deferred()
 func choose_friend(value: int) -> void:
+	if not can_use(value): return
 	species=clampi(value,0,15)
 	widget.load_friend()
 	save_game()
@@ -105,6 +114,18 @@ func open_settings() -> void:
 	settings.show()
 	preload("res://scripts/native_mouse.gd").apply(settings,false,true)
 	settings.grab_focus()
+
+func can_use(value: int) -> bool:
+	return value>=0 and value<Catalog.IDS.size() and (not commerce_enabled or (is_instance_valid(commerce) and commerce.permits(value)))
+
+func _rights_changed(ids: PackedStringArray) -> void:
+	if not can_use(species) and not ids.is_empty():
+		choose_friend(Catalog.IDS.find(ids[0]))
+	widget.visible=can_use(species)
+	if can_use(species) and not paused:
+		if bridge.helper_pid<=0: bridge.start()
+	else: bridge.stop()
+	settings.rebuild.call_deferred()
 func open_gifts() -> void:
 	open_settings()
 	settings.tabs.current_tab=1

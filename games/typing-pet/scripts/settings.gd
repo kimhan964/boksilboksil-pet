@@ -152,10 +152,14 @@ func rebuild() -> void:
 	var friend_options=section(options,"오늘 함께할 친구")
 	var species=OptionButton.new()
 	species.alignment=HORIZONTAL_ALIGNMENT_CENTER
-	for title_ in Catalog.NAMES: species.add_item(title_)
+	for i in range(Catalog.NAMES.size()):
+		species.add_item(Catalog.NAMES[i]+(" · 잠김" if not app.can_use(i) else ""))
+		species.set_item_disabled(i,not app.can_use(i))
 	species.select(app.species)
 	species.item_selected.connect(app.choose_friend)
 	friend_options.add_child(species)
+	if app.commerce_enabled:
+		friend_options.add_child(button("구매한 친구 · 계정 연결",func(): app.commerce.show_account()))
 	var position_options=section(options,"내 책상에 쏙")
 	var row=HBoxContainer.new()
 	position_options.add_child(row)
