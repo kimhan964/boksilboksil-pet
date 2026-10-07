@@ -2,7 +2,11 @@ extends SceneTree
 # Convert VARCO's neutral preview backdrop into an alpha cutout. Preserve the sources.
 func _initialize() -> void:
 	var folder="res://assets/accessories-varco-v1/"
-	for id in ["jester","crown","beret","ribbon","wizard","sprout"]:
+	var ids=PackedStringArray(["jester","crown","beret","ribbon","wizard","sprout"])
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--folder="): folder=arg.trim_prefix("--folder=")
+		if arg.begins_with("--ids="): ids=arg.trim_prefix("--ids=").split(",")
+	for id in ids:
 		var source=folder+"source/"+id+".png"
 		var im=Image.new()
 		assert(im.load(source)==OK)
@@ -12,6 +16,9 @@ func _initialize() -> void:
 		var seen=PackedByteArray()
 		seen.resize(w*h)
 		var queue=PackedInt32Array()
+		# Enclosed white backdrop in the generated cup handle / metal clip opening.
+		var holes={"teacup":[Vector2(.75,.42)],"friedegg":[Vector2(.82,.50)]}
+		for uv in holes.get(id,[]): queue.append(int(uv.y*h)*w+int(uv.x*w))
 		for x in range(w):
 			queue.append(x)
 			queue.append((h-1)*w+x)

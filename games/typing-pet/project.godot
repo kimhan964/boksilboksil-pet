@@ -1,8 +1,8 @@
 config_version=5
 
 [application]
-config/name="복슬복슬 타자친구"
-config/version="0.1.3"
+config/name="복슬복슬메이트"
+config/version="0.1.4"
 config/icon="res://assets/icon/pet-icon.png"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="BoksilTypingFriends"

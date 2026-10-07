@@ -1,5 +1,33 @@
 # 타자친구 액세서리 인수인계 · 2026-10-07
 
+## 최신 교체: 복슬복슬메이트 / GPT Image 2.5 Flare
+
+### 추가 5종 (총 액세서리 14종)
+
+동일 VARCO 워크플로와 GPT Image 2.5 Flare, 토끼 원화 + 승인된 베레모 재질 참조를 사용한다. 새 생성 기록은 `assets/accessories-varco-v2/source/new-five-records.json`.
+
+| ID | 이름 | 누적 입력 | 활동 시간 |
+|---|---|---:|---:|
+| friedegg | 반숙 프라이 핀 | 2,500 | 14분 |
+| mushroom | 말랑 버섯 모자 | 4,500 | 25분 |
+| headphones | 나만의 미니 헤드폰 | 6,000 | 35분 |
+| teacup | 머리 위 티타임 | 8,500 | 50분 |
+| sleepcap | 꾸벅 줄무늬 수면모자 | 9,500 | 55분 |
+
+프라이는 귀 옆 핀, 나머지는 머리 위 미니 소품으로 장착한다. 헤드폰은 펫의 양 귀를 감싸는 장비가 아니라 머리 위에 얹는 작은 헤드폰 형태의 장식이다. 기존 저장·해금 ID를 유지하고, 임계값을 이미 달성한 유저는 신규 선물을 받을 수 있다.
+
+추가 5종 착용 검수: `tests/accessories_review.gd -- --new-five`, 결과 `builds/review/accessories-new-five-0.png`, `accessories-new-five-1.png`.
+
+- 사용자 지시: 납작한 아이콘 느낌을 줄이고, 코믹하면서 실제 소품처럼 보이는 형태·재질로 개선.
+- VARCO MCP의 동일 워크플로에서 `gpt-image-2.5-flare`로 9종 재생성. 초안의 GPT Image 2 결과는 채택하지 않았다.
+- `assets/accessories-varco-v2/`: 리본, 삐에로 모자, 왕관, 베레모, 마법사 모자, 새싹, 클로버, 데이지, 별. 원본은 `source/`, 생성 노드·프롬프트·URL은 `generation-records.json`.
+- 먼저 베레모를 토끼·여우·고양이에 씌워 비교한 뒤, 그 이미지를 다른 8종의 재질 참조로 연결했다.
+- 기준: 코코아 윤곽선, 세이지·로즈·크림, 비대칭으로 처진 형태, 봉제선·원단 주름·금속 굴곡. 작은 화면에서는 미세 질감보다 형태와 음영이 먼저 읽혀야 한다.
+- VARCO 원본의 흰 배경은 `tests/import_accessories.gd -- --folder=res://assets/accessories-varco-v2/ --ids=...`로 외곽 연결 영역만 투명화했다. 원본은 알파 PNG가 아니다.
+- `pin.gd`가 v2 9종을 읽는다. 기존 해금 ID와 저장 데이터는 유지한다. 핀 너비 30px, 모자 최대 너비 50px / 높이 42px로 화면 잘림 방지.
+- `tests/accessories_review.gd`: 실제 보정된 펫 색상으로 16종 × 9개 = 144개 착용 조합 렌더 및 캔버스 경계 검사 통과. `tests/check.gd -- --capture` 저장·장착·설정 입력·크기 검사 통과.
+- 검수 이미지: `builds/review/accessory-pilot.png`, `accessories-0.png`, `accessories-1.png`. 이전 v1 원본은 비교·복구용이며 런타임은 v2 사용.
+
 사용자 최신 방향: 전신 의상은 제작하지 않는다. 기존 펫 원화를 유지하며 머리·귀 액세서리와 특이한 코스튬을 늘린다.
 
 ## 제작

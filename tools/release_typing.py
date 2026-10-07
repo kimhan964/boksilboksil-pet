@@ -7,14 +7,14 @@ import release_snapshot as github
 
 ROOT = Path(__file__).resolve().parents[1]
 INSTALL = ROOT.parent / "복슬복슬타자친구"
-OUT = ROOT / "builds/typing-release-0.1.3"
-TAG = "typing-v0.1.3"
-NAME = "BoksilTypingFriends-0.1.3-Windows.zip"
+OUT = ROOT / "builds/typing-release-0.1.4"
+TAG = "typing-v0.1.4"
+NAME = "BoksilBoksilMate-0.1.4-Windows.zip"
 
 
 def package(commit):
     OUT.mkdir(parents=True, exist_ok=True)
-    entries = [(INSTALL / name, name) for name in ["TypingFriends.exe", "TypingFriends.pck", "README.md", "GODOT-LICENSE.txt", "GODOT-THIRD-PARTY.json"]]
+    entries = [(INSTALL / name, name) for name in ["TypingFriends.exe", "TypingFriends.pck", "README.md", "GODOT-LICENSE.txt", "GODOT-THIRD-PARTY.json", "FONTS-LICENSES.txt"]]
     for file in (INSTALL / "addons").rglob("*"):
         if file.is_file() and file.suffix != ".uid":
             entries.append((file, file.relative_to(INSTALL).as_posix()))
@@ -41,8 +41,8 @@ def publish(commit):
     if release is None:
         release = github.api("/releases", headers, "POST", {
             "tag_name": TAG, "target_commitish": commit,
-            "name": "복슬복슬 타자친구 0.1.3 · 독립 게임",
-            "body": (ROOT / "docs/RELEASE-TYPING-0.1.3.md").read_text(encoding="utf-8"),
+            "name": "복슬복슬메이트 0.1.4 · 액세서리 14종과 UI 개선",
+            "body": (ROOT / "docs/RELEASE-TYPING-0.1.4.md").read_text(encoding="utf-8"),
             "draft": True, "prerelease": True,
         })
     for file in [OUT / NAME, OUT / "SHA256SUMS.txt"]:

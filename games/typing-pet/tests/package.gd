@@ -7,7 +7,7 @@ func folder(path: String) -> void:
 		if file=="generation-records.json": continue
 		if packer.add_file(path.path_join(file),path.path_join(file))!=OK: failed=true
 	for child in DirAccess.get_directories_at(path):
-		if child=="source" and path.ends_with("accessories-varco-v1"): continue
+		if child=="source" and "accessories-varco-" in path: continue
 		folder(path.path_join(child))
 func _initialize() -> void:
 	var destination="res://builds/release"
@@ -25,5 +25,7 @@ func _initialize() -> void:
 	license_.store_string(Engine.get_license_text())
 	var notice=FileAccess.open(destination+"/GODOT-THIRD-PARTY.json",FileAccess.WRITE)
 	notice.store_string(JSON.stringify(Engine.get_copyright_info(),"\t"))
+	var fonts_notice=FileAccess.open(destination+"/FONTS-LICENSES.txt",FileAccess.WRITE)
+	fonts_notice.store_string(FileAccess.get_file_as_string("res://assets/fonts/Jua-OFL.txt")+"\n\n"+FileAccess.get_file_as_string("res://assets/fonts/GowunDodum-OFL.txt"))
 	print("TYPING_PCK_BUILT ",destination)
 	quit(1 if failed else 0)

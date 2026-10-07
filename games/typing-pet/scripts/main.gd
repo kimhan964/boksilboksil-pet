@@ -8,11 +8,16 @@ var species=0
 var corner=3
 var zoom=1
 var scale_factor=0.0
+var text_scale=1.0
+var resize_pivot=Vector2.ZERO
+var resize_last_position=Vector2i(-100000,-100000)
 var custom_position=false
 var saved_position=Vector2i.ZERO
 var show_lights=true
 var gift_effects=true
 var paused=false
+var tutorial_seen=false
+var tutorial
 var widget
 var settings
 var save_timer=0.0
@@ -52,6 +57,7 @@ func start_game() -> void:
 	get_tree().root.close_requested.connect(shutdown)
 	if "--settings" in OS.get_cmdline_user_args(): open_settings.call_deferred()
 	if "--startup-check" in OS.get_cmdline_user_args(): check_startup.call_deferred()
+	elif not tutorial_seen: open_tutorial.call_deferred()
 
 func check_startup() -> void:
 	await get_tree().process_frame
@@ -87,37 +93,65 @@ func choose_friend(value: int) -> void:
 	save_game()
 	settings.rebuild.call_deferred()
 func open_settings() -> void:
-	if settings.visible:
-		settings.grab_focus()
-		return
-	settings.rebuild()
-	var screen=DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
-	settings.position=screen.position+(screen.size-settings.size)/2
+	widget.finish_drag()
+	var was_visible=settings.visible
+	if not was_visible: settings.rebuild()
+	if settings.mode==Window.MODE_MINIMIZED: settings.mode=Window.MODE_WINDOWED
+	var screen=DisplayServer.screen_get_usable_rect(settings.current_screen if was_visible else DisplayServer.get_primary_screen())
+	if not was_visible:
+		settings.position=screen.position+(screen.size-settings.size)/2
+	elif screen.size.x>0:
+		settings.position=settings.position.clamp(screen.position,(screen.end-settings.size).max(screen.position))
 	settings.show()
+	preload("res://scripts/native_mouse.gd").apply(settings,false,true)
 	settings.grab_focus()
 func open_gifts() -> void:
 	open_settings()
 	settings.tabs.current_tab=1
+	var available=false
+	for entry in collection.ITEMS:
+		if collection.eligible(entry.id) and entry.id not in collection.claimed: available=true
+	if not available and collection.ready_orders()>0: settings.tabs.current_tab=2
+func open_tutorial() -> void:
+	if not is_instance_valid(tutorial):
+		tutorial=preload("res://scripts/tutorial.gd").new()
+		tutorial.app=self
+		add_child(tutorial)
+	tutorial.show_guide()
 func set_size(value: float) -> void:
+	var previous=widget.root.scale.x
 	scale_factor=clampf(value,.7,1.5)
+	if custom_position:
+		if resize_last_position!=widget.anchor_position:
+			resize_pivot=Vector2(widget.anchor_position)+widget.resize_pivot_offset(previous)
+		saved_position=Vector2i((resize_pivot-widget.resize_pivot_offset(scale_factor)).round())
 	widget.place()
+	resize_last_position=widget.anchor_position if custom_position and saved_position==widget.anchor_position else Vector2i(-100000,-100000)
+	# Autosave and slider release persist the final size, not every mouse pixel.
+func set_text_size(value: float) -> void:
+	text_scale=clampf(value,.9,1.3)
+	settings.apply_text_size()
+	widget.apply_text_size()
 	save_game()
 func save_game() -> void:
 	var file=FileAccess.open(save_path+".tmp",FileAccess.WRITE)
 	if not file:
 		save_error=true
 		return
-	file.store_string(JSON.stringify({"version":1,"species":species,"corner":corner,"zoom":zoom,"scale_factor":scale_factor,"custom_position":custom_position,"position":[saved_position.x,saved_position.y],"show_lights":show_lights,"gift_effects":gift_effects,"collection":collection.serialize()}))
+	file.store_string(JSON.stringify({"version":1,"species":species,"corner":corner,"zoom":zoom,"scale_factor":scale_factor,"text_scale":text_scale,"tutorial_seen":tutorial_seen,"custom_position":custom_position,"position":[saved_position.x,saved_position.y],"show_lights":show_lights,"gift_effects":gift_effects,"collection":collection.serialize()}))
 	file.close()
 	save_error=DirAccess.rename_absolute(save_path+".tmp",save_path)!=OK
 func load_game() -> void:
 	if not FileAccess.file_exists(save_path): return
 	var data=JSON.parse_string(FileAccess.get_file_as_string(save_path))
 	if not data is Dictionary: return
+	tutorial_seen=data.get("tutorial_seen",false)==true
 	species=collection.number(data.get("species"),15)
 	corner=collection.number(data.get("corner",3),3)
 	zoom=collection.number(data.get("zoom",1),2)
 	var scale_=data.get("scale_factor",0)
+	var text_=data.get("text_scale",1.0)
+	if typeof(text_) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(text_)): text_scale=clampf(text_,.9,1.3)
 	if typeof(scale_) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(scale_)): scale_factor=clampf(scale_,.7,1.5) if scale_>0 else 0.0
 	var point=data.get("position")
 	if point is Array and point.size()==2 and typeof(point[0]) in [TYPE_INT,TYPE_FLOAT] and typeof(point[1]) in [TYPE_INT,TYPE_FLOAT]:
