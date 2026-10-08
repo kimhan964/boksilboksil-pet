@@ -96,7 +96,10 @@ func _ready() -> void:
 	ball_window.add_child(ball_view)
 	menu=preload("res://scripts/friend_menu.gd").new()
 	menu.force_native=true
-	menu.add_item("가구 배치 · 나의 작은 공간",32)
+	menu.add_item("가구 고르기 · 배치",32)
+	menu.add_item("놀이감 꺼내기",38)
+	menu.add_item("마우스 따라오기",23)
+	menu.add_item("함께 놀기 안내",39)
 	menu.add_check_item("활동 공간 · 화면 전체로 넓히기",33)
 	menu.add_item("발견한 취향",9)
 	menu.add_item("사용법",10)

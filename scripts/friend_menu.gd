@@ -13,7 +13,7 @@ var detail: Label
 var portrait: TextureRect
 var tabs: Array=[]
 var friend_button: Button
-const SECTIONS=[[32,25],[15],[32,33,27,28],[26,18,14,9,10,900]]
+const SECTIONS=[[38,23,39],[15],[32,33],[26,18,14,9,10,900]]
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
 func add_check_item(text: String,id: int) -> void:
@@ -78,11 +78,6 @@ func _ready() -> void:
 	close.custom_minimum_size=Vector2(50,36)
 	close.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
 	top.add_child(close)
-	var placement_button=make_button("가구·아이템 배치",func(): hide(); id_pressed.emit.call_deferred(32))
-	placement_button.name="OpenFurniture"
-	Icons.decorate(placement_button,"home",40)
-	placement_button.custom_minimum_size.y=48
-	column.add_child(placement_button)
 	var tab_row=HBoxContainer.new()
 	column.add_child(tab_row)
 	for i in range(4):
@@ -182,25 +177,19 @@ func rebuild() -> void:
 			body.add_child(button)
 		return
 	var caption=Label.new()
-	caption.text=["동물을 클릭해 쓰다듬고, 물건에 끌어 놓아 함께해요.\n공·생쥐를 클릭하면 놀고, 소파에 놓으면 쉬어요.","메뉴를 골라 식탁을 준비해요.\n식탁을 클릭하거나 동물을 데려다 놓으면 이용해요.\n식탁의 우클릭 메뉴에서 음식·물을 고를 수 있어요.","가구·놀이감·꾸미기 아이템을 배치해요.","물건과 함께한 생활로 새로운 아이템을 열어요."][section]
-	caption.text+="\n"+get_parent().state.goal_text(get_parent().species)
-	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	caption.add_theme_color_override("font_color",Color("8b806e"))
+	caption.text=[
+		"놀이감을 꺼내 클릭하거나 동물을 데려다 놓아 함께 놀아요.\n마우스 따라오기로 함께 산책해 보세요.",
+		"메뉴를 골라 식탁을 준비해요.\n식탁을 클릭하거나 동물을 데려다 놓으면 이용해요.",
+		"소파·식탁·조명 등 가구를 한곳에서 배치해요.\n드래그로 이동 · 우클릭으로 좌우 반전",
+		"함께 쌓은 교감과 성장, 아이템 해금 기록이에요."
+	][section]
+	if section==3: caption.text+="\n"+get_parent().state.goal_text(get_parent().species)
 	body.add_child(caption)
-	var progress=get_parent().state.unlock_rows(get_parent().species)
-	if section==0:
-		for row in progress:
-			if row.threshold==0: add_unlock_card(row)
-	if section==3:
-		for row in progress:
-			if not row.open: add_unlock_card(row)
-		for row in progress:
-			if row.open: add_unlock_card(row)
-	else:
-		for row in progress:
-			if not row.open:
-				add_unlock_card(row)
-				break
+	if section==2:
+		var upcoming=Label.new()
+		upcoming.text="의상은 추후 업데이트 예정이에요."
+		preload("res://scripts/cozy_ui.gd").label(upcoming,"caption")
+		body.add_child(upcoming)
 	for id in SECTIONS[section]:
 		var index=get_item_index(id)
 		if index<0: continue
@@ -214,8 +203,21 @@ func rebuild() -> void:
 		button.disabled=item.disabled
 		if item.disabled: button.tooltip_text=get_parent().state.action_hint(get_parent().species,id)
 		style_action(button)
-		Icons.decorate(button,"home" if id==32 else ("table" if id==15 else "journal"),28)
+		Icons.decorate(button,"together" if section==0 else ("home" if section==2 else ("table" if section==1 else "journal")),28)
 		body.add_child(button)
+
+	if section==0:
+		var progress_hint=Label.new()
+		progress_hint.text="놀이 해금 · 쓰다듬기와 놀이로 교감을 쌓아요.\n교감은 차감되지 않고 모든 친구가 함께 쌓아요."
+		progress_hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		preload("res://scripts/cozy_ui.gd").label(progress_hint,"caption")
+		body.add_child(progress_hint)
+		for row in preload("res://scripts/play_catalog.gd").rows(get_parent().state,get_parent().species): add_play_card(row)
+	if section==3:
+		for row in get_parent().state.unlock_rows(get_parent().species):
+			if not row.open: add_unlock_card(row)
+		for row in get_parent().state.unlock_rows(get_parent().species):
+			if row.open: add_unlock_card(row)
 
 func style_action(button: Button) -> void:
 	button.custom_minimum_size.y=44
@@ -256,3 +258,33 @@ func add_unlock_card(row: Dictionary) -> void:
 		bar.show_percentage=false
 		bar.value=row.progress*100
 		column.add_child(bar)
+
+func add_play_card(row: Dictionary) -> void:
+	var card=PanelContainer.new()
+	card.add_theme_stylebox_override("panel",box("f1f4ec" if row.open else "ffffff",12))
+	body.add_child(card)
+	var line=HBoxContainer.new()
+	line.add_theme_constant_override("separation",12)
+	card.add_child(line)
+	var picture=TextureRect.new()
+	picture.texture=preload("res://scripts/play_catalog.gd").icon(row.id)
+	picture.custom_minimum_size=Vector2(52,60)
+	picture.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	picture.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	line.add_child(picture)
+	var text_column=VBoxContainer.new()
+	text_column.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	text_column.add_theme_constant_override("separation",5)
+	line.add_child(text_column)
+	for text in [row.title,row.description,row.hint]:
+		var label=Label.new()
+		label.text=text
+		label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		preload("res://scripts/cozy_ui.gd").label(label,"body" if text==row.title else "caption")
+		text_column.add_child(label)
+	if not row.open:
+		var progress=ProgressBar.new()
+		progress.custom_minimum_size.y=7
+		progress.show_percentage=false
+		progress.value=row.progress*100
+		text_column.add_child(progress)

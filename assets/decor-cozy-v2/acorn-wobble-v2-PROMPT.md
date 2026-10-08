@@ -1,0 +1,4 @@
+# 도토리 오뚝이 v2 · 2026-10-08
+Built-in image_gen. Style references: furniture-v6/toy_ball.png and decor-cozy-v2/toy-basket.png.
+Prompt: one isolated 2D round plump acorn roly-poly wobble toy, wide curved weighted bottom, pale honey-beige body, dusty walnut knitted cap, tiny stitched smiling face, small brown eyes, subtle peach cheeks, muted sage fabric leaf. Cozy handcrafted wood/linen/felt texture, fine brown outlines, pastel low saturation, soft diffuse shading, readable at 50px. Entire stem/leaf/bottom visible, transparent background, no surface, cast shadow, glow or text. 12% padding. Cute and tasteful for women in their twenties.
+Original generated PNG preserved; game crops alpha bounds at runtime, uniformly scales inside existing wobble-safe window. Old v1 retained as historical source, no runtime fallback.

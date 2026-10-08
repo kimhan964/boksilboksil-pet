@@ -4,6 +4,15 @@ const Piece=preload("res://scripts/furniture_window.gd")
 var app
 var pieces: Dictionary={}
 var panel: Window
+var item_rows: Dictionary={}
+var panel_heading: Label
+var panel_hint: Label
+var panel_icon: TextureRect
+var panel_column: VBoxContainer
+var panel_scroll: ScrollContainer
+var panel_done: Button
+const TOY_IDS=["acorn","toy_ball","toy_mouse"]
+var acorn_button: Button
 var buttons: Dictionary={}
 var previews: Dictionary={}
 var status_labels: Dictionary={}
@@ -275,6 +284,7 @@ func _process(delta: float) -> void:
 	home_delay=18
 	last_home=choice.id
 func refresh_buttons() -> void:
+	if is_instance_valid(acorn_button): acorn_button.text="치우기" if app.props.has("acorn") and app.props.acorn.visible else "꺼내기"
 	if is_instance_valid(space_picker): space_picker.select(0 if app.state.activity_space=="floor" else 1)
 	for id in buttons:
 		var available=app.state.furniture_available(id)
@@ -285,9 +295,20 @@ func refresh_buttons() -> void:
 		var appearance=Catalog.normalize_style(app.state.furniture_styles.get(id,{}))
 		previews[id].texture=Catalog.texture(id,appearance.design)
 		Catalog.apply_style(previews[id].material,appearance,id)
-		status_labels[id].text="기본 제공" if app.state.UNLOCKS["home_"+id]==0 else ("해금 완료" if app.state.furniture_available(id) else "교감 %d에 열려요"%app.state.UNLOCKS["home_"+id])
-func open() -> void:
+		status_labels[id].text="기본 제공" if app.state.UNLOCKS["home_"+id]==0 else ("해금 완료" if app.state.furniture_available(id) else app.state.route_hint(app.state.selected,"home_"+id))
+func open(kind: String="home") -> void:
 	if not is_instance_valid(panel): build_panel()
+	var toys=kind=="toys"
+	panel.set_deferred("size",Vector2i(470,440 if toys else 560))
+	panel_column.set_deferred("size",Vector2(426,400 if toys else 520))
+	panel_scroll.custom_minimum_size.y=160 if toys else 320
+	panel_icon.texture=preload("res://scripts/ui_icons.gd").texture("together" if toys else "home")
+	panel_done.text="닫기" if toys else "배치 마치기"
+	panel.title="함께하기 · 놀이감" if toys else "집 꾸미기 · 가구 배치"
+	panel_heading.text="함께 놀아요" if toys else "나의 작은 공간"
+	panel_hint.text="꺼낸 놀이감을 클릭하거나 동물을 데려다 놓아 주세요.\n드래그로 옮기거나 던지면 함께 따라가며 놀아요." if toys else "배치 후 드래그로 이동 · 우클릭으로 좌우 반전\n가구를 클릭하거나 동물을 놓으면 함께 이용해요."
+	space_picker.visible=not toys
+	for id in item_rows: item_rows[id].visible=(id in TOY_IDS)==toys
 	refresh_buttons()
 	var rect=app.usable_screen()
 	panel.position=rect.position+(rect.size-panel.size)/2
@@ -320,16 +341,19 @@ func build_panel() -> void:
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	panel.add_child(background)
 	var column=VBoxContainer.new()
+	panel_column=column
 	column.position=Vector2(22,18)
 	column.size=Vector2(426,520)
 	column.add_theme_constant_override("separation",10)
 	panel.add_child(column)
 	var heading=Label.new()
+	panel_heading=heading
 	heading.text="나의 작은 공간"
 	preload("res://scripts/cozy_ui.gd").label(heading,"title")
 	heading.add_theme_color_override("font_color",Color("59564f"))
 	column.add_child(heading)
 	var home_icon=TextureRect.new()
+	panel_icon=home_icon
 	home_icon.texture=preload("res://scripts/ui_icons.gd").texture("home")
 	home_icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	home_icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -337,6 +361,7 @@ func build_panel() -> void:
 	home_icon.size=Vector2(56,56)
 	background.add_child(home_icon)
 	var hint=Label.new()
+	panel_hint=hint
 	hint.text="배치 후 드래그로 이동 · 우클릭으로 좌우 반전\n가구를 클릭하거나 동물을 놓으면 함께 이용해요."
 	preload("res://scripts/cozy_ui.gd").label(hint,"caption")
 	hint.add_theme_color_override("font_color",Color("777167"))
@@ -349,6 +374,7 @@ func build_panel() -> void:
 	space_picker.item_selected.connect(func(index): app.set_activity_space("floor" if index==0 else "desktop"))
 	column.add_child(space_picker)
 	var scroll=ScrollContainer.new()
+	panel_scroll=scroll
 	scroll.custom_minimum_size=Vector2(426,320)
 	scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
@@ -357,6 +383,28 @@ func build_panel() -> void:
 	rows.add_theme_constant_override("separation",10)
 	rows.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	scroll.add_child(rows)
+	var acorn_row=HBoxContainer.new()
+	acorn_row.add_theme_constant_override("separation",12)
+	rows.add_child(acorn_row)
+	item_rows.acorn=acorn_row
+	var acorn_icon=TextureRect.new()
+	acorn_icon.texture=preload("res://scripts/decor_art.gd").icon("acorn")
+	acorn_icon.custom_minimum_size=Vector2(64,68)
+	acorn_icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	acorn_icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	acorn_row.add_child(acorn_icon)
+	var acorn_text=Label.new()
+	acorn_text.text="도토리 오뚝이\n기본 제공 · 클릭하면 흔들흔들"
+	acorn_text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	acorn_text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	preload("res://scripts/cozy_ui.gd").label(acorn_text)
+	acorn_row.add_child(acorn_text)
+	acorn_button=Button.new()
+	acorn_button.custom_minimum_size=Vector2(96,40)
+	acorn_button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+	style_button(acorn_button)
+	acorn_button.pressed.connect(func(): app.set_acorn_visible(not app.props.acorn.visible))
+	acorn_row.add_child(acorn_button)
 	var ordered=Catalog.ITEMS.keys()
 	ordered.sort_custom(func(a,b):
 		var ta=app.state.UNLOCKS["home_"+a]
@@ -365,6 +413,7 @@ func build_panel() -> void:
 	for id in ordered:
 		var item=VBoxContainer.new()
 		rows.add_child(item)
+		item_rows[id]=item
 		var row=HBoxContainer.new()
 		row.add_theme_constant_override("separation",12)
 		item.add_child(row)
@@ -404,6 +453,7 @@ func build_panel() -> void:
 		row.add_child(button)
 		buttons[id]=button
 	var done=Button.new()
+	panel_done=done
 	done.text="배치 마치기"
 	style_button(done)
 	done.pressed.connect(func(): save(); panel.hide())

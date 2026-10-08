@@ -123,7 +123,7 @@ func action_hint(_species: int, _id: int) -> String:
 	return ""
 
 func progress_text(species: int) -> String:
-	var lines=PackedStringArray(["우리 집 교감 %d · 모든 친구가 함께 쌓아요"%home_points(),"행동과 표정은 쓰다듬기·들기·물건 이용·생활 상황에 따라 나타나요.","식탁에서 먹고 마시고, 소파와 침대에서 쉬어요.","교감으로 생활 가구·놀이감·꾸미기 아이템이 열리며 점수는 차감되지 않아요.","쓰다듬기·놀이·교감 +1~2, 식사·물·가구 이용 +1.","같은 교감 행동은 8초, 식사·물·가구 이용은 45초 간격으로 기록해요.","해금된 물건은 집 꾸미기에서 배치하고 클릭하거나 동물을 놓아 이용하세요."])
+	var lines=PackedStringArray(["우리 집 교감 %d · 모든 친구가 함께 쌓아요"%home_points(),"행동과 표정은 쓰다듬기·들기·물건 이용·생활 상황에 따라 나타나요.","식탁에서 먹고 마시고, 소파와 침대에서 쉬어요.","교감으로 생활 가구·놀이감·꾸미기 아이템이 열리며 점수는 차감되지 않아요.","쓰다듬기·놀이·교감 +1~2, 식사·물·가구 이용 +1.","같은 교감 행동은 8초, 식사·물·가구 이용은 45초 간격으로 기록해요.","놀이감은 함께하기에서 꺼내고, 가구는 집 꾸미기에서 배치해 이용하세요."])
 	for row in unlock_rows(species): lines.append(("배치 가능 · " if row.open else "준비 중 · ")+row.title+("" if row.open else " · "+row.hint))
 	return "\n".join(lines)
 

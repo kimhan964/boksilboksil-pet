@@ -54,3 +54,7 @@
 ## 10월 7일 새 배포 기준
 
 GitHub v0.32.0-preview.20261007에 최신 설치 스냅샷을 정리해 배포한다. 구형 v0.31.0 배포와 구분한다. 실행은 ZIP 내부 DesktopFriends.exe이며 PCK 해시는 FILE-SHA256SUMS.txt와 OPTIMIZATION.json을 기준으로 확인한다. 수달 표정 v2는 새 이미지 8개를 사용하고 실행 중 몸통 폭 보정을 제거했다. 배포 준비 검증은 소스 밖 builds/release-20261007에서 수행해 5개 핵심 검사 모두 통과했다.
+
+
+## 2026-10-08 최신 로컬 메뉴 정리
+함께하기/집 꾸미기 분리 및 의상 UI 숨김 완료. 세부 변경·검사는 `MENU-ORGANIZATION-HANDOFF-2026-10-08.md`. 공개 ZIP은 이번 UI 변경 이전 버전이며 로컬 최신 PCK 해시는 설치 폴더 LATEST-RUNTIME.json 기준.

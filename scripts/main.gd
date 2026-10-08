@@ -463,7 +463,7 @@ func on_visit(id: String) -> void:
 
 func activity(id: int) -> void:
 	# Old action shortcuts are retired. Real input and placed objects trigger them.
-	if id in [0,1,2,11,12,13,16,20,21,22,23,24,29,30,34,35,36,37] or (id>=400 and id<404): return
+	if id in [0,1,2,11,12,13,16,20,21,22,24,29,30,34,35,36,37] or (id>=400 and id<404): return
 	if id==900 and commerce_access!=null:
 		commerce_access.show_account("연결한 계정의 동물 이용권을 확인할 수 있어요.")
 		return
@@ -497,6 +497,10 @@ func activity(id: int) -> void:
 	match id:
 		33:
 			set_activity_space("desktop" if state.activity_space=="floor" else "floor")
+		38:
+			if is_instance_valid(furniture_room): furniture_room.open("toys")
+		39:
+			show_info("함께 놀아요","놀이감을 꺼내 클릭하거나 동물을 데려다 놓아 주세요.\n실뜨개 공은 굴리며 놀고, 생쥐 놀이감은 따라가며 톡톡 건드려요.\n마우스 따라오기로 커서를 따라 산책해요.\n동물을 클릭하면 쓰다듬고, 잡고 있으면 2초 뒤 버둥거려요.")
 		32:
 			if is_instance_valid(furniture_room): furniture_room.open()
 		31:
@@ -980,7 +984,7 @@ func on_growth_changed(species: int, stage: int) -> void:
 
 func show_food_unlock(species: int,foods: Array) -> void:
 	if species!=state.selected or foods.is_empty(): return
-	gift_notices.append({"title":"식탁에 새 메뉴가 열렸어요","body":Food.title_for(species,foods[0])+(" 외 %d종"%(foods.size()-1) if foods.size()>1 else ""),"hint":"돌보기 → 먹이 고르기에서 차려주세요"})
+	gift_notices.append({"title":"식탁에 새 메뉴가 열렸어요","body":Food.title_for(species,foods[0])+(" 외 %d종"%(foods.size()-1) if foods.size()>1 else ""),"hint":"식탁 준비 → 식탁 메뉴 고르기에서 차려주세요"})
 
 func show_gift(species: int, gifts: Array, growth_stage: int=-1) -> void:
 	if species!=state.selected or not is_instance_valid(pet): return
@@ -991,7 +995,7 @@ func show_gift(species: int, gifts: Array, growth_stage: int=-1) -> void:
 	if gifts.size()>2: body+=" 외 %d개"%(gifts.size()-2)
 	var action=str(state.last_reward_action.get(str(species),""))
 	var cause=State.ACTION_LABELS.get(action,"함께한 시간")
-	gift_notices.append({"title":"새로운 생활이 열렸어요" if growth_stage<0 else "한 뼘 더 자랐어요","body":body if growth_stage<0 else State.GROWTH_NAMES[growth_stage]+"가 되었어요","hint":cause+"로 가까워졌어요 · 집 꾸미기에서 배치해 주세요"})
+	gift_notices.append({"title":"새로운 생활이 열렸어요" if growth_stage<0 else "한 뼘 더 자랐어요","body":body if growth_stage<0 else State.GROWTH_NAMES[growth_stage]+"가 되었어요","hint":cause+"로 가까워졌어요 · 놀이감은 함께하기, 가구는 집 꾸미기에서 꺼내 주세요"})
 	if gift_notices.size()>6: gift_notices.pop_front()
 
 func advance_gift_notices(delta: float) -> void:
@@ -1052,3 +1056,21 @@ func use_common_toy(id: String) -> void:
 	props[id].confirm_drop()
 	var point=(props[id].feet_point()+Vector2(-48,0)).clamp(pet.motion.bounds.position,pet.motion.bounds.end)
 	pet.motion.visit(point,"prop_use",id,true)
+
+func set_acorn_visible(value: bool) -> void:
+	if not props.has("acorn"): return
+	if value:
+		state.hidden.erase("acorn")
+		preferred_toy="acorn"
+		focus_prop="acorn"
+		ensure_prop_nearby("acorn")
+		floor_prop(props.acorn)
+	else:
+		if "acorn" not in state.hidden: state.hidden.append("acorn")
+		if pet.motion.visit_id=="acorn": pet.motion.cancel_play()
+		props.acorn.set_wobbling(false)
+	state.save_game()
+	apply_prop_visibility()
+	refresh_destinations()
+	request_layer_order()
+	if is_instance_valid(furniture_room): furniture_room.refresh_buttons()

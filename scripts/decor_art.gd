@@ -20,8 +20,8 @@ static func icon(kind: String, species: int=0) -> Texture2D:
 	if kind=="acorn":
 		if acorn_icon==null:
 			var image=Image.new()
-			if preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/decor/acorn-wobble-v1.png")==OK:
-				acorn_icon=ImageTexture.create_from_image(image)
+			if preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/decor-cozy-v2/acorn-wobble-v2.png")==OK:
+				acorn_icon=ImageTexture.create_from_image(image.get_region(image.get_used_rect()))
 		return acorn_icon
 	if kind=="water":
 		if pond_icon==null:

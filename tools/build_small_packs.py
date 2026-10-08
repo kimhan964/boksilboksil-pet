@@ -102,6 +102,8 @@ def build():
  for p in (ROOT/'tests').glob('*.gd'):groups['common'][p.relative_to(ROOT).as_posix()]=p.read_bytes()
  groups['common']['tools/check_package.gd']=(ROOT/'tools/check_package.gd').read_bytes()
  groups['common']['assets/hold-camera-v2.json']=(ROOT/'assets/hold-camera-v2.json').read_bytes()
+ # New generated common art is outside the old runtime snapshot.
+ groups['common']['assets/decor-cozy-v2/acorn-wobble-v2.png']=(ROOT/'assets/decor-cozy-v2/acorn-wobble-v2.png').read_bytes()
  original_png=0;encoded_png=0;pixels=0;cropped_pixels=0;start=time.monotonic()
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
   for i,(name,path,meta,size) in enumerate(pool.map(convert,jobs),1):
