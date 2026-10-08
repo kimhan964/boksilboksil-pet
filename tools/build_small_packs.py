@@ -111,6 +111,11 @@ def build():
    original_png+=size;encoded_png+=path.stat().st_size;pixels+=meta['size'][0]*meta['size'][1];cropped_pixels+=meta['crop_size'][0]*meta['crop_size'][1]
    if i%40==0:print('CONVERTED',i,'/',len(jobs),'seconds',round(time.monotonic()-start),'MB',round(encoded_png/1e6,1),flush=True)
  groups['common']['assets/image-storage.json']=json.dumps(index,separators=(',',':')).encode()
+ # Customer packages always require server-verified animal entitlements.
+ config=groups['common']['project.godot'].decode('utf-8')
+ if '[commerce]' in config:raise RuntimeError('Review existing commerce settings before packaging')
+ groups['common']['project.godot']=(config+'\n[commerce]\nenabled=true\nsite_url="https://boksilboksil.kr"\n').encode()
+
  pack_manifest={'version':'storage-20261007-v1','default':'rabbit','animals':{}}
  pack_dir=OUT/'animal-packs';pack_dir.mkdir(exist_ok=True)
  for id in IDS:

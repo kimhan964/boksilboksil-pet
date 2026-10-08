@@ -10,6 +10,7 @@ OUT=ROOT/'builds/release-menu-20261008'
 TAG='v0.33.1-preview.20261008'
 NAME='BoksilboksilPet-0.33.1-Windows-Small.zip'
 BODY=ROOT/'docs/RELEASE-MENU-2026-10-08.md'
+TITLE='복슬복슬펫 0.33.1 · 함께하기 정리와 도토리 놀이'
 RESOURCES=['scripts/decor_art.gd','scripts/desktop_pet.gd','scripts/friend_menu.gd',
            'scripts/furniture_room.gd','scripts/main.gd','scripts/pet_state.gd',
            'scripts/play_catalog.gd','tests/menu_organization_test.gd',
@@ -61,7 +62,7 @@ def publish(commit):
     release=next((r for r in releases if r['tag_name']==TAG),None)
     if release is None:
         release=github.api('/releases',headers,'POST',{'tag_name':TAG,'target_commitish':commit,
-            'name':'복슬복슬펫 0.33.1 · 함께하기 정리와 도토리 놀이','body':BODY.read_text(encoding='utf-8'),
+            'name':TITLE,'body':BODY.read_text(encoding='utf-8'),
             'draft':True,'prerelease':True})
     assert release['draft'],'Published release is immutable'
     assert release['target_commitish']==commit,'Draft source commit differs'

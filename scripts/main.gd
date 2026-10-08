@@ -121,6 +121,7 @@ func _ready() -> void:
 	app_theme=preload("res://scripts/cozy_ui.gd").theme()
 	state.load_game()
 	animal_packs=preload("res://scripts/animal_pack_manager.gd").new()
+	animal_packs.authorization=func(species): return commerce_access!=null and commerce_access.permits(species) if bool(ProjectSettings.get_setting("commerce/enabled",false)) else true
 	add_child(animal_packs)
 	if state.test_unlocks(): state.hidden.clear()
 	if bool(ProjectSettings.get_setting("commerce/enabled",false)):
@@ -154,6 +155,7 @@ func _start_world() -> void:
 	add_child(timer)
 
 func _commerce_changed(ids: PackedStringArray) -> void:
+	if is_instance_valid(animal_packs): animal_packs.revalidate_permissions()
 	if ids.is_empty():
 		clear_falling_gifts()
 		cancel_feeding()
@@ -162,7 +164,15 @@ func _commerce_changed(ids: PackedStringArray) -> void:
 			pet.hide()
 			pet.queue_free()
 		for prop in props.values(): prop.hide()
+		if is_instance_valid(furniture_room):
+			furniture_room.set_process(false)
+			furniture_room.toy_play.cancel()
+			if is_instance_valid(furniture_room.panel): furniture_room.panel.hide()
+			for piece in furniture_room.pieces.values(): piece.hide()
 		return
+	if is_instance_valid(furniture_room):
+		furniture_room.set_process(true)
+		for piece in furniture_room.pieces.values(): piece.show()
 	if not commerce_access.permits(state.selected): state.selected=Catalog.IDS.find(ids[0])
 	if not world_started: _start_world()
 	elif not is_instance_valid(pet) or pet.is_queued_for_deletion() or not commerce_access.permits(pet.species): choose_friend(state.selected)
@@ -245,7 +255,7 @@ func rabbit_hop_available(species: int,stage: int) -> bool:
 func choose_friend(species: int) -> void:
 	if species<0 or species>=Catalog.IDS.size(): return
 	if commerce_access!=null and not commerce_access.permits(species):
-		commerce_access.show_account("선물받은 동물만 선택할 수 있어요.")
+		commerce_access.show_account("구매하거나 선물받은 동물만 선택할 수 있어요.")
 		return
 	# Keep the visible pet and saved selection until every required byte is ready.
 	if is_instance_valid(animal_packs):

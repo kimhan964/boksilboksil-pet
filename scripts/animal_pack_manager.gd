@@ -4,6 +4,7 @@ signal finished(ok: bool)
 const Catalog=preload("res://scripts/animal_catalog.gd")
 const Images=preload("res://scripts/asset_images.gd")
 var manifest: Dictionary={}
+var authorization: Callable
 var busy=false
 var species_id=""
 var cache_root="user://animal-packs"
@@ -24,8 +25,18 @@ func _ready() -> void:
 	if FileAccess.file_exists(path): manifest=JSON.parse_string(FileAccess.get_file_as_string(path))
 	local_root=OS.get_executable_path().get_base_dir().path_join("animal-packs")
 
-func available(species: int) -> bool:
+func authorized(species: int) -> bool:
 	if species<0 or species>=Catalog.IDS.size(): return false
+	if authorization.is_valid(): return bool(authorization.call(species))
+	return not bool(ProjectSettings.get_setting("commerce/enabled",false))
+
+func revalidate_permissions() -> void:
+	if busy and not authorized(Catalog.IDS.find(species_id)):
+		cleanup_request()
+		finish(false)
+
+func available(species: int) -> bool:
+	if not authorized(species): return false
 	var id: String=Catalog.IDS[species]
 	if manifest.is_empty(): return true # Full source checkout.
 	if id==str(manifest.get("default","rabbit")): return true
@@ -36,6 +47,7 @@ func pack_path(id: String) -> String:
 	return cache_root.path_join(str(manifest.version)).path_join(str(manifest.animals[id].file))
 
 func mount_verified(path: String,id: String) -> bool:
+	if not authorized(Catalog.IDS.find(id)): return false
 	if not manifest.get("animals",{}).has(id) or not FileAccess.file_exists(path): return false
 	var spec: Dictionary=manifest.animals[id]
 	var file=FileAccess.open(path,FileAccess.READ)
@@ -51,6 +63,7 @@ func mount_verified(path: String,id: String) -> bool:
 	return true
 
 func ensure(species: int,initial: bool=false) -> bool:
+	if not authorized(species): return false
 	if available(species): return true
 	if busy: return false
 	var id: String=Catalog.IDS[species]
@@ -63,7 +76,7 @@ func ensure(species: int,initial: bool=false) -> bool:
 	make_panel(species)
 	begin_download()
 	var result: bool=await finished
-	return result
+	return result and authorized(species)
 
 func make_panel(species: int) -> void:
 	panel=Window.new()
@@ -94,7 +107,7 @@ func make_panel(species: int) -> void:
 	progress.custom_minimum_size.y=20
 	column.add_child(progress)
 	var hint=Label.new()
-	hint.text="한 번만 다운로드하면 다음부터 인터넷 없이 만나요."
+	hint.text="동작 파일은 한 번만 받아요. 이용권은 계정으로 확인해요."
 	preload("res://scripts/cozy_ui.gd").label(hint,"caption")
 	column.add_child(hint)
 	var row=HBoxContainer.new()
@@ -122,6 +135,10 @@ func make_panel(species: int) -> void:
 	if get_parent().has_method("request_layer_order"): get_parent().request_layer_order()
 
 func begin_download() -> void:
+	if not authorized(Catalog.IDS.find(species_id)):
+		cleanup_request()
+		finish(false)
+		return
 	if is_instance_valid(request): return
 	last_error=""
 	var spec: Dictionary=manifest.animals[species_id]
@@ -150,6 +167,10 @@ func _process(_delta: float) -> void:
 	progress.value=100.0*request.get_downloaded_bytes()/maxi(1,total)
 
 func completed(result: int,code: int,_headers: PackedStringArray,_body: PackedByteArray) -> void:
+	if not authorized(Catalog.IDS.find(species_id)):
+		cleanup_request()
+		finish(false)
+		return
 	if result!=HTTPRequest.RESULT_SUCCESS or code!=200:
 		fail("친구를 데려오지 못했어요. 인터넷 연결을 확인하고 다시 시도해 주세요.")
 		return
