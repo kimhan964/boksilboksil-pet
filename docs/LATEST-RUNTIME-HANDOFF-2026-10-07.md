@@ -58,3 +58,8 @@ GitHub v0.32.0-preview.20261007에 최신 설치 스냅샷을 정리해 배포�
 
 ## 2026-10-08 최신 로컬 메뉴 정리
 함께하기/집 꾸미기 분리 및 의상 UI 숨김 완료. 세부 변경·검사는 `MENU-ORGANIZATION-HANDOFF-2026-10-08.md`. 공개 ZIP은 이번 UI 변경 이전 버전이며 로컬 최신 PCK 해시는 설치 폴더 LATEST-RUNTIME.json 기준.
+
+
+## 최신 공개 다운로드: 0.33.1 · 2026-10-08
+https://github.com/kimhan964/boksilboksil-pet/releases/tag/v0.33.1-preview.20261008
+메뉴 정리·도토리 v2·놀이 해금 안내 포함. 공개 ZIP 409bafa9461fb260e0e3b7b5d9ecba0125f989767e9199c95e54c1f44ddce107; 자세한 검증과 링크는 MENU-ORGANIZATION-HANDOFF-2026-10-08.md의 공개 완료 절.

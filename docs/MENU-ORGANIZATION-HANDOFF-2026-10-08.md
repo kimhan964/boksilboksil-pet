@@ -20,3 +20,14 @@
 - installed PCK native GL 테스트 PASS: 도토리 보이기/치우기/방문, 공4/생쥐10 경계 판정,181각도 도토리 alpha hull 전체 고정native마스크 안에 포함, UI 렌더/닫기버튼 범위. 별도 MemoryState, 사용자 저장 미초기화.
 - screenshots builds/acorn-play-review-20261008. 빌드 스냅샷에 새 PNG가 없으므로 build_small_packs.py common overlay에 새 자산 명시적으로 추가; 다음 패키징 누락 방지. 빌더 Python compile PASS, 전체 재패키징은 미실시.
 - 추가 hotpatch journals acorn-play-unlocks-20261008, acorn-review-20261008. 로컬 최신 PCK 반영, GitHub 미업로드.
+
+## GitHub 공개 완료 · 2026-10-08
+위의 미업로드 설명은 개발 중 기록입니다. 이번 요청으로 메뉴 정리·도토리·놀이 해금 안내가 0.33.1 새 미리보기 릴리스에 공개되었습니다.
+- 릴리스: https://github.com/kimhan964/boksilboksil-pet/releases/tag/v0.33.1-preview.20261008
+- 다운로드: https://github.com/kimhan964/boksilboksil-pet/releases/download/v0.33.1-preview.20261008/BoksilboksilPet-0.33.1-Windows-Small.zip
+- 소스 커밋: 827545fc8b260d7c3cd299990438e77448ba5dab
+- ZIP: 189977243 bytes, SHA256 409bafa9461fb260e0e3b7b5d9ecba0125f989767e9199c95e54c1f44ddce107
+- 공개 PCK SHA256: 14be51bbad3293646acf1f0f74d727fa72edb456d028f7d3033230defe224f4a
+- 최신 설치 PCK를 압축 정리한 파일: 모든 리소스 MD5 검증 및 변경 스크립트/신규 PNG의 원본 바이트 일치 확인. 현재 설치와 공개 PCK의 리소스 내용은 같고 PCK 구조/해시는 다름.
+- ZIP CRC/포함 PCK 해시/소스커밋 검증, 공개용 PCK에서 native menu_organization_test 및 headless toy_play_test PASS. GitHub 업로드 크기·SHA256 검증, 공개 태그 커밋 검증, 익명 실제 다운로드 ZIP 헤더 확인.
+- 기본 토끼 소형판만 새 업로드. 기존 15종 추가 팩 URL·해시 유지; 이전 공개 자산 덮어쓰기 없음.
