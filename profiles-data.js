@@ -1,0 +1,2 @@
+export const FAVORITE_DISHES={"rabbit": "dish-0-2", "otter": "dish-1-1", "squirrel": "dish-2-2", "hedgehog": "dish-3-2", "raccoon": "dish-4-2", "fox": "dish-5-2", "bear": "dish-6-2", "owl": "dish-7-3", "cat": "dish-1-0", "puppy": "dish-6-0", "hamster": "dish-2-2", "panda": "dish-4-1", "red_panda": "dish-5-2", "lamb": "dish-2-1", "koala": "dish-4-2", "penguin": "dish-1-1"};
+export const PROFILE_SOURCE={"path": "C:\\Users\\rlagk\\Documents\\바탕화면 친구\\scripts\\companion_profiles.gd", "sha256": "61947b8955cf15e01e552c76ecc530bf7e0df3d58718ef9b2a721a1c3d430683"};

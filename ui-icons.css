@@ -1,0 +1,18 @@
+/* The icons remain full-color artwork, including on the green active menu. */
+.ui-art{display:inline-block;width:24px;height:24px;object-fit:contain;flex-shrink:0;vertical-align:middle;pointer-events:none;user-select:none}
+.day-label>.ui-art{width:26px;height:26px}.wallet>.ui-art{width:24px;height:24px}.icon-button>.ui-art{width:25px;height:25px}
+.care-panel button>.ui-art{width:36px;height:32px}.care-panel button b{white-space:nowrap;line-height:1.25}
+nav button>.ui-art{width:35px;height:35px}nav button:first-child>.ui-art{filter:drop-shadow(0 1px 1px #2e473c38)}
+.bond{display:flex;align-items:center;gap:4px}.bond>.ui-art{width:18px;height:18px}.little-note>.ui-art{width:28px;height:28px}.text-button{display:flex;align-items:center;justify-content:center;gap:7px}.text-button>.ui-art{width:19px;height:19px}
+.room-title>.ui-art{width:30px;height:30px}.snapshot{display:grid;place-items:center}.snapshot>.ui-art{width:25px;height:25px}.skin-switch>.ui-art{width:25px;height:25px}
+.home-label>.ui-art{width:34px;height:34px}.save-status{display:flex;align-items:center;gap:4px}.save-status>.ui-art{width:15px;height:15px}
+#edit-done{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}#edit-done>.ui-art{width:17px;height:17px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:6px}.pill>.ui-art{width:20px;height:20px}
+.card .price{display:flex;align-items:center;justify-content:center;gap:4px}.card .ui-art{width:16px;height:16px;object-fit:contain}
+.card.selected:after{content:'';width:18px;height:18px;background:url('assets/ui-icons/check.png') center/contain no-repeat}
+.skin-info button{display:flex;justify-content:center;align-items:center;gap:4px}.skin-info button>.ui-art{width:16px;height:16px}
+.portrait-hint>.ui-art{width:33px;height:33px}.portrait-hint button>.ui-art{width:22px;height:22px}
+@media(max-height:660px){.care-panel button>.ui-art{width:29px;height:27px}nav button>.ui-art{width:29px;height:29px}.home-label>.ui-art{width:29px;height:29px}.room-title>.ui-art{width:25px;height:25px}}
+@media(max-height:440px) and (orientation:landscape){.care-panel{width:59px}.care-panel button{width:54px;min-height:42px;gap:1px}.care-panel button>.ui-art{width:27px;height:26px}.care-panel button b{font-size:8px}nav button>.ui-art{width:27px;height:27px}.day-label>.ui-art{width:21px;height:21px}.wallet>.ui-art{width:20px;height:20px}.icon-button>.ui-art{width:22px;height:22px}.room-title>.ui-art{width:22px;height:22px}.snapshot>.ui-art{width:22px;height:22px}.skin-switch>.ui-art{width:22px;height:22px}.bond>.ui-art{width:14px;height:14px}.text-button>.ui-art{width:16px;height:16px}.home-label>.ui-art{width:25px;height:25px}.save-status>.ui-art{width:12px;height:12px}#edit-done>.ui-art{width:14px;height:14px}.pill>.ui-art{width:17px;height:17px}}
+@media(max-width:750px) and (orientation:landscape){.save-status{display:none}}
+@media(orientation:portrait){.bond,.text-button{display:none}.room-title>.ui-art{width:23px;height:23px}nav button>.ui-art{width:25px;height:25px}.care-panel button>.ui-art{width:28px;height:27px}.save-status{display:none}}
