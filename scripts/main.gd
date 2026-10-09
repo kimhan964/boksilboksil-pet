@@ -126,6 +126,8 @@ func _ready() -> void:
 	if state.test_unlocks(): state.hidden.clear()
 	if bool(ProjectSettings.get_setting("commerce/enabled",false)):
 		commerce_access=CommerceAccess.new()
+		animal_packs.pack_authorization=commerce_access.authorize_pack
+		animal_packs.pack_headers=commerce_access.pack_headers
 		add_child(commerce_access)
 		commerce_access.allowed_changed.connect(_commerce_changed)
 		commerce_access.begin()

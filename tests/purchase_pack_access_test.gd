@@ -50,6 +50,23 @@ func run() -> void:
 	manager.busy=true
 	manager.begin_download()
 	check(not manager.busy and manager.request==null,"retry cannot bypass expired access")
+	access._accept_entitlements({"animalIds":["otter"],"validForSeconds":60})
+	manager.busy=true
+	manager.pack_headers=func(): return PackedStringArray(["Authorization: Bearer fixture"])
+	manager.pack_authorization=func(_id): return {}
+	await manager.begin_download()
+	check(manager.request==null and not manager.last_error.is_empty(),"denied server grant starts no pack HTTP request")
+	manager.pack_authorization=func(_id): return {"url":"https://boksilboksil.kr/api/game/pet-pack/file?animal=otter","size":1,"sha256":"wrong"}
+	await manager.begin_download()
+	check(manager.request==null,"mismatched grant digest/size rejected before HTTP download")
+	manager.pack_authorization=func(_id):
+		await create_timer(0.05).timeout
+		return {}
+	manager.begin_download()
+	check(manager.grant_pending,"grant is pending")
+	manager.cancel()
+	await create_timer(0.1).timeout
+	check(not manager.busy and not manager.grant_pending and manager.request==null,"cancel while awaiting grant creates no request")
 	pet.free()
 	access.free()
 	manager.free()

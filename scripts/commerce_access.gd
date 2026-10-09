@@ -38,8 +38,16 @@ func begin() -> void:
 	add_child(lease_timer)
 	lease_timer.start()
 	panel=AcceptDialog.new()
-	panel.title="바탕화면 친구 · 계정 연결"
-	panel.min_size=Vector2i(440,220)
+	panel.visible=false
+	panel.force_native=true
+	panel.transient=false
+	panel.always_on_top=true
+	panel.theme=preload("res://scripts/cozy_ui.gd").theme()
+	panel.title="복슬복슬펫 · 구매한 친구 연결"
+	panel.min_size=Vector2i(480,260)
+	panel.size=Vector2i(480,260)
+	panel.get_label().autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	panel.get_label().custom_minimum_size=Vector2(440,140)
 	panel.get_ok_button().text="이용권 다시 확인"
 	panel.confirmed.connect(refresh)
 	panel.add_button("계정 연결",false,"connect")
@@ -61,10 +69,36 @@ func begin() -> void:
 func permits(species: int) -> bool:
 	return species>=0 and species<Catalog.IDS.size() and Time.get_ticks_msec()<verified_until and allowed.has(Catalog.IDS[species])
 
-func show_account(message: String="받은 동물을 확인하려면 계정을 연결해 주세요.") -> void:
+func show_account(message: String="구매한 동물이 있는 계정을 연결해 주세요.\n\n계정 연결 → 브라우저에서 로그인·PC 연결 승인\n→ 구매·등록한 동물만 다운로드하고 이용해요.\n선물을 받았다면 홈페이지에서 먼저 ‘내 계정에 받기’를 완료해 주세요.") -> void:
 	if panel==null: return
 	panel.dialog_text=message
-	panel.popup_centered()
+	if DisplayServer.get_name()!="headless":
+		var screen=DisplayServer.screen_get_usable_rect(DisplayServer.SCREEN_PRIMARY)
+		panel.position=screen.position+(screen.size-panel.size)/2
+	panel.show()
+
+func authorize_pack(animal_id: String) -> Dictionary:
+	var species=Catalog.IDS.find(animal_id)
+	if not permits(species): return {}
+	var grant_request=HTTPRequest.new()
+	grant_request.timeout=15
+	grant_request.max_redirects=0
+	grant_request.body_size_limit=8192
+	add_child(grant_request)
+	var err=grant_request.request(site_url+"/api/game/pet-pack?animal="+animal_id.uri_encode(),PackedStringArray(["Authorization: Bearer "+access_token]))
+	if err!=OK:
+		grant_request.queue_free()
+		return {}
+	var response=await grant_request.request_completed
+	grant_request.queue_free()
+	if response[0]!=HTTPRequest.RESULT_SUCCESS or response[1]!=200 or not permits(species): return {}
+	var grant=JSON.parse_string(response[3].get_string_from_utf8())
+	if not grant is Dictionary or grant.get("animalId")!=animal_id: return {}
+	if grant.get("url")!=site_url+"/api/game/pet-pack/file?animal="+animal_id: return {}
+	return grant
+
+func pack_headers() -> PackedStringArray:
+	return PackedStringArray(["Authorization: Bearer "+access_token])
 
 func _request(kind: String,path: String,data: Dictionary={},bearer: String="",method: int=HTTPClient.METHOD_POST) -> void:
 	if not request_kind.is_empty(): return

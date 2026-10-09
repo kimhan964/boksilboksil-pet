@@ -5,6 +5,9 @@ const Catalog=preload("res://scripts/animal_catalog.gd")
 const Images=preload("res://scripts/asset_images.gd")
 var manifest: Dictionary={}
 var authorization: Callable
+var pack_authorization: Callable
+var pack_headers: Callable
+var grant_pending=false
 var busy=false
 var species_id=""
 var cache_root="user://animal-packs"
@@ -139,9 +142,26 @@ func begin_download() -> void:
 		cleanup_request()
 		finish(false)
 		return
-	if is_instance_valid(request): return
+	if is_instance_valid(request) or grant_pending: return
 	last_error=""
 	var spec: Dictionary=manifest.animals[species_id]
+	var download_url=str(spec.url)
+	var download_headers=PackedStringArray()
+	if bool(ProjectSettings.get_setting("commerce/enabled",false)):
+		if not pack_authorization.is_valid() or not pack_headers.is_valid():
+			fail("구매 이용권을 확인할 수 없어요. 계정을 다시 연결해 주세요.")
+			return
+		var requested_id=species_id
+		grant_pending=true
+		var grant: Dictionary=await pack_authorization.call(requested_id)
+		grant_pending=false
+		if not busy or species_id!=requested_id or not authorized(Catalog.IDS.find(requested_id)): return
+		var approved_url=str(grant.get("url",""))
+		if not approved_url.begins_with("https://") or int(grant.get("size",0))!=int(spec.size) or grant.get("sha256")!=spec.sha256:
+			fail("이 동물의 구매 이용권을 확인하지 못했어요. 내 이용권을 다시 확인해 주세요.")
+			return
+		download_url=approved_url
+		download_headers=pack_headers.call()
 	var folder=pack_path(species_id).get_base_dir()
 	if DirAccess.make_dir_recursive_absolute(folder)!=OK:
 		fail("저장 공간을 준비하지 못했어요. 쓰기 권한을 확인해 주세요.")
@@ -151,6 +171,7 @@ func begin_download() -> void:
 	request=HTTPRequest.new()
 	request.use_threads=true
 	request.timeout=120
+	if bool(ProjectSettings.get_setting("commerce/enabled",false)): request.max_redirects=0
 	request.body_size_limit=int(spec.size)+1
 	request.download_file=part_path
 	request.request_completed.connect(completed)
@@ -158,7 +179,7 @@ func begin_download() -> void:
 	retry.disabled=true
 	progress.value=0
 	status.text="친구의 동작을 데려오고 있어요… %.1f MB"%(float(spec.size)/1000000.0)
-	var error=request.request(str(spec.url))
+	var error=request.request(download_url,download_headers)
 	if error!=OK: fail("다운로드를 시작하지 못했어요. 인터넷 연결을 확인해 주세요.")
 
 func _process(_delta: float) -> void:
