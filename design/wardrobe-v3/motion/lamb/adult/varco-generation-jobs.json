@@ -1,0 +1,56 @@
+[
+  {
+    "species": "lamb",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "c6ed54dd-1f4a-43a8-9c51-c891df6b2648",
+    "textNode": "b4599691-3cf1-42e7-b911-d9131cf9601a",
+    "prompt": "Edit ONLY clothing on existing lamb 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear LEFT reference outfit: sage meadow short vest, small daisy brooch; wool and legs visible. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "lamb",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "8dbc5485-fa4e-404b-b6ec-c382ee44b9b2",
+    "textNode": "1ff28a81-a813-49b0-8a41-627fa2d57676",
+    "prompt": "Edit ONLY clothing on existing lamb 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear CENTER reference outfit: peach short knit cardigan on top of cream wool. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "lamb",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "c891f7c1-56b5-466f-993c-715ce275fa35",
+    "textNode": "568de69d-2f09-44ce-9496-faf3dcc650f2",
+    "prompt": "Edit ONLY clothing on existing lamb 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear RIGHT reference outfit: oatmeal short bakery apron, tiny daisy barrette near ear. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "lamb",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "11bad86b-6239-4baf-b152-5440a0ac1583",
+    "textNode": "ff5031d3-fd60-481a-a4c2-d0881395af04",
+    "prompt": "Edit ONLY clothing on existing lamb 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear LEFT reference outfit: sage meadow short vest, small daisy brooch; wool and legs visible. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "lamb",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "297b7123-6115-4a61-a5f4-1c6761ba152e",
+    "textNode": "be72f655-e7b5-4b03-80fe-b4ab9512f2bd",
+    "prompt": "Edit ONLY clothing on existing lamb 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear CENTER reference outfit: peach short knit cardigan on top of cream wool. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "lamb",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "1e40daeb-c7ec-4739-9ede-b9a73806a101",
+    "textNode": "00abe497-29f6-42f1-909b-bbb38f4528a4",
+    "prompt": "Edit ONLY clothing on existing lamb 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear RIGHT reference outfit: oatmeal short bakery apron, tiny daisy barrette near ear. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "species": "rabbit",
+    "file": "rabbit-concepts-short-arms-v3.png",
+    "sha256": "59791c1665eeb00deaf939f1eac5d8169b1dcca70b47d1341b6533b6a38f5b4a",
+    "phase": "native_motion_preview",
+    "runtime_applied": false,
+    "runtime_preview": true
+  },
+  {
+    "species": "otter",
+    "file": "otter-concepts.png",
+    "sha256": "14a85a00db089a386503a81f0fdae43953522c50ecd51bcf15b72e6e14b0319c",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "squirrel",
+    "file": "squirrel-concepts-short-arms-v3.png",
+    "sha256": "eea1eb300e167fe03bac6555f447849343c044f304ee63b270a669350895493f",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "hedgehog",
+    "file": "hedgehog-concepts-short-arms-v3.png",
+    "sha256": "3d5723aa3046ac1514117c36bbeaf6cdb0b072681263f8a5b89ae8bd28823654",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "raccoon",
+    "file": "raccoon-concepts-short-arms-v3.png",
+    "sha256": "61f6461ac197d6399b2b96eb081a8ae848bfdef1fcea6f5969f9abbaea04c2ee",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "fox",
+    "file": "fox-concepts-short-arms-v3.png",
+    "sha256": "69f5d827160938534e8343c9485eeff9d6c91574501fcdabe0a7599e89412055",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "bear",
+    "file": "bear-concepts.png",
+    "sha256": "8325424a90385f3cb0daafe7a9f6d7a0f816aef2bdbb1b9bdcab5b536177c0d4",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "owl",
+    "file": "owl-concepts.png",
+    "sha256": "3e45c7539d5df57b54891991435ade596f1d896e8705fc5534641f80ae322f00",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "cat",
+    "file": "cat-concepts-short-arms-v4.png",
+    "sha256": "ab3d9e4b0f2bcdd19eac85c33685efa40857f978081e245713e96a99948666c0",
+    "phase": "native_motion_preview",
+    "runtime_applied": false,
+    "runtime_preview": true
+  },
+  {
+    "species": "puppy",
+    "file": "puppy-concepts-short-arms-v3.png",
+    "sha256": "00a282271e76070b8885e0c972c33def7e77321a1ddfdb2309e4f69a7dca38e6",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "hamster",
+    "file": "hamster-concepts.png",
+    "sha256": "c13f645f68014ca87e1b8c38d48139ce41f5402bc18b889864714852af0ff48f",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "panda",
+    "file": "panda-concepts.png",
+    "sha256": "415d8ea81e32b49f1225c79eefcc3c7d3176504d491845c3b53a68031286122d",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "red_panda",
+    "file": "red_panda-concepts.png",
+    "sha256": "851dfff6fa77bbbf8588d5816f96658c3397629af73e32597bfab87573e0a2b6",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "lamb",
+    "file": "lamb-concepts-short-arms-v3.png",
+    "sha256": "45b466a84d8462f8ca34c6603ee2b1fada239a60cd5ce9f2e34c247539f2b792",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "koala",
+    "file": "koala-concepts.png",
+    "sha256": "c6f4ac9ca50b81ad7776568537e86f2af4c4846dc05d8fa1db44598127a52d0e",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  },
+  {
+    "species": "penguin",
+    "file": "penguin-concepts.png",
+    "sha256": "694d913ca6314f650e1ba7f166f8153efe6b97abba76534a78e6a5d1c2efd625",
+    "phase": "concept_only",
+    "runtime_applied": false,
+    "runtime_preview": false
+  }
+]

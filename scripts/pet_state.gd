@@ -50,6 +50,7 @@ func add_growth(species: int, amount: int) -> void:
 	growth[str(species)]=clampi(int(growth.get(str(species),0))+amount,0,9999)
 	if growth_stage(species)!=before: growth_changed.emit(species,growth_stage(species))
 const Furniture=preload("res://scripts/furniture_catalog.gd")
+const HomeUnlocks=preload("res://scripts/home_unlocks.gd")
 # One shared home progression; basic care and communication are never locked.
 const UNLOCKS={"home_table":0,"home_sofa":0,"home_play_rug":0,"home_shelf":6,"home_lamp":12,"home_reading_chair":20,"home_daybed":30,"home_vanity":42,"home_record_player":56,"home_window_seat":72,"home_tv":90,"home_turntable":110,"home_wall_clock":8,"home_wall_shelf":16,"home_plant_stand":24,"home_dresser":38,"home_fireplace":64,"home_aquarium":84,"home_alarm_clock":18,"home_toy_ball":4,"home_toy_mouse":10}
 const BASIC_ACTIONS=["acorn","bowl","water","playful","follow","basket","snack","rub","cushion","cuddle","plant","personality","lamp","shelter"]
@@ -62,7 +63,7 @@ func home_points() -> int:
 	for value in play_affection.values(): points+=int(value)
 	return points
 func furniture_available(id: String) -> bool:
-	return UNLOCKS.has("home_"+id) and (test_unlocks() or home_owned.get(id,false) or home_points()>=UNLOCKS["home_"+id])
+	return UNLOCKS.has("home_"+id) and (test_unlocks() or home_owned.get(id,false) or UNLOCKS["home_"+id]==0 or HomeUnlocks.achieved(self,id))
 func gift_name(id: String) -> String:
 	return Furniture.ITEMS.get(id.trim_prefix("home_"),{}).get("name",id)
 const REWARDS={"follow":1,"rub":1,"pet":1,"ball":2,"hand_feed":2,"snack":2,"cuddle":2,"doze":1,"relax":1,"playful":1,"personality":1,"decorate":1,"bowl":1,"water":1,"basket":1,"plant":1,"lamp":1,"shelter":1,"acorn":1,"home_rest":1,"home_play":1,"home_music":1,"home_read":1,"home_groom":1,"home_tea":1}
@@ -71,13 +72,15 @@ var last_reward_action: Dictionary={}
 var reward_times: Dictionary={}
 func route_hint(_species: int,id: String) -> String:
 	if not UNLOCKS.has(id): return "처음부터 함께해요"
-	return "함께 쌓은 교감 %d / %d"%[mini(home_points(),UNLOCKS[id]),UNLOCKS[id]]
+	if UNLOCKS[id]==0: return "기본 제공 · 처음부터 이용해요"
+	return HomeUnlocks.hint(self,id.trim_prefix("home_"))
 func unlock_rows(species: int) -> Array:
 	var rows=[]
 	for id in UNLOCKS:
 		var piece_id=id.trim_prefix("home_")
 		var category="놀이감" if piece_id in ["toy_ball","toy_mouse","play_rug"] else ("꾸미기" if piece_id in ["wall_clock","wall_shelf","plant_stand","alarm_clock","aquarium"] else "생활 가구")
-		rows.append({"id":id,"title":gift_name(id),"category":category,"threshold":UNLOCKS[id],"open":unlocked(species,id),"hint":route_hint(species,id),"progress":1.0 if unlocked(species,id) else clampf(float(home_points())/maxf(1,UNLOCKS[id]),0,1)})
+		var earned=bool(home_owned.get(piece_id,false)) or UNLOCKS[id]==0 or HomeUnlocks.achieved(self,piece_id)
+		rows.append({"earned":earned,"id":id,"title":gift_name(id),"category":category,"threshold":UNLOCKS[id],"open":unlocked(species,id),"hint":route_hint(species,id),"progress":1.0 if earned else HomeUnlocks.progress(self,piece_id)})
 	rows.sort_custom(func(a,b): return a.threshold<b.threshold if a.threshold!=b.threshold else a.id<b.id)
 	return rows
 func unlocked_ids(species: int) -> Array:
@@ -123,13 +126,13 @@ func action_hint(_species: int, _id: int) -> String:
 	return ""
 
 func progress_text(species: int) -> String:
-	var lines=PackedStringArray(["우리 집 교감 %d · 모든 친구가 함께 쌓아요"%home_points(),"행동과 표정은 쓰다듬기·들기·물건 이용·생활 상황에 따라 나타나요.","식탁에서 먹고 마시고, 소파와 침대에서 쉬어요.","교감으로 생활 가구·놀이감·꾸미기 아이템이 열리며 점수는 차감되지 않아요.","쓰다듬기·놀이·교감 +1~2, 식사·물·가구 이용 +1.","같은 교감 행동은 8초, 식사·물·가구 이용은 45초 간격으로 기록해요.","놀이감은 함께하기에서 꺼내고, 가구는 집 꾸미기에서 배치해 이용하세요."])
+	var lines=PackedStringArray(["우리 집 교감 %d · 모든 친구가 함께 쌓아요"%home_points(),"행동과 표정은 쓰다듬기·들기·물건 이용·생활 상황에 따라 나타나요.","식탁에서 먹고 마시고, 소파와 침대에서 쉬어요.","놀이·돌봄·휴식·독서·음악의 완료 횟수로 새 물품이 열려요.","쓰다듬기·놀이·교감 +1~2, 식사·물·가구 이용 +1.","같은 교감 행동은 8초, 식사·물·가구 이용은 45초 간격으로 기록해요.","해금 횟수는 모든 친구가 함께 쌓아요. 열린 물품은 계속 이용할 수 있어요.\n자동 도착은 최대 5개 · 추가 물품은 메뉴에서 직접 꺼내세요."])
 	for row in unlock_rows(species): lines.append(("배치 가능 · " if row.open else "준비 중 · ")+row.title+("" if row.open else " · "+row.hint))
 	return "\n".join(lines)
 
 func next_gift(species: int) -> String:
 	for row in unlock_rows(species):
-		if not row.open: return "다음 아이템 · "+row.category+" · "+row.title+"\n"+row.hint
+		if not row.earned: return "다음 목표 · "+row.category+" · "+row.title+"\n"+row.hint
 	return "모든 가구와 아이템을 배치할 수 있어요 · 오늘도 편안한 하루"
 const PROPS=["cushion","bowl","basket","plant","lamp","shelter","acorn"]
 var save_path="user://friends-release.json"
@@ -148,6 +151,17 @@ var outfit_colors: Dictionary={}
 var furniture: Dictionary={}
 var furniture_styles: Dictionary={}
 var arrival_seen: Dictionary={}
+const AUTO_DELIVERY_KEYS=["prop:acorn","prop:basket","prop:plant","furniture:toy_ball","furniture:toy_mouse","furniture:alarm_clock"]
+var auto_delivery_limit=5
+var auto_delivery_consumed: Dictionary={}
+var manual_tools: Dictionary={}
+func can_auto_deliver(key: String) -> bool:
+	return key in AUTO_DELIVERY_KEYS and not manual_tools.has(key.trim_prefix("prop:")) and not auto_delivery_consumed.has(key) and auto_delivery_consumed.size()<auto_delivery_limit
+func record_auto_delivery(key: String) -> bool:
+	if not can_auto_deliver(key): return false
+	auto_delivery_consumed[key]=true
+	save_game()
+	return true
 var activity_space="floor"
 
 func load_furniture(value) -> void:
@@ -166,6 +180,22 @@ func load_game() -> void:
 	var data=JSON.parse_string(FileAccess.get_file_as_string(save_path))
 	if not data is Dictionary: return
 	load_furniture(data.get("furniture",{}))
+	manual_tools.clear()
+	if data.get("manual_tools",{}) is Dictionary:
+		for id in ["acorn","basket","plant"]:
+			if data.get("manual_tools",{}).get(id,false)==true: manual_tools[id]=true
+	auto_delivery_limit=clean_number(data.get("auto_delivery_limit",5),0,5)
+	auto_delivery_consumed.clear()
+	var deliveries=data.get("auto_delivery_consumed",{})
+	if deliveries is Dictionary:
+		for key in AUTO_DELIVERY_KEYS:
+			if deliveries.get(key,false)==true: auto_delivery_consumed[key]=true
+	# Existing desktop layouts must not replay a shower after this update.
+	if not data.has("auto_delivery_consumed"):
+		for id in ["acorn","basket","plant"]:
+			if data.get("layout",{}) is Dictionary and data.get("layout",{}).has(id): auto_delivery_consumed["prop:"+id]=true
+		for id in ["toy_ball","toy_mouse","alarm_clock"]:
+			if furniture.has(id) or (data.get("arrival_seen",{}) is Dictionary and data.get("arrival_seen",{}).get(id,false)): auto_delivery_consumed["furniture:"+id]=true
 	arrival_seen.clear()
 	var seen=data.get("arrival_seen",{})
 	if seen is Dictionary:
@@ -208,6 +238,10 @@ func load_game() -> void:
 			personal_layout[key]=places
 	if data.get("affection") is Dictionary:
 		for i in range(Catalog.IDS.size()): play_affection[str(i)]=clean_number(data.affection.get(str(i)),0,9999)
+	# Keep everything earned under the previous affection-only rules.
+	if int(data.get("home_unlock_rules_version",0))<1:
+		for unlock_id in UNLOCKS:
+			if home_points()>=UNLOCKS[unlock_id]: home_owned[unlock_id.trim_prefix("home_")]=true
 	if data.get("layout") is Dictionary:
 		for id in PROPS:
 			var point=data.layout.get(id)
@@ -230,7 +264,7 @@ func save_game() -> void:
 	if file==null:
 		save_failed=true
 		return
-	file.store_string(JSON.stringify({"version":8,"starter_layout_version":starter_layout_version,"home_initialized":home_initialized,"home_owned":home_owned,"activity_space":activity_space,"guide_seen":guide_seen,"activity_counts":activity_counts,"growth":growth,"selected":selected,"palette":palette,"affection":play_affection,"layout":layout,"hidden":hidden,"discoveries":discoveries,"personal_layout":personal_layout,"meals":meals,"favorite_foods":favorite_foods,"outfits":outfits,"outfit_colors":outfit_colors,"furniture":furniture,"furniture_styles":furniture_styles,"arrival_seen":arrival_seen}))
+	file.store_string(JSON.stringify({"version":8,"home_unlock_rules_version":1,"auto_delivery_limit":auto_delivery_limit,"auto_delivery_consumed":auto_delivery_consumed,"manual_tools":manual_tools,"starter_layout_version":starter_layout_version,"home_initialized":home_initialized,"home_owned":home_owned,"activity_space":activity_space,"guide_seen":guide_seen,"activity_counts":activity_counts,"growth":growth,"selected":selected,"palette":palette,"affection":play_affection,"layout":layout,"hidden":hidden,"discoveries":discoveries,"personal_layout":personal_layout,"meals":meals,"favorite_foods":favorite_foods,"outfits":outfits,"outfit_colors":outfit_colors,"furniture":furniture,"furniture_styles":furniture_styles,"arrival_seen":arrival_seen}))
 	file.close()
 	save_failed=DirAccess.rename_absolute(save_path+".tmp",save_path)!=OK
 

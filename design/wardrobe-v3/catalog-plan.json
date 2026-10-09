@@ -1,0 +1,574 @@
+{
+  "approved_direction": "short cozy garments + small accessories; pastel, preserve original body/face/paws",
+  "requested_provider": "VARCO MCP",
+  "workflow_id": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "species_count": 16,
+  "skin_count": 48,
+  "production_status": "16 species / 48 adult outfits in isolated native animation preview; public purchase game wardrobe, baby, furniture, sleep and slapstick coverage pending.",
+  "rabbit_concept_tool": "builtin image_gen (before request to switch to VARCO)",
+  "rabbit_prompt": "Create a polished game cosmetic concept sheet with exactly THREE full-body versions of the SAME bunny, in a clean horizontal row on a warm ivory paper background. Reference image is the EXISTING game's rabbit identity reference, a spritesheet: use ONE rabbit from its first frame, not the grid. Preserve its cream fur, huge rounded head, short chubby pear-shaped body, brown glossy eyes, tiny muzzle, peach cheeks, long pink ears, warm brown fine outline, sage leaf neck bow, right-facing three-quarter side pose, exact low-to-the-ground proportions. Do not redesign the face, do not make it taller or humanoid. The three rabbits must be identical size and position above a shared ground baseline. Draw new cozy wearable outfits carefully hugging the torso, all four paws and fluffy tail readable, garments ending well above paws. Left: spring walking outfit, a cropped sage linen vest with tiny carrot embroidery and a tiny carrot pin near ear base; keep ears entirely visible. Center: cozy home outfit, a short cream and muted peach knitted sleeveless cardigan with one small daisy brooch, no hat, fine understated knit texture. Right: tiny cafe helper, a very short oatmeal waist apron with a muted sky-blue pocket and a miniature side-positioned biscuit beret that leaves both ears visible. Clothes wrap around volume with straps clearly attached; no floating garments. Tasteful adorable cozy collectible game aesthetics for young adult women, light pastel matte colors, slight watercolor fabric grain but crisp clean silhouette matching reference. No text, no labels, no extra scenery, no extra animals, no ornate background, no toy held in hands, no capes, no shoes, no long skirt. Large airy detailed character studies intended for visual approval before animation. Wide landscape composition.",
+  "species": [
+    {
+      "id": "rabbit",
+      "name": "토끼",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage cropped carrot vest and carrot ear pin",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream peach knit cardigan and daisy brooch",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "short oatmeal apron and biscuit beret",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/rabbit-frame-pilot-v9/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "rabbit-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "arms_revision": true,
+      "varco_action_node": "81b62dd6-c402-4ec4-90b3-29a50cf85495",
+      "generation_prompt": "Edit ALL THREE rabbit outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. TWO tiny rounded bean-shaped mitten forepaws rest beside the upper belly, in front of the clothes just below the scarf. Each WHOLE visible forearm including its paw must be only about 12-16% of head width long. Paws stop at the middle of the vest, not the floor. Keep two existing tiny hind feet below the belly. Exactly FOUR limbs. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "short_arms_revision": true,
+      "runtime_preview": "adult_walk_idle_struggle_hold_emotions",
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "otter",
+      "name": "수달",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "river-blue linen vest, tiny shell enamel brooch",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "oatmeal short knit cardigan, pebble-shaped buttons",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "sage short cafe apron, tiny shell beret",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/otter/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "otter-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "ff861269-e958-4d88-85d6-5fa1a30405ee",
+      "generation_prompt": "WARDROBE V3 / OTTER / approved cozy collection. Create ONE polished wide concept sheet of exactly THREE full-body versions of the SAME OTTER from sourceImage, evenly spaced left-to-right on warm ivory paper. SourceImage is the identity: preserve its round chubby brown body, cream muzzle and belly, shiny tiny dark eyes, blush cheeks, small ears, short limbs, long low tapered otter tail and green neck tie. Keep original upright 3/4 side-facing-right stance and level head, gaze forward, no head tilt, no thin torso. The optional reference image shows APPROVED BUNNY CLOTHING STYLE ONLY: adapt its short garment cut, soft pastel colors, light linen/knit texture, scale of small accessories. Do not turn otter into rabbit. LEFT: cropped river-blue linen walking vest with a tiny shell brooch. CENTER: oatmeal short cozy knit cardigan with pebble-shaped buttons and a small sage leaf pin. RIGHT: sage short cafe waist apron with cream pocket, miniature shell beret beside ear. Clothes end above legs, both paws and feet remain visible. No shoes or long cape. Preserve body/head size exactly across all3. A carefully fitted complete-character drawing for each outfit, straps wrap naturally around body, no floating garments. Warm brown outline, cute clean game art, matte pastel, restrained fine fabric grain. No text, labels, logos, furniture, extra animals, handheld objects or scenery. Each character occupies one third of sheet, same scale and baseline. This is 2D game cosmetic art, not 3D.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "squirrel",
+      "name": "다람쥐",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage trail vest, tiny acorn brooch",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "oatmeal cable cardigan, hazelnut buttons",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "caramel short barista apron, acorn beret",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/squirrel/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "squirrel-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "1e225d32-1412-4e78-ba93-8160e5a6f22a",
+      "generation_prompt": "Edit ALL THREE squirrel outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. TWO tiny rounded bean-shaped mitten forepaws rest beside the upper belly, in front of the clothes just below the scarf. Each WHOLE visible forearm including its paw must be only about 12-16% of head width long. Paws stop at the middle of the vest, not the floor. Keep two existing tiny hind feet below the belly. Exactly FOUR limbs. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "hedgehog",
+      "name": "고슴도치",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "short open-front mushroom garden vest around belly only; spines unobstructed",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream short belly warmer knitted vest, tiny chestnut pin; spines visible",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "peach very short baker apron, small mushroom clip beside ear",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/hedgehog/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "hedgehog-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "0ae2609b-7b11-4055-ad95-9502668601aa",
+      "generation_prompt": "Edit ALL THREE hedgehog outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. TWO tiny rounded bean-shaped mitten forepaws rest beside the upper belly, in front of the clothes just below the scarf. Each WHOLE visible forearm including its paw must be only about 12-16% of head width long. Paws stop at the middle of the vest, not the floor. Keep two existing tiny hind feet below the belly. Exactly FOUR limbs. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "raccoon",
+      "name": "너구리",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "muted sky-blue pocket vest, tiny compass pin",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "sage check short cardigan, moon button",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal barista apron, tiny coffee bean beret",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/raccoon/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "raccoon-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "0796e577-4b29-4f2b-943a-4276143880da",
+      "generation_prompt": "Edit ALL THREE raccoon outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. TWO tiny rounded bean-shaped mitten forepaws rest beside the upper belly, in front of the clothes just below the scarf. Each WHOLE visible forearm including its paw must be only about 12-16% of head width long. Paws stop at the middle of the vest, not the floor. Keep two existing tiny hind feet below the belly. Exactly FOUR limbs. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "fox",
+      "name": "여우",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage short forest vest, tiny maple leaf brooch",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream short cardigan, muted apricot cuffs",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "muted peach bakery apron, leaf-shaped barrette",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/fox/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "fox-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "320d115c-4d5d-4f68-95e5-bca4c6d9f413",
+      "generation_prompt": "Edit ALL THREE fox outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. TWO tiny rounded bean-shaped mitten forepaws rest beside the upper belly, in front of the clothes just below the scarf. Each WHOLE visible forearm including its paw must be only about 12-16% of head width long. Paws stop at the middle of the vest, not the floor. Keep two existing tiny hind feet below the belly. Exactly FOUR limbs. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "bear",
+      "name": "곰",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage picnic vest, small honey pot pin",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream chunky short cardigan, honey-yellow buttons",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal honey cafe apron, small biscuit beret",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/bear/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "bear-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "f84f8769-ea08-4edb-98a3-27e0863eb4a1",
+      "generation_prompt": "WARDROBE V3 / bear. Create one polished wide 2D game concept sheet with exactly THREE complete identical bear characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy the rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: sage picnic vest, small honey pot pin. CENTER: cream chunky short cardigan, honey-yellow buttons. RIGHT: oatmeal honey cafe apron, small biscuit beret. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, same face, same stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "owl",
+      "name": "부엉이",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage short open vest fitted around wings, tiny star pin",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream knit short vest with lavender trim, small moon brooch",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal short librarian cafe apron, tiny star beret; wings visible",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/owl/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "owl-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "c6dd7a16-4146-48ff-8940-5f984ef74c09",
+      "generation_prompt": "WARDROBE V3 / owl. Create one polished wide 2D game concept sheet with exactly THREE complete identical owl characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy the rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: sage short open vest fitted around wings, tiny star pin. CENTER: cream knit short vest with lavender trim, small moon brooch. RIGHT: oatmeal short librarian cafe apron, tiny star beret; wings visible. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, same face, same stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "cat",
+      "name": "고양이",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage small walking vest, tiny fish-shaped brooch",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream cardigan with muted peach trim, yarn-ball pin",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal short barista apron with sky-blue pocket, tiny fish biscuit beret",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/cat/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "cat-concepts-short-arms-v4.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "1a28435f-14c7-402a-a0b4-cf274604144b",
+      "generation_prompt": "Repair the proportions in ALL THREE cat costume figures. This is a CHIBI ROUND MASCOT with TINY STUBBY FOREPAWS, not realistic feline anatomy. Keep identical face, head size, ears, scarf, tail and three outfits. Replace the long forelegs with TWO VERY SHORT FAT OVAL PAWS resting gently against the left and right sides of the upper belly, in front of the clothes, just below the scarf. Each whole visible forearm INCLUDING paw must be a small bean-shaped mitten only 12% of head width long, not a tube. No visible long upper arm or elbow. The little paws should end near the middle of the vest, never extend down to the floor. The two existing short HIND FEET remain beneath the rounded belly and support this compact standing mascot. Exactly two tiny forepaws plus two hind feet, total four limbs. Do not add extra limbs or hide the tiny paws in the outfit. Keep torso short, broad and round. Maintain same art style, colors, all three wardrobe details, backdrop and layout. Cute compact plush-toy proportions, no elongated anatomy.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview": "adult_walk_idle_struggle_hold_emotions",
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "puppy",
+      "name": "강아지",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "muted sky-blue short walking vest, tiny paw badge",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream and peach short cardigan, biscuit buttons",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "sage short cafe apron, small biscuit beret; floppy ears fully visible",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/puppy/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "puppy-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "acdccb22-1a81-43f6-9503-e7935fc5c829",
+      "generation_prompt": "Edit ALL THREE puppy outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. Keep the existing four-legged animal stance, but LOWER the rounded belly close to the floor and make BOTH forelegs very short, stout soft stumps with round paws (or round hooves for lamb), each visible foreleg only about 1.1 times its width. Keep all four limbs, do not add human arms. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "hamster",
+      "name": "햄스터",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage seed-garden short vest, sunflower seed brooch",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream short round cardigan, sunflower-yellow buttons",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "peach short bakery apron, tiny sunflower clip",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/hamster/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "hamster-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "68a0ded5-559e-4f67-bd4c-f536a0229d1c",
+      "generation_prompt": "WARDROBE V3 / hamster. Create one polished wide 2D game concept sheet with exactly THREE complete identical hamster characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy the rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: sage seed-garden short vest, sunflower seed brooch. CENTER: cream short round cardigan, sunflower-yellow buttons. RIGHT: peach short bakery apron, tiny sunflower clip. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, same face, same stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "panda",
+      "name": "판다",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage bamboo garden short vest, bamboo leaf brooch",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "oatmeal short cardigan, soft mint buttons",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "cream short tea-house apron, tiny bamboo beret",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/panda/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "panda-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "af8d3414-367c-449c-bf26-1c0a4ac465ff",
+      "generation_prompt": "WARDROBE V3 / panda. Create one polished wide 2D game concept sheet with exactly THREE complete identical panda characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: sage bamboo garden short vest, bamboo leaf brooch. CENTER: oatmeal short cardigan, soft mint buttons. RIGHT: cream short tea-house apron, tiny bamboo beret. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, face, stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "red_panda",
+      "name": "레서판다",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage woodland short vest, tiny maple pin",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream short cardigan with muted peach trim",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal short tea cafe apron, maple leaf barrette",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/red_panda/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "red_panda-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "e63d0af2-77b8-4d2a-ad74-00212cd9262e",
+      "generation_prompt": "WARDROBE V3 / red_panda. Create one polished wide 2D game concept sheet with exactly THREE complete identical red_panda characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: sage woodland short vest, tiny maple pin. CENTER: cream short cardigan with muted peach trim. RIGHT: oatmeal short tea cafe apron, maple leaf barrette. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, face, stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "lamb",
+      "name": "양",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage meadow short vest, small daisy brooch; wool and legs visible",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "peach short knit cardigan on top of cream wool",
+          "status": "short_paws_visually_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal short bakery apron, tiny daisy barrette near ear",
+          "status": "short_paws_visually_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/lamb/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "lamb-concepts-short-arms-v3.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "7bd081d6-0e2e-493f-9091-496945dc9504",
+      "generation_prompt": "Edit ALL THREE lamb outfit illustrations in this sheet. The forearms are too long and anatomically humanlike. Restore a compact cute desktop-game CHIBI mascot with VERY SHORT, FAT, STUBBY paws. Keep the existing four-legged animal stance, but LOWER the rounded belly close to the floor and make BOTH forelegs very short, stout soft stumps with round paws (or round hooves for lamb), each visible foreleg only about 1.1 times its width. Keep all four limbs, do not add human arms. No long upper arm, no long tubes, no prominent elbow joint, no skinny wrists. Keep two forelimbs clearly distinct from clothes using simple warm brown contour lines. Do not hide or erase them. Keep face, head size, ears, fur colors and markings, tail/spines, neck accessory and all three garment themes EXACTLY consistent with the source. Adjust armholes and keep garments short; never enlarge the torso to fit clothes. Small rounded plush-like proportions. Same soft pastel fabric textures, cream paper background and 3-figure layout. No text.",
+      "arms_revision": true,
+      "short_arms_revision": true,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "koala",
+      "name": "코알라",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "sage eucalyptus garden short vest, small leaf brooch",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream short cardigan with dusty blue trim",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "oatmeal short tea apron, tiny eucalyptus beret; ears unobstructed",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/koala/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "koala-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "82275012-1a5e-4dcd-a799-369232f3523f",
+      "generation_prompt": "WARDROBE V3 / koala. Create one polished wide 2D game concept sheet with exactly THREE complete identical koala characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: sage eucalyptus garden short vest, small leaf brooch. CENTER: cream short cardigan with dusty blue trim. RIGHT: oatmeal short tea apron, tiny eucalyptus beret; ears unobstructed. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, face, stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    },
+    {
+      "id": "penguin",
+      "name": "펭귄",
+      "styles": [
+        {
+          "theme": "산책복",
+          "prompt": "muted sky-blue short vest around round torso with wing slits, snowflake pin",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "홈웨어",
+          "prompt": "cream short knitted vest with lavender trim, tiny star brooch",
+          "status": "generated_concept_reviewed"
+        },
+        {
+          "theme": "카페복",
+          "prompt": "sage short ice-cream cafe apron, very small waffle beret; orange feet visible",
+          "status": "generated_concept_reviewed"
+        }
+      ],
+      "reference": "assets/walk-v14/penguin/adult-idle.png",
+      "image_size": [
+        1536,
+        864
+      ],
+      "file": "penguin-concepts.png",
+      "runtime_applied": false,
+      "provider": "VARCO MCP",
+      "varco_action_node": "5d7e4a15-5dd5-40ac-9167-8c5761616cbe",
+      "generation_prompt": "WARDROBE V3 / penguin. Create one polished wide 2D game concept sheet with exactly THREE complete identical penguin characters in a horizontal row on warm ivory paper. SOURCE IMAGE is exact animal identity: preserve its original colors, markings, face, big head, short chubby body, ears, limbs, tail, neck accessory and original standing 3/4 orientation. Keep head level, gaze forward, no head tilt or thin/tall body. OPTIONAL REFERENCE is approved CLOTHING STYLE ONLY, never copy rabbit species. Match muted pastel linen/knit clothes, fine warm brown outlines, light fabric grain. LEFT: muted sky-blue short vest around round torso with wing slits, snowflake pin. CENTER: cream short knitted vest with lavender trim, tiny star brooch. RIGHT: sage short ice-cream cafe apron, very small waffle beret; orange feet visible. Garments must wrap correctly around body and end ABOVE feet. Face, ears, hands/wings, feet, tail and species silhouette remain visible. No shoes, long cape, floating garments, giant hat, handheld objects. Same body size, face, stance and baseline across all3. Cute cozy collectible aesthetic for young adult women. No text, labels, logos, furniture, extra animals or scenery. Generous margins, nothing clipped.",
+      "arms_revision": false,
+      "short_arms_revision": false,
+      "runtime_preview_applied": true,
+      "preview_stage": "adult"
+    }
+  ]
+}

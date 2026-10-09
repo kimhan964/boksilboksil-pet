@@ -1,0 +1,56 @@
+[
+  {
+    "species": "penguin",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "f3f43ae9-3f7d-48e2-822f-84cdbfce9c25",
+    "textNode": "cdcf34f2-dd76-41cf-af22-cc92681e1961",
+    "prompt": "Edit ONLY clothing on existing penguin 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear LEFT reference outfit: muted sky-blue short vest around round torso with wing slits, snowflake pin. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "penguin",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "0775390b-5704-4a4c-a930-e2b34f02b5c2",
+    "textNode": "edd8d9c6-6d99-4594-8185-2b100aed6975",
+    "prompt": "Edit ONLY clothing on existing penguin 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear CENTER reference outfit: cream short knitted vest with lavender trim, tiny star brooch. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "penguin",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "41553b91-f33b-4bb4-923d-d2c88b44b1d1",
+    "textNode": "e9935682-396b-44fe-b909-291a7916b2a5",
+    "prompt": "Edit ONLY clothing on existing penguin 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear RIGHT reference outfit: sage short ice-cream cafe apron, very small waffle beret; orange feet visible. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "penguin",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "5ec394b0-0804-43a6-be82-eaace62ae242",
+    "textNode": "b6edef8c-c6bd-4a5f-994c-9235467d1070",
+    "prompt": "Edit ONLY clothing on existing penguin 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear LEFT reference outfit: muted sky-blue short vest around round torso with wing slits, snowflake pin. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "penguin",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "ab9ca809-9c3c-43bf-9165-bb62259803aa",
+    "textNode": "74cc44e6-66c7-41f1-9073-4a2f23bc8b29",
+    "prompt": "Edit ONLY clothing on existing penguin 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear CENTER reference outfit: cream short knitted vest with lavender trim, tiny star brooch. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "penguin",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "bf850c58-7522-4856-a735-f42be1cbaf12",
+    "textNode": "da65a9a7-34a6-44d5-9058-42b63950531c",
+    "prompt": "Edit ONLY clothing on existing penguin 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear RIGHT reference outfit: sage short ice-cream cafe apron, very small waffle beret; orange feet visible. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  }
+]

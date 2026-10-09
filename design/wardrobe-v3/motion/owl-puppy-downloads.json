@@ -1,0 +1,86 @@
+[
+  {
+    "species": "owl",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "f90fe4f3-cc3a-407c-8bc8-ddf6717569de",
+    "url": "https://3d.varco.ai/api/objects/854147e047ca96b1471500829c5af6e5.png"
+  },
+  {
+    "species": "owl",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "942a3ec7-0a52-48ad-a045-ec8ff2367f77",
+    "url": "https://3d.varco.ai/api/objects/a97ffab2837fa583fe0bf39aae934b4b.png"
+  },
+  {
+    "species": "owl",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "26cc3a78-a1b7-481b-b2f3-b01379944b5c",
+    "url": "https://3d.varco.ai/api/objects/402e6eaea8858a19755d64ac681efd3d.png"
+  },
+  {
+    "species": "owl",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "a999c854-a853-4b29-ad85-e21c8bad53b1",
+    "url": "https://3d.varco.ai/api/objects/8d612769acb48e4411222e82ed0ba268.png"
+  },
+  {
+    "species": "owl",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "daa9e112-1ee3-45fe-90bd-f022f8f2b79c",
+    "url": "https://3d.varco.ai/api/objects/9f72ff9a16cc4004e12b43db681bc474.png"
+  },
+  {
+    "species": "owl",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "ce3721ea-0166-47a4-a3eb-3eb4a2441d88",
+    "url": "https://3d.varco.ai/api/objects/49e837a20ba4ba985f0d2211d9e47351.png"
+  },
+  {
+    "species": "puppy",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "e8d7f43b-a762-48ba-841c-42eb16f65b65",
+    "url": "https://3d.varco.ai/api/objects/99ff272d57197f17ffc869d93dbb393a.png"
+  },
+  {
+    "species": "puppy",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "6930e707-a343-41e3-b365-5ffc9dedd085",
+    "url": "https://3d.varco.ai/api/objects/06ad63da42b3e9280c98b5b91c1f0307.png"
+  },
+  {
+    "species": "puppy",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "f01099bf-cbfb-43ed-9908-6599f16582b1",
+    "url": "https://3d.varco.ai/api/objects/2b672a78d98127049f5470bc1886a2f2.png"
+  },
+  {
+    "species": "puppy",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "db9e9edf-6836-4073-8b6f-e8974c6b2902",
+    "url": "https://3d.varco.ai/api/objects/bdb466be8a37c5a6da2bedadc39f1dcb.png"
+  },
+  {
+    "species": "puppy",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "47ddb4af-2e72-491a-9c04-8ab602f4cddf",
+    "url": "https://3d.varco.ai/api/objects/d199ab3ddb66b9e4a12a62f4c056e36b.png"
+  },
+  {
+    "species": "puppy",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "26c29345-88d3-4bc6-ab0a-974b5be2ddf2",
+    "url": "https://3d.varco.ai/api/objects/168d5c7415269264f3c9094197225a79.png"
+  }
+]

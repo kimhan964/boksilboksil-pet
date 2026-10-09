@@ -378,6 +378,7 @@ func show_generated_species() -> void:
 		var settled=smoothstep(0.0,.6,motion.elapsed)*smoothstep(0.0,.6,motion.action_left)
 		sprite.position.y-=lift*settled
 	sprite.position+=window_subpixel
+	preload("res://scripts/wardrobe_motion_art.gd").apply(self)
 
 func apply_generated_action_motion() -> void:
 	if generated_sample.is_empty(): return

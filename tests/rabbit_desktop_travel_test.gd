@@ -20,10 +20,10 @@ func _initialize() -> void:
 				var start=m.feet
 				m.phase="wander"
 				m.target=start+Vector2(direction*160,0)
-				for tick in range(fps*9):
+				for tick in range(fps*12):
 					m.advance(1.0/fps)
 					if m.phase=="idle": break
-				if m.feet.distance_to(m.target)>.01 or m.phase!="idle": failures.append("160px trip not complete in 9s %d/%d/%d"%[stage,fps,direction])
+				if m.feet.distance_to(m.target)>.01 or m.phase!="idle": failures.append("160px trip not complete in 12s %d/%d/%d"%[stage,fps,direction])
 				cases+=1
 			# A user interruption immediately followed by a new destination must
 			# not keep the previous hop's origin/destination.

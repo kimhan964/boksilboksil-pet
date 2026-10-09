@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'builds'/'small-20261007'
 IDS='rabbit otter squirrel hedgehog raccoon fox bear owl cat puppy hamster panda red_panda lamb koala penguin'.split()
 ANIMAL=set('species-v3 hold-transitions-v1 slapstick-varco-v1 outfits-dressed-v2 struggle-v1 walk-v14 home-v2 outfits-varco-v1 emotions-v1 emotions-v2 dizzy-v1 dining-v13'.split())
-COMMON=set('decor decor-cozy-v2 food furniture-v1 furniture-v2 furniture-v3 furniture-v4 furniture-v5 furniture-v6 icon ui-cozy-v1'.split())
+COMMON=set('decor decor-cozy-v2 species-props-v2 food furniture-v1 furniture-v2 furniture-v3 furniture-v4 furniture-v5 furniture-v6 icon ui-cozy-v1'.split())
 TAG='v0.33.0-preview.20261007'
 URL=f'https://github.com/kimhan964/boksilboksil-pet/releases/download/{TAG}/'
 
@@ -104,6 +104,14 @@ def build():
  groups['common']['assets/hold-camera-v2.json']=(ROOT/'assets/hold-camera-v2.json').read_bytes()
  # New generated common art is outside the old runtime snapshot.
  groups['common']['assets/decor-cozy-v2/acorn-wobble-v2.png']=(ROOT/'assets/decor-cozy-v2/acorn-wobble-v2.png').read_bytes()
+ # Reviewed species furniture is common art; do not publish generation atlases.
+ for prop in (ROOT/'assets/species-props-v2').glob('*.png'):
+  if not prop.name.endswith('-atlas.png'):
+   groups['common'][prop.relative_to(ROOT).as_posix()]=prop.read_bytes()
+ groups['common']['assets/species-props-v2/manifest.json']=(ROOT/'assets/species-props-v2/manifest.json').read_bytes()
+ for icon in ['play-toys','cursor-follow','play-guide']:
+  name=f'assets/ui-cozy-v1/{icon}.png'
+  groups['common'][name]=(ROOT/name).read_bytes()
  original_png=0;encoded_png=0;pixels=0;cropped_pixels=0;start=time.monotonic()
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
   for i,(name,path,meta,size) in enumerate(pool.map(convert,jobs),1):

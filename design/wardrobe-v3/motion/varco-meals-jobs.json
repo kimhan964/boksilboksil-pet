@@ -1,0 +1,26 @@
+{
+  "vest": {
+    "nodeId": "39cec860-8a83-4e2f-bdbb-26798b80b772",
+    "sourceNode": "312235d2-d591-4b56-b5dc-793a42a6cb75",
+    "referenceNode": "a5c632fa-b9cc-4fd7-bb64-e9a633a3a960",
+    "textNode": "32fe3d45-c01e-4633-abb5-547b96e0fa69",
+    "prompt": "Costume edit of existing GAME SPRITES only. Source is 4x4 sixteen complete rabbit poses: FIRST TWO ROWS eight successive carrot eating poses, LAST TWO ROWS eight successive bowing/drinking and returning upright poses. Preserve exact source positions, proportions, original short stubby paws, pose and face in each cell. Never invent different limbs. Add the exact vest clothing design from reference to every cell. The original TINY rounded paws must remain clearly visible IN FRONT OF the clothes; preserve both paws and their movement, not long dangling sleeves. Copy reference garment colors, details, accessories identically throughout. Do not copy reference poses. Flat #FF00FF background, no texture or shadows on magenta. Exact 4x4 grid and identical cell spacing; keep full body inside each cell with clear margins. Same cream fur tone as original.",
+    "url": "https://3d.varco.ai/api/objects/1bf3491b60e1eb14e54a92adc098ba8a.png"
+  },
+  "knit": {
+    "nodeId": "280515c8-3a4f-41f7-817d-b915ed7d6b28",
+    "sourceNode": "312235d2-d591-4b56-b5dc-793a42a6cb75",
+    "referenceNode": "1d19893d-9abe-4d97-b89b-c916b3d5e748",
+    "textNode": "4d92e65b-33bc-4419-9bbc-20a110cd72d1",
+    "prompt": "Costume edit of existing GAME SPRITES only. Source is 4x4 sixteen complete rabbit poses: FIRST TWO ROWS eight successive carrot eating poses, LAST TWO ROWS eight successive bowing/drinking and returning upright poses. Preserve exact source positions, proportions, original short stubby paws, pose and face in each cell. Never invent different limbs. Add the exact knit clothing design from reference to every cell. The original TINY rounded paws must remain clearly visible IN FRONT OF the clothes; preserve both paws and their movement, not long dangling sleeves. Copy reference garment colors, details, accessories identically throughout. Do not copy reference poses. Flat #FF00FF background, no texture or shadows on magenta. Exact 4x4 grid and identical cell spacing; keep full body inside each cell with clear margins. Same cream fur tone as original.",
+    "url": "https://3d.varco.ai/api/objects/3aa82920dfea7c65d05b404577577ae8.png"
+  },
+  "apron": {
+    "nodeId": "3d75bf6b-6b93-4bc6-adf2-74e12799e7c1",
+    "sourceNode": "312235d2-d591-4b56-b5dc-793a42a6cb75",
+    "referenceNode": "e16ecd96-f07b-4bee-91c2-4c9cbb36200b",
+    "textNode": "9ac407cd-9ea0-4af0-8219-fc5f3aff4874",
+    "prompt": "Costume edit of existing GAME SPRITES only. Source is 4x4 sixteen complete rabbit poses: FIRST TWO ROWS eight successive carrot eating poses, LAST TWO ROWS eight successive bowing/drinking and returning upright poses. Preserve exact source positions, proportions, original short stubby paws, pose and face in each cell. Never invent different limbs. Add the exact apron clothing design from reference to every cell. The original TINY rounded paws must remain clearly visible IN FRONT OF the clothes; preserve both paws and their movement, not long dangling sleeves. Copy reference garment colors, details, accessories identically throughout. Do not copy reference poses. Flat #FF00FF background, no texture or shadows on magenta. Exact 4x4 grid and identical cell spacing; keep full body inside each cell with clear margins. Same cream fur tone as original.",
+    "url": "https://3d.varco.ai/api/objects/445b50756e5c5edeef3ae128c7450063.png"
+  }
+}

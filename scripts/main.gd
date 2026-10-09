@@ -324,7 +324,7 @@ func choose_friend(species: int) -> void:
 
 func show_first_guide() -> void:
 	if not is_instance_valid(pet): return
-	show_info("우리 집에서 함께하는 하루","1. 집 꾸미기에서 식탁·소파·놀이 러그를 배치해요.\n2. 음식과 물은 식탁에서, 휴식은 소파와 침대에서 해요.\n3. 동물을 가구 위에 끌어 놓거나 가구를 클릭하면 이용해요.\n\n쓰다듬고 놀며 동물의 표정과 말풍선에 반응해 주세요.\n기본 돌보기와 교감 행동은 처음부터 함께할 수 있어요.\n\n모든 친구와 쌓은 교감으로 새 가구가 열려요.\n해금된 가구는 집 꾸미기에서 직접 배치할 수 있어요.\n생활 기록에서 다음 가구와 진행도를 확인하세요.")
+	show_info("우리 집에서 함께하는 하루","1. 집 꾸미기에서 식탁·소파·놀이 러그를 배치해요.\n2. 음식과 물은 식탁에서, 휴식은 소파와 침대에서 해요.\n3. 동물을 가구 위에 끌어 놓거나 가구를 클릭하면 이용해요.\n\n쓰다듬고 놀며 동물의 표정과 말풍선에 반응해 주세요.\n기본 돌보기와 교감 행동은 처음부터 함께할 수 있어요.\n\n놀이·돌봄·휴식·독서·음악의 완료 횟수로 새 가구가 열려요.\n해금된 가구는 집 꾸미기에서 직접 배치할 수 있어요.\n생활 기록에서 다음 가구와 진행도를 확인하세요.")
 	info.confirmed.connect(func(): state.guide_seen=true; state.save_game())
 
 func apply_personal_space(first: bool) -> void:
@@ -374,6 +374,7 @@ func ensure_prop_nearby(id: String) -> void:
 	if is_instance_valid(furniture_room) and furniture_room.replaces(id):
 		return
 	if not state.unlocked(state.selected,id): return
+	state.manual_tools[id]=true
 	delivery_queue.erase(id)
 	delivery_seen["%d/%s"%[state.selected,id]]=true
 	if falling_gifts.has(id): finish_unlock_fall(id,false)
@@ -853,6 +854,7 @@ func clear_falling_gifts() -> void:
 
 func queue_delivery(id: String) -> void:
 	if id in State.RETIRED_PROPS: return
+	if not state.can_auto_deliver("prop:"+id): return
 	if not props.has(id) or id in delivery_queue or falling_gifts.has(id) or id in pending_gift_visits: return
 	if not state.unlocked(state.selected,id) or id in state.hidden: return
 	delivery_queue.append(id)
@@ -891,6 +893,12 @@ func place_delivery_tool(id: String) -> void:
 	prop.position=chosen
 
 func advance_deliveries(delta: float) -> void:
+	if state.auto_delivery_consumed.size()>=state.auto_delivery_limit:
+		if not delivery_queue.is_empty():
+			delivery_queue.clear()
+			apply_prop_visibility()
+			refresh_destinations()
+		return
 	if is_instance_valid(furniture_room) and furniture_room.arrivals.busy(): return
 	if delivery_queue.is_empty() or delivery_paused(): return
 	if pet.motion.energy<35 or pet.motion.satiety<48 or pet.motion.hydration<45: return
@@ -912,6 +920,7 @@ func advance_deliveries(delta: float) -> void:
 
 func start_unlock_fall(id: String) -> void:
 	if not props.has(id) or falling_gifts.has(id): return
+	if not state.record_auto_delivery("prop:"+id): return
 	delivery_seen["%d/%s"%[state.selected,id]]=true
 	focus_prop=id
 	apply_prop_visibility()
@@ -1070,17 +1079,32 @@ func use_common_toy(id: String) -> void:
 	pet.motion.visit(point,"prop_use",id,true)
 
 func set_acorn_visible(value: bool) -> void:
-	if not props.has("acorn"): return
+	set_tool_visible("acorn",value)
+
+func set_auto_delivery_limit(value: int) -> void:
+	state.auto_delivery_limit=clampi(value,0,5)
+	delivery_queue.clear()
+	state.save_game()
+	apply_prop_visibility()
+	refresh_destinations()
+	if is_instance_valid(furniture_room): furniture_room.refresh_buttons()
+
+func set_tool_visible(id: String,value: bool) -> void:
+	if id not in SMALL_TOOLS or not props.has(id): return
+	state.manual_tools[id]=true
+	delivery_queue.erase(id)
+	if falling_gifts.has(id): finish_unlock_fall(id,false)
+	pending_gift_visits.erase(id)
 	if value:
-		state.hidden.erase("acorn")
-		preferred_toy="acorn"
-		focus_prop="acorn"
-		ensure_prop_nearby("acorn")
-		floor_prop(props.acorn)
+		state.hidden.erase(id)
+		preferred_toy=id
+		focus_prop=id
+		ensure_prop_nearby(id)
+		floor_prop(props[id])
 	else:
-		if "acorn" not in state.hidden: state.hidden.append("acorn")
-		if pet.motion.visit_id=="acorn": pet.motion.cancel_play()
-		props.acorn.set_wobbling(false)
+		if id not in state.hidden: state.hidden.append(id)
+		if pet.motion.visit_id==id: pet.motion.cancel_play()
+		if id=="acorn": props.acorn.set_wobbling(false)
 	state.save_game()
 	apply_prop_visibility()
 	refresh_destinations()

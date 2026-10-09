@@ -12,11 +12,11 @@ static func rows(state,species: int) -> Array:
 		var row=item.duplicate()
 		row.open=state.unlocked(species,row.id)
 		row.points=state.home_points()
-		row.hint="처음부터 함께해요" if row.threshold==0 else ("해금 완료" if row.open else "교감 %d / %d · %d 더 모으면 열려요"%[mini(row.points,row.threshold),row.threshold,maxi(0,row.threshold-row.points)])
-		row.progress=1.0 if row.open else clampf(float(row.points)/maxi(1,row.threshold),0,1)
+		row.hint="처음부터 함께해요" if row.threshold==0 else ("해금 완료" if row.open else state.route_hint(species,row.id))
+		row.progress=1.0 if row.open else preload("res://scripts/home_unlocks.gd").progress(state,row.id.trim_prefix("home_"))
 		result.append(row)
 	return result
 static func icon(id: String) -> Texture2D:
 	if id=="acorn": return preload("res://scripts/decor_art.gd").icon("acorn")
-	if id=="follow": return preload("res://scripts/ui_icons.gd").texture("together")
+	if id=="follow": return preload("res://scripts/ui_icons.gd").texture("cursor-follow")
 	return preload("res://scripts/furniture_catalog.gd").texture(id.trim_prefix("home_"))

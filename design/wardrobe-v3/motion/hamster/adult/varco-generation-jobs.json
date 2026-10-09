@@ -1,0 +1,56 @@
+[
+  {
+    "species": "hamster",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "bd9dbcb1-8773-4f7c-8982-f88e39811089",
+    "textNode": "0ddb64a2-7406-4900-aa99-78e855675d7c",
+    "prompt": "Edit ONLY clothing on existing hamster 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear LEFT reference outfit: sage seed-garden short vest, sunflower seed brooch. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hamster",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "9665ea6b-6f5e-442b-9d8f-dfca5c164afc",
+    "textNode": "ed970462-599d-4f6e-9fdd-04d233b54a86",
+    "prompt": "Edit ONLY clothing on existing hamster 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear CENTER reference outfit: cream short round cardigan, sunflower-yellow buttons. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hamster",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "28ec5678-ce30-4f0b-91d9-e9fedc61482a",
+    "textNode": "05ecf3d5-8b6b-4b6e-96bb-fea41b972792",
+    "prompt": "Edit ONLY clothing on existing hamster 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear RIGHT reference outfit: peach short bakery apron, tiny sunflower clip. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hamster",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "7b52838b-d4df-4078-9a02-c5c767ab3e7c",
+    "textNode": "323df1dc-e036-4e00-a139-c670b20028e7",
+    "prompt": "Edit ONLY clothing on existing hamster 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear LEFT reference outfit: sage seed-garden short vest, sunflower seed brooch. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hamster",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "c2665d5d-ef86-4fe7-96f4-f940600060e0",
+    "textNode": "3506855f-9ae3-48be-a5de-5fd08583615b",
+    "prompt": "Edit ONLY clothing on existing hamster 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear CENTER reference outfit: cream short round cardigan, sunflower-yellow buttons. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hamster",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "f7dd3b9b-7387-4049-848e-082b47eff2e7",
+    "textNode": "c2cd228e-b93e-4540-9fb3-90015d93d4cb",
+    "prompt": "Edit ONLY clothing on existing hamster 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear RIGHT reference outfit: peach short bakery apron, tiny sunflower clip. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, whole forearm/paw 12-16% head width, attached at SAME shoulders below scarf. Never sprout from hips/neck, migrate down belly, disappear or grow long. Both visible in FRONT of clothing, small alternating arc at UPPER BELLY. Exactly2 forelimbs+2feet. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "species": "fox",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "0f66dd55-476a-466d-bbc6-e08833e0d0a9",
+    "url": "https://3d.varco.ai/api/objects/fd07c67928bf0f64f7ae5fb42258cabd.png"
+  },
+  {
+    "species": "fox",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "9fd52956-fc1b-4162-99e9-99f0fd0b8bd2",
+    "url": "https://3d.varco.ai/api/objects/13e0879814d3d184a84027f3ea1d0b97.png"
+  },
+  {
+    "species": "fox",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "a4eb18c0-c980-49fc-928a-b623af7177e4",
+    "url": "https://3d.varco.ai/api/objects/e340fe4375de850a6dd0c7af44f5e4d2.png"
+  },
+  {
+    "species": "fox",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "4aa1a515-a2a9-44ff-817d-f522623ac5f1",
+    "url": "https://3d.varco.ai/api/objects/0bcfbc8516fca8d6bd3f7519b671ac7b.png"
+  },
+  {
+    "species": "fox",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "d531fa08-aae4-4004-8ca2-038b5ef14fa0",
+    "url": "https://3d.varco.ai/api/objects/2383941032d944736e3add6823cd85d1.png"
+  },
+  {
+    "species": "fox",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "98eac4b9-81d6-4d0a-9104-2c51b858e8eb",
+    "url": "https://3d.varco.ai/api/objects/058c4cb41b1e70cee2e781157348db68.png"
+  },
+  {
+    "species": "bear",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "b66da1ff-6d80-4df0-b0bc-54941700050d",
+    "url": "https://3d.varco.ai/api/objects/cbab077a6aa4315268b0b0c3380ea0dc.png"
+  },
+  {
+    "species": "bear",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "f79dfe57-d033-48a8-a979-55a8f0888de3",
+    "url": "https://3d.varco.ai/api/objects/955d5bf928a4002e6f27a18e2f6714be.png"
+  },
+  {
+    "species": "bear",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "92f186a2-2567-46de-a177-8b3d849f384c",
+    "url": "https://3d.varco.ai/api/objects/e76d283ba13233272545eccb2594ce38.png"
+  },
+  {
+    "species": "bear",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "889c3aca-ed19-4039-b487-317bb7ad33c8",
+    "url": "https://3d.varco.ai/api/objects/32e53240a98a93f0f054c81a2f971072.png"
+  },
+  {
+    "species": "bear",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "5e0014b6-8bac-498e-bc46-df26dd916fda",
+    "url": "https://3d.varco.ai/api/objects/1790d7dc112563fd15562d6b785643bb.png"
+  },
+  {
+    "species": "bear",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "60cbbcc2-383a-4d9d-8e43-1cd2da7c393c",
+    "url": "https://3d.varco.ai/api/objects/4cb5ad13df6f75415a33822a759dc687.png"
+  }
+]

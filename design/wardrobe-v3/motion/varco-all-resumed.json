@@ -1,0 +1,368 @@
+[
+  {
+    "species": "otter",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "84b00159-e71f-4236-af36-403f5b42b4dd",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for otter. Edit ONLY clothing on source4x4 full-body animation atlas: cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Outfit from LEFT character of reference: river-blue linen vest, tiny shell enamel brooch. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "84b00159-e71f-4236-af36-403f5b42b4dd",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/037ca7508919e2d23f7aebf8e5cfad89.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/037ca7508919e2d23f7aebf8e5cfad89.png"
+  },
+  {
+    "species": "otter",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "19df1ade-8c80-48b1-b67e-fa9f2ffd5ea5",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for otter. Edit ONLY clothing on source4x4 full-body animation atlas: cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Outfit from CENTER character of reference: oatmeal short knit cardigan, pebble-shaped buttons. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "19df1ade-8c80-48b1-b67e-fa9f2ffd5ea5",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/817a0e559f72de832d8c3585e05f50b0.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/817a0e559f72de832d8c3585e05f50b0.png"
+  },
+  {
+    "species": "otter",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "cc5902c5-12f4-4257-b955-bbb40132067e",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for otter. Edit ONLY clothing on source4x4 full-body animation atlas: cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Outfit from RIGHT character of reference: sage short cafe apron, tiny shell beret. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "cc5902c5-12f4-4257-b955-bbb40132067e",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/98d9d1929d9ae3ce70748d4efc8a3c46.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/98d9d1929d9ae3ce70748d4efc8a3c46.png"
+  },
+  {
+    "species": "otter",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "ea263a4e-00b1-4337-b7da-eabaa7c4b427",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for otter. Edit ONLY clothing on source4x4 full-body animation atlas: cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Outfit from LEFT character of reference: river-blue linen vest, tiny shell enamel brooch. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "ea263a4e-00b1-4337-b7da-eabaa7c4b427",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/833d5c58a45d8e8cb2aa296da09755db.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/833d5c58a45d8e8cb2aa296da09755db.png"
+  },
+  {
+    "species": "otter",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "c604522f-3b13-495f-b1b6-b6a005685b6a",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for otter. Edit ONLY clothing on source4x4 full-body animation atlas: cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Outfit from CENTER character of reference: oatmeal short knit cardigan, pebble-shaped buttons. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "c604522f-3b13-495f-b1b6-b6a005685b6a",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/aa5f2e806ac830701e9c4ad6ab734dcc.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/aa5f2e806ac830701e9c4ad6ab734dcc.png"
+  },
+  {
+    "species": "otter",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "e9aad89b-805d-4970-9809-ed4c7a07d5fc",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for otter. Edit ONLY clothing on source4x4 full-body animation atlas: cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Outfit from RIGHT character of reference: sage short cafe apron, tiny shell beret. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "e9aad89b-805d-4970-9809-ed4c7a07d5fc",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/36d2ce58da66bfb22c74ff511c75d3d8.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/36d2ce58da66bfb22c74ff511c75d3d8.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "403302ed-49b4-4ed9-83aa-4bcab3ca031c",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for squirrel. Edit ONLY clothing on source4x4 full-body animation atlas: cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Outfit from LEFT character of reference: sage trail vest, tiny acorn brooch. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "403302ed-49b4-4ed9-83aa-4bcab3ca031c",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/ac00381f7cbe07d7ecce5c91daa38e36.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/ac00381f7cbe07d7ecce5c91daa38e36.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "4e56486b-8817-4699-883d-58266598d2d0",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for squirrel. Edit ONLY clothing on source4x4 full-body animation atlas: cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Outfit from CENTER character of reference: oatmeal cable cardigan, hazelnut buttons. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "4e56486b-8817-4699-883d-58266598d2d0",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/fa199932bf4b58c86cf57c79920fa77e.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/fa199932bf4b58c86cf57c79920fa77e.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "efa45df8-ce37-4d53-a588-bc7bccf3d1cf",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for squirrel. Edit ONLY clothing on source4x4 full-body animation atlas: cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Outfit from RIGHT character of reference: caramel short barista apron, acorn beret. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "efa45df8-ce37-4d53-a588-bc7bccf3d1cf",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/dedf9bf90441a920601756aa4d4ef03a.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/dedf9bf90441a920601756aa4d4ef03a.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "3d25963e-e5f3-4957-a2c0-e00306ea60a5",
+    "status": "success",
+    "connected": true,
+    "prompt": "WARDROBE animation for squirrel. Edit ONLY clothing on source4x4 full-body animation atlas: cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Outfit from LEFT character of reference: sage trail vest, tiny acorn brooch. Keep exact source cell layout, original proportions, head/body size and positions, fur colors/markings, floor contact, gaze and distinct pose in EACH cell. TWO tiny fat bean-shaped forepaws, whole forearm including paw only12-16% head width. No long arms. Both forelimbs clearly visible IN FRONT of clothing, gently alternating in step when walking, raised/tucked as in original squirm poses. Exactly2 forelimbs+2feet. Keep cute round chubby body, face, tail/spines/ears and neck accessory. No stretched torso, extra limbs, hidden paws, long sleeves, floating garments. Clothes fit body volume cropped above legs. Consistent costume/brightness/linework all16cells. Preserve every expression. Follow source head/arm/tail motion instead of freezing it. Exact4x4grid and source placement/scale, flat pure #FF00FF background, no background shadow/texture, no text/crop.",
+    "download": {
+      "kind": "outputDownloads",
+      "downloads": [
+        {
+          "nodeId": "3d25963e-e5f3-4957-a2c0-e00306ea60a5",
+          "outputIndex": 0,
+          "type": "image",
+          "url": "/api/objects/2d8606d1ad10bf92e5a6bcc4480d03a8.png",
+          "taskId": null,
+          "exportType": null,
+          "error": null
+        }
+      ]
+    },
+    "url": "https://3d.varco.ai/api/objects/2d8606d1ad10bf92e5a6bcc4480d03a8.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "e87f2271-9f50-4973-a58b-dabd7b759ee8",
+    "textNode": "d00ca6be-2e83-4131-b047-d9229e1894da",
+    "prompt": "Edit clothing on existing squirrel 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear CENTER reference outfit: oatmeal cable cardigan, hazelnut buttons. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "squirrel",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "ec76e99c-e477-4b72-8de0-f13f2f9c33f0",
+    "textNode": "37e1cd50-2587-4bec-bc0f-a3952d7cafd4",
+    "prompt": "Edit clothing on existing squirrel 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear RIGHT reference outfit: caramel short barista apron, acorn beret. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hedgehog",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "963d87f7-13b7-4712-821f-857f39145942",
+    "textNode": "1dda77be-d293-4682-8e0e-fd7bbaa067f7",
+    "prompt": "Edit clothing on existing hedgehog 4x4 full-body atlas. Layout cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Wear LEFT reference outfit: short open-front mushroom garden vest around belly only; spines unobstructed. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hedgehog",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "c8ae249b-c4ba-4f70-ae63-45aad939082b",
+    "textNode": "3e9e1221-a8f2-4efb-9c73-a29d044a2beb",
+    "prompt": "Edit clothing on existing hedgehog 4x4 full-body atlas. Layout cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Wear CENTER reference outfit: cream short belly warmer knitted vest, tiny chestnut pin; spines visible. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hedgehog",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "59b7b2a1-bd75-482e-81da-6733f76b319f",
+    "textNode": "a7677a75-3aa9-4fb3-8143-a3ca8d2d9292",
+    "prompt": "Edit clothing on existing hedgehog 4x4 full-body atlas. Layout cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Wear RIGHT reference outfit: peach very short baker apron, small mushroom clip beside ear. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hedgehog",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "ff832a9a-77c2-4927-8b20-7c2a40256eca",
+    "textNode": "864f90d7-9d33-463d-b0fb-4a5031b886ec",
+    "prompt": "Edit clothing on existing hedgehog 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear LEFT reference outfit: short open-front mushroom garden vest around belly only; spines unobstructed. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hedgehog",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "a5c83b7c-eb9f-4e56-9050-3ae6b482bbd5",
+    "textNode": "469378c9-f0d7-4f32-ac50-b5df22c8caa7",
+    "prompt": "Edit clothing on existing hedgehog 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear CENTER reference outfit: cream short belly warmer knitted vest, tiny chestnut pin; spines visible. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "hedgehog",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "26b5e1f0-780b-4bd3-8a9f-c71faac1b927",
+    "textNode": "00675a8f-d8a1-48c6-bf02-fcaf9e03f4c5",
+    "prompt": "Edit clothing on existing hedgehog 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear RIGHT reference outfit: peach very short baker apron, small mushroom clip beside ear. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "raccoon",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "1488a202-dac1-4398-b7ec-b925c8f2fb7f",
+    "textNode": "104f6f40-e153-4099-96cc-17d36d0d2696",
+    "prompt": "Edit clothing on existing raccoon 4x4 full-body atlas. Layout cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Wear LEFT reference outfit: muted sky-blue pocket vest, tiny compass pin. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "raccoon",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "2d880ee6-f1af-4189-8277-1660fedcf6cc",
+    "textNode": "2a771b50-70be-4edf-a226-be8dbad4c18d",
+    "prompt": "Edit clothing on existing raccoon 4x4 full-body atlas. Layout cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Wear CENTER reference outfit: sage check short cardigan, moon button. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "raccoon",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "4d7603a7-1395-48a4-bbbe-fc2b37266e9d",
+    "textNode": "60b98d6c-0976-4c9f-a647-3abc5cb001ae",
+    "prompt": "Edit clothing on existing raccoon 4x4 full-body atlas. Layout cells0-7 eight consecutive walk poses,8-11 held squirming poses,12-15 quiet idle. Wear RIGHT reference outfit: oatmeal barista apron, tiny coffee bean beret. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "raccoon",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "63305948-9721-49a3-80db-52e68f5177e3",
+    "textNode": "fdf24aaf-f166-43aa-8a46-c9587dda8b58",
+    "prompt": "Edit clothing on existing raccoon 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear LEFT reference outfit: muted sky-blue pocket vest, tiny compass pin. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "raccoon",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "81fab733-4824-4c45-bbe6-ac6e86f78048",
+    "textNode": "ffcc29a3-ac93-4710-8e8e-f7a09118dfe7",
+    "prompt": "Edit clothing on existing raccoon 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear CENTER reference outfit: sage check short cardigan, moon button. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "raccoon",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "ff39ed1f-d201-49ea-a81a-fa498757185b",
+    "textNode": "8e3062c1-fb54-48d5-b56f-31c1dfc0b68c",
+    "prompt": "Edit clothing on existing raccoon 4x4 full-body atlas. Layout cell0 quiet carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 quiet idle. Wear RIGHT reference outfit: oatmeal barista apron, tiny coffee bean beret. SAME outfit every cell. TWO VERY SHORT FAT bean-shaped forepaws, each whole forearm/paw12-16% head width, attached at the SAME two shoulders just below scarf throughout. Never sprout from hips/neck or migrate down belly. Both visible IN FRONT of clothing. Small smooth alternating forelimb arc at UPPER BELLY for walking, never long arms. Preserve source distinct held-protest gestures. Exactly2 forelimbs+2feet, single crisp contour each, no ghosts/extra paws, no sleeve hiding hands. Keep original species identity, face, fur/feather colors, round chubby body proportions, original head/body position and scale in EACH cell, ground-contact leg phases, ear/tail/spine movement. Keep original gaze. Clothes crop above feet, wrap naturally, no stretching torso. Source pose layout is essential: do not repeat one standing pose. For extras retain each expression and landing posture. Same4x4grid on pure flat #FF00FF background without texture/shadow, no text or crops.",
+    "status": "prepared"
+  }
+]

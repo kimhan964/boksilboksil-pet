@@ -1,0 +1,450 @@
+{
+  "version": 3,
+  "species": "rabbit",
+  "stage": "adult",
+  "preview_only": true,
+  "method": "complete generated cels, offline optical flow, no runtime limb separation",
+  "styles": {
+    "vest": {
+      "walk": {
+        "file": "vest/walk.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "23310f225967b9d085e077bd53544f35cd35f1ca7a7e2c61745e3dea9ed0798a",
+        "clipped_frames": 0,
+        "source_key_count": 16,
+        "key_phases": [
+          0,
+          4,
+          8,
+          11,
+          15,
+          19,
+          22,
+          26,
+          30,
+          34,
+          38,
+          41,
+          45,
+          49,
+          52,
+          56
+        ]
+      },
+      "struggle": {
+        "file": "vest/struggle.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "e9941d1cb0b79f7d63f85f508143a69a71fb179e689cccb40f7b1c1ada90c633",
+        "clipped_frames": 0
+      },
+      "idle": {
+        "file": "vest/idle.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "a575d1ff463d6903708cc6408b8277060fffcdcb8fe72a0a432da6d70eb6dd84",
+        "clipped_frames": 0
+      },
+      "eat": {
+        "file": "vest/eat.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "bc7d950b717f3b15c93b7bc748ace71e0f2e5ce487aba23f61f60ef9fb12629c",
+        "clipped_frames": 0
+      },
+      "drink": {
+        "file": "vest/drink.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "72f05e98131e8caaf8bd975b78090211a4533acaec6cd616b71e1aaae43677e3",
+        "clipped_frames": 0
+      },
+      "dizzy": {
+        "file": "vest/dizzy.png",
+        "count": 4,
+        "columns": 8,
+        "sha256": "55fc32ee68ef409ade7adf4dbc68d1f29d22472649b0e4607e9510dc720fcc37",
+        "clipped_frames": 0
+      },
+      "emotions": {
+        "file": "vest/emotions.png",
+        "count": 4,
+        "columns": 8,
+        "sha256": "db0bd925f0e565dace5b68c61fc47981a73754dad7d8d2217d29c7bdefedcc3f",
+        "clipped_frames": 0
+      },
+      "hold-pickup": {
+        "file": "vest/hold-pickup.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "8dc50251c7d9eda0d5c9cb2b7d10b739d9b16b9c4ca25ea6ce1f0eeaa557a320",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-idle_entry": {
+        "file": "vest/hold-idle_entry.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "d39713638784ef1f9aa0605c95d03f180621a15682abcd9702c84b0c51c82a9f",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-carry_entry": {
+        "file": "vest/hold-carry_entry.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "42bbda5811b4444b65cd17440151564dbb4049a9be4caed7cc2d0dfdb283d715",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-recover": {
+        "file": "vest/hold-recover.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "9fb08c42d8de2c006b87ea434bfbb0ffa6c098dc303f4585f940c0f45792087b",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release0": {
+        "file": "vest/hold-release0.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "eead6487aba51763f7c4573ffb848f5ccf1a7876cf69846de96b17c868f0ce12",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release1": {
+        "file": "vest/hold-release1.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "8edf975e83337226a27489ba78ae3ae045c4667536bab579c57b3eb56bb4c990",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release2": {
+        "file": "vest/hold-release2.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "6cfa7a0b5e1a88dbbf5e06b6f0a4c2ee1cb496c5a51f3f3d3b3bcf3f431e5162",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release3": {
+        "file": "vest/hold-release3.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "945a3ccddfd2aa717775c8af2cf79d0f568265278d2a43fab960d174dfbe2aa8",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      }
+    },
+    "knit": {
+      "walk": {
+        "file": "knit/walk.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "c45bd6e780dbb680d5ba726c0870a6f38dfa3cbaba23bbec55dfc15d5fa6bd06",
+        "clipped_frames": 0,
+        "source_key_count": 16,
+        "key_phases": [
+          0,
+          4,
+          8,
+          11,
+          15,
+          19,
+          22,
+          26,
+          30,
+          34,
+          38,
+          41,
+          45,
+          49,
+          52,
+          56
+        ]
+      },
+      "struggle": {
+        "file": "knit/struggle.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "29e27a543f29ac875d26974b6046aa4475b3ed57585daed47f1fd45f3e803e72",
+        "clipped_frames": 0
+      },
+      "idle": {
+        "file": "knit/idle.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "877507e93620ae8cc5901da224edf99eaaffcb061b329c098049617a8244f103",
+        "clipped_frames": 0
+      },
+      "eat": {
+        "file": "knit/eat.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "94a4f0262e983e73127a165e3bff4b08a7c59fdfe789e5042c13b87c899f5ea0",
+        "clipped_frames": 0
+      },
+      "drink": {
+        "file": "knit/drink.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "e5fb2cdb5b58af398786badb046b009b734b2c95ff65ea5a03af9d48a9d99be0",
+        "clipped_frames": 0
+      },
+      "dizzy": {
+        "file": "knit/dizzy.png",
+        "count": 4,
+        "columns": 8,
+        "sha256": "84bc8510c34d795b452fb1e9d867565ac4ec8bec0b670f7f19949b086eb0c81b",
+        "clipped_frames": 0
+      },
+      "emotions": {
+        "file": "knit/emotions.png",
+        "count": 4,
+        "columns": 8,
+        "sha256": "e529ed8d8475e37750d997855b01f0c7efa49331a21f5f76fc5e8db3e0f57ed7",
+        "clipped_frames": 0
+      },
+      "hold-pickup": {
+        "file": "knit/hold-pickup.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "e485bf56e159870fb7d0f2bcb2bd026dc792a5f92ffd5fc4244418a8f6566e57",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-idle_entry": {
+        "file": "knit/hold-idle_entry.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "daf1e402e0a8357e2e35fc38b05ffa3967e1775275a3fa54c14029dd413e181b",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-carry_entry": {
+        "file": "knit/hold-carry_entry.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "f8ae8ef91878c63224b442879692cda1a073176b00122aed353e779ada9bf888",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-recover": {
+        "file": "knit/hold-recover.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "3ce0facd8c9867413821ba3bdf0f5dcf42bb6f72088d4480ad8dd2ec332ebdec",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release0": {
+        "file": "knit/hold-release0.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "589ea62d361a8d7407bc81314b91c164f47681fd7143970d75bba1762cc7ef08",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release1": {
+        "file": "knit/hold-release1.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "bf1119a4b1ec9f3cf4ff5f689ace5598ddb8b0beaec5eb1ad89dd0c93787c8fd",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release2": {
+        "file": "knit/hold-release2.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "ac19f5601686ad46d6bb70e660b5bdf687d1ec262fd91e0839b6d62e9258db17",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release3": {
+        "file": "knit/hold-release3.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "426966cf859bbda00dda26b9f1f565d0e2e350494c9f7fbb71174b0d9bd7436a",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      }
+    },
+    "apron": {
+      "walk": {
+        "file": "apron/walk.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "b31e22d1964bb644093c040c74437c3300a4083ad908e5522f198c088ab772ae",
+        "clipped_frames": 0,
+        "source_key_count": 15,
+        "key_phases": [
+          0,
+          4,
+          8,
+          11,
+          15,
+          19,
+          22,
+          26,
+          30,
+          34,
+          41,
+          45,
+          49,
+          52,
+          56
+        ]
+      },
+      "struggle": {
+        "file": "apron/struggle.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "ae574f8bfdff2404ece5b05af638ff1f8cfe0dfc86742e8bbe7bc53ad2a1c9f8",
+        "clipped_frames": 0
+      },
+      "idle": {
+        "file": "apron/idle.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "068e18945d03a7e971d5ac1290e07e232ac79ac482694ae3f1743be1991cba6c",
+        "clipped_frames": 0
+      },
+      "eat": {
+        "file": "apron/eat.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "f629bf24d9e55e0cc58a610d0c9667526f666a3397987f29ebe6390bd12d76cc",
+        "clipped_frames": 0
+      },
+      "drink": {
+        "file": "apron/drink.png",
+        "count": 60,
+        "columns": 8,
+        "sha256": "46dfe51cf72ef7f00250f09a9bc28f23397c3436a4a91ac46f8fc9b946166594",
+        "clipped_frames": 0
+      },
+      "dizzy": {
+        "file": "apron/dizzy.png",
+        "count": 4,
+        "columns": 8,
+        "sha256": "96369f38b46113d2360e1cc58e34569f1b9b8b1b74696dc66ed475506d6149ef",
+        "clipped_frames": 0
+      },
+      "emotions": {
+        "file": "apron/emotions.png",
+        "count": 4,
+        "columns": 8,
+        "sha256": "e6dd18fdc2b0c1f2d46f641ebc5a5e3f192d63eea07cc762546b45f734ba7d0c",
+        "clipped_frames": 0
+      },
+      "hold-pickup": {
+        "file": "apron/hold-pickup.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "f6b98bb58f86ae048193a3b64c159653a8348d20cc450cadf19662e789406c0b",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-idle_entry": {
+        "file": "apron/hold-idle_entry.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "291a8929f9c8099db321875d52577893ab663d4229d9b77fd15961c420fe06f7",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-carry_entry": {
+        "file": "apron/hold-carry_entry.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "44bc95722ce4416e77b8ca111e10d3384e02c48ddaf7b108c015abac20f7ad45",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-recover": {
+        "file": "apron/hold-recover.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "e70b982882016c71423184403d68cc138723247f40b73170de49c98930825e4e",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release0": {
+        "file": "apron/hold-release0.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "676ea87185531f2240f4826d4105df4e42f27de2a65f0db4384dbf0c57b8d5ee",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release1": {
+        "file": "apron/hold-release1.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "ff875d17b0790181c4e2c568c8f8aaadeae618a017add3b815b1431db321faf5",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release2": {
+        "file": "apron/hold-release2.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "09b13ac5e248c50afa576f94fd306cabc1f356910908073d14bd02fe0f9d7a9c",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release3": {
+        "file": "apron/hold-release3.png",
+        "count": 17,
+        "columns": 8,
+        "sha256": "811c403a074e18fddf974ec2cf9e7ddf0180ee9be01a22e67c7eae127ad9ed1b",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      }
+    }
+  },
+  "walk_revision": "paw-continuity-v4: tiny attached forepaws, reviewed complete poses, 60 cels"
+}

@@ -8,8 +8,19 @@ static var species_icons: Dictionary={}
 static var pond_icon: Texture2D
 static var acorn_icon: Texture2D
 static var cozy_icons: Dictionary={}
+const PROP_IDS=["rabbit","otter","squirrel","hedgehog","raccoon","fox","bear","owl","cat","puppy","hamster","panda","red_panda","lamb","koala","penguin"]
+static var matching_props: Dictionary={}
 
 static func icon(kind: String, species: int=0) -> Texture2D:
+	# Individual reviewed sprites replace the older flat-color species atlases.
+	# Transparent padding is kept; fixed prop drawing/interaction anchors stay intact.
+	if kind in ["plant","lamp","cushion","shelter"] and species>=0 and species<PROP_IDS.size():
+		var key=PROP_IDS[species]+"-"+kind
+		if not matching_props.has(key):
+			var image=Image.new()
+			if preload("res://scripts/asset_images.gd").decode_into(image,"res://assets/species-props-v2/"+key+".png")==OK:
+				matching_props[key]=ImageTexture.create_from_image(image)
+		if matching_props.has(key): return matching_props[key]
 	if kind=="basket" or (kind=="plant" and species==0):
 		var key="toy-basket" if kind=="basket" else "carrot-plush"
 		if not cozy_icons.has(key):

@@ -1,0 +1,531 @@
+{
+  "version": 3,
+  "species": "panda",
+  "stage": "adult",
+  "preview_only": true,
+  "method": "complete generated cels; offline optical flow; no runtime limb separation",
+  "styles": {
+    "vest": {
+      "walk": {
+        "file": "vest/walk.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "6aaf5c5993a8974ffcb63aea7143d829989e5a454038e1669d8d79371546fb95",
+        "clipped_frames": 0
+      },
+      "struggle": {
+        "file": "vest/struggle.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "b6a0d701d2ffc065a2a2f0564299987ed205455276e0874e999ab6b5ff9b985f",
+        "clipped_frames": 0
+      },
+      "idle": {
+        "file": "vest/idle.png",
+        "count": 1,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "d55780b0b6d5be53f14379cb0189ff708e10b2265f4119972e1c34ffaf06f99e",
+        "clipped_frames": 0
+      },
+      "dizzy": {
+        "file": "vest/dizzy.png",
+        "count": 4,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "121d660fe66b480a18efbfa74df40dcca3581319f71f475c240be3995f9d7169",
+        "clipped_frames": 0
+      },
+      "emotions": {
+        "file": "vest/emotions.png",
+        "count": 4,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "7efe6a16936289347cbea20fbdd4976a6e30d623f6d10da9d288ec24953108cd",
+        "clipped_frames": 0
+      },
+      "hold-pickup": {
+        "file": "vest/hold-pickup.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "4b66fb41eb0f1a429918a301272bb074cfa49c3bddfc16fb97ee2b338cdb62c9",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-idle_entry": {
+        "file": "vest/hold-idle_entry.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "134f67cd1bf7c423d523f6de54e65535020f0eeddb1d972b7691ef24511aafc4",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-carry_entry": {
+        "file": "vest/hold-carry_entry.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "e090fd232cff949b091ce577e265b41ad43cb2b74d7c364580b2fac4949f6954",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-recover": {
+        "file": "vest/hold-recover.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "40ff28058beab60e653dc71c7fa98c683e581c053f68fa8d0578fd69c2f7451d",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release0": {
+        "file": "vest/hold-release0.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "c28d3a159404bc97a883d463501fc65ad713ac9e4c527485d30c8dd9f53a8f47",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release1": {
+        "file": "vest/hold-release1.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "c695a7efaeebc8b0d2de14423f072c70af24d30708010ca597fd44a6da0b2249",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release2": {
+        "file": "vest/hold-release2.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "13acf553c49ff5e084b8be1f0713d9a71d3bbf904871f0039686a22eb37375b7",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release3": {
+        "file": "vest/hold-release3.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "9015dc148b983b75aaac8b7b9268850f76f35ed3f31fec7bc1640a810e3fc30d",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      }
+    },
+    "knit": {
+      "walk": {
+        "file": "knit/walk.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "b777a99b527a6d86f910147868ff5bfecf9269949056107f67a676f1f69a2f1d",
+        "clipped_frames": 0
+      },
+      "struggle": {
+        "file": "knit/struggle.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "e0f0933b67640c4a6b4344c3b46f267f0d8ed54471a15312176951ad127968ba",
+        "clipped_frames": 0
+      },
+      "idle": {
+        "file": "knit/idle.png",
+        "count": 1,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "2f40bd23fdda77f1afd237dfb9d1c237a9dba9a1ac187d8218b147088fddf4a6",
+        "clipped_frames": 0
+      },
+      "dizzy": {
+        "file": "knit/dizzy.png",
+        "count": 4,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "339d6d30bba2d37830e0843bd2b8b2708b409745bc23167379f142bb11f13315",
+        "clipped_frames": 0
+      },
+      "emotions": {
+        "file": "knit/emotions.png",
+        "count": 4,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "9e0fde9e79049bccd4f2f7cc2d80276cefb6c5dd61429f299a3ad0d882ed4c89",
+        "clipped_frames": 0
+      },
+      "hold-pickup": {
+        "file": "knit/hold-pickup.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "1c279fcd2fcac543303e9b4fdd22251e57bd893a792ca540779789b5d2f550df",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-idle_entry": {
+        "file": "knit/hold-idle_entry.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "126e970a0585aaaa4996d8f3d91a9c63da44e8ce68ae9b7e2f58f6ab2a700483",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-carry_entry": {
+        "file": "knit/hold-carry_entry.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "9cc80ce7d5acb0176b72f9485f6d47d5232e398fdb68377249911a7ae52285ee",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-recover": {
+        "file": "knit/hold-recover.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "c2586b5e8b454d57eb4bd69409627f45aa04236aa041f4493106f365b290df1f",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release0": {
+        "file": "knit/hold-release0.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "17e6ab12ccd9b5ee8f3a87a29b510715b9a2d5005e5b6ce6b2e9100b05464fce",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release1": {
+        "file": "knit/hold-release1.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "b77e3721651c82ee14325e88461c670a119a1f3c424ac8efec0c1ed4093d7de3",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release2": {
+        "file": "knit/hold-release2.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "e237805af27b4da9836cb1d232240912c285656ae1522f1f41ebcd92d7b63610",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release3": {
+        "file": "knit/hold-release3.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "d1d48632a157979184e6457997b0c23164112b899dfff3a95ba78360e21e9782",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      }
+    },
+    "apron": {
+      "walk": {
+        "file": "apron/walk.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "80ee8acea921ad09c2c8781f3a95f2b2e5475628809cbf470dcccc9a57b350af",
+        "clipped_frames": 0
+      },
+      "struggle": {
+        "file": "apron/struggle.png",
+        "count": 60,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "3b300989fd4f19cf8fea645c57bfd94826789aa4c32b4e881abc077571a13228",
+        "clipped_frames": 0
+      },
+      "idle": {
+        "file": "apron/idle.png",
+        "count": 1,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "4952328d431e9e5e9b6ddf95b9c2bf1a673d3b8ef6c4b7a2d18d1760b3221f5f",
+        "clipped_frames": 0
+      },
+      "dizzy": {
+        "file": "apron/dizzy.png",
+        "count": 4,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "3be812393f38c7c32b1313dab4ffb67c869a86efec267b6c7cb3f514eb9266c1",
+        "clipped_frames": 0
+      },
+      "emotions": {
+        "file": "apron/emotions.png",
+        "count": 4,
+        "columns": 8,
+        "cell_size": 256,
+        "padding": [
+          0,
+          0
+        ],
+        "sha256": "3d92ad6bc7498f451428a539a73420e9a4a5e9634445aa9fee2045b8428050fe",
+        "clipped_frames": 0
+      },
+      "hold-pickup": {
+        "file": "apron/hold-pickup.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "d7f6d9e6e6dd3d38d917bd30ef9d4bb770f6f2fb58c1eef817d24a1876f56aee",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-idle_entry": {
+        "file": "apron/hold-idle_entry.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "82b4aaf163307dc29d01a67769dad7627bf770611ab19dd91a00063888aa2a37",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-carry_entry": {
+        "file": "apron/hold-carry_entry.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "db6867b81c78ff7d3362cb7fa95eec9b22563be4dcb8cceb1e95a79ffb44cc0c",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-recover": {
+        "file": "apron/hold-recover.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "0fb609596d2af9e16b27de991199996ff1ec8a06c86e9f7469dad3c4749462cc",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release0": {
+        "file": "apron/hold-release0.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "9c29a4787493ae9f4268d15fd750343e364aac31f41b9018af57f5fe1f6c36a1",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release1": {
+        "file": "apron/hold-release1.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "e8064d19fb6dd900d96e6c4829f93d2382cb0a4d43d18ce2b2efb6f343894ac6",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release2": {
+        "file": "apron/hold-release2.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "c71401fb60dd77f0f1c1de1e978f8983946debcf2fdc7b1ed07d5e6b30a234eb",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      },
+      "hold-release3": {
+        "file": "apron/hold-release3.png",
+        "count": 17,
+        "columns": 8,
+        "cell_size": 384,
+        "padding": [
+          64,
+          64
+        ],
+        "sha256": "d2cceb0f53b1291b6d52a6456d8d709013dcaf839a4c12ebf9fe60f3456c383b",
+        "clipped_frames": 0,
+        "first_exact": true,
+        "last_exact": true
+      }
+    }
+  }
+}

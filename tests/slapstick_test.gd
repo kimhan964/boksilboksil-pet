@@ -13,7 +13,9 @@ func _initialize() -> void:
 	m.feet=Vector2(400,700)
 	m.target=Vector2(700,700)
 	m.phase="wander"
+	check(m.slapstick.cooldown==30.0,"initial delay must be 30 seconds")
 	check(m.slapstick.start(m,"stumble"),"start wander stumble")
+	check(m.slapstick.cooldown>=60 and m.slapstick.cooldown<=90,"repeat delay must be 60-90 seconds")
 	var origin=m.feet
 	var destination=m.target
 	for i in range(168):
@@ -21,7 +23,7 @@ func _initialize() -> void:
 		check(m.feet==origin,"teleport during stumble")
 	m.advance(1.0/60.0)
 	check(m.phase=="wander" and m.target==destination,"resume original destination")
-	check(m.slapstick.cooldown>80,"repeat cooldown missing")
+	check(m.slapstick.cooldown>57 and m.slapstick.cooldown<=90,"repeat cooldown missing")
 	for phase in ["visit","home_use","eat","drink","drop","dizzy"]:
 		m.phase=phase
 		check(not m.slapstick.start(m,"stumble"),"interrupted protected action "+phase)

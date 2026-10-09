@@ -1,0 +1,543 @@
+{
+  "version": "species-props-v2-20261009",
+  "animals": {
+    "rabbit": {
+      "plant": "res://assets/species-props-v2/rabbit-plant.png",
+      "lamp": "res://assets/species-props-v2/rabbit-lamp.png",
+      "cushion": "res://assets/species-props-v2/rabbit-cushion.png",
+      "shelter": "res://assets/species-props-v2/rabbit-shelter.png"
+    },
+    "otter": {
+      "plant": "res://assets/species-props-v2/otter-plant.png",
+      "lamp": "res://assets/species-props-v2/otter-lamp.png",
+      "cushion": "res://assets/species-props-v2/otter-cushion.png",
+      "shelter": "res://assets/species-props-v2/otter-shelter.png"
+    },
+    "squirrel": {
+      "plant": "res://assets/species-props-v2/squirrel-plant.png",
+      "lamp": "res://assets/species-props-v2/squirrel-lamp.png",
+      "cushion": "res://assets/species-props-v2/squirrel-cushion.png",
+      "shelter": "res://assets/species-props-v2/squirrel-shelter.png"
+    },
+    "hedgehog": {
+      "plant": "res://assets/species-props-v2/hedgehog-plant.png",
+      "lamp": "res://assets/species-props-v2/hedgehog-lamp.png",
+      "cushion": "res://assets/species-props-v2/hedgehog-cushion.png",
+      "shelter": "res://assets/species-props-v2/hedgehog-shelter.png"
+    },
+    "raccoon": {
+      "plant": "res://assets/species-props-v2/raccoon-plant.png",
+      "lamp": "res://assets/species-props-v2/raccoon-lamp.png",
+      "cushion": "res://assets/species-props-v2/raccoon-cushion.png",
+      "shelter": "res://assets/species-props-v2/raccoon-shelter.png"
+    },
+    "fox": {
+      "plant": "res://assets/species-props-v2/fox-plant.png",
+      "lamp": "res://assets/species-props-v2/fox-lamp.png",
+      "cushion": "res://assets/species-props-v2/fox-cushion.png",
+      "shelter": "res://assets/species-props-v2/fox-shelter.png"
+    },
+    "bear": {
+      "plant": "res://assets/species-props-v2/bear-plant.png",
+      "lamp": "res://assets/species-props-v2/bear-lamp.png",
+      "cushion": "res://assets/species-props-v2/bear-cushion.png",
+      "shelter": "res://assets/species-props-v2/bear-shelter.png"
+    },
+    "owl": {
+      "plant": "res://assets/species-props-v2/owl-plant.png",
+      "lamp": "res://assets/species-props-v2/owl-lamp.png",
+      "cushion": "res://assets/species-props-v2/owl-cushion.png",
+      "shelter": "res://assets/species-props-v2/owl-shelter.png"
+    },
+    "cat": {
+      "plant": "res://assets/species-props-v2/cat-plant.png",
+      "lamp": "res://assets/species-props-v2/cat-lamp.png",
+      "cushion": "res://assets/species-props-v2/cat-cushion.png",
+      "shelter": "res://assets/species-props-v2/cat-shelter.png"
+    },
+    "puppy": {
+      "plant": "res://assets/species-props-v2/puppy-plant.png",
+      "lamp": "res://assets/species-props-v2/puppy-lamp.png",
+      "cushion": "res://assets/species-props-v2/puppy-cushion.png",
+      "shelter": "res://assets/species-props-v2/puppy-shelter.png"
+    },
+    "hamster": {
+      "plant": "res://assets/species-props-v2/hamster-plant.png",
+      "lamp": "res://assets/species-props-v2/hamster-lamp.png",
+      "cushion": "res://assets/species-props-v2/hamster-cushion.png",
+      "shelter": "res://assets/species-props-v2/hamster-shelter.png"
+    },
+    "panda": {
+      "plant": "res://assets/species-props-v2/panda-plant.png",
+      "lamp": "res://assets/species-props-v2/panda-lamp.png",
+      "cushion": "res://assets/species-props-v2/panda-cushion.png",
+      "shelter": "res://assets/species-props-v2/panda-shelter.png"
+    },
+    "red_panda": {
+      "plant": "res://assets/species-props-v2/red_panda-plant.png",
+      "lamp": "res://assets/species-props-v2/red_panda-lamp.png",
+      "cushion": "res://assets/species-props-v2/red_panda-cushion.png",
+      "shelter": "res://assets/species-props-v2/red_panda-shelter.png"
+    },
+    "lamb": {
+      "plant": "res://assets/species-props-v2/lamb-plant.png",
+      "lamp": "res://assets/species-props-v2/lamb-lamp.png",
+      "cushion": "res://assets/species-props-v2/lamb-cushion.png",
+      "shelter": "res://assets/species-props-v2/lamb-shelter.png"
+    },
+    "koala": {
+      "plant": "res://assets/species-props-v2/koala-plant.png",
+      "lamp": "res://assets/species-props-v2/koala-lamp.png",
+      "cushion": "res://assets/species-props-v2/koala-cushion.png",
+      "shelter": "res://assets/species-props-v2/koala-shelter.png"
+    },
+    "penguin": {
+      "plant": "res://assets/species-props-v2/penguin-plant.png",
+      "lamp": "res://assets/species-props-v2/penguin-lamp.png",
+      "cushion": "res://assets/species-props-v2/penguin-cushion.png",
+      "shelter": "res://assets/species-props-v2/penguin-shelter.png"
+    }
+  },
+  "atlas_regions": {
+    "toys": [
+      [
+        47,
+        48,
+        322,
+        293
+      ],
+      [
+        369,
+        92,
+        642,
+        286
+      ],
+      [
+        703,
+        49,
+        922,
+        302
+      ],
+      [
+        970,
+        61,
+        1268,
+        302
+      ],
+      [
+        39,
+        355,
+        324,
+        569
+      ],
+      [
+        353,
+        317,
+        648,
+        599
+      ],
+      [
+        677,
+        336,
+        949,
+        594
+      ],
+      [
+        979,
+        326,
+        1267,
+        591
+      ],
+      [
+        30,
+        612,
+        330,
+        875
+      ],
+      [
+        339,
+        660,
+        642,
+        855
+      ],
+      [
+        676,
+        615,
+        946,
+        885
+      ],
+      [
+        971,
+        647,
+        1268,
+        873
+      ],
+      [
+        30,
+        906,
+        321,
+        1168
+      ],
+      [
+        351,
+        944,
+        645,
+        1158
+      ],
+      [
+        678,
+        908,
+        950,
+        1167
+      ],
+      [
+        971,
+        923,
+        1274,
+        1170
+      ]
+    ],
+    "comfort": [
+      [
+        62,
+        51,
+        320,
+        322
+      ],
+      [
+        347,
+        127,
+        614,
+        315
+      ],
+      [
+        666,
+        48,
+        904,
+        320
+      ],
+      [
+        930,
+        72,
+        1222,
+        314
+      ],
+      [
+        45,
+        400,
+        321,
+        596
+      ],
+      [
+        355,
+        349,
+        629,
+        602
+      ],
+      [
+        667,
+        365,
+        908,
+        601
+      ],
+      [
+        989,
+        353,
+        1203,
+        609
+      ],
+      [
+        34,
+        641,
+        319,
+        862
+      ],
+      [
+        337,
+        664,
+        627,
+        852
+      ],
+      [
+        648,
+        666,
+        914,
+        856
+      ],
+      [
+        930,
+        646,
+        1231,
+        874
+      ],
+      [
+        36,
+        907,
+        313,
+        1169
+      ],
+      [
+        334,
+        938,
+        622,
+        1167
+      ],
+      [
+        638,
+        910,
+        921,
+        1176
+      ],
+      [
+        942,
+        975,
+        1226,
+        1173
+      ]
+    ],
+    "homes": [
+      [
+        24,
+        76,
+        314,
+        291
+      ],
+      [
+        327,
+        67,
+        630,
+        290
+      ],
+      [
+        656,
+        44,
+        905,
+        287
+      ],
+      [
+        936,
+        54,
+        1236,
+        294
+      ],
+      [
+        19,
+        317,
+        314,
+        585
+      ],
+      [
+        324,
+        351,
+        620,
+        575
+      ],
+      [
+        620,
+        328,
+        942,
+        589
+      ],
+      [
+        943,
+        329,
+        1240,
+        583
+      ],
+      [
+        30,
+        644,
+        299,
+        878
+      ],
+      [
+        320,
+        611,
+        621,
+        882
+      ],
+      [
+        625,
+        610,
+        942,
+        877
+      ],
+      [
+        953,
+        604,
+        1232,
+        883
+      ],
+      [
+        21,
+        907,
+        310,
+        1185
+      ],
+      [
+        326,
+        899,
+        621,
+        1184
+      ],
+      [
+        637,
+        901,
+        927,
+        1208
+      ],
+      [
+        925,
+        917,
+        1239,
+        1181
+      ]
+    ],
+    "cozy_reused": [
+      [
+        43,
+        13,
+        291,
+        224
+      ],
+      [
+        346,
+        34,
+        606,
+        210
+      ],
+      [
+        684,
+        14,
+        904,
+        217
+      ],
+      [
+        970,
+        17,
+        1217,
+        218
+      ],
+      [
+        41,
+        264,
+        302,
+        426
+      ],
+      [
+        342,
+        220,
+        606,
+        430
+      ],
+      [
+        654,
+        237,
+        922,
+        429
+      ],
+      [
+        981,
+        235,
+        1210,
+        432
+      ],
+      [
+        40,
+        435,
+        294,
+        631
+      ],
+      [
+        351,
+        456,
+        607,
+        622
+      ],
+      [
+        652,
+        443,
+        918,
+        627
+      ],
+      [
+        967,
+        448,
+        1225,
+        632
+      ],
+      [
+        30,
+        635,
+        303,
+        851
+      ],
+      [
+        347,
+        641,
+        605,
+        842
+      ],
+      [
+        653,
+        646,
+        916,
+        839
+      ],
+      [
+        982,
+        652,
+        1214,
+        837
+      ],
+      [
+        52,
+        869,
+        283,
+        1021
+      ],
+      [
+        358,
+        870,
+        586,
+        1020
+      ],
+      [
+        663,
+        864,
+        904,
+        1029
+      ],
+      [
+        976,
+        848,
+        1215,
+        1033
+      ],
+      [
+        69,
+        1034,
+        257,
+        1237
+      ],
+      [
+        382,
+        1045,
+        566,
+        1227
+      ],
+      [
+        695,
+        1052,
+        897,
+        1232
+      ],
+      [
+        1005,
+        1065,
+        1192,
+        1226
+      ]
+    ]
+  }
+}

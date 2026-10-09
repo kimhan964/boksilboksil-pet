@@ -36,8 +36,10 @@ func advance(room,delta: float) -> void:
 		if room.pieces.has(id): room.use_piece(id)
 		delay=6.0
 		return
+	if app.state.auto_delivery_consumed.size()>=app.state.auto_delivery_limit: return
 	delay=maxf(0,delay-delta)
 	for id in ITEMS:
+		if not app.state.can_auto_deliver("furniture:"+id): continue
 		if app.state.arrival_seen.get(id,false) or not app.state.furniture_available(id): continue
 		if room.pieces.has(id):
 			app.state.arrival_seen[id]=true
@@ -48,6 +50,7 @@ func advance(room,delta: float) -> void:
 		return
 func start(room,id: String) -> bool:
 	if room.pieces.has(id) or not room.app.state.furniture_available(id): return false
+	if not room.app.state.can_auto_deliver("furniture:"+id): return false
 	room.place(id,Vector2(500,300),false)
 	if not room.pieces.has(id): return false
 	var app=room.app
@@ -67,6 +70,9 @@ func start(room,id: String) -> bool:
 	if not found:
 		room.remove_piece(id)
 		delay=15.0
+		return false
+	if not app.state.record_auto_delivery("furniture:"+id):
+		room.remove_piece(id)
 		return false
 	var start=Vector2i(best.x,app.usable_screen().position.y-piece.size.y-12)
 	fall={"id":id,"target":best,"start":start,"time":0.0}

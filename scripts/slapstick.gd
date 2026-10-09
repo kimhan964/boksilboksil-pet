@@ -4,7 +4,9 @@ const ROOT="res://assets/slapstick-varco-v1/"
 const DURATIONS={"stumble":2.8,"sneeze":2.4}
 static var banks={}
 static var specs={}
-var cooldown=50.0
+const INITIAL_COOLDOWN=30.0
+const REPEAT_COOLDOWN=Vector2(60.0,90.0)
+var cooldown=INITIAL_COOLDOWN
 var walking_time=0.0
 var last_kind=""
 
@@ -53,7 +55,7 @@ func start(m,kind: String) -> bool:
 	m.travel_direction=Vector2.ZERO
 	m.context_reactions.clear()
 	m.say("앗… 아무 일도 없었어" if kind=="stumble" else "에취! 머쓱…")
-	cooldown=m.rng.randf_range(90,150)
+	cooldown=m.rng.randf_range(REPEAT_COOLDOWN.x,REPEAT_COOLDOWN.y)
 	walking_time=0
 	last_kind=kind
 	return true

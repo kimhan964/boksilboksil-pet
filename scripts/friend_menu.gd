@@ -14,6 +14,7 @@ var portrait: TextureRect
 var tabs: Array=[]
 var friend_button: Button
 const SECTIONS=[[38,23,39],[15],[32,33],[26,18,14,9,10,900]]
+const ACTION_ICONS={38:"play-toys",23:"cursor-follow",39:"play-guide"}
 func add_item(text: String, id: int) -> void:
 	entries.append({"text":text,"id":id,"disabled":false,"checked":false,"check":false,"submenu":""})
 func add_check_item(text: String,id: int) -> void:
@@ -81,13 +82,19 @@ func _ready() -> void:
 	var tab_row=HBoxContainer.new()
 	column.add_child(tab_row)
 	for i in range(4):
-		var button=make_button(["함께하기","식탁 준비","집 꾸미기","생활 기록"][i],func():
+		var button=make_button(["함께하기","식탁 준비","집 꾸미기","목표·해금"][i],func():
 			section=i
 			source=null
 			history.clear()
 			rebuild())
 		button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		Icons.decorate(button,["together","table","home","journal"][i],28)
+		Icons.decorate(button,["together","table","home","journal"][i],20)
+		button.add_theme_constant_override("h_separation",4)
+		for state_name in ["normal","hover","pressed","disabled","focus"]:
+			var tab_skin=skin.get_stylebox(state_name,"Button").duplicate()
+			tab_skin.content_margin_left=6
+			tab_skin.content_margin_right=6
+			button.add_theme_stylebox_override(state_name,tab_skin)
 		button.add_theme_font_size_override("font_size",preload("res://scripts/cozy_ui.gd").BODY_SIZE)
 		tab_row.add_child(button)
 		tabs.append(button)
@@ -139,7 +146,10 @@ func rebuild() -> void:
 		body.remove_child(child)
 		child.queue_free()
 	for i in range(tabs.size()):
-		tabs[i].add_theme_stylebox_override("normal",box("dce5d2" if i==section and source==null else "f2f0e9"))
+		var tab_skin=box("dce5d2" if i==section and source==null else "f2f0e9")
+		tab_skin.content_margin_left=6
+		tab_skin.content_margin_right=6
+		tabs[i].add_theme_stylebox_override("normal",tab_skin)
 	if source!=null:
 		body.add_child(make_button("‹  돌아가기",func(): source=history.pop_back(); rebuild()))
 		var pet=get_parent()
@@ -181,15 +191,62 @@ func rebuild() -> void:
 		"놀이감을 꺼내 클릭하거나 동물을 데려다 놓아 함께 놀아요.\n마우스 따라오기로 함께 산책해 보세요.",
 		"메뉴를 골라 식탁을 준비해요.\n식탁을 클릭하거나 동물을 데려다 놓으면 이용해요.",
 		"소파·식탁·조명 등 가구를 한곳에서 배치해요.\n드래그로 이동 · 우클릭으로 좌우 반전",
-		"함께 쌓은 교감과 성장, 아이템 해금 기록이에요."
+		"가구와 놀이감을 하나씩 모아 우리 집을 꾸며요."
 	][section]
-	if section==3: caption.text+="\n"+get_parent().state.goal_text(get_parent().species)
+	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	body.add_child(caption)
 	if section==2:
 		var upcoming=Label.new()
 		upcoming.text="의상은 추후 업데이트 예정이에요."
 		preload("res://scripts/cozy_ui.gd").label(upcoming,"caption")
 		body.add_child(upcoming)
+	if section!=3: add_section_actions()
+
+	if section==0:
+		var progress_hint=Label.new()
+		progress_hint.text="놀이감 해금 · 함께 놀기 완료 횟수를 쌓아요.\n모든 친구의 활동을 합산하며, 열린 물품은 유지돼요."
+		progress_hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		preload("res://scripts/cozy_ui.gd").label(progress_hint,"caption")
+		body.add_child(progress_hint)
+		for row in preload("res://scripts/play_catalog.gd").rows(get_parent().state,get_parent().species): add_play_card(row)
+	if section==3:
+		add_goal_summary()
+		var rows=get_parent().state.unlock_rows(get_parent().species)
+		for row in rows:
+			if not row.earned: add_unlock_card(row)
+		for row in rows:
+			if row.earned: add_unlock_card(row)
+		add_section_actions()
+
+func add_goal_summary() -> void:
+	var state=get_parent().state
+	var card=PanelContainer.new()
+	card.add_theme_stylebox_override("panel",box("e5eadd"))
+	body.add_child(card)
+	var column=VBoxContainer.new()
+	column.add_theme_constant_override("separation",8)
+	card.add_child(column)
+	var title=Label.new()
+	title.text="우리 집 교감 · %d"%state.home_points()
+	preload("res://scripts/cozy_ui.gd").label(title,"body")
+	column.add_child(title)
+	var goal=Label.new()
+	goal.text=state.goal_text(get_parent().species)
+	goal.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(goal)
+	var help=Label.new()
+	help.text="쓰다듬기·마우스 산책 +1 / 공놀이 +2\n식탁에서 먹기·마시기, 가구 이용 +1\n모든 친구가 함께 모아요. 교감은 차감되지 않아요."
+	if state.test_unlocks(): help.text+="\n검수용: 모두 사용 가능 · 아래는 일반 플레이 해금 조건"
+	preload("res://scripts/cozy_ui.gd").label(help,"caption")
+	help.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(help)
+	var tip=Label.new()
+	tip.text="같은 교감 행동은 8초, 식사·물·가구 이용은 45초 간격으로 기록해요."
+	tip.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	preload("res://scripts/cozy_ui.gd").label(tip,"caption")
+	body.add_child(tip)
+
+func add_section_actions() -> void:
 	for id in SECTIONS[section]:
 		var index=get_item_index(id)
 		if index<0: continue
@@ -203,21 +260,10 @@ func rebuild() -> void:
 		button.disabled=item.disabled
 		if item.disabled: button.tooltip_text=get_parent().state.action_hint(get_parent().species,id)
 		style_action(button)
-		Icons.decorate(button,"together" if section==0 else ("home" if section==2 else ("table" if section==1 else "journal")),28)
+		var section_icon=["together","table","home","journal"][section]
+		Icons.decorate(button,ACTION_ICONS.get(id,section_icon),32 if ACTION_ICONS.has(id) else 28)
 		body.add_child(button)
 
-	if section==0:
-		var progress_hint=Label.new()
-		progress_hint.text="놀이 해금 · 쓰다듬기와 놀이로 교감을 쌓아요.\n교감은 차감되지 않고 모든 친구가 함께 쌓아요."
-		progress_hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-		preload("res://scripts/cozy_ui.gd").label(progress_hint,"caption")
-		body.add_child(progress_hint)
-		for row in preload("res://scripts/play_catalog.gd").rows(get_parent().state,get_parent().species): add_play_card(row)
-	if section==3:
-		for row in get_parent().state.unlock_rows(get_parent().species):
-			if not row.open: add_unlock_card(row)
-		for row in get_parent().state.unlock_rows(get_parent().species):
-			if row.open: add_unlock_card(row)
 
 func style_action(button: Button) -> void:
 	button.custom_minimum_size.y=44
@@ -243,21 +289,20 @@ func add_unlock_card(row: Dictionary) -> void:
 	thumb.modulate=Color.WHITE if row.open else Color(.75,.75,.75,.7)
 	title_row.add_child(thumb)
 	title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	title.text=("배치 가능  ·  " if row.open else "해금 준비  ·  ")+row.get("category","가구")+" · "+row.title
+	title.text=("해금 완료  ·  " if row.earned else ("검수용 열림  ·  " if row.open else "해금 준비  ·  "))+row.get("category","가구")+" · "+row.title
 	title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	title_row.add_child(title)
-	if not row.open:
-		var hint=Label.new()
-		hint.text=row.hint
-		hint.add_theme_font_size_override("font_size",12)
-		hint.add_theme_color_override("font_color",Color("817d73"))
-		hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-		column.add_child(hint)
-		var bar=ProgressBar.new()
-		bar.custom_minimum_size.y=7
-		bar.show_percentage=false
-		bar.value=row.progress*100
-		column.add_child(bar)
+	var hint=Label.new()
+	hint.text=row.hint
+	hint.add_theme_font_size_override("font_size",12)
+	hint.add_theme_color_override("font_color",Color("817d73"))
+	hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(hint)
+	var bar=ProgressBar.new()
+	bar.custom_minimum_size.y=7
+	bar.show_percentage=false
+	bar.value=row.progress*100
+	column.add_child(bar)
 
 func add_play_card(row: Dictionary) -> void:
 	var card=PanelContainer.new()

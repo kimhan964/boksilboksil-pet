@@ -9,6 +9,7 @@ static var cache: Dictionary={}
 static var dressed_cache: Dictionary={}
 
 static func release_other_species(species: int) -> void:
+	preload("res://scripts/wardrobe_motion_art.gd").release_other_species(species)
 	preload("res://scripts/slapstick.gd").release_other_species(species)
 	preload("res://scripts/hold_transition_art.gd").release_other_species(species)
 	preload("res://scripts/struggle_art.gd").release_other_species(species)

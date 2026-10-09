@@ -32,7 +32,7 @@ func _initialize() -> void:
 		motion.feet=Vector2(300,300)
 		motion.target=motion.feet+Vector2(12,0)
 		var elapsed=0.0
-		var cycle=float(spec.cycle_seconds)/preload("res://scripts/gait_profile.gd").TRAVEL_RATE
+		var cycle=Hop.cycle_period(spec)
 		while elapsed<cycle-2.0/fps:
 			motion.advance(1.0/fps)
 			elapsed+=1.0/fps
@@ -40,6 +40,37 @@ func _initialize() -> void:
 		for frame in range(ceilf(.2*fps)): motion.advance(1.0/fps)
 		if motion.phase!="idle" or motion.pilot_hop.active: errors.append("cycle did not finish")
 		if motion.feet.distance_to(Vector2(312,300))>.001: errors.append("destination mismatch")
+	# Consecutive hops must retain a visible, stationary contact interval.
+	for stage in [0,2]:
+		for fps in [30,60,144]:
+			var motion=Motion.new()
+			motion.growth_stage=stage
+			motion.growth_scale=.93 if stage==0 else 1.0
+			motion.feet=Vector2(300,300)
+			motion.target=Vector2(1500,300)
+			var stage_spec=art.data().stages["baby" if stage==0 else "adult"]
+			var airborne=false
+			var landed=false
+			var ground_time=0.0
+			var contacts=0
+			var grounded_at=motion.feet
+			for tick in range(fps*6):
+				motion.pilot_hop.advance(motion,1.0/fps,stage_spec)
+				var height=Hop.lift(motion.walk_phase,stage_spec.launch_phase,stage_spec.land_phase,stage_spec.lift_canvas)
+				if height>.0001:
+					if landed:
+						if ground_time<.5: errors.append("contact shorter than .5 seconds %d/%d: %f"%[stage,fps,ground_time])
+						contacts+=1
+					landed=false
+					airborne=true
+					ground_time=0
+				elif airborne:
+					if not landed: grounded_at=motion.feet
+					landed=true
+					ground_time+=1.0/fps
+					if motion.feet.distance_to(grounded_at)>.02: errors.append("feet slide while planted")
+				if contacts>=2: break
+			if contacts<2: errors.append("consecutive contact cycles not covered")
 	print("HOP_CONTACT_TRAJECTORY ","PASS" if errors.is_empty() else errors)
 	quit(0 if errors.is_empty() else 1)
 

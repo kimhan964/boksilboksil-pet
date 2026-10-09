@@ -1,0 +1,86 @@
+[
+  {
+    "species": "hamster",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "bd9dbcb1-8773-4f7c-8982-f88e39811089",
+    "url": "https://3d.varco.ai/api/objects/1be1311d8f181d7e4aa0f582eedb0dbd.png"
+  },
+  {
+    "species": "hamster",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "9665ea6b-6f5e-442b-9d8f-dfca5c164afc",
+    "url": "https://3d.varco.ai/api/objects/8c10d0a042084e64ca7056cd82d542bc.png"
+  },
+  {
+    "species": "hamster",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "28ec5678-ce30-4f0b-91d9-e9fedc61482a",
+    "url": "https://3d.varco.ai/api/objects/fce8562f007d68bd9e02e046219345d0.png"
+  },
+  {
+    "species": "hamster",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "7b52838b-d4df-4078-9a02-c5c767ab3e7c",
+    "url": "https://3d.varco.ai/api/objects/873731bc57150a52bfb07d2507e4a92a.png"
+  },
+  {
+    "species": "hamster",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "c2665d5d-ef86-4fe7-96f4-f940600060e0",
+    "url": "https://3d.varco.ai/api/objects/620d167593c4055ec4698b5dca3c9c2b.png"
+  },
+  {
+    "species": "hamster",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "f7dd3b9b-7387-4049-848e-082b47eff2e7",
+    "url": "https://3d.varco.ai/api/objects/2a7f689b3fafc14dac4f7bff374ce5ed.png"
+  },
+  {
+    "species": "panda",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "dcb87e79-3d1d-4741-887d-19e386b6a585",
+    "url": "https://3d.varco.ai/api/objects/cb1c646a99f8e1a7f5cd75e7eb312c10.png"
+  },
+  {
+    "species": "panda",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "60a5f100-5a27-4056-82d8-746eb6a59a45",
+    "url": "https://3d.varco.ai/api/objects/f7d388161d0dc3f95689ac8ad04586d8.png"
+  },
+  {
+    "species": "panda",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "1e901821-22b8-4b71-bbf4-3368b868f8ec",
+    "url": "https://3d.varco.ai/api/objects/d194a3c9cdd53b3ddfe9f836b4b8b3f2.png"
+  },
+  {
+    "species": "panda",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "fdb42204-2e88-4599-be44-5cd064e49e60",
+    "url": "https://3d.varco.ai/api/objects/b8212df420391f2579f4748fda1403f9.png"
+  },
+  {
+    "species": "panda",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "370f4ee2-9ee3-48ef-81e4-4e5dc2e675bd",
+    "url": "https://3d.varco.ai/api/objects/40541494b79f3e186af0d49802920f3c.png"
+  },
+  {
+    "species": "panda",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "3e657484-c294-4fc4-9cf9-f98e13484d5b",
+    "url": "https://3d.varco.ai/api/objects/a31e9fc1f469f63d8d09b9856441a9fb.png"
+  }
+]

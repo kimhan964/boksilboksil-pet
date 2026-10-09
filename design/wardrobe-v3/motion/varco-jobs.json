@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-09",
+  "workflowId": "192f6fd8-83a5-4fc5-a978-ddce23f18d72",
+  "jobs": {
+    "vest": {
+      "nodeId": "dc4af411-ffce-4cd6-8a19-03482b7aa540",
+      "textNode": "f246b4e2-b427-46d7-8548-850fa1ace9ff",
+      "sourceNode": "1891707e-87fc-417d-8063-7879f916f7cb",
+      "prompt": "Edit the source image, preserving its exact FOUR COLUMNS x FOUR ROWS contact sheet and every pose. Each cell is the SAME existing game bunny at a different animation time. KEEP EXACTLY the same 16 bunny poses, body proportions, facial features, gaze, arm/paw positions, leg positions, ear positions, tail, camera framing, scale and location within each cell. ONLY dress EACH bunny in LEFT concept: cropped sage linen walking vest, carrot embroidery and a tiny carrot pin at ear base, matching optional wardrobe reference. All 16 wear the SAME outfit. IMPORTANT ARMS: preserve BOTH forearms and BOTH paws from the original in EVERY cell; the original forearms and hands must appear IN FRONT OF the vest/cardigan/apron as appropriate. Correct armholes: garment behind the arm silhouette, no arm erased or merged into chest, no coat over paws, no extra limbs. Row1-2 are hopping and crouching with distinctly different front-paw motions; row3 is struggling while carried with arms raised, waved, extended and lowered, retain each distinct pose EXACTLY; row4 blinks, keep its eyes states. Original cream fur unchanged. Short hem ABOVE hind legs. Preserve neck leaf tie. No shadows, no floor, no decorations, no grid lines, no text, no new backgrounds. Keep every background pixel pure flat magenta #FF00FF for chroma key. Never use magenta in the garment or body. This is a precise costume-only edit of an animation atlas, NOT a new character design or pose generation. Preserve all16 cells, nothing clipped.",
+      "provider": "VARCO MCP",
+      "model": "gpt-image-2.5-flare",
+      "download_url": "/api/objects/ca5eb5c96cf654541794c478bd2f9538.png",
+      "file": "rabbit/adult/vest-generated.png",
+      "status": "key_sheet_reviewed_animation_pending"
+    },
+    "knit": {
+      "nodeId": "5e870f73-9c73-47bf-9ec4-8a7445d55698",
+      "textNode": "18aa142e-e87d-4083-933b-cc8015396a83",
+      "sourceNode": "1891707e-87fc-417d-8063-7879f916f7cb",
+      "prompt": "Edit the source image, preserving its exact FOUR COLUMNS x FOUR ROWS contact sheet and every pose. Each cell is the SAME existing game bunny at a different animation time. KEEP EXACTLY the same 16 bunny poses, body proportions, facial features, gaze, arm/paw positions, leg positions, ear positions, tail, camera framing, scale and location within each cell. ONLY dress EACH bunny in CENTER concept: cropped cream sleeveless knit cardigan with muted peach trim and one tiny daisy brooch, matching optional wardrobe reference. All 16 wear the SAME outfit. IMPORTANT ARMS: preserve BOTH forearms and BOTH paws from the original in EVERY cell; the original forearms and hands must appear IN FRONT OF the vest/cardigan/apron as appropriate. Correct armholes: garment behind the arm silhouette, no arm erased or merged into chest, no coat over paws, no extra limbs. Row1-2 are hopping and crouching with distinctly different front-paw motions; row3 is struggling while carried with arms raised, waved, extended and lowered, retain each distinct pose EXACTLY; row4 blinks, keep its eyes states. Original cream fur unchanged. Short hem ABOVE hind legs. Preserve neck leaf tie. No shadows, no floor, no decorations, no grid lines, no text, no new backgrounds. Keep every background pixel pure flat magenta #FF00FF for chroma key. Never use magenta in the garment or body. This is a precise costume-only edit of an animation atlas, NOT a new character design or pose generation. Preserve all16 cells, nothing clipped.",
+      "provider": "VARCO MCP",
+      "model": "gpt-image-2.5-flare",
+      "download_url": "/api/objects/e551de5f6acf46adc5c61bbd30fbc82a.png",
+      "file": "rabbit/adult/knit-generated.png",
+      "status": "key_sheet_reviewed_animation_pending"
+    },
+    "apron": {
+      "nodeId": "7aff61c3-e823-4f90-90d1-eabae8b3ccc6",
+      "textNode": "026013ca-56f7-4809-ba11-12221658e25c",
+      "sourceNode": "1891707e-87fc-417d-8063-7879f916f7cb",
+      "prompt": "Edit the source image, preserving its exact FOUR COLUMNS x FOUR ROWS contact sheet and every pose. Each cell is the SAME existing game bunny at a different animation time. KEEP EXACTLY the same 16 bunny poses, body proportions, facial features, gaze, arm/paw positions, leg positions, ear positions, tail, camera framing, scale and location within each cell. ONLY dress EACH bunny in RIGHT concept: short oatmeal cafe apron, dusty sky blue pocket and a small biscuit beret beside ear, matching optional wardrobe reference. All 16 wear the SAME outfit. IMPORTANT ARMS: preserve BOTH forearms and BOTH paws from the original in EVERY cell; the original forearms and hands must appear IN FRONT OF the vest/cardigan/apron as appropriate. Correct armholes: garment behind the arm silhouette, no arm erased or merged into chest, no coat over paws, no extra limbs. Row1-2 are hopping and crouching with distinctly different front-paw motions; row3 is struggling while carried with arms raised, waved, extended and lowered, retain each distinct pose EXACTLY; row4 blinks, keep its eyes states. Original cream fur unchanged. Short hem ABOVE hind legs. Preserve neck leaf tie. No shadows, no floor, no decorations, no grid lines, no text, no new backgrounds. Keep every background pixel pure flat magenta #FF00FF for chroma key. Never use magenta in the garment or body. This is a precise costume-only edit of an animation atlas, NOT a new character design or pose generation. Preserve all16 cells, nothing clipped.",
+      "provider": "VARCO MCP",
+      "model": "gpt-image-2.5-flare",
+      "download_url": "/api/objects/e99998e4adc411017c08c88691a117db.png",
+      "file": "rabbit/adult/apron-generated.png",
+      "status": "key_sheet_reviewed_animation_pending"
+    }
+  }
+}

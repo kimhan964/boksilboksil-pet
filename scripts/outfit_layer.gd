@@ -66,7 +66,7 @@ func _draw() -> void:
 	if view==null or view.motion==null or view.sprite==null or view.sprite.texture==null: return
 	var style=clampi(int(view.motion.outfit_style),0,3)
 	if style==0: return
-	if view.generated_sample.get("dressed",false): return
+	if view.generated_sample.get("dressed",false) or view.generated_sample.get("wardrobe_v3",false): return
 	var species=clampi(int(view.motion.species),0,Catalog.IDS.size()-1)
 	var stage="baby" if view.motion.growth_stage==0 else "adult"
 	var color=clampi(int(view.motion.outfit_color),0,5)

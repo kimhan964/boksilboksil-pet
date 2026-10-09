@@ -1,0 +1,86 @@
+[
+  {
+    "species": "red_panda",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "44e2def7-bebf-4db6-9d31-4f978bf4ec19",
+    "url": "https://3d.varco.ai/api/objects/fb2969a5e4a24f4e2d1a0a51421d0e25.png"
+  },
+  {
+    "species": "red_panda",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "ffcb7003-0aeb-4ce6-9a43-9b4c2238160b",
+    "url": "https://3d.varco.ai/api/objects/ac57af38fbb1956a04762d900aa9fdf4.png"
+  },
+  {
+    "species": "red_panda",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "7f167c85-6fc4-4fcf-ae92-5213165e635b",
+    "url": "https://3d.varco.ai/api/objects/28d713dafeb86f2a66047d44036b5f8e.png"
+  },
+  {
+    "species": "red_panda",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "ebb5982e-ee7c-4146-8146-d1f8011c5be0",
+    "url": "https://3d.varco.ai/api/objects/c3219cd5ec3d371efa35b51dce61cab2.png"
+  },
+  {
+    "species": "red_panda",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "c07b7460-24c7-412b-8a94-5def796a0aac",
+    "url": "https://3d.varco.ai/api/objects/1d19006702414ac67d3e24c2bd4ecfa0.png"
+  },
+  {
+    "species": "red_panda",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "9fa02c05-29d0-4993-9027-b4e438c157cf",
+    "url": "https://3d.varco.ai/api/objects/47b79ef843e12f134e3738b2c37ea61a.png"
+  },
+  {
+    "species": "lamb",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "c6ed54dd-1f4a-43a8-9c51-c891df6b2648",
+    "url": "https://3d.varco.ai/api/objects/0a0a2161d9d7088e55f198a9d68dace3.png"
+  },
+  {
+    "species": "lamb",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "8dbc5485-fa4e-404b-b6ec-c382ee44b9b2",
+    "url": "https://3d.varco.ai/api/objects/a6117c514f3cfe5d78234df34210c357.png"
+  },
+  {
+    "species": "lamb",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "c891f7c1-56b5-466f-993c-715ce275fa35",
+    "url": "https://3d.varco.ai/api/objects/37f0b6997147837988ba73a0644eeb52.png"
+  },
+  {
+    "species": "lamb",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "11bad86b-6239-4baf-b152-5440a0ac1583",
+    "url": "https://3d.varco.ai/api/objects/5ea30aa6e4f09f3788956725722bfae3.png"
+  },
+  {
+    "species": "lamb",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "297b7123-6115-4a61-a5f4-1c6761ba152e",
+    "url": "https://3d.varco.ai/api/objects/12fde4b9fc2b0586ca024096cdf694b8.png"
+  },
+  {
+    "species": "lamb",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "1e40daeb-c7ec-4739-9ede-b9a73806a101",
+    "url": "https://3d.varco.ai/api/objects/2ccf3517a9d5b3891b8b94db7eb83fa3.png"
+  }
+]

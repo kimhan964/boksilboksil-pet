@@ -1,0 +1,86 @@
+[
+  {
+    "species": "koala",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "c73be00d-dcf2-4056-b949-b9516ff7f14c",
+    "url": "https://3d.varco.ai/api/objects/88332aa558e33080c82047b040e38cfd.png"
+  },
+  {
+    "species": "koala",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "8cf64ec7-3169-4c53-be5b-1bc7d292b175",
+    "url": "https://3d.varco.ai/api/objects/5fe539534f35d4a66ceea3dc51c3c825.png"
+  },
+  {
+    "species": "koala",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "bb1936c0-dc66-4128-bb69-c48a8273058c",
+    "url": "https://3d.varco.ai/api/objects/5bf31a1a68c211baa4a5dc847777e050.png"
+  },
+  {
+    "species": "koala",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "a9db3dbb-41a7-4919-8d51-1a6d36b81ab4",
+    "url": "https://3d.varco.ai/api/objects/d8631c41478e6ea210988ac0027facb4.png"
+  },
+  {
+    "species": "koala",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "459a64f8-bddb-4b89-98c5-397c8ce9a7c5",
+    "url": "https://3d.varco.ai/api/objects/13363c5a07dc3905f812d5f0b414ee64.png"
+  },
+  {
+    "species": "koala",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "42252acf-3f44-47b2-a73d-1c541c056365",
+    "url": "https://3d.varco.ai/api/objects/da668d0c58bcad06b119c7c07f456522.png"
+  },
+  {
+    "species": "penguin",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "f3f43ae9-3f7d-48e2-822f-84cdbfce9c25",
+    "url": "https://3d.varco.ai/api/objects/73afd4cd56bdcecfc98305e550295740.png"
+  },
+  {
+    "species": "penguin",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "0775390b-5704-4a4c-a930-e2b34f02b5c2",
+    "url": "https://3d.varco.ai/api/objects/bddf1e044e9118cae7d09b148edbe3a2.png"
+  },
+  {
+    "species": "penguin",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "41553b91-f33b-4bb4-923d-d2c88b44b1d1",
+    "url": "https://3d.varco.ai/api/objects/8a031283f9e48d489d28adde19fe3bb0.png"
+  },
+  {
+    "species": "penguin",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "5ec394b0-0804-43a6-be82-eaace62ae242",
+    "url": "https://3d.varco.ai/api/objects/6560b077baa55826ee72dcc7abcf0f9d.png"
+  },
+  {
+    "species": "penguin",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "ab9ca809-9c3c-43bf-9165-bb62259803aa",
+    "url": "https://3d.varco.ai/api/objects/bcb7b1aa0409a36511b7735238e2903b.png"
+  },
+  {
+    "species": "penguin",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "bf850c58-7522-4856-a735-f42be1cbaf12",
+    "url": "https://3d.varco.ai/api/objects/11d46d6af48418200d8f9aa73352750c.png"
+  }
+]

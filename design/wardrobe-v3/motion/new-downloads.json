@@ -1,0 +1,86 @@
+[
+  {
+    "species": "squirrel",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "403302ed-49b4-4ed9-83aa-4bcab3ca031c",
+    "url": "https://3d.varco.ai/api/objects/ac00381f7cbe07d7ecce5c91daa38e36.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "4e56486b-8817-4699-883d-58266598d2d0",
+    "url": "https://3d.varco.ai/api/objects/fa199932bf4b58c86cf57c79920fa77e.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "efa45df8-ce37-4d53-a588-bc7bccf3d1cf",
+    "url": "https://3d.varco.ai/api/objects/dedf9bf90441a920601756aa4d4ef03a.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "3d25963e-e5f3-4957-a2c0-e00306ea60a5",
+    "url": "https://3d.varco.ai/api/objects/2d8606d1ad10bf92e5a6bcc4480d03a8.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "e87f2271-9f50-4973-a58b-dabd7b759ee8",
+    "url": "https://3d.varco.ai/api/objects/3e459f06310641d409d6f9898600ef8b.png"
+  },
+  {
+    "species": "squirrel",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "ec76e99c-e477-4b72-8de0-f13f2f9c33f0",
+    "url": "https://3d.varco.ai/api/objects/47c49bcae7118b2d1414be9df3dfc3f0.png"
+  },
+  {
+    "species": "hedgehog",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "963d87f7-13b7-4712-821f-857f39145942",
+    "url": "https://3d.varco.ai/api/objects/083ba3e54c3ced95a86556338144113c.png"
+  },
+  {
+    "species": "hedgehog",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "c8ae249b-c4ba-4f70-ae63-45aad939082b",
+    "url": "https://3d.varco.ai/api/objects/b6af06ebeb663dc2744b36feaebd60af.png"
+  },
+  {
+    "species": "hedgehog",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "59b7b2a1-bd75-482e-81da-6733f76b319f",
+    "url": "https://3d.varco.ai/api/objects/2eadb2be2460effbf07efc4aeb22a62a.png"
+  },
+  {
+    "species": "hedgehog",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "ff832a9a-77c2-4927-8b20-7c2a40256eca",
+    "url": "https://3d.varco.ai/api/objects/f130e2beaf6bb8270c9e57d3026f756c.png"
+  },
+  {
+    "species": "hedgehog",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "a5c83b7c-eb9f-4e56-9050-3ae6b482bbd5",
+    "url": "https://3d.varco.ai/api/objects/916c6415aef25baa62c4131655c30888.png"
+  },
+  {
+    "species": "hedgehog",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "26b5e1f0-780b-4bd3-8a9f-c71faac1b927",
+    "url": "https://3d.varco.ai/api/objects/8c2080e517952232f9310cf76834c264.png"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "species": "owl",
+    "style": "vest",
+    "bank": "core",
+    "nodeId": "f90fe4f3-cc3a-407c-8bc8-ddf6717569de",
+    "textNode": "59311c74-7ef2-4bd7-a7af-22fea82f8216",
+    "prompt": "Edit ONLY clothing on existing owl 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear LEFT reference outfit: sage short open vest fitted around wings, tiny star pin. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "owl",
+    "style": "knit",
+    "bank": "core",
+    "nodeId": "942a3ec7-0a52-48ad-a045-ec8ff2367f77",
+    "textNode": "09cf66fe-9540-4d03-bb03-df56646293fa",
+    "prompt": "Edit ONLY clothing on existing owl 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear CENTER reference outfit: cream knit short vest with lavender trim, small moon brooch. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "owl",
+    "style": "apron",
+    "bank": "core",
+    "nodeId": "26cc3a78-a1b7-481b-b2f3-b01379944b5c",
+    "textNode": "83452864-c946-4ffa-9784-7fd8114b67af",
+    "prompt": "Edit ONLY clothing on existing owl 4x4 full-body atlas. Cells0-7 consecutive walking,8-11 held squirm,12-15 quiet idle. Wear RIGHT reference outfit: oatmeal short librarian cafe apron, tiny star beret; wings visible. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "owl",
+    "style": "vest",
+    "bank": "extras",
+    "nodeId": "a999c854-a853-4b29-ad85-e21c8bad53b1",
+    "textNode": "d047a342-b592-4103-8439-bdfff4e38218",
+    "prompt": "Edit ONLY clothing on existing owl 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear LEFT reference outfit: sage short open vest fitted around wings, tiny star pin. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "owl",
+    "style": "knit",
+    "bank": "extras",
+    "nodeId": "daa9e112-1ee3-45fe-90bd-f022f8f2b79c",
+    "textNode": "0f3a5194-a087-4a29-aee0-45b348d514b9",
+    "prompt": "Edit ONLY clothing on existing owl 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear CENTER reference outfit: cream knit short vest with lavender trim, small moon brooch. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  },
+  {
+    "species": "owl",
+    "style": "apron",
+    "bank": "extras",
+    "nodeId": "ce3721ea-0166-47a4-a3eb-3eb4a2441d88",
+    "textNode": "e8e04edb-0e31-4c3d-ac03-cd2ef9c3f9bf",
+    "prompt": "Edit ONLY clothing on existing owl 4x4 full-body atlas. Cell0 carried,1-4 dizzy/fall,5-8 surprised/happy/angry/sleepy,9-15 idle. Wear RIGHT reference outfit: oatmeal short librarian cafe apron, tiny star beret; wings visible. SAME outfit every cell. TWO short rounded WINGS attached at same shoulders; no mammalian hands or extra arms. Preserve EACH original full-body pose, held protest gesture, ground-contact foot phases, head/arm/tail motion, gaze, face, fur markings, round chubby body, scale and location. Do not repeat a static pose. Clear single contours; no ghosts/extra limbs/sleeves hiding paws. Short clothes fit body without stretching torso. Preserve extras expressions and landing poses. Exact4x4grid, pure flat #FF00FF background, no shadow/texture/text/crops.",
+    "status": "prepared"
+  }
+]

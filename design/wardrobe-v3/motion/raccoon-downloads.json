@@ -1,0 +1,44 @@
+[
+  {
+    "species": "raccoon",
+    "style": "vest",
+    "bank": "core",
+    "url": "https://3d.varco.ai/api/objects/6846fd79f3b68c93e99ea69dcdfa9c3d.png",
+    "nodeId": "1488a202-dac1-4398-b7ec-b925c8f2fb7f"
+  },
+  {
+    "species": "raccoon",
+    "style": "knit",
+    "bank": "core",
+    "url": "https://3d.varco.ai/api/objects/d2e87044a116562c48c1283cac03d8af.png",
+    "nodeId": "2d880ee6-f1af-4189-8277-1660fedcf6cc"
+  },
+  {
+    "species": "raccoon",
+    "style": "apron",
+    "bank": "core",
+    "url": "https://3d.varco.ai/api/objects/3e431b286d27c45be45536b64677d41b.png",
+    "nodeId": "4d7603a7-1395-48a4-bbbe-fc2b37266e9d"
+  },
+  {
+    "species": "raccoon",
+    "style": "vest",
+    "bank": "extras",
+    "url": "https://3d.varco.ai/api/objects/446fc718ee70c8066789356b742798da.png",
+    "nodeId": "63305948-9721-49a3-80db-52e68f5177e3"
+  },
+  {
+    "species": "raccoon",
+    "style": "knit",
+    "bank": "extras",
+    "url": "https://3d.varco.ai/api/objects/959dfa72e488328bcceff87d9d7dc2e4.png",
+    "nodeId": "81fab733-4824-4c45-bbe6-ac6e86f78048"
+  },
+  {
+    "species": "raccoon",
+    "style": "apron",
+    "bank": "extras",
+    "url": "https://3d.varco.ai/api/objects/8c2a0790ded4dcd8196e4a5f7b73dc3f.png",
+    "nodeId": "ff39ed1f-d201-49ea-a81a-fa498757185b"
+  }
+]

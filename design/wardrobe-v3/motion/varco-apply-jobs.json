@@ -1,0 +1,54 @@
+{
+  "core": {
+    "vest": {
+      "nodeId": "0a771665-20ac-4084-b52c-0fac2ab9b38d",
+      "textNode": "f70293df-4dc6-4b01-b8cb-2ad06534cfc4",
+      "sourceNode": "1891707e-87fc-417d-8063-7879f916f7cb",
+      "referenceNode": "e72074cd-f57c-4329-b70a-1b737f6d1a45",
+      "prompt": "COSTUME EDIT ONLY of this 4x4 animation atlas. SourceImage is the existing GAME animation: exact16 poses, original tiny short bunny forepaws, face, eyes, proportions, framing, scale, positions and contours MUST remain unchanged cell by cell. Reference is CLOTHING DESIGN ONLY: use LEFT sage short sleeveless carrot walking vest. Draw that SAME garment in every cell. Keep original animated arms ABOVE the garment: preserve each tiny rounded mitten paw and each movement exactly; no longer arms, no new elbow, no separate floating arms. Do not use the reference standing pose in the atlas. First 8cells hop; next4 squirm while held (each distinct arm and foot pose retained); last4 idle blink. Keep all source feet, eyes, ears, tail and arm shapes. Garment attached behind forearms with open armholes, ending above legs. Actual body not stretched by garment. IMPORTANT background must be perfectly flat pure #FF00FF throughout, no texture, no shadows or glow on magenta, no magenta in character/edge. Crisp warm-brown outlines on character. Match original cream fur saturation and brightness. Exact 4x4 grid with safe gutters; no text/lines, no crops.",
+      "url": "https://3d.varco.ai/api/objects/c1bb0ffb5cd003c7e58a2355969c9d94.png"
+    },
+    "knit": {
+      "nodeId": "8a624515-177a-463f-9fee-660b1e3ccc3c",
+      "textNode": "6ffb1ce9-e4d5-4b94-bdf1-814d1c8a7662",
+      "sourceNode": "1891707e-87fc-417d-8063-7879f916f7cb",
+      "referenceNode": "e72074cd-f57c-4329-b70a-1b737f6d1a45",
+      "prompt": "COSTUME EDIT ONLY of this 4x4 animation atlas. SourceImage is the existing GAME animation: exact16 poses, original tiny short bunny forepaws, face, eyes, proportions, framing, scale, positions and contours MUST remain unchanged cell by cell. Reference is CLOTHING DESIGN ONLY: use CENTER cream short sleeveless knit with peach trim and daisy. Draw that SAME garment in every cell. Keep original animated arms ABOVE the garment: preserve each tiny rounded mitten paw and each movement exactly; no longer arms, no new elbow, no separate floating arms. Do not use the reference standing pose in the atlas. First 8cells hop; next4 squirm while held (each distinct arm and foot pose retained); last4 idle blink. Keep all source feet, eyes, ears, tail and arm shapes. Garment attached behind forearms with open armholes, ending above legs. Actual body not stretched by garment. IMPORTANT background must be perfectly flat pure #FF00FF throughout, no texture, no shadows or glow on magenta, no magenta in character/edge. Crisp warm-brown outlines on character. Match original cream fur saturation and brightness. Exact 4x4 grid with safe gutters; no text/lines, no crops.",
+      "url": "https://3d.varco.ai/api/objects/9b72c8ab5c44290064197464317e6ba0.png"
+    },
+    "apron": {
+      "nodeId": "ddff6aa1-fc17-4471-a147-7cf540d8077c",
+      "textNode": "91a64921-78cd-490e-84ed-63a714fec454",
+      "sourceNode": "1891707e-87fc-417d-8063-7879f916f7cb",
+      "referenceNode": "e72074cd-f57c-4329-b70a-1b737f6d1a45",
+      "prompt": "COSTUME EDIT ONLY of this 4x4 animation atlas. SourceImage is the existing GAME animation: exact16 poses, original tiny short bunny forepaws, face, eyes, proportions, framing, scale, positions and contours MUST remain unchanged cell by cell. Reference is CLOTHING DESIGN ONLY: use RIGHT oatmeal short blue-pocket cafe apron with biscuit beret. Draw that SAME garment in every cell. Keep original animated arms ABOVE the garment: preserve each tiny rounded mitten paw and each movement exactly; no longer arms, no new elbow, no separate floating arms. Do not use the reference standing pose in the atlas. First 8cells hop; next4 squirm while held (each distinct arm and foot pose retained); last4 idle blink. Keep all source feet, eyes, ears, tail and arm shapes. Garment attached behind forearms with open armholes, ending above legs. Actual body not stretched by garment. IMPORTANT background must be perfectly flat pure #FF00FF throughout, no texture, no shadows or glow on magenta, no magenta in character/edge. Crisp warm-brown outlines on character. Match original cream fur saturation and brightness. Exact 4x4 grid with safe gutters; no text/lines, no crops.",
+      "url": "https://3d.varco.ai/api/objects/718dc7bc3d7947ba0d6d3ad69182e086.png"
+    }
+  },
+  "extras": {
+    "vest": {
+      "nodeId": "e7f0d199-53eb-4dc3-b488-53b4ba57a4bc",
+      "sourceNode": "8455107a-8cd1-4edf-b274-d8de7fb68125",
+      "referenceNode": "a5c632fa-b9cc-4fd7-bb64-e9a633a3a960",
+      "textNode": "f8dad3f8-965f-4064-b4ed-7a189a99fac1",
+      "prompt": "Edit costumes only in this 4x4 GAME atlas. Exactly preserve all sixteen source poses, expressions, tiny rounded short paws, ears, body size and pixel registration. Source layout: cell0 held quietly; cells1-4 dizzy/fall; cells5-8 surprised/happy/angry/sleepy; cells9-12 eating carrot; cells13-15 drinking. Reference image is the matching costume motion atlas: copy its exact vest garment design, colors and accessories onto each source cell. Keep both SHORT STUBBY PAWS and original gestures visibly in FRONT of garment, no elongated arms, no sleeves covering paws. Keep carrot and face/tongue as source. Whole character drawing. Do not replace source poses with reference poses. Flat pure #FF00FF background, no shadows or textures on background, safe gutters and exact 4x4 grid, no text. Identical cream fur tone to source.",
+      "url": "https://3d.varco.ai/api/objects/2a395f94646bfd275f3c409d3b096059.png"
+    },
+    "knit": {
+      "nodeId": "55ca5e4c-5829-4f49-be9c-796e4e539651",
+      "sourceNode": "8455107a-8cd1-4edf-b274-d8de7fb68125",
+      "referenceNode": "1d19893d-9abe-4d97-b89b-c916b3d5e748",
+      "textNode": "b0ce48c0-083e-49d4-bf02-e92ba4db35d0",
+      "prompt": "Edit costumes only in this 4x4 GAME atlas. Exactly preserve all sixteen source poses, expressions, tiny rounded short paws, ears, body size and pixel registration. Source layout: cell0 held quietly; cells1-4 dizzy/fall; cells5-8 surprised/happy/angry/sleepy; cells9-12 eating carrot; cells13-15 drinking. Reference image is the matching costume motion atlas: copy its exact knit garment design, colors and accessories onto each source cell. Keep both SHORT STUBBY PAWS and original gestures visibly in FRONT of garment, no elongated arms, no sleeves covering paws. Keep carrot and face/tongue as source. Whole character drawing. Do not replace source poses with reference poses. Flat pure #FF00FF background, no shadows or textures on background, safe gutters and exact 4x4 grid, no text. Identical cream fur tone to source.",
+      "url": "https://3d.varco.ai/api/objects/29a318a3852a1958ddfeebb9fa9b9871.png"
+    },
+    "apron": {
+      "nodeId": "a5a5a9e2-9bd7-4027-8fc1-068813e108f5",
+      "sourceNode": "8455107a-8cd1-4edf-b274-d8de7fb68125",
+      "referenceNode": "e16ecd96-f07b-4bee-91c2-4c9cbb36200b",
+      "textNode": "a03179a9-ccb1-41d1-a865-9af90dcc79a1",
+      "prompt": "Edit costumes only in this 4x4 GAME atlas. Exactly preserve all sixteen source poses, expressions, tiny rounded short paws, ears, body size and pixel registration. Source layout: cell0 held quietly; cells1-4 dizzy/fall; cells5-8 surprised/happy/angry/sleepy; cells9-12 eating carrot; cells13-15 drinking. Reference image is the matching costume motion atlas: copy its exact apron garment design, colors and accessories onto each source cell. Keep both SHORT STUBBY PAWS and original gestures visibly in FRONT of garment, no elongated arms, no sleeves covering paws. Keep carrot and face/tongue as source. Whole character drawing. Do not replace source poses with reference poses. Flat pure #FF00FF background, no shadows or textures on background, safe gutters and exact 4x4 grid, no text. Identical cream fur tone to source.",
+      "url": "https://3d.varco.ai/api/objects/9283bc5565e8a0a6d295c2d91160e687.png"
+    }
+  }
+}

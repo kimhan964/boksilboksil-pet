@@ -9,12 +9,24 @@ var current_period=1.0
 const TRAVEL_DISTANCE_SCALE=2.0
 const PREPARE_SHARE=0.12
 const LAND_SHARE=0.82
+const EXTRA_LANDING_SECONDS=0.16
+const PLANTED_HOLD_SECONDS=0.12
 # Keep preparation and landing visible, with a quiet recovery before launch.
 # Drawing, horizontal travel and vertical lift share this one phase clock.
-static func playback_phase(time_phase: float,launch: float,land: float) -> float:
-	if time_phase<PREPARE_SHARE: return lerpf(0,launch,time_phase/PREPARE_SHARE)
-	if time_phase<LAND_SHARE: return lerpf(launch,land,(time_phase-PREPARE_SHARE)/(LAND_SHARE-PREPARE_SHARE))
-	return lerpf(land,1.0,(time_phase-LAND_SHARE)/(1.0-LAND_SHARE))
+static func playback_phase(time_phase: float,launch: float,land: float,period: float=1.28) -> float:
+	var base=period-EXTRA_LANDING_SECONDS-PLANTED_HOLD_SECONDS
+	var time=clampf(time_phase,0.0,1.0)*period
+	var launch_time=base*PREPARE_SHARE
+	var land_time=base*LAND_SHARE
+	var recovery_end=base+EXTRA_LANDING_SECONDS
+	if time<launch_time: return lerpf(0,launch,time/launch_time)
+	if time<land_time: return lerpf(launch,land,(time-launch_time)/(land_time-launch_time))
+	if time<recovery_end: return lerpf(land,1.0,(time-land_time)/(recovery_end-land_time))
+	# Both feet stay planted in the final authored pose before another takeoff.
+	return 1.0
+
+static func cycle_period(spec: Dictionary,variation: float=1.0) -> float:
+	return float(spec.cycle_seconds)/preload("res://scripts/gait_profile.gd").TRAVEL_RATE*variation+EXTRA_LANDING_SECONDS+PLANTED_HOLD_SECONDS
 
 static func stride_length(motion,spec: Dictionary) -> float:
 	var scale=110.0*preload("res://scripts/animal_catalog.gd").HEIGHTS[0]*motion.growth_scale/float(spec.reference_height)
@@ -39,14 +51,13 @@ func reset() -> void:
 	hop_index=0
 
 func advance(motion,delta: float,spec: Dictionary) -> void:
-	var base_period=float(spec.cycle_seconds)/preload("res://scripts/gait_profile.gd").TRAVEL_RATE
 	var stride=stride_length(motion,spec)
 	if not active:
 		var offset=motion.target-motion.feet
 		if offset.length()<.001:
 			motion.travel_speed=0.0
 			return
-		current_period=base_period*(1.0+.065*sin(hop_index*1.17))
+		current_period=cycle_period(spec,1.0+.065*sin(hop_index*1.17))
 		stride*=1.0+.035*sin(hop_index*.83)
 		hop_index+=1
 		origin=motion.feet
@@ -58,7 +69,7 @@ func advance(motion,delta: float,spec: Dictionary) -> void:
 		motion.pilot_was_traveling=true
 	var period=current_period
 	age=minf(period,age+delta)
-	var phase=playback_phase(age/period,float(spec.launch_phase),float(spec.land_phase))
+	var phase=playback_phase(age/period,float(spec.launch_phase),float(spec.land_phase),period)
 	var before=motion.feet
 	motion.feet=origin.lerp(destination,travel_fraction(phase,float(spec.launch_phase),float(spec.land_phase)))
 	motion.travel_speed=motion.feet.distance_to(before)/maxf(delta,.00001)

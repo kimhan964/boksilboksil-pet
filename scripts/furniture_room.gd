@@ -11,8 +11,12 @@ var panel_icon: TextureRect
 var panel_column: VBoxContainer
 var panel_scroll: ScrollContainer
 var panel_done: Button
-const TOY_IDS=["acorn","toy_ball","toy_mouse"]
+const TOY_IDS=["acorn","basket","plant","toy_ball","toy_mouse"]
 var acorn_button: Button
+var small_tool_buttons: Dictionary={}
+var small_tool_icons: Dictionary={}
+var small_tool_labels: Dictionary={}
+var auto_delivery_picker: OptionButton
 var buttons: Dictionary={}
 var previews: Dictionary={}
 var status_labels: Dictionary={}
@@ -285,6 +289,11 @@ func _process(delta: float) -> void:
 	last_home=choice.id
 func refresh_buttons() -> void:
 	if is_instance_valid(acorn_button): acorn_button.text="치우기" if app.props.has("acorn") and app.props.acorn.visible else "꺼내기"
+	if is_instance_valid(auto_delivery_picker): auto_delivery_picker.select(app.state.auto_delivery_limit)
+	for id in small_tool_buttons:
+		small_tool_buttons[id].text="치우기" if app.props.has(id) and app.props[id].visible else "꺼내기"
+		small_tool_icons[id].texture=preload("res://scripts/decor_art.gd").icon(id,app.state.selected)
+		small_tool_labels[id].text=("장난감 바구니" if id=="basket" else preload("res://scripts/companion_profiles.gd").TOYS[app.state.selected])+"\n기본 제공 · 직접 꺼내 함께 놀아요"
 	if is_instance_valid(space_picker): space_picker.select(0 if app.state.activity_space=="floor" else 1)
 	for id in buttons:
 		var available=app.state.furniture_available(id)
@@ -301,7 +310,7 @@ func open(kind: String="home") -> void:
 	var toys=kind=="toys"
 	panel.set_deferred("size",Vector2i(470,440 if toys else 560))
 	panel_column.set_deferred("size",Vector2(426,400 if toys else 520))
-	panel_scroll.custom_minimum_size.y=160 if toys else 320
+	panel_scroll.custom_minimum_size.y=160 if toys else 280
 	panel_icon.texture=preload("res://scripts/ui_icons.gd").texture("together" if toys else "home")
 	panel_done.text="닫기" if toys else "배치 마치기"
 	panel.title="함께하기 · 놀이감" if toys else "집 꾸미기 · 가구 배치"
@@ -373,9 +382,17 @@ func build_panel() -> void:
 	space_picker.selected=0 if app.state.activity_space=="floor" else 1
 	space_picker.item_selected.connect(func(index): app.set_activity_space("floor" if index==0 else "desktop"))
 	column.add_child(space_picker)
+	auto_delivery_picker=OptionButton.new()
+	auto_delivery_picker.add_item("하늘에서 소품 받기: 끄기")
+	for count in range(1,6):
+		auto_delivery_picker.add_item("하늘에서 소품 받기: 최대 %d개%s"%[count," (기본)" if count==5 else ""])
+	style_button(auto_delivery_picker)
+	auto_delivery_picker.select(app.state.auto_delivery_limit)
+	auto_delivery_picker.item_selected.connect(func(value): app.set_auto_delivery_limit(value))
+	column.add_child(auto_delivery_picker)
 	var scroll=ScrollContainer.new()
 	panel_scroll=scroll
-	scroll.custom_minimum_size=Vector2(426,320)
+	scroll.custom_minimum_size=Vector2(426,280)
 	scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	column.add_child(scroll)
@@ -405,6 +422,30 @@ func build_panel() -> void:
 	style_button(acorn_button)
 	acorn_button.pressed.connect(func(): app.set_acorn_visible(not app.props.acorn.visible))
 	acorn_row.add_child(acorn_button)
+	for id in ["basket","plant"]:
+		var tool_row=HBoxContainer.new()
+		tool_row.add_theme_constant_override("separation",12)
+		rows.add_child(tool_row)
+		item_rows[id]=tool_row
+		var icon=TextureRect.new()
+		icon.custom_minimum_size=Vector2(64,68)
+		icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tool_row.add_child(icon)
+		small_tool_icons[id]=icon
+		var text=Label.new()
+		text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		preload("res://scripts/cozy_ui.gd").label(text)
+		tool_row.add_child(text)
+		small_tool_labels[id]=text
+		var button=Button.new()
+		button.custom_minimum_size=Vector2(96,40)
+		button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+		style_button(button)
+		button.pressed.connect(func(): app.set_tool_visible(id,not app.props[id].visible))
+		tool_row.add_child(button)
+		small_tool_buttons[id]=button
 	var ordered=Catalog.ITEMS.keys()
 	ordered.sort_custom(func(a,b):
 		var ta=app.state.UNLOCKS["home_"+a]
@@ -438,6 +479,7 @@ func build_panel() -> void:
 		preload("res://scripts/cozy_ui.gd").label(label)
 		text_column.add_child(label)
 		var status=Label.new()
+		status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		preload("res://scripts/cozy_ui.gd").label(status,"caption")
 		status.add_theme_color_override("font_color",Color("777167"))
 		text_column.add_child(status)

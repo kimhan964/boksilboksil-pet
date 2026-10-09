@@ -1,0 +1,62 @@
+{
+  "vest-core": {
+    "nodeId": "3820976b-44ce-4fe4-9dd5-a3fb004ba327",
+    "sourceNode": "bece6dc8-7f2e-4bde-857a-4a40bef8932f",
+    "referenceNode": "1947cfce-8aaf-4993-a44d-19bc1982fe80",
+    "textNode": "d1fd0bf1-7fe2-4b7a-ad90-4ce19c028b8b",
+    "prompt": "Edit this 4x4 whole-body CAT animation atlas to wear the LEFT sage fish walking vest from reference. Source layout: first eight cells walking with distinct foot phases; next4 held squirming; last4 quiet idle. Match the APPROVED REFERENCE's TWO VERY SHORT FAT ROUND MITTEN FOREPAWS held against upper sides of belly, clearly visible IN FRONT of clothing: entire visible forearm around12% head width, not long legs dangling down. Keep source face, head, orange/cream fur, scarf, tail identity and exact head/body placement/scale. Keep original feet grounding and walk timing in first8 poses; do not change head pose or floor level. Four limbs total: two tiny rounded front paws at belly and two short lower feet. For walking, little front paws gently alternate forward/back in step with source leg phases, never hidden in cloth. For squirming, retain each distinct raised/tucked short paw and kicked-foot gesture. No sleeves covering paws, no extra limbs, no stretched torso. Keep same costume all16cells. Use original complete poses as movement guide, approved outfit reference as short-paw proportion guide. Exact4x4grid, flat pure #FF00FF background no shadow/texture, no crop/text.",
+    "style": "vest",
+    "bank": "core",
+    "url": "https://3d.varco.ai/api/objects/4d4dac618dc45cfb3fdba434a88dcf76.png"
+  },
+  "knit-core": {
+    "nodeId": "1ef53da4-7eae-4afa-b4c9-2e45583c74d6",
+    "sourceNode": "bece6dc8-7f2e-4bde-857a-4a40bef8932f",
+    "referenceNode": "1947cfce-8aaf-4993-a44d-19bc1982fe80",
+    "textNode": "b3b0acbc-4d96-40b5-8e6b-2e7b6286e434",
+    "prompt": "Edit this 4x4 whole-body CAT animation atlas to wear the CENTER peach cream yarn-knit vest from reference. Source layout: first eight cells walking with distinct foot phases; next4 held squirming; last4 quiet idle. Match the APPROVED REFERENCE's TWO VERY SHORT FAT ROUND MITTEN FOREPAWS held against upper sides of belly, clearly visible IN FRONT of clothing: entire visible forearm around12% head width, not long legs dangling down. Keep source face, head, orange/cream fur, scarf, tail identity and exact head/body placement/scale. Keep original feet grounding and walk timing in first8 poses; do not change head pose or floor level. Four limbs total: two tiny rounded front paws at belly and two short lower feet. For walking, little front paws gently alternate forward/back in step with source leg phases, never hidden in cloth. For squirming, retain each distinct raised/tucked short paw and kicked-foot gesture. No sleeves covering paws, no extra limbs, no stretched torso. Keep same costume all16cells. Use original complete poses as movement guide, approved outfit reference as short-paw proportion guide. Exact4x4grid, flat pure #FF00FF background no shadow/texture, no crop/text.",
+    "style": "knit",
+    "bank": "core",
+    "url": "https://3d.varco.ai/api/objects/2c6b777dac065270d380331375c8c149.png"
+  },
+  "apron-core": {
+    "nodeId": "ec40d05e-1593-4eca-87d1-e986a9d60fb1",
+    "sourceNode": "bece6dc8-7f2e-4bde-857a-4a40bef8932f",
+    "referenceNode": "1947cfce-8aaf-4993-a44d-19bc1982fe80",
+    "textNode": "9e3e364d-f313-4818-b480-1fb64cdb8ac2",
+    "prompt": "Edit this 4x4 whole-body CAT animation atlas to wear the RIGHT oatmeal blue-pocket apron with biscuit beret from reference. Source layout: first eight cells walking with distinct foot phases; next4 held squirming; last4 quiet idle. Match the APPROVED REFERENCE's TWO VERY SHORT FAT ROUND MITTEN FOREPAWS held against upper sides of belly, clearly visible IN FRONT of clothing: entire visible forearm around12% head width, not long legs dangling down. Keep source face, head, orange/cream fur, scarf, tail identity and exact head/body placement/scale. Keep original feet grounding and walk timing in first8 poses; do not change head pose or floor level. Four limbs total: two tiny rounded front paws at belly and two short lower feet. For walking, little front paws gently alternate forward/back in step with source leg phases, never hidden in cloth. For squirming, retain each distinct raised/tucked short paw and kicked-foot gesture. No sleeves covering paws, no extra limbs, no stretched torso. Keep same costume all16cells. Use original complete poses as movement guide, approved outfit reference as short-paw proportion guide. Exact4x4grid, flat pure #FF00FF background no shadow/texture, no crop/text.",
+    "style": "apron",
+    "bank": "core",
+    "url": "https://3d.varco.ai/api/objects/b2921aada7d2098a8d6affe24c4e36f6.png"
+  },
+  "vest-extras": {
+    "nodeId": "229046aa-4e16-4163-bc39-d47e3bf8394e",
+    "sourceNode": "c2f2fec0-c575-4585-aabe-e8c26939ad97",
+    "referenceNode": "1947cfce-8aaf-4993-a44d-19bc1982fe80",
+    "textNode": "34b70a12-1540-4119-9e44-ac5d8e0fe6be",
+    "prompt": "Edit this 4x4 whole-body CAT animation atlas to wear the LEFT sage fish walking vest from reference. Source layout: cell0 held quiet; cells1-4 dizzy/fall; cells5-8 surprised/happy/angry/sleepy; last7 quiet idle. Match the APPROVED REFERENCE's TWO VERY SHORT FAT ROUND MITTEN FOREPAWS held against upper sides of belly, clearly visible IN FRONT of clothing: entire visible forearm around12% head width, not long legs dangling down. Keep source face, head, orange/cream fur, scarf, tail identity and exact head/body placement/scale. Keep original feet grounding and walk timing in first8 poses; do not change head pose or floor level. Four limbs total: two tiny rounded front paws at belly and two short lower feet. For walking, little front paws gently alternate forward/back in step with source leg phases, never hidden in cloth. For squirming, retain each distinct raised/tucked short paw and kicked-foot gesture. No sleeves covering paws, no extra limbs, no stretched torso. Keep same costume all16cells. Use original complete poses as movement guide, approved outfit reference as short-paw proportion guide. Exact4x4grid, flat pure #FF00FF background no shadow/texture, no crop/text.",
+    "style": "vest",
+    "bank": "extras",
+    "url": "https://3d.varco.ai/api/objects/46ac599dc55fb627d7dd50a195f8907c.png"
+  },
+  "knit-extras": {
+    "nodeId": "3e64feba-a57c-48de-9039-2fddd22a5c06",
+    "sourceNode": "c2f2fec0-c575-4585-aabe-e8c26939ad97",
+    "referenceNode": "1947cfce-8aaf-4993-a44d-19bc1982fe80",
+    "textNode": "1ddbcb2d-ee18-423e-99db-d56ca56ea45d",
+    "prompt": "Edit this 4x4 whole-body CAT animation atlas to wear the CENTER peach cream yarn-knit vest from reference. Source layout: cell0 held quiet; cells1-4 dizzy/fall; cells5-8 surprised/happy/angry/sleepy; last7 quiet idle. Match the APPROVED REFERENCE's TWO VERY SHORT FAT ROUND MITTEN FOREPAWS held against upper sides of belly, clearly visible IN FRONT of clothing: entire visible forearm around12% head width, not long legs dangling down. Keep source face, head, orange/cream fur, scarf, tail identity and exact head/body placement/scale. Keep original feet grounding and walk timing in first8 poses; do not change head pose or floor level. Four limbs total: two tiny rounded front paws at belly and two short lower feet. For walking, little front paws gently alternate forward/back in step with source leg phases, never hidden in cloth. For squirming, retain each distinct raised/tucked short paw and kicked-foot gesture. No sleeves covering paws, no extra limbs, no stretched torso. Keep same costume all16cells. Use original complete poses as movement guide, approved outfit reference as short-paw proportion guide. Exact4x4grid, flat pure #FF00FF background no shadow/texture, no crop/text.",
+    "style": "knit",
+    "bank": "extras",
+    "url": "https://3d.varco.ai/api/objects/747c7adf0abb1a6b0d902dfb0c8a3ad8.png"
+  },
+  "apron-extras": {
+    "nodeId": "4e4c596c-b706-4be9-ad34-890a754df729",
+    "sourceNode": "c2f2fec0-c575-4585-aabe-e8c26939ad97",
+    "referenceNode": "1947cfce-8aaf-4993-a44d-19bc1982fe80",
+    "textNode": "7f3cf543-4db2-4e7a-9250-d2e5d693b1cc",
+    "prompt": "Edit this 4x4 whole-body CAT animation atlas to wear the RIGHT oatmeal blue-pocket apron with biscuit beret from reference. Source layout: cell0 held quiet; cells1-4 dizzy/fall; cells5-8 surprised/happy/angry/sleepy; last7 quiet idle. Match the APPROVED REFERENCE's TWO VERY SHORT FAT ROUND MITTEN FOREPAWS held against upper sides of belly, clearly visible IN FRONT of clothing: entire visible forearm around12% head width, not long legs dangling down. Keep source face, head, orange/cream fur, scarf, tail identity and exact head/body placement/scale. Keep original feet grounding and walk timing in first8 poses; do not change head pose or floor level. Four limbs total: two tiny rounded front paws at belly and two short lower feet. For walking, little front paws gently alternate forward/back in step with source leg phases, never hidden in cloth. For squirming, retain each distinct raised/tucked short paw and kicked-foot gesture. No sleeves covering paws, no extra limbs, no stretched torso. Keep same costume all16cells. Use original complete poses as movement guide, approved outfit reference as short-paw proportion guide. Exact4x4grid, flat pure #FF00FF background no shadow/texture, no crop/text.",
+    "style": "apron",
+    "bank": "extras",
+    "url": "https://3d.varco.ai/api/objects/a7c4d1d1870da69263527f392f2ef485.png"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "preview_only": true,
+  "species": [
+    {
+      "species": "rabbit",
+      "styles": 3,
+      "cels": 1332,
+      "native_checks": 12135,
+      "native_failures": [],
+      "canonical_manifest_sha256": "cffee4be9b13ef73c0e3e57d578cd3dd87b0e12ee174bdbd213f4280319be5e0"
+    },
+    {
+      "species": "otter",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "183758155390d54b5b51dbeb02241bd88665a3718819a7ad1213586562b79479"
+    },
+    {
+      "species": "squirrel",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "427edf8899f2be8cfdccfdf9eeecd0b121b2e13b997754626d49a6de62fdba67"
+    },
+    {
+      "species": "hedgehog",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "0ff45f5ee834d1a5e98044853f73ccf4cb43c7d5d841fc7b2afdc7810de4c9ab"
+    },
+    {
+      "species": "raccoon",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "e9e43b730001d0209d88d0ce8065bda11a198acec63dead5e5f25cfe6dbc6540"
+    },
+    {
+      "species": "fox",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "86a1a2bc21a10cbe4a6088c4efd1f42a01e44f2f48d1d1be33ae6925dcca483a"
+    },
+    {
+      "species": "bear",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "2b3f646860f3374f900177acac86a2392468a259f13212db79105e7a048f2096"
+    },
+    {
+      "species": "owl",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "206387458f56a4b07aab600f13fc6082e535bb48acbbd16ffc0d849bd39f17a2"
+    },
+    {
+      "species": "cat",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "92bb84fc98d16fa59c271a66d436c4eee1be81131308e9b17f72e506e852a85d"
+    },
+    {
+      "species": "puppy",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "f3aabecfc044689b765f84131f0fad614590ee3151e0b88a3762e597c3f6185a"
+    },
+    {
+      "species": "hamster",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "14cfe061c55a5c4fa186e5d18c57fe6c51b9876266e2e05336d0b49c1bee8156"
+    },
+    {
+      "species": "panda",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "c4c31398272a2074e5febbf18cb1f3933b25fe757dfb5c92143af8416500b9c8"
+    },
+    {
+      "species": "red_panda",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "72da5ff68b1fc009077555e0e445f28843f442bbb1f004013dd708ccdd9b91db"
+    },
+    {
+      "species": "lamb",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "836c0bb60dd5c6ff18941a88d89698c5d179d633a7008b94cce97369c1222f79"
+    },
+    {
+      "species": "koala",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "3e97eeb87cdeb213240c77d6cf8729f31386734973c2ba5d9f2ea3f6df01a19e"
+    },
+    {
+      "species": "penguin",
+      "styles": 3,
+      "cels": 795,
+      "native_checks": 10695,
+      "native_failures": [],
+      "canonical_manifest_sha256": "57dda61d629e7b9b34a3856f0457dbb58ed7eaad0aa2e1e63f6c11d6c968f4db"
+    }
+  ],
+  "total_cels": 13257,
+  "native_checks": 172560,
+  "public_purchase_release_updated": false,
+  "visual_scope": "Source pose sheets and sampled walk/struggle/bridge contacts reviewed; automated checks verify geometry and coverage, not aesthetic perfection."
+}
