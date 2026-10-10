@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#f7f3e8"><meta name="description" content="작은 친구와 함께 꾸미는 포근한 집. 복슬복슬펫 모바일 가로 화면 게임.">
   <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="복슬복슬펫"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>복슬복슬펫 · 숲속의 작은 집</title>
   <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/app-icon-192.png" type="image/png"><link rel="apple-touch-icon" href="assets/app-icon-192.png"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="ui-icons.css"><link rel="stylesheet" href="cozy-ui.css"><link rel="stylesheet" href="desktop-ui.css">
-<link rel="stylesheet" href="layout-fixes.css"><link rel="stylesheet" href="garden.css">
+<link rel="stylesheet" href="layout-fixes.css"><link rel="stylesheet" href="garden.css"><link rel="stylesheet" href="garden-space.css">
 </head>
 <body>
   <div class="game">
@@ -32,6 +32,8 @@
       <section class="room" aria-label="동물이 살아가는 방">
         <canvas id="room" aria-label="방 바닥을 누르면 친구가 이동합니다. 꾸미기 모드에서는 가구를 끌어 옮길 수 있습니다."></canvas>
         <div class="room-title"><img class="ui-art" src="assets/ui-icons/decorate.png" alt="" aria-hidden="true" draggable="false"><div><b>우리의 작은 집</b><small id="room-caption">햇살이 머무는 포근한 공간</small></div></div>
+        <div id="garden-space" class="garden-space" role="region" aria-label="집 밖 전용 텃밭 공간" hidden></div>
+        <div class="scene-switch" aria-label="공간 이동"><button id="scene-home" aria-pressed="true"><img src="assets/ui-icons/decorate.png" alt="">집</button><button id="scene-garden" aria-pressed="false"><img src="assets/garden/carrot.svg" alt="">텃밭</button></div>
         <div id="edit-label" hidden>가구를 끌어 옮겨보세요 <button id="edit-style">색·질감</button><button id="edit-flip">좌우 바꾸기</button><button id="edit-done">완료 <img class="ui-art" src="assets/ui-icons/check.png" alt="" aria-hidden="true" draggable="false"></button></div>
         <button id="goal-peek" class="goal-peek" aria-label="목표와 보상 보기"></button>
         <div class="room-tip" id="room-tip">친구를 톡 눌러 쓰다듬어 주세요</div>
@@ -60,5 +62,5 @@
   </div>
   <div class="sheet-overlay" id="overlay" hidden><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-heading"><div><small id="sheet-kicker">MY LITTLE HOME</small><h2 id="sheet-title">집 꾸미기</h2></div><button id="close-sheet" class="icon-button" aria-label="닫기"><img class="ui-art" src="assets/ui-icons/close.png" alt="" aria-hidden="true" draggable="false"></button></div><div id="sheet-content"></div></section></div>
   <div class="portrait-hint"><img class="ui-art" src="assets/ui-icons/rotate.png" alt="" aria-hidden="true" draggable="false"> <span>휴대폰을 가로로 돌리면<br>방이 더 넓게 보여요.</span><button aria-label="회전 안내 닫기"><img class="ui-art" src="assets/ui-icons/close.png" alt="" aria-hidden="true" draggable="false"></button></div>
-  <script type="module" src="game.js?v=15"></script>
+  <script type="module" src="game.js?v=16"></script>
 </body></html>
