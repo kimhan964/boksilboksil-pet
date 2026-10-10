@@ -1,5 +1,6 @@
 import {CROPS,GARDEN_DISHES} from './garden-data.js';
 export {CROPS,GARDEN_DISHES};
+export const recipesForCrop=id=>GARDEN_DISHES.filter(r=>r.crop===id);
 const count=n=>Number.isSafeInteger(n)&&n>=0?n:0;
 export function initGarden(state){
  const g=state.garden||={};g.version=1;g.harvests=count(g.harvests);g.cooked=count(g.cooked);g.ingredients||={};g.discovered=Array.isArray(g.discovered)?g.discovered.filter(id=>CROPS.some(c=>c.id===id)):[];g.recipes=Array.isArray(g.recipes)?g.recipes.filter(id=>GARDEN_DISHES.some(r=>r.id===id)):[];
@@ -20,7 +21,7 @@ export function plantCrop(state,index,id,now=Date.now()){
 export function waterCrop(state,index){const p=state.garden.plots[index];if(!Number.isInteger(index)||index<0||index>=state.garden.plotCount||!p||p.watered)return false;p.watered=true;return true;}
 export function harvestCrop(state,index,now=Date.now()){
  const s=plotStatus(state,index,now);if(s.stage!=='ready')return false;const g=state.garden,first=!g.discovered.includes(s.crop.id);g.plots[index]=null;g.harvests++;g.ingredients[s.crop.id]+=3;if(first)g.discovered.push(s.crop.id);
- const recipes=GARDEN_DISHES.filter(r=>r.crop===s.crop.id&&!g.recipes.includes(r.id));g.recipes.push(...recipes.map(r=>r.id));return {crop:s.crop,amount:3,recipes};
+ const recipes=recipesForCrop(s.crop.id).filter(r=>!g.recipes.includes(r.id));g.recipes.push(...recipes.map(r=>r.id));return {crop:s.crop,amount:3,recipes};
 }
 export function expandGarden(state){const g=state.garden,next=g.plotCount===1?{harvests:3,price:40}:g.plotCount===2?{harvests:8,price:80}:null;if(!next||g.harvests<next.harvests||state.coins<next.price)return false;state.coins-=next.price;g.plotCount++;return true;}
 export function cookGardenDish(state,id){const r=GARDEN_DISHES.find(r=>r.id===id),g=state.garden;if(!r||!g.recipes.includes(id)||g.ingredients[r.crop]<r.amount||!state.food?.stock)return false;g.ingredients[r.crop]-=r.amount;state.food.stock[id]=count(state.food.stock[id])+1;g.cooked++;return r;}

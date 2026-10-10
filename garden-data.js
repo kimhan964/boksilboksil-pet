@@ -13,4 +13,4 @@ export const GARDEN_DISHES=[
  ['berry-tea','텃밭 산딸기차','berry',1,'dish-5-3','음료',12,13,9],
  ['mushroom-soup','텃밭 버섯 수프','mushroom',2,'dish-7-0','정식',36,10,6],
  ['mushroom-quiche','텃밭 버섯 키슈','mushroom',3,'dish-7-2','정식',42,14,8]
-].map(([id,name,crop,amount,art,category,hunger,happy,energy])=>({id:'garden-'+id,name,crop,amount,art,category,hunger,happy,energy,price:1,garden:true,description:'직접 수확한 '+CROPS.find(c=>c.id===crop).name+'으로 만든 정성 가득한 요리.',icon:'assets/food/'+art+'.png'}));
+].map(([id,name,crop,amount,art,category,hunger,happy,energy])=>({id:'garden-'+id,name,crop,amount,art,category,hunger,happy,energy,price:1,garden:true,description:'직접 수확한 '+CROPS.find(c=>c.id===crop).name+(['carrot','mushroom'].includes(crop)?'으로':'로')+' 만든 정성 가득한 요리.',icon:'assets/food/'+art+'.png'}));

@@ -1,4 +1,4 @@
-import {GARDEN_DISHES} from './garden-data.js';
+import {CROPS,GARDEN_DISHES} from './garden-data.js';
 import {RESTAURANT_FOODS} from './food-data.js';
 import {FAVORITE_DISHES} from './profiles-data.js';
 import {level,PERIODS,formatPlayTime} from './progression.js';
@@ -7,6 +7,6 @@ export function initFood(state){state.food||={stock:{'dish-0-0':2},unlocked:['ca
 export function favoriteKnown(state,id){return state.food.favoriteDiscoveries[state.species]===id;}
 export function isFoodUnlocked(state,id){const f=FOODS.find(f=>f.id===id);if(f?.garden)return Boolean(state.garden?.recipes.includes(id));return Boolean(f&&(state.food.unlocked.includes(id)||level(state)>=f.level||(state.progress.playSeconds>=f.minutes*60&&(!f.period||(state.progress.periodSeconds[f.period]||0)>=60))));}
 export function refreshFoodUnlocks(state){const opened=[];for(const f of FOODS)if(!state.food.unlocked.includes(f.id)&&isFoodUnlocked(state,f.id)){state.food.unlocked.push(f.id);opened.push(f);}return opened;}
-export function foodCondition(state,f){if(f.garden)return '텃밭 작물 첫 수확으로 요리법 해금';const remaining=Math.max(0,f.minutes*60-state.progress.playSeconds),p=PERIODS.find(p=>p.id===f.period),visit=f.period?Math.max(0,Math.ceil(60-(state.progress.periodSeconds[f.period]||0))):0;return 'Lv. '+f.level+' 또는 '+(remaining?'플레이 '+formatPlayTime(Math.ceil(remaining))+' 더':'시간 달성')+(p?' · '+p.name+(visit?' '+visit+'초 더':' 방문 완료'):'');}
+export function foodCondition(state,f){if(f.garden)return CROPS.find(c=>c.id===f.crop).name+' 첫 수확으로 요리법 해금';const remaining=Math.max(0,f.minutes*60-state.progress.playSeconds),p=PERIODS.find(p=>p.id===f.period),visit=f.period?Math.max(0,Math.ceil(60-(state.progress.periodSeconds[f.period]||0))):0;return 'Lv. '+f.level+' 또는 '+(remaining?'플레이 '+formatPlayTime(Math.ceil(remaining))+' 더':'시간 달성')+(p?' · '+p.name+(visit?' '+visit+'초 더':' 방문 완료'):'');}
 export function buyFood(state,id){const f=FOODS.find(f=>f.id===id);if(!f||f.garden||f.price===0||!isFoodUnlocked(state,id)||state.coins<f.price)return false;state.coins-=f.price;state.food.stock[id]=(state.food.stock[id]||0)+1;return f;}
 export function eatFood(state,id){const f=FOODS.find(f=>f.id===id);if(!f||(f.price>0&&!(state.food.stock[id]>0)))return false;if(f.price>0)state.food.stock[id]--;const favorite=FAVORITE_DISHES[state.species]===id,clamp=n=>Math.max(0,Math.min(100,n));state.stats.hunger=clamp(state.stats.hunger+f.hunger);state.stats.happy=clamp(state.stats.happy+f.happy+(favorite?5:0));state.stats.energy=clamp(state.stats.energy+f.energy);if(!state.food.eaten.includes(id))state.food.eaten.push(id);if(favorite)state.food.favoriteDiscoveries[state.species]=id;return {...f,favorite};}

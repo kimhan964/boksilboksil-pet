@@ -9,3 +9,5 @@
 .yard-bed.ready .yard-soil{filter:drop-shadow(0 0 4px #ffe5a0)}
 .yard-bed:not(:disabled):hover .yard-soil{filter:drop-shadow(0 2px 3px #66573555)}
 .yard-bed:focus-visible{outline:2px solid #fff5cf;outline-offset:3px;border-radius:12px}
+.yard-recipe-link small{font-size:8px;color:#8b8265}.yard-tools .yard-recipe-link{background:#eef3df;min-height:34px}.yard-tools .yard-recipe-link span{text-align:left}
+@media(max-height:440px) and (orientation:landscape){.yard-tools{gap:3px}.yard-tools button{min-height:24px;padding:3px 6px}.yard-tools .yard-recipe-link{min-height:26px}.yard-recipe-link small{font-size:7px}}
