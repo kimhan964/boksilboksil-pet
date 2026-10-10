@@ -1,3 +1,5 @@
+import {initGarden} from './garden.js';
+import {createGardenUI} from './garden-ui.js';
 import {furnitureAsset,visibleFurniture,sourceUnlocked,sourceCondition,nextDelivery,furnitureDepth} from './current-settings.js';
 import {createSettingsUI} from './settings-ui.js';
 import {resolveAnimation,animationFrame,holdPose,lifeKind,motionStyle} from './animation-player.js';
@@ -39,7 +41,7 @@ state.singleCompanion=true;
 state.companionId=SPECIES.some(s=>s[0]===state.companionId)?state.companionId:state.species;
 state.species=state.companionId;
 state.skin=findSkin(state.skin).id;
-initProgress(state);initFood(state);initDesktop(state,hadSave);
+initProgress(state);initGarden(state);initFood(state);initDesktop(state,hadSave);
 // Time away affects needs gently, capped so returning remains welcoming.
 const away=Math.min(8,Math.max(0,(Date.now()-state.updated)/3600000));
 for(const [key,rate]of Object.entries({hunger:3,happy:1,clean:2,energy:1,hydration:3}))state.stats[key]=Math.max(20,state.stats[key]-away*rate);
@@ -59,6 +61,7 @@ let width=1,height=1,dpr=1,edit=false,selected=null,drag=null,animTime=0,last=0,
 let pet={x:.51,y:.77,target:null,until:3,action:null,dir:1};
 let particles=[],toySession=null,toyDrag=null,followMode=false,followMoved=0,followStart=null,heldPet=null;
 const desktopUI=createDesktopUI({state,image,iconHTML,drawPet,openSheet,closeSheet,toast,log,save,updateUI,care,startToy,setFollow,beginLife,canAct,beginHabit,animationCatalog,catalog:CATALOG,activityFor,shop,recordPurchase:()=>recordEvent(state,'buy'),furnitureImage,furnitureFile,onFurnitureStyle:()=>{arrangementChanged=true;}});
+const gardenUI=createGardenUI({state,openSheet,save,toast,iconHTML,recordEvent,updateUI,log,restaurant});
 function canAct(){return !edit&&(!pet.action||pet.action.automatic)&&!heldPet;}
 function interruptAutonomy(){if(pet.action?.automatic){pet.action=null;pet.words=null;pet.target=null;pet.until=animTime+5;}}
 function furnitureOpen(item){return sourceUnlocked(state,item)||state.owned.includes(item.id)||(item.id==='basket'?state.desktop.counts.play>=1||state.progress.playSeconds>=120:DESKTOP_FURNITURE.some(i=>i.id===item.id)?desktopUnlocked(state,item):isUnlocked(state,'furniture',item.id));}
@@ -117,10 +120,10 @@ function updateTimeSheet(){
 }
 function restaurant(tab='식당 메뉴',filter='전체'){
   openSheet('복실복실 식당','정성 가득한 요리를 우리 친구에게');
-  $('#sheet-content').innerHTML='<div id="food-shop" data-tab="'+tab+'" data-filter="'+filter+'"><div class="food-banner">'+iconHTML('feed')+'<div><b>숲속 식당의 따뜻한 한 끼</b><small>요리 32종 · 맛본 요리 '+state.food.eaten.filter(id=>id!=='carrot').length+' / 32</small></div><span>'+iconHTML('acorn')+' '+state.coins+'</span></div><div class="tabs food-tabs"></div><div class="food-filters"></div><p class="quest-note">'+(tab==='우리 냉장고'?'먹고 싶은 요리를 골라 주세요. 한 접시는 식사를 마쳤을 때 사용돼요.':'레벨 또는 플레이 시간·시간대 방문으로 요리가 열려요. 주문한 요리는 냉장고에 보관돼요.')+'</p><div class="food-grid"></div></div>';
-  for(const name of ['식당 메뉴','우리 냉장고']){const b=document.createElement('button');b.textContent=name;b.className=tab===name?'active':'';b.onclick=()=>restaurant(name,filter);$('.food-tabs').append(b);}
+  $('#sheet-content').innerHTML='<div id="food-shop" data-tab="'+tab+'" data-filter="'+filter+'"><div class="food-banner">'+iconHTML('feed')+'<div><b>숲속 식당의 따뜻한 한 끼</b><small>식당 32종 · 텃밭 요리 8종 · 맛본 요리 '+state.food.eaten.filter(id=>id!=='carrot').length+' / 40</small></div><span>'+iconHTML('acorn')+' '+state.coins+'</span></div><div class="tabs food-tabs"></div><div class="food-filters"></div><p class="quest-note">'+(tab==='우리 냉장고'?'먹고 싶은 요리를 골라 주세요. 한 접시는 식사를 마쳤을 때 사용돼요.':'레벨 또는 플레이 시간·시간대 방문으로 요리가 열려요. 주문한 요리는 냉장고에 보관돼요.')+'</p><div class="food-grid"></div></div>';
+  $('.food-tabs').replaceWith(gardenUI.navigation(tab));
   for(const name of ['전체','정식','간식','음료']){const b=document.createElement('button');b.textContent=name;b.className=filter===name?'active':'';b.onclick=()=>restaurant(tab,name);$('.food-filters').append(b);}
-  const dishes=FOODS.filter(f=>(f.id==='carrot'||filter==='전체'||f.category===filter)&&(tab!=='우리 냉장고'||f.id==='carrot'||state.food.stock[f.id]>0));
+  const dishes=FOODS.filter(f=>(tab==='우리 냉장고'||!f.garden)&&(f.id==='carrot'||filter==='전체'||f.category===filter)&&(tab!=='우리 냉장고'||f.id==='carrot'||state.food.stock[f.id]>0));
   for(const f of dishes){const open=isFoodUnlocked(state,f.id),stock=state.food.stock[f.id]||0,favorite=favoriteKnown(state,f.id),card=document.createElement('article');card.className='food-card'+(open?'':' locked');card.innerHTML='<div class="food-art"><img src="'+f.icon+'" alt="'+f.name+'" loading="lazy">'+(favorite?'<span>좋아하는 맛</span>':'')+'</div><b>'+f.name+'</b><p>'+f.description+'</p><div class="food-effects" aria-label="포만감 '+f.hunger+', 행복 '+(f.happy+(favorite?5:0))+', 기운 '+f.energy+' 증가">'+iconHTML('feed')+' +'+f.hunger+' '+iconHTML('pet')+' +'+(f.happy+(favorite?5:0))+(f.energy?' '+iconHTML('sleep')+' +'+f.energy:'')+'</div><small class="food-condition">'+(open?(f.id==='carrot'?'무료 · 언제든 먹을 수 있어요':'냉장고 '+stock+'접시'):foodCondition(state,f))+'</small><div class="food-buttons"></div>';
     const buttons=card.querySelector('.food-buttons');if(tab==='식당 메뉴'&&f.price>0){const buy=document.createElement('button');buy.className='food-buy';buy.disabled=!open||state.coins<f.price;buy.innerHTML=iconHTML(open?'acorn':'lock')+' '+f.price+' 주문';buy.setAttribute('aria-label',f.name+' '+f.price+' 도토리로 주문');buy.onclick=()=>{const meal=buyFood(state,f.id);if(!meal){toast('해금 조건과 도토리를 확인해 주세요.');return;}recordEvent(state,'foodbuy');log(f.name+' 한 접시를 '+f.price+' 도토리로 주문했어요.');updateUI();tone();restaurant(tab,filter);toast(f.name+'가 냉장고에 도착했어요!');};buttons.append(buy);}
     if(f.id==='carrot'||stock>0){const feed=document.createElement('button');feed.className='food-serve';feed.textContent='먹이기'+(stock?' · '+stock+'접시':'');feed.setAttribute('aria-label',f.name+' 먹이기');feed.onclick=()=>{if(edit||pet.action){toast(edit?'꾸미기를 완료한 뒤 먹여 주세요.':'친구가 하던 일을 마칠 때까지 기다려 주세요.');return;}image(f.icon.replace('assets/',''));closeSheet();care('feed',f.id);};buttons.append(feed);}
@@ -130,7 +133,7 @@ function restaurant(tab='식당 메뉴',filter='전체'){
 function unlockedName(entry){return entry.kind==='furniture'?CATALOG.find(i=>i.id===entry.id).name:entry.kind==='skin'?findSkin(entry.id).name:SPECIES.find(s=>s[0]===entry.id)[2];}
 let playClock=performance.now(),timeSave=0,nativePaused=false;
 setInterval(()=>{
-  const now=performance.now(),seconds=(now-playClock)/1000;playClock=now;if(document.hidden||nativePaused)return;
+  gardenUI.updateTimers();const now=performance.now(),seconds=(now-playClock)/1000;playClock=now;if(document.hidden||nativePaused)return;
   const opened=addPlayTime(state,seconds).filter(entry=>entry.kind!=='friend'),newFood=refreshFoodUnlocks(state);timeSave+=seconds>0&&seconds<=5?seconds:0;
   if(timeSave>=5||opened.length||newFood.length){updateUI();updateTimeSheet();}
   if(opened.length){log('함께한 시간으로 '+opened.map(unlockedName).join(', ')+' 해금!');toast('우리 집에 새 선물! '+opened.map(unlockedName).join(' · ')+' 해금');tone();if($('.time-unlock-list'))timeUnlockSheet();else if($('.unlock-grid'))goals('해금 도감');else if($('.skin-grid'))skins();else if($('#sheet-title').textContent==='집 꾸미기')shop($('.tabs button.active')?.textContent||'전체');}

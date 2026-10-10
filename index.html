@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#f7f3e8"><meta name="description" content="작은 친구와 함께 꾸미는 포근한 집. 복슬복슬펫 모바일 가로 화면 게임.">
   <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="복슬복슬펫"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>복슬복슬펫 · 숲속의 작은 집</title>
   <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/app-icon-192.png" type="image/png"><link rel="apple-touch-icon" href="assets/app-icon-192.png"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="ui-icons.css"><link rel="stylesheet" href="cozy-ui.css"><link rel="stylesheet" href="desktop-ui.css">
-<link rel="stylesheet" href="layout-fixes.css">
+<link rel="stylesheet" href="layout-fixes.css"><link rel="stylesheet" href="garden.css">
 </head>
 <body>
   <div class="game">
@@ -51,7 +51,7 @@
       <nav aria-label="게임 메뉴">
         <button id="decorate"><img class="ui-art" src="assets/ui-icons/decorate.png" alt="" aria-hidden="true" draggable="false"><div><b>집 꾸미기</b><small>가구 · 소품</small></div></button>
         <button id="room-skins" class="home-skins-button" aria-label="나라별 집 스킨 바꾸기"><img class="ui-art" src="assets/ui-icons/skins.png" alt="" aria-hidden="true" draggable="false"><div><b>집 스킨</b><small>나라별 공간</small></div></button>
-        <button id="food-menu" aria-label="음식과 냉장고"><img class="ui-art" src="assets/ui-icons/feed.png" alt="" aria-hidden="true"><div><b>음식</b><small>식당 · 냉장고</small></div></button>
+        <button id="food-menu" aria-label="음식과 냉장고"><img class="ui-art" src="assets/ui-icons/feed.png" alt="" aria-hidden="true"><div><b>음식</b><small>식당 · 텃밭 · 주방</small></div></button>
         <button id="wardrobe" aria-label="우리 친구 옷장"><img class="ui-art" src="assets/desktop/dresser.webp" alt="" aria-hidden="true"><div><b>옷장</b><small>옷 · 액세서리</small></div></button>
         <button id="goals"><img class="ui-art" src="assets/ui-icons/goals.png" alt="" aria-hidden="true"><div><b>목표 · 선물</b><small>오늘의 작은 약속</small></div><span id="goal-badge"></span></button>
       </nav>
@@ -60,5 +60,5 @@
   </div>
   <div class="sheet-overlay" id="overlay" hidden><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-heading"><div><small id="sheet-kicker">MY LITTLE HOME</small><h2 id="sheet-title">집 꾸미기</h2></div><button id="close-sheet" class="icon-button" aria-label="닫기"><img class="ui-art" src="assets/ui-icons/close.png" alt="" aria-hidden="true" draggable="false"></button></div><div id="sheet-content"></div></section></div>
   <div class="portrait-hint"><img class="ui-art" src="assets/ui-icons/rotate.png" alt="" aria-hidden="true" draggable="false"> <span>휴대폰을 가로로 돌리면<br>방이 더 넓게 보여요.</span><button aria-label="회전 안내 닫기"><img class="ui-art" src="assets/ui-icons/close.png" alt="" aria-hidden="true" draggable="false"></button></div>
-  <script type="module" src="game.js?v=14"></script>
+  <script type="module" src="game.js?v=15"></script>
 </body></html>

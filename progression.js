@@ -43,6 +43,9 @@ export function addPlayTime(state,seconds,now=Date.now()){
   return refreshUnlocks(state);
 }
 export const GOALS = [
+  {id:'first-harvest',title:'텃밭의 첫 선물',description:'작물을 한 번 수확하세요',event:'harvest',target:1,coins:20,xp:15,icon:'flower'},
+  {id:'first-cook',title:'내 손으로 만든 한 끼',description:'수확한 재료로 요리를 한 접시 만드세요',event:'cook',target:1,coins:25,xp:20,icon:'feed'},
+  {id:'cook-five',title:'우리 집 작은 요리사',description:'텃밭 요리를 총 5접시 만드세요',event:'cook',target:5,coins:50,xp:35,icon:'feed'},
   {id:'first-order',title:'숲속 식당 첫 주문',description:'식당에서 요리를 한 접시 주문하세요',event:'foodbuy',target:1,coins:20,xp:15,icon:'feed'},
   {id:'taste-five',title:'작은 숲의 미식가',description:'서로 다른 식당 요리를 5종 먹여 주세요',event:'taste',target:5,coins:60,xp:40,icon:'feed'},
   {id:'first-feed',title:'냠냠, 첫 간식',description:'친구에게 먹이를 한 번 주세요',event:'feed',target:1,coins:30,xp:20,icon:'feed'},
