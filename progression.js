@@ -29,6 +29,7 @@ export function unlockCondition(state,kind,id){
 }
 export function refreshUnlocks(state){
   const opened=[];for(const [kind,ids] of Object.entries(LEVELS))for(const [id,required] of Object.entries(ids)){
+    if(kind==='friend'&&state.singleCompanion&&id!==state.companionId)continue;
     if(state.progress.unlocked[kind].includes(id))continue;
     if(ownedIds(state,kind).includes(id)||level(state)>=required||timeReady(state,TIME_UNLOCKS[kind]?.[id])){state.progress.unlocked[kind].push(id);opened.push({kind,id});}
   }return opened;
@@ -51,7 +52,6 @@ export const GOALS = [
   {id:'first-rest',title:'달콤한 낮잠',description:'친구를 한 번 쉬게 해 주세요',event:'sleep',target:1,coins:25,xp:20,icon:'sleep'},
   {id:'first-arrange',title:'내 손으로 꾸민 집',description:'가구를 옮기고 꾸미기를 완료하세요',event:'arrange',target:1,coins:40,xp:25,icon:'decorate'},
   {id:'first-buy',title:'작은 집에 새 가구',description:'새 가구를 한 개 구입하세요',event:'buy',target:1,coins:45,xp:25,icon:'decorate'},
-  {id:'first-friend',title:'반가워, 새 친구',description:'다른 친구와 함께 살아 보세요',event:'friend',target:1,coins:50,xp:30,icon:'friends'},
   {id:'first-skin',title:'우리 집 세계 여행',description:'집 스킨을 한 번 바꿔 보세요',event:'skin',target:1,coins:50,xp:30,icon:'skins'},
   {id:'care-20',title:'다정한 집사',description:'돌봄을 총 20번 완료하세요',event:'care',target:20,coins:100,xp:60,icon:'pet'},
   {id:'care-60',title:'함께 자라는 우리',description:'돌봄을 총 60번 완료하세요',event:'care',target:60,coins:180,xp:100,icon:'flower'}
@@ -70,7 +70,7 @@ export function initProgress(state,now=Date.now()){
 }
 export function refreshDay(state,now=Date.now()){const key=dayKey(now);if(state.progress.daily.day!==key)state.progress.daily={day:key,counts:{},claimed:[]};}
 export function level(state){return levelInfo(state.progress.xp).level;}
-export function isUnlocked(state,kind,id){return state.progress.unlocked[kind]?.includes(id)||ownedIds(state,kind).includes(id)||level(state)>=(LEVELS[kind]?.[id]??Infinity)||Boolean(timeReady(state,TIME_UNLOCKS[kind]?.[id]));}
+export function isUnlocked(state,kind,id){if(kind==='friend'&&state.singleCompanion)return id===state.companionId;return state.progress.unlocked[kind]?.includes(id)||ownedIds(state,kind).includes(id)||level(state)>=(LEVELS[kind]?.[id]??Infinity)||Boolean(timeReady(state,TIME_UNLOCKS[kind]?.[id]));}
 export function recordEvent(state,event,now=Date.now()){
   refreshDay(state,now);const p=state.progress;for(const counts of [p.counts,p.daily.counts]){counts[event]=(counts[event]||0)+1;if(['feed','pet','play','clean','sleep'].includes(event))counts.care=(counts.care||0)+1;}
   if(['feed','pet','play','clean','sleep'].includes(event))p.xp+=p.daily.counts[event]<=5?8:1;

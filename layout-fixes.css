@@ -1,0 +1,77 @@
+/* Keep controls inside their cells, including Safari's compact landscape view. */
+.game{min-height:0}
+.icon-button{padding:4px;flex-shrink:0;line-height:1;overflow:hidden}
+.icon-button>.ui-art{width:100%;height:100%;max-width:26px;max-height:26px;object-fit:contain;min-width:0}
+.snapshot{padding:4px;overflow:hidden}
+.snapshot>.ui-art{width:100%;height:100%;object-fit:contain;min-width:0}
+.game footer .home-label,.game footer .save-status{display:none}
+.game footer nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:100%;min-width:0;gap:8px}
+.game footer nav button{position:static;min-width:0;min-height:44px;max-width:100%;padding:6px 8px;gap:7px;overflow:hidden}
+.game footer nav button>div{min-width:0}
+.game footer nav button>.ui-art{width:28px;height:28px;max-width:30%;object-fit:contain;flex-shrink:0}
+.game footer nav b{white-space:nowrap}
+.game footer nav small{white-space:normal}
+.pet-shortcuts{min-width:0;flex-shrink:0}
+.pet-shortcuts #change-pet{display:none}
+.pet-shortcuts #wardrobe{width:100%;display:flex;align-items:center;justify-content:center;gap:5px;min-height:28px;padding:3px 5px;margin:0;border:1px solid #dedfc8;border-radius:9px;background:#edf3e3;line-height:1.2}
+.pet-shortcuts #wardrobe img{width:19px;height:19px;max-width:24px;object-fit:contain;flex-shrink:0}
+@media(orientation:landscape) and (max-height:660px){
+  .game main{padding:8px 10px;gap:10px}
+  .pet-panel{padding:6px 7px;width:clamp(112px,15.5vw,166px);min-height:0}
+  .pet-panel .little-note{display:none}
+  .pet-panel .pet-portrait{flex-shrink:0;width:48px;height:40px}
+  .pet-panel .pet-portrait canvas{width:48px;height:48px;margin-top:-5px}
+  .pet-panel .level{left:5px;bottom:-4px;font-size:8px;padding:1px 6px}
+  .pet-panel h1{font-size:15px;line-height:18px;margin:5px 0 0}
+  .pet-panel .pet-sub{font-size:8px;line-height:11px;margin:0}
+  .pet-panel .bond{font-size:8px;line-height:12px;margin:2px 0 4px}
+  .pet-panel .bond>.ui-art{width:12px;height:12px}
+  .pet-panel .growth{padding:4px 5px;margin:0 0 5px;min-height:24px}
+  .pet-panel .growth>span,.pet-panel .growth b{font-size:8px;line-height:10px}
+  .pet-panel .xp-track{height:4px;margin-top:3px}
+  .pet-panel .needs{gap:3px;min-height:0}
+  .pet-panel .needs .need{min-height:0;height:25px;padding:2px 5px;grid-template-columns:18px minmax(0,1fr) auto;grid-template-rows:12px 4px;gap:2px 4px;font-size:8px}
+  .pet-panel .need>.ui-art{width:18px;height:18px;object-fit:contain}
+  .pet-panel .need b{font-size:8px}
+  .pet-panel .need meter,.pet-panel .need meter::-webkit-meter-bar{height:4px}
+  .pet-shortcuts{margin-top:auto;padding-top:4px}
+  .pet-shortcuts #wardrobe{font-size:9px}
+  .care-panel{display:grid;grid-template-rows:repeat(5,minmax(0,1fr));align-content:center;gap:5px;width:60px;max-height:340px;align-self:center;height:100%;min-height:0}
+  .care-title{display:none}
+  .care-panel button{width:100%;height:100%;min-height:0;padding:4px;gap:2px}
+  .care-panel button>.ui-art{width:29px;height:28px;max-height:calc(100% - 16px);object-fit:contain}
+  .care-panel button b{font-size:9px;line-height:11px}
+  .game footer{height:66px;padding:6px 10px;gap:0}
+  .game footer nav b{font-size:10px}
+  .game footer nav small{font-size:8px}
+}
+@media(orientation:landscape) and (max-height:440px){
+  .pet-panel .pet-portrait{width:38px;height:30px}
+  .pet-panel .pet-portrait canvas{width:38px;height:38px;margin-top:-4px}
+  .pet-panel .level{font-size:7px;left:0;bottom:-4px}
+  .pet-panel h1{font-size:13px;line-height:16px;margin-top:4px}
+  .pet-panel .pet-sub{display:none}
+  .pet-panel .bond{margin:1px 0 3px;line-height:10px}
+  .pet-panel .growth{margin-bottom:4px}
+  .pet-panel .needs{gap:2px}
+  .pet-panel .needs .need{height:22px;padding:1px 4px;grid-template-columns:16px minmax(0,1fr) auto;grid-template-rows:11px 4px}
+  .pet-panel .need>.ui-art{width:16px;height:16px}
+  .pet-shortcuts{padding-top:3px}
+  .pet-shortcuts #wardrobe{min-height:26px;font-size:8px}
+  .pet-shortcuts #wardrobe img{width:16px;height:16px}
+  .care-panel{width:54px;gap:4px}
+  .game footer{height:62px}
+  .game footer nav{gap:5px}
+  .game footer nav button{gap:5px;padding:5px}
+  .game footer nav button>.ui-art{width:24px;height:24px}
+}
+@media(orientation:portrait){
+  .pet-shortcuts{display:none}
+  .game footer nav{gap:4px}
+  .game footer nav button{flex-direction:column;gap:2px;padding:4px 2px}
+  .game footer nav button>.ui-art{max-width:100%;width:24px;height:24px}
+  .game footer nav b{font-size:9px}
+  .game footer nav small{display:none}
+}
+
+.pet-panel .growth>span{white-space:nowrap}
