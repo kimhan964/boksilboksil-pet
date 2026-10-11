@@ -1,5 +1,6 @@
+import {createGardenWorker} from './garden-work.js';
 import {createGardenSpace} from './garden-space.js';
-import {initGarden} from './garden.js';
+import {initGarden,GARDEN_DISHES} from './garden.js';
 import {createGardenUI} from './garden-ui.js';
 import {furnitureAsset,visibleFurniture,sourceUnlocked,sourceCondition,nextDelivery,furnitureDepth} from './current-settings.js';
 import {createSettingsUI} from './settings-ui.js';
@@ -62,7 +63,8 @@ let width=1,height=1,dpr=1,edit=false,selected=null,drag=null,animTime=0,last=0,
 let pet={x:.51,y:.77,target:null,until:3,action:null,dir:1};
 let particles=[],toySession=null,toyDrag=null,followMode=false,followMoved=0,followStart=null,heldPet=null;
 const desktopUI=createDesktopUI({state,image,iconHTML,drawPet,openSheet,closeSheet,toast,log,save,updateUI,care,startToy,setFollow,beginLife,canAct,beginHabit,animationCatalog,catalog:CATALOG,activityFor,shop,recordPurchase:()=>recordEvent(state,'buy'),furnitureImage,furnitureFile,onFurnitureStyle:()=>{arrangementChanged=true;}});
-const gardenSpace=createGardenSpace({state,save,toast,recordEvent,updateUI,log,iconHTML,closeSheet,drawPet,kitchen:crop=>gardenUI.kitchen(crop),prepare:()=>{if(edit||pet.action&&!pet.action.automatic){toast('하던 돌봄이나 꾸미기를 마친 뒤 텃밭으로 가요.');return false;}cancelInteraction();pet.action=null;pet.target=null;return true;},onHome:()=>{closeSheet();pet.until=animTime+3;roomCaption();resize();}});
+const gardenWorker=createGardenWorker(state,{timing:plan=>gardenSpace.timing(plan)});
+const gardenSpace=createGardenSpace({state,save,toast,recordEvent,updateUI,log,iconHTML,closeSheet,drawPet,worker:gardenWorker,motion:()=>animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk,kitchen:crop=>gardenUI.kitchen(crop),prepare:()=>{if(edit||pet.action&&!pet.action.automatic){toast('하던 돌봄이나 꾸미기를 마친 뒤 텃밭으로 가요.');return false;}cancelInteraction();pet.action=null;pet.target=null;return true;},onHome:()=>{closeSheet();pet.until=animTime+3;roomCaption();resize();}});
 const gardenUI=createGardenUI({state,openSheet,save,toast,iconHTML,recordEvent,updateUI,log,restaurant,enterGarden:crop=>gardenSpace.enter(crop),updateGarden:()=>gardenSpace.update()});
 function canAct(){return !edit&&(!pet.action||pet.action.automatic)&&!heldPet;}
 function interruptAutonomy(){if(pet.action?.automatic){pet.action=null;pet.words=null;pet.target=null;pet.until=animTime+5;}}
@@ -122,10 +124,10 @@ function updateTimeSheet(){
 }
 function restaurant(tab='식당 메뉴',filter='전체'){
   openSheet('복실복실 식당','정성 가득한 요리를 우리 친구에게');
-  $('#sheet-content').innerHTML='<div id="food-shop" data-tab="'+tab+'" data-filter="'+filter+'"><div class="food-banner">'+iconHTML('feed')+'<div><b>숲속 식당의 따뜻한 한 끼</b><small>식당 32종 · 텃밭 요리 8종 · 맛본 요리 '+state.food.eaten.filter(id=>id!=='carrot').length+' / 40</small></div><span>'+iconHTML('acorn')+' '+state.coins+'</span></div><div class="tabs food-tabs"></div><div class="food-filters"></div><p class="quest-note">'+(tab==='우리 냉장고'?'먹고 싶은 요리를 골라 주세요. 한 접시는 식사를 마쳤을 때 사용돼요.':'레벨 또는 플레이 시간·시간대 방문으로 요리가 열려요. 주문한 요리는 냉장고에 보관돼요.')+'</p><div class="food-grid"></div></div>';
+  $('#sheet-content').innerHTML='<div id="food-shop" data-tab="'+tab+'" data-filter="'+filter+'"><div class="food-banner">'+iconHTML('feed')+'<div><b>숲속 식당의 따뜻한 한 끼</b><small>식당 '+FOODS.filter(f=>!f.garden&&f.id!=='carrot').length+'종 · 텃밭 요리 '+GARDEN_DISHES.length+'종 · 맛본 요리 '+state.food.eaten.filter(id=>id!=='carrot').length+' / '+(FOODS.length-1)+'</small></div><span>'+iconHTML('acorn')+' '+state.coins+'</span></div><div class="tabs food-tabs"></div><div class="food-filters"></div><p class="quest-note">'+(tab==='우리 냉장고'?'먹고 싶은 요리를 골라 주세요. 한 접시는 식사를 마쳤을 때 사용돼요.':'레벨 또는 플레이 시간·시간대 방문으로 요리가 열려요. 주문한 요리는 냉장고에 보관돼요.')+'</p><div class="food-grid"></div></div>';
   $('.food-tabs').replaceWith(gardenUI.navigation(tab));
-  for(const name of ['전체','정식','간식','음료']){const b=document.createElement('button');b.textContent=name;b.className=filter===name?'active':'';b.onclick=()=>restaurant(tab,name);$('.food-filters').append(b);}
-  const dishes=FOODS.filter(f=>(tab==='우리 냉장고'||!f.garden)&&(f.id==='carrot'||filter==='전체'||f.category===filter)&&(tab!=='우리 냉장고'||f.id==='carrot'||state.food.stock[f.id]>0));
+  for(const name of ['전체','새 식당 메뉴','정식','간식','음료']){const b=document.createElement('button');b.textContent=name;b.className=filter===name?'active':'';b.onclick=()=>restaurant(tab,name);$('.food-filters').append(b);}
+  const dishes=FOODS.filter(f=>(tab==='우리 냉장고'||!f.garden)&&(f.id==='carrot'||filter==='전체'||(filter==='새 식당 메뉴'?f.source==='복실복실 식당':f.category===filter))&&(tab!=='우리 냉장고'||f.id==='carrot'||state.food.stock[f.id]>0));
   for(const f of dishes){const open=isFoodUnlocked(state,f.id),stock=state.food.stock[f.id]||0,favorite=favoriteKnown(state,f.id),card=document.createElement('article');card.className='food-card'+(open?'':' locked');card.innerHTML='<div class="food-art"><img src="'+f.icon+'" alt="'+f.name+'" loading="lazy">'+(favorite?'<span>좋아하는 맛</span>':'')+'</div><b>'+f.name+'</b><p>'+f.description+'</p><div class="food-effects" aria-label="포만감 '+f.hunger+', 행복 '+(f.happy+(favorite?5:0))+', 기운 '+f.energy+' 증가">'+iconHTML('feed')+' +'+f.hunger+' '+iconHTML('pet')+' +'+(f.happy+(favorite?5:0))+(f.energy?' '+iconHTML('sleep')+' +'+f.energy:'')+'</div><small class="food-condition">'+(open?(f.id==='carrot'?'무료 · 언제든 먹을 수 있어요':'냉장고 '+stock+'접시'):foodCondition(state,f))+'</small><div class="food-buttons"></div>';
     const buttons=card.querySelector('.food-buttons');if(tab==='식당 메뉴'&&f.price>0){const buy=document.createElement('button');buy.className='food-buy';buy.disabled=!open||state.coins<f.price;buy.innerHTML=iconHTML(open?'acorn':'lock')+' '+f.price+' 주문';buy.setAttribute('aria-label',f.name+' '+f.price+' 도토리로 주문');buy.onclick=()=>{const meal=buyFood(state,f.id);if(!meal){toast('해금 조건과 도토리를 확인해 주세요.');return;}recordEvent(state,'foodbuy');log(f.name+' 한 접시를 '+f.price+' 도토리로 주문했어요.');updateUI();tone();restaurant(tab,filter);toast(f.name+'가 냉장고에 도착했어요!');};buttons.append(buy);}
     if(f.id==='carrot'||stock>0){const feed=document.createElement('button');feed.className='food-serve';feed.textContent='먹이기'+(stock?' · '+stock+'접시':'');feed.setAttribute('aria-label',f.name+' 먹이기');feed.onclick=()=>{if(edit||pet.action){toast(edit?'꾸미기를 완료한 뒤 먹여 주세요.':'친구가 하던 일을 마칠 때까지 기다려 주세요.');return;}image(f.icon.replace('assets/',''));closeSheet();care('feed',f.id);};buttons.append(feed);}
@@ -136,6 +138,7 @@ function unlockedName(entry){return entry.kind==='furniture'?CATALOG.find(i=>i.i
 let playClock=performance.now(),timeSave=0,nativePaused=false;
 setInterval(()=>{
   gardenUI.updateTimers();const now=performance.now(),seconds=(now-playClock)/1000;playClock=now;if(document.hidden||nativePaused)return;
+
   const opened=addPlayTime(state,seconds).filter(entry=>entry.kind!=='friend'),newFood=refreshFoodUnlocks(state);timeSave+=seconds>0&&seconds<=5?seconds:0;
   if(timeSave>=5||opened.length||newFood.length){updateUI();updateTimeSheet();}
   if(opened.length){log('함께한 시간으로 '+opened.map(unlockedName).join(', ')+' 해금!');toast('우리 집에 새 선물! '+opened.map(unlockedName).join(' · ')+' 해금');tone();if($('.time-unlock-list'))timeUnlockSheet();else if($('.unlock-grid'))goals('해금 도감');else if($('.skin-grid'))skins();else if($('#sheet-title').textContent==='집 꾸미기')shop($('.tabs button.active')?.textContent||'전체');}
@@ -164,6 +167,7 @@ function drawPet(c,x,y,size,species,time=0,walking=false,dir=1,action=null,previ
  // duplicating a 60-frame bank in another large canvas allocation.
  c.translate(-anchor[0]*unit,-anchor[1]*unit);c.scale(unit,unit);c.beginPath();c.rect(0,0,side,side);c.clip();
  c.drawImage(sheet,spec.offset[0]-(frame%spec.columns)*side,spec.offset[1]-Math.floor(frame/spec.columns)*side);c.restore();
+ const hand=spec.anchors?.[frame]?.hand||[155,182];return {hand:{x:x+(hand[0]-anchor[0])*unit*dir,y:y+(hand[1]-anchor[1])*unit-(pose.bank==='walk'&&hop?hopLift(pose.elapsed||0,hop)*unit:0)}};
 }
 function furnitureFile(item,f){return furnitureAsset(item,f);}
 function roomFurniture(){return state.furniture.filter(f=>visibleFurniture(CATALOG.find(i=>i.id===f.id),state.species));}
@@ -198,6 +202,9 @@ function advanceDelivery(){if(animTime<nextDeliveryTime||pet.action||pet.target|
 function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   const busy=Boolean($('#overlay').hidden===false);
   if(!busy&&!nativePaused&&!document.hidden)animTime+=dt;
+  if(!busy&&!nativePaused&&!document.hidden){
+  const idle=gardenWorker.advance(dt);if(idle){if(idle.type==='harvest'||idle.type==='cook'){recordEvent(state,idle.type);log(idle.message);}save();updateUI();gardenSpace.refresh();if($('#food-shop'))restaurant($('#food-shop').dataset.tab,$('#food-shop').dataset.filter);else gardenUI.updateCookbook();}
+  }
   if(gardenSpace.active){gardenSpace.draw(animTime);const c=$('#portrait').getContext('2d');c.clearRect(0,0,160,160);drawPet(c,80,143,154,state.species,animTime,false,1);requestAnimationFrame(frame);return;}
   if(!edit&&!busy&&!nativePaused&&!document.hidden){idleElapsed=!pet.action&&!pet.target&&!heldPet?idleElapsed+dt:0;advanceDelivery();if(!pet.action&&!pet.target&&!heldPet&&!followMode&&animTime>=nextSneeze&&idleElapsed>3&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('sneeze');}
   if(!edit&&!busy&&!nativePaused&&!document.hidden){if(pet.action&&!pet.target)pet.action.elapsed=(pet.action.elapsed||0)+dt;advanceToy(dt);if(pet.target){const dx=(pet.target.x-pet.x)*width,dy=(pet.target.y-pet.y)*height,dist=Math.hypot(dx,dy),hop=animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk.hop,speed=Math.max(18,height*.13)*(hop?hopTravelRate(pet.walkElapsed||0,dt,hop):1);pet.walkElapsed=(pet.walkElapsed||0)+dt;if(dist<speed*dt+1){pet.x=pet.target.x;pet.y=pet.target.y;pet.target=null;pet.until=animTime+2+Math.random()*3;if(pet.action)pet.action.remaining=pet.action.toy?null:pet.action.duration||2.4;if(!toySession&&!followMode&&!heldPet&&animTime>=nextStumble&&pet.walkElapsed>=.35&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('stumble',pet.action?{...pet.action}:null);}else{pet.dir=dx<0?-1:1;pet.x+=dx/dist*speed*dt/width;pet.y+=dy/dist*speed*dt/height;}}
@@ -287,7 +294,7 @@ $('#goals').onclick=()=>goals();$('#goal-peek').onclick=()=>goals();
 $('.growth').onclick=()=>goals('해금 도감');
 document.querySelectorAll('[data-care]').forEach(b=>b.onclick=()=>b.dataset.care==='play'?desktopUI.playroom():care(b.dataset.care));
 function toggleSound(){sound=!sound;state.desktop.settings.sound=sound;save();$('#sound img').src='assets/ui-icons/'+(sound?'sound-on':'sound-off')+'.png';$('#sound').ariaLabel=sound?'소리 끄기':'소리 켜기';$('#sound').title=$('#sound').ariaLabel;$('#sound').setAttribute('aria-pressed',String(sound));tone();toast(sound?'효과음을 켰어요.':'효과음을 껐어요.');}$('#sound').onclick=toggleSound;
-$('#fullscreen').onclick=async()=>{const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);if(ios){if(navigator.standalone||matchMedia('(display-mode: standalone)').matches){toast('홈 화면 앱으로 열었어요. 휴대폰을 가로로 돌려주세요.');return;}openSheet('iPhone 홈 화면에 작은 집 담기','Safari에서 앱처럼 열 수 있어요');$('#sheet-content').innerHTML='<div class="empty-note"><p>Safari의 공유 버튼을 누르고 <strong>홈 화면에 추가</strong>를 선택해 주세요.</p><p>‘웹 앱으로 열기’ 옵션이 있으면 켜고 추가해 주세요. 홈 화면의 복슬복슬펫 아이콘으로 다시 열어 휴대폰을 가로로 돌리면 됩니다.</p><p>새 동물·옷·방 그림은 처음 열 때 인터넷이 필요해요. 불러온 그림은 기기에 보관되며 브라우저 저장 정리 시 다시 내려받아야 할 수 있어요. Android와 iPhone 사이의 진행 상황 동기화는 아직 제공하지 않습니다.</p></div>';return;}if(window.BoksilAndroid){toast('이미 가로 전체 화면으로 플레이 중이에요.');return;}try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();try{await screen.orientation.lock('landscape');}catch{}}catch{toast('브라우저 메뉴에서 전체 화면으로 열어주세요.');}};
+$('#fullscreen').onclick=async()=>{if(window.BoksilAndroid){toast('이미 가로 전체 화면으로 플레이 중이에요.');return;}try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();try{await screen.orientation.lock('landscape');}catch{}}catch{toast('브라우저 메뉴에서 전체 화면으로 열어주세요.');}};
 $('#snapshot').onclick=()=>{const photo=room.toDataURL('image/png');if(window.BoksilAndroid){window.BoksilAndroid.savePhoto(photo);return;}const a=document.createElement('a');a.download='복슬복슬펫-우리집.png';a.href=photo;a.click();toast('우리 집 사진을 저장했어요.');};
 $('.portrait-hint button').onclick=()=>$('.portrait-hint').style.display='none';
 setInterval(()=>{if(document.hidden||nativePaused||!$('#overlay').hidden||edit)return;for(const [key,rate]of Object.entries({hunger:.14,happy:.07,clean:.09,energy:.06,hydration:.18}))state.stats[key]=clamp(state.stats[key]-rate,0,100);updateUI();save();},15000);

@@ -1,8 +1,9 @@
 import {CROPS,GARDEN_DISHES} from './garden-data.js';
 import {RESTAURANT_FOODS} from './food-data.js';
+import {EXTRA_RESTAURANT_FOODS} from './restaurant-extra-data.js';
 import {FAVORITE_DISHES} from './profiles-data.js';
 import {level,PERIODS,formatPlayTime} from './progression.js';
-export const FOODS=[{id:'carrot',name:'기본 당근',description:'언제든 먹을 수 있는 작은 당근. 도토리가 없어도 괜찮아요.',category:'기본',price:0,hunger:18,happy:3,energy:0,level:1,minutes:0,icon:'assets/ui-icons/feed.png'},...RESTAURANT_FOODS.map(f=>({...f,icon:'assets/food/'+f.id+'.png'})),...GARDEN_DISHES];
+export const FOODS=[{id:'carrot',name:'기본 당근',description:'언제든 먹을 수 있는 작은 당근. 도토리가 없어도 괜찮아요.',category:'기본',price:0,hunger:18,happy:3,energy:0,level:1,minutes:0,icon:'assets/ui-icons/feed.png'},...[...RESTAURANT_FOODS,...EXTRA_RESTAURANT_FOODS].map(f=>({...f,icon:'assets/food/'+f.id+'.png'})),...GARDEN_DISHES];
 export function initFood(state){state.food||={stock:{'dish-0-0':2},unlocked:['carrot','dish-0-0'],eaten:[]};state.food.favoriteDiscoveries||={};refreshFoodUnlocks(state);return state.food;}
 export function favoriteKnown(state,id){return state.food.favoriteDiscoveries[state.species]===id;}
 export function isFoodUnlocked(state,id){const f=FOODS.find(f=>f.id===id);if(f?.garden)return Boolean(state.garden?.recipes.includes(id));return Boolean(f&&(state.food.unlocked.includes(id)||level(state)>=f.level||(state.progress.playSeconds>=f.minutes*60&&(!f.period||(state.progress.periodSeconds[f.period]||0)>=60))));}

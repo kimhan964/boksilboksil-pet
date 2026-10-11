@@ -10,4 +10,7 @@
 .yard-bed:not(:disabled):hover .yard-soil{filter:drop-shadow(0 2px 3px #66573555)}
 .yard-bed:focus-visible{outline:2px solid #fff5cf;outline-offset:3px;border-radius:12px}
 .yard-recipe-link small{font-size:8px;color:#8b8265}.yard-tools .yard-recipe-link{background:#eef3df;min-height:34px}.yard-tools .yard-recipe-link span{text-align:left}
+.yard-heading{max-width:40%}.yard-heading #yard-auto{margin-top:4px;padding:3px 7px;border-radius:8px;background:#dce8cc;color:#5d754d;font-size:9px}.yard-heading #yard-auto[aria-pressed=false]{background:#eee4cf;color:#93836a}#yard-auto-status{max-width:230px;line-height:1.3;font-size:8px}
 @media(max-height:440px) and (orientation:landscape){.yard-tools{gap:3px}.yard-tools button{min-height:24px;padding:3px 6px}.yard-tools .yard-recipe-link{min-height:26px}.yard-recipe-link small{font-size:7px}}
+
+.garden-space .yard-pet{inset:0;width:100%;height:100%;z-index:2;pointer-events:none}.yard-heading,.yard-tools,.yard-dock{z-index:3}
