@@ -1,4 +1,4 @@
-import {connectMobileCommerce} from './mobile-commerce-ui.js';
+
 import {freePosition,positionClear} from './furniture-placement.js';
 function placementRect(f){if(f.uiBlock)return f.bounds;const r=furnitureRect(f);return {x:r.x/width,y:r.y/height,w:r.w/width,h:r.h/height};}
 function placementObstacle(f){if(f.uiBlock)return true;const item=CATALOG.find(i=>i.id===f.id);return item&&visibleFurniture(item,state.species)&&!item.wall&&f.id!=='rug';}
@@ -36,7 +36,7 @@ import {GOALS,DAILY_GOALS,SKIN_LEVELS,FURNITURE_LEVELS,PERIODS,TIME_UNLOCKS,time
 import {SKINS,findSkin} from './skins.js';
 import {UI_ICONS,iconHTML} from './ui-icons.js';
 const $=s=>document.querySelector(s);
-const mobileLicense=connectMobileCommerce();
+
 const SPECIES=[['rabbit','토끼','모루'],['otter','수달','보리'],['squirrel','다람쥐','도토'],['hedgehog','고슴도치','밤이'],['raccoon','너구리','누리'],['fox','여우','솔'],['bear','곰','두리'],['owl','부엉이','달'],['cat','고양이','치즈'],['puppy','강아지','쿠키'],['hamster','햄스터','콩이'],['panda','판다','포포'],['red_panda','레서판다','단풍'],['lamb','아기 양','몽실'],['koala','코알라','코코'],['penguin','펭귄','빙글']];
 const CATALOG=[
   {id:'sofa',name:'토끼 귀 미니 소파',price:0,cat:'가구',w:.27},
@@ -225,7 +225,7 @@ let nextStumble=30,nextSneeze=45,nextDeliveryTime=3,idleElapsed=0;
 function startSilly(bank,resume=null){const age=growthInfo(state).stage==='baby'?'baby':'adult',resolved=resolveAnimation(animationCatalog,state.species,age,state.desktop.outfits[state.species],{bank});if(!resolved?.supported)return false;pet.target=null;pet.action={type:'motion',bank,automatic:!resume||Boolean(resume.automatic),resume,elapsed:0,duration:bank==='stumble'?4.8:2.4,remaining:bank==='stumble'?4.8:2.4};if(bank==='stumble')nextStumble=animTime+60+Math.random()*30;else nextSneeze=animTime+45;return true;}
 function advanceDelivery(){if(animTime<nextDeliveryTime||pet.action||pet.target||heldPet||edit||followMode||state.stats.hunger<48||state.stats.hydration<45||state.stats.energy<35)return;const id=nextDelivery(state,CATALOG,furnitureOpen);if(!id)return;state.desktop.autoDelivered.push(id);state.desktop.arrivalSeen.push(id);state.owned.push(id);if(!state.furniture.some(f=>f.id===id)){const f={id,x:clamp(pet.x+.17,.16,.84),y:.85},p=freePosition(f,placementItems(),placementRect,placementObstacle);if(p)state.furniture.push({...f,...p});}keepPlaythingsApart();nextDeliveryTime=animTime+2.5;burst('gift');save();updateUI();toast((CATALOG.find(i=>i.id===id)?.name||id)+' 선물이 도착했어요!');tone();}
 function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
-  const busy=Boolean($('#overlay').hidden===false)||!mobileLicense.licensed;
+  const busy=Boolean($('#overlay').hidden===false);
   if(!busy&&!nativePaused&&!document.hidden)animTime+=dt;
   if(!busy&&!nativePaused&&!document.hidden){
   const idle=gardenWorker.advance(dt);if(idle){if(idle.type==='harvest'||idle.type==='cook'){recordEvent(state,idle.type);log(idle.message);}save();updateUI();gardenSpace.refresh();if($('#food-shop'))restaurant($('#food-shop').dataset.tab,$('#food-shop').dataset.filter);else gardenUI.updateCookbook();}
@@ -337,7 +337,7 @@ function toggleSound(){sound=!sound;state.desktop.settings.sound=sound;save();$(
 $('#fullscreen').onclick=async()=>{if(window.BoksilAndroid){toast('이미 가로 전체 화면으로 플레이 중이에요.');return;}try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();try{await screen.orientation.lock('landscape');}catch{}}catch{toast('브라우저 메뉴에서 전체 화면으로 열어주세요.');}};
 $('#snapshot').onclick=()=>{const photo=room.toDataURL('image/png');if(window.BoksilAndroid){window.BoksilAndroid.savePhoto(photo);return;}const a=document.createElement('a');a.download='복슬복슬펫-우리집.png';a.href=photo;a.click();toast('우리 집 사진을 저장했어요.');};
 $('.portrait-hint button').onclick=()=>$('.portrait-hint').style.display='none';
-setInterval(()=>{if(!mobileLicense.licensed||document.hidden||nativePaused||!$('#overlay').hidden||edit)return;for(const [key,rate]of Object.entries({hunger:.14,happy:.07,clean:.09,energy:.06,hydration:.18}))state.stats[key]=clamp(state.stats[key]-rate,0,100);updateUI();save();},15000);
+setInterval(()=>{if(document.hidden||nativePaused||!$('#overlay').hidden||edit)return;for(const [key,rate]of Object.entries({hunger:.14,happy:.07,clean:.09,energy:.06,hydration:.18}))state.stats[key]=clamp(state.stats[key]-rate,0,100);updateUI();save();},15000);
 window.addEventListener('boksil-app-pause',()=>{nativePaused=true;playClock=performance.now();cancelInteraction();if(pet.action?.toy)pet.action=null;save();});
 window.addEventListener('boksil-app-resume',()=>{nativePaused=false;playClock=performance.now();last=performance.now();updateUI();updateTimeSheet();});
 document.addEventListener('visibilitychange',()=>{playClock=performance.now();if(document.hidden){cancelInteraction();if(pet.action?.toy)pet.action=null;save();}else{last=performance.now();updateUI();updateTimeSheet();}});window.addEventListener('pagehide',save);
