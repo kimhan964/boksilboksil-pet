@@ -22,10 +22,10 @@ export function formatPlayTime(seconds){const minutes=Math.floor(seconds/60);ret
 function ownedIds(state,kind){return kind==='friend'?state.progress.friends:kind==='skin'?state.progress.skins:state.owned;}
 function timeReady(state,rule){return rule&&state.progress.playSeconds>=rule.minutes*60&&(!rule.period||(state.progress.periodSeconds[rule.period]||0)>=60);}
 export function unlockCondition(state,kind,id){
-  const rule=TIME_UNLOCKS[kind]?.[id];if(!rule)return 'Lv. '+LEVELS[kind][id]+' 해금';
+  const rule=TIME_UNLOCKS[kind]?.[id];if(!rule)return '집 Lv. '+LEVELS[kind][id]+' 해금';
   const remaining=Math.max(0,Math.ceil((rule.minutes*60-state.progress.playSeconds)/60));
   const period=PERIODS.find(p=>p.id===rule.period),visit=rule.period?Math.max(0,Math.ceil(60-(state.progress.periodSeconds[rule.period]||0))):0;
-  return 'Lv. '+LEVELS[kind][id]+' 또는 '+(remaining?'플레이 '+remaining+'분 더':'플레이 시간 달성')+(period?' · '+period.name+(visit?' '+visit+'초 더':' 방문 완료'):'');
+  return '집 Lv. '+LEVELS[kind][id]+' 또는 ('+(remaining?'플레이 '+remaining+'분 더':'플레이 시간 달성')+(period?' · '+period.name+(visit?' '+visit+'초 더':' 방문 완료'):'')+')';
 }
 export function refreshUnlocks(state){
   const opened=[];for(const [kind,ids] of Object.entries(LEVELS))for(const [id,required] of Object.entries(ids)){

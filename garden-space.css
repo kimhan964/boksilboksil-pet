@@ -14,3 +14,25 @@
 @media(max-height:440px) and (orientation:landscape){.yard-tools{gap:3px}.yard-tools button{min-height:24px;padding:3px 6px}.yard-tools .yard-recipe-link{min-height:26px}.yard-recipe-link small{font-size:7px}}
 
 .garden-space .yard-pet{inset:0;width:100%;height:100%;z-index:2;pointer-events:none}.yard-heading,.yard-tools,.yard-dock{z-index:3}
+
+/* Keep the automation explanation out of the plot labels and seed dock. */
+.yard-heading{width:42%;max-width:42%;padding:6px 8px}
+.yard-heading b,.yard-heading small{overflow-wrap:anywhere}
+#yard-auto-status{white-space:normal;max-width:none;line-height:1.5}
+.yard-tools{top:25%;width:19%;max-height:48%;overflow-y:auto}
+.yard-tools button{flex-shrink:0}
+.yard-beds{width:70%;height:32%;top:38%;gap:8px}
+.yard-bed b,.yard-bed small{white-space:normal;max-width:100%;text-align:center;line-height:1.3}
+.yard-dock{left:7px;right:7px}
+.yard-seed>div{min-width:0}
+.yard-seed small{white-space:normal;line-height:1.3}
+@media(orientation:landscape) and (max-height:440px){
+ .yard-heading{display:grid;grid-template-columns:1fr auto;gap:3px 6px;width:56%;max-width:56%}
+ .yard-heading b{font-size:10px}
+ .yard-heading small{margin:0;font-size:8px}
+ .yard-heading #yard-auto{grid-column:2;grid-row:1/3;margin:0;font-size:8px;align-self:center}
+ #yard-auto-status{grid-column:1/-1;font-size:8px}
+ .yard-beds{top:35%;height:35%}
+ .yard-tools{top:27%;max-height:44%}
+}
+@media(orientation:portrait){.yard-heading{width:55%;max-width:55%}.yard-beds{left:5%;width:90%;top:43%;height:22%}.yard-tools{top:24%;width:30%}}

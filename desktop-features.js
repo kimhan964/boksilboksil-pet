@@ -1,6 +1,6 @@
 import {PERSONAL_PROPS} from './personal-data.js';
 import {SIGNATURE_FURNITURE} from './signature-data.js';
-import {initSettings,sourceUnlocked,rewardCurrentActivity,growthScale} from './current-settings.js';
+import {initSettings,sourceUnlocked,rewardCurrentActivity,growthScale,GROWTH_STAGES} from './current-settings.js';
 import {MOTION_OUTFITS,motionStyle} from './animation-player.js';
 import {level,dayKey} from './progression.js';
 export const OUTFITS=[{id:'none',name:'기본 복장',price:0},...MOTION_OUTFITS];
@@ -47,7 +47,7 @@ export function initDesktop(state,legacy=false){
  for(const id of state.owned||[])if(DESKTOP_FURNITURE.some(i=>i.id===id)&&!d.unlocked.includes(id))d.unlocked.push(id);
  initSettings(state);refreshDesktop(state);return d;
 }
-export function growthInfo(state,species=state.species){const points=state.desktop.growth[species]||0;return {points,scale:growthScale(points),stage:points<12?'baby':points<36?'young':'adult',name:points<12?'아기':points<36?'자라는 중':'성체',next:points<12?12:points<36?36:null};}
+export function growthInfo(state,species=state.species){const points=state.desktop.growth[species]||0;const index=GROWTH_STAGES.reduce((last,s,i)=>points>=s.min?i:last,0),current=GROWTH_STAGES[index];return {...current,points,scale:growthScale(points),next:GROWTH_STAGES[index+1]?.min??null};}
 export function desktopUnlocked(state,item){if(item.signature)return item.species===state.species;return sourceUnlocked(state,item)||state.desktop.unlocked.includes(item.id)||(state.desktop.counts[item.group]||0)>=item.count||state.progress.playSeconds>=item.minutes*60;}
 export function refreshDesktop(state){const opened=[];for(const item of DESKTOP_FURNITURE)if(!state.desktop.unlocked.includes(item.id)&&desktopUnlocked(state,item)){state.desktop.unlocked.push(item.id);opened.push(item);}return opened;}
 export function desktopCondition(state,item){return `${item.group==='read'?'독서':item.group==='music'?'음악':item.group==='play'?'놀이':item.group==='pet'?'교감':item.group==='feed'?'식사·물':'휴식'} ${Math.min(state.desktop.counts[item.group]||0,item.count)}/${item.count}회 또는 플레이 ${item.minutes}분`;}

@@ -17,10 +17,10 @@
     </header>
     <main>
       <aside class="pet-panel">
-        <div class="pet-portrait"><canvas id="portrait" width="160" height="160"></canvas><span class="level" id="level">Lv. 1</span></div>
+        <div class="pet-portrait"><canvas id="portrait" width="160" height="160"></canvas><span class="level" id="level">동물 Lv. 1</span></div>
         <h1 id="pet-name">모루</h1><p class="pet-sub" id="pet-species">작고 소중한 토끼</p>
         <div class="bond"><img class="ui-art" src="assets/ui-icons/pet.png" alt="" aria-hidden="true" draggable="false"> <span id="bond">교감 0</span></div>
-        <button class="growth" aria-label="성장 경험치와 해금 보기"><span>우리 집 성장 <b id="xp-label">0 / 60 XP</b></span><div class="xp-track"><i id="xp-fill"></i></div></button>
+        <button class="growth" aria-label="성장 경험치와 해금 보기"><span><span id="home-level">집 Lv. 1</span><b id="xp-label">0 / 60 XP</b></span><div class="xp-track"><i id="xp-fill"></i></div></button>
         <div class="needs">
           <div class="need hunger"><img class="ui-art" src="assets/ui-icons/feed.png" alt="" aria-hidden="true"><span>포만감</span><b id="hunger-text">80</b><meter id="hunger" min="0" max="100" value="80"></meter></div>
           <div class="need happy"><img class="ui-art" src="assets/ui-icons/pet.png" alt="" aria-hidden="true"><span>행복</span><b id="happy-text">85</b><meter id="happy" min="0" max="100" value="85"></meter></div>
@@ -63,5 +63,5 @@
   </div>
   <div class="sheet-overlay" id="overlay" hidden><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-heading"><div><small id="sheet-kicker">MY LITTLE HOME</small><h2 id="sheet-title">집 꾸미기</h2></div><button id="close-sheet" class="icon-button" aria-label="닫기"><img class="ui-art" src="assets/ui-icons/close.png" alt="" aria-hidden="true" draggable="false"></button></div><div id="sheet-content"></div></section></div>
   <div class="portrait-hint"><img class="ui-art" src="assets/ui-icons/rotate.png" alt="" aria-hidden="true" draggable="false"> <span>휴대폰을 가로로 돌리면<br>방이 더 넓게 보여요.</span><button aria-label="회전 안내 닫기"><img class="ui-art" src="assets/ui-icons/close.png" alt="" aria-hidden="true" draggable="false"></button></div>
-  <script type="module" src="game.js?v=23"></script>
+  <script type="module" src="game.js?v=24"></script>
 </body></html>

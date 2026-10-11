@@ -74,4 +74,50 @@
   .game footer nav small{display:none}
 }
 
-.pet-panel .growth>span{white-space:nowrap}
+.pet-panel .growth>span{white-space:normal;flex-wrap:wrap;row-gap:2px}
+.pet-panel .growth b{white-space:nowrap}
+.game footer nav #goals{position:relative;overflow:visible}
+#goal-badge:not(:empty){right:2px;top:-5px;font-size:9px;min-width:17px;height:17px}
+.game header{gap:12px;min-width:0}
+.brand,.header-actions{flex-shrink:0}
+.day-label{min-width:0;flex-wrap:wrap;justify-content:center;gap:5px}
+.pet-panel .level{white-space:nowrap;left:50%;transform:translateX(-50%)}
+.sheet-heading>div,.quest-banner>div,.unlock-item>div,.food-banner>div,.desktop-toolbar>div{min-width:0}
+.quest-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.quest-tabs button{margin:0;white-space:nowrap}
+.unlock-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.unlock-item{min-width:0;align-items:flex-start}
+.unlock-item>.ui-art{flex-shrink:0;width:25px;height:25px}
+.unlock-item b,.unlock-item small,.outfit-details,.time-condition{overflow-wrap:anywhere;line-height:1.6}
+.quest-cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.daily-quests .quest-copy{min-width:0}
+.quest-card{min-width:0;flex-wrap:wrap}
+.quest-copy{flex-basis:120px}
+.quest-reward{margin-left:auto}
+.goal-peek>div,.room-title>div{min-width:0}
+.goal-peek b,.room-title small{overflow-wrap:anywhere}
+.growth-guide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.growth-guide-card{min-width:0;border:1px solid #d9dfc8;border-radius:16px;background:#fffdf4;padding:13px;color:#718161}
+.growth-guide h3{display:flex;gap:6px;align-items:center;font-size:14px;margin:0 0 8px;color:#5d7653}
+.growth-guide h3 img{width:26px;height:26px;flex-shrink:0}
+.growth-guide p,.growth-guide small{font-size:11px;line-height:1.75;display:block;overflow-wrap:anywhere}
+.growth-guide h4{font-size:12px;margin:14px 0 6px}
+.growth-stages,.home-levels{display:grid;gap:5px}
+.growth-stages{grid-template-columns:repeat(3,minmax(0,1fr))}
+.home-levels{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-stages>div,.home-levels>div{padding:7px;border:1px solid #e3dfcd;border-radius:9px;background:#f7f3e7;font-size:10px}
+.growth-stages b,.home-levels b{display:block;margin-bottom:3px}
+.growth-guide .current{background:#e7efd9;border-color:#9db784;color:#5b744e}
+.growth-rules>div{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;padding:7px 0;border-bottom:1px dashed #e1dcc7;font-size:10px;line-height:1.6}
+@media(orientation:landscape) and (max-width:750px){
+ .game footer nav small{display:none}
+ .game footer nav button{gap:3px}
+ .game footer nav b{font-size:9px}
+ .day-label #time-of-day{display:none}
+ .header-actions{gap:5px}
+ .room-title{max-width:39%;padding:5px}
+ .goal-peek{max-width:38%;bottom:48px}
+ .growth-guide{grid-template-columns:1fr}
+ .growth-guide-card{padding:10px}
+}
+@media(orientation:portrait){.growth-guide{grid-template-columns:1fr}}
