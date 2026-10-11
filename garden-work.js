@@ -22,7 +22,7 @@ export function createGardenWorker(state,options={}){
    if(task.type==='harvest')result=harvestCrop(state,task.plot,now);
    if(task.type==='cook')result=cookGardenDish(state,task.dish.id);
    a.nextAt=now+2000;
-   if(result){if(task.type==='harvest')task.result=result;a.message=task.message;return {...task};}
+   if(result){if(task.type==='harvest'){task.result=result;task.message=result.crop.name+' '+result.amount+'개 자동 수확'+(result.recipes.length?' · 요리법 '+result.recipes.length+'종 해금':'');}a.message=task.message;return {...task};}
    a.message='밭 상태가 바뀌었어요. 다음 일을 찾아요.';
   }
   if(task.elapsed>=end+task.timing.return)task=null;

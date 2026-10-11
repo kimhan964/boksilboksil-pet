@@ -43,6 +43,10 @@ export function addPlayTime(state,seconds,now=Date.now()){
   return refreshUnlocks(state);
 }
 export const GOALS = [
+  {id:'first-sell',title:'수확물의 작은 가치',description:'상점에서 수확물이나 가구를 처음 판매하세요',event:'sell',target:1,coins:15,xp:10,icon:'acorn'},
+  {id:'first-delivery',title:'식당에 보낸 숲의 선물',description:'오늘의 식당 납품을 한 번 완료하세요',event:'delivery',target:1,coins:20,xp:15,icon:'feed'},
+  {id:'first-craft',title:'재료로 만든 우리 가구',description:'텃밭 재료로 가구를 한 개 제작하세요',event:'craft',target:1,coins:15,xp:10,icon:'decorate'},
+  {id:'first-theme',title:'우리 집의 첫 테마',description:'가구 테마를 완성하고 선물을 받으세요',event:'theme',target:1,coins:15,xp:10,icon:'gift'},
   {id:'first-harvest',title:'텃밭의 첫 선물',description:'작물을 한 번 수확하세요',event:'harvest',target:1,coins:20,xp:15,icon:'flower'},
   {id:'first-cook',title:'내 손으로 만든 한 끼',description:'수확한 재료로 요리를 한 접시 만드세요',event:'cook',target:1,coins:25,xp:20,icon:'feed'},
   {id:'cook-five',title:'우리 집 작은 요리사',description:'텃밭 요리를 총 5접시 만드세요',event:'cook',target:5,coins:50,xp:35,icon:'feed'},
@@ -60,6 +64,7 @@ export const GOALS = [
   {id:'care-60',title:'함께 자라는 우리',description:'돌봄을 총 60번 완료하세요',event:'care',target:60,coins:180,xp:100,icon:'flower'}
 ];
 export const DAILY_GOALS = [
+  {id:'daily-harvest',title:'오늘도 싱그러운 수확',description:'텃밭에서 작물을 한 번 수확하세요',event:'harvest',target:1,coins:15,xp:10,icon:'flower'},
   {id:'daily-feed',title:'오늘의 든든한 한 끼',description:'먹이를 2번 주세요',event:'feed',target:2,coins:25,xp:15,icon:'feed'},
   {id:'daily-care',title:'오늘도 다정하게',description:'돌봄을 5번 완료하세요',event:'care',target:5,coins:40,xp:25,icon:'pet'},
   {id:'daily-clean',title:'뽀송한 하루',description:'목욕을 한 번 완료하세요',event:'clean',target:1,coins:20,xp:15,icon:'clean'}
