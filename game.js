@@ -268,8 +268,13 @@ $('#edit-style').onclick=()=>{const f=state.furniture.find(i=>i.id===selected);i
 $('#edit-flip').onclick=()=>{const f=state.furniture.find(i=>i.id===selected);if(!f)return toast('먼저 바꿀 가구를 눌러 주세요.');f.flip=!f.flip;arrangementChanged=true;save();};
 $('#edit-done').onclick=()=>{if(arrangementChanged)recordEvent(state,'arrange');setEdit(false);updateUI();log('우리 집 가구를 새롭게 배치했어요.');toast('나만의 포근한 집이 완성됐어요.');};
 let sheetOpener=null;
-function openSheet(title,kicker){$('#sheet-content').className='';skinRequest++;sheetOpener=document.activeElement;$('#sheet-title').textContent=title;$('#sheet-kicker').textContent=kicker;$('#overlay').hidden=false;$('#close-sheet').focus();}
-function closeSheet(){skinRequest++;$('#overlay').hidden=true;$('#sheet-content').replaceChildren();sheetOpener?.focus();}
+function setMenuState(title=''){
+  const menu=/스킨|세계 여행/.test(title)?'skins':/옷|액세서리/.test(title)?'wardrobe':/음식|냉장고|주방|요리|식당/.test(title)?'food':/목표|성장|해금|선물|약속/.test(title)?'goals':/꾸미기|상점|수납|배치|테마|제작|가구/.test(title)?'decorate':'';
+  document.body.dataset.menu=menu;
+  for(const [id,key] of [['decorate','decorate'],['room-skins','skins'],['food-menu','food'],['wardrobe','wardrobe'],['goals','goals']])$('#'+id).setAttribute('aria-expanded',String(menu===key));
+}
+function openSheet(title,kicker){$('#sheet-content').className='';skinRequest++;sheetOpener=document.activeElement;$('#sheet-title').textContent=title;$('#sheet-kicker').textContent=kicker;setMenuState(title);$('#overlay').hidden=false;$('#close-sheet').focus();}
+function closeSheet(){skinRequest++;$('#overlay').hidden=true;setMenuState();$('#sheet-content').replaceChildren();sheetOpener?.focus();}
 $('#close-sheet').onclick=closeSheet;$('#overlay').onclick=e=>{if(e.target===$('#overlay'))closeSheet();};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSheet();if(edit)setEdit(false);}if(e.key==='Tab'&&!$('#overlay').hidden){const controls=[...$('#overlay').querySelectorAll('button:not(:disabled),[tabindex="0"]')];const first=controls[0],last=controls.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 function shop(filter='기본·공유 가구'){
