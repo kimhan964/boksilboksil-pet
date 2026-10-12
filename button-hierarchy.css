@@ -1,0 +1,47 @@
+/* Controls are styled by task: navigation, filtering, action, utility, state. */
+:root{--action-ink:#294d38;--action-edge:#8eae85;--control-line:#d8d8c5}
+.sheet button{touch-action:manipulation}
+button:focus-visible{outline:3px solid #477653;outline-offset:3px}
+/* Section entry cards: painted icons carry the decoration. */
+.sheet .shop-life-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 14px}
+.sheet .shop-life-links button{position:relative;justify-content:flex-start;gap:8px;min-height:54px;padding:9px 12px;background:linear-gradient(#fffdf5e8,#fffdf5e8),var(--storybook-paper);background-size:240px;border:1px solid #d6deca;border-radius:15px;box-shadow:0 2px 0 #e5e8d7;color:#3e5942;font-size:16px;filter:none;text-align:left}
+.sheet .shop-life-links img{width:32px;height:32px;flex-shrink:0;background:#eaf0de;border-radius:11px;padding:3px;box-sizing:border-box}
+.sheet .shop-life-links button:after{content:'›';margin-left:auto;font-family:PetText,sans-serif;color:#73836c;font-size:22px}
+/* Tabs are labels on a shared rail, not individual action buttons. */
+.sheet .tabs{gap:6px;border-bottom:1px solid var(--control-line);padding:0 0 3px;margin-bottom:14px}
+.sheet .tabs button,.sheet .tabs button.active,.sheet .tabs button[aria-pressed=true]{position:relative;background:none;border:0;border-bottom:3px solid transparent;border-radius:8px 8px 0 0;box-shadow:none;filter:none;padding:9px 12px;min-height:42px;color:#6c6b59;font-size:15px;line-height:1.4;font-weight:400;text-decoration:none;white-space:nowrap}
+.sheet .tabs button.active,.sheet .tabs button[aria-pressed=true]{color:#315b3b;border-bottom-color:#62855a;background:#eaf0df80}
+.sheet .tabs button.active:before{content:none}
+.sheet .food-filters{gap:7px}
+.sheet .food-filters button,.sheet .food-filters button.active,.sheet .food-filters button[aria-pressed=true]{background:#fffaf0;border:1px solid #d8dbc8;border-radius:20px;padding:7px 13px;min-height:36px;box-shadow:none;font-size:14px;color:#62664f;filter:none;text-decoration:none}
+.sheet .food-filters button.active,.sheet .food-filters button[aria-pressed=true]{background:#e4edda;border-color:#8fa580;color:#315b3b}
+/* Secondary controls use a quiet outline. No decorative ribbon. */
+.sheet .pill,.sheet .shop-toolbar .pill,.sheet .life-actions button,.sheet .food-buttons button.food-buy,.sheet .card button.ui-secondary,.sheet .life-card button.ui-secondary,.sheet .food-card>button.ui-secondary{background:#fffaf0;border:1px solid #becab0;border-radius:11px;box-shadow:none;padding:9px 13px;min-height:40px;color:#456047;font-size:15px;line-height:1.4;filter:none;text-shadow:none;font-family:PetTitle,sans-serif;font-weight:400}
+.sheet .shop-toolbar .pill{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:6px}
+.sheet .shop-toolbar .pill img{width:20px;height:20px}
+/* The main action on an item has a filled, tactile surface. */
+.sheet .card>button,.sheet .food-buttons .food-serve,.sheet .food-card>button,.sheet .life-card>button,.sheet .skin-info button,.sheet #finish-style,.game #edit-done,.sheet .life-actions button.ui-primary{background:linear-gradient(#e5efdbe8,#c7ddbae8),var(--storybook-paper);background-size:auto,220px;border:1px solid var(--action-edge);border-bottom-width:3px;border-radius:13px;box-shadow:inset 0 1px 0 #fff9;color:var(--action-ink);min-height:42px;padding:9px 14px;font:400 16px/1.4 PetTitle,sans-serif;filter:none;text-shadow:none}
+.sheet .quest-reward button,.sheet .theme-cards .life-card>button{background:linear-gradient(#fff0cbea,#f3d395ea),var(--storybook-paper);border:1px solid #d0ae68;border-bottom-width:3px;border-radius:13px;box-shadow:inset 0 1px 0 #fff9;color:#694a20;min-height:42px;padding:9px 14px;font:400 16px/1.4 PetTitle,sans-serif;filter:none}
+/* Remove/store/cancel are deliberately quieter than purchase/apply. */
+.sheet .card>button.ui-secondary,.sheet .life-actions button.ui-secondary{background:#fffaf0;border:1px solid #c8d0bc;box-shadow:none;color:#58694d;font-size:14px}
+.sheet #cancel-style,.sheet .life-actions button.ui-tertiary{background:transparent;border:0;border-bottom:1px solid #d4c5af;border-radius:0;box-shadow:none;color:#795d45;font:600 13px/1.5 PetText,sans-serif;padding:8px 10px;min-height:40px}
+.sheet .cozy-life-body h3{background:none;border:0;border-bottom:1px solid #dbdeca;border-radius:0;padding:8px 0;min-width:0;font-size:20px;color:#3b5b40}
+.sheet .cozy-life-body h3:before{content:'';display:inline-block;width:23px;height:23px;margin-right:6px;vertical-align:middle;background:url('assets/ui-icons/flower.png') center/contain no-repeat}
+/* Disabled conditions remain readable but do not resemble available actions. */
+.sheet .card button:disabled,.sheet .life-card button:disabled,.sheet .food-buttons button:disabled,.sheet .food-card>button:disabled,.sheet .skin-info button:disabled,.sheet .quest-reward button:disabled{background:#eeede3;border:1px dashed #cfcebf;border-radius:10px;box-shadow:none;filter:none;opacity:1;color:#706d5c;font:600 13px/1.6 PetText,sans-serif;padding:9px 11px;cursor:default;transform:none}
+.sheet .card.selected button{background:#e9efdf;border:1px solid #b9c9ab;box-shadow:none;color:#4e6845}
+.sheet .card button .ui-art,.sheet .card .price .ui-art,.sheet .life-card button .ui-art,.sheet .food-buttons .ui-art,.sheet .skin-info button .ui-art,.sheet .quest-reward button .ui-art{display:inline-block;width:18px;height:18px;min-width:18px;object-fit:contain;vertical-align:middle;margin:0 3px 0 0;filter:none}
+.sheet .card button:disabled,.sheet .life-card button:disabled{word-break:keep-all;overflow-wrap:anywhere}
+.sheet .food-buttons:not(:has(.food-serve)) button.food-buy:not(:disabled){background:linear-gradient(#e5efdb,#c7ddba);border-color:var(--action-edge);border-bottom-width:3px;color:var(--action-ink)}
+/* Persistent navigation is a dock; care actions are compact illustrated tiles. */
+.game footer nav button{background:transparent!important;border:1px solid transparent!important;border-radius:16px;box-shadow:none;padding:8px 10px;filter:none;transform:none;color:#536248!important}
+.game footer nav button[aria-expanded=true]{background:#e4edda!important;border:1px solid #b7c7a7!important;box-shadow:inset 0 -3px 0 #799763;filter:none;transform:none}
+.game footer nav button>.ui-art{width:29px;height:29px}.game footer nav b{font-size:15px;text-shadow:none}
+.care-panel button,.care-panel button:nth-of-type(n),.care-panel button:hover{background:linear-gradient(#fffdf3f2,#f5eeddf2),var(--storybook-paper);border:1px solid #dfd7bf;border-radius:16px;box-shadow:0 2px 0 #dfd5bc;padding:5px 7px}
+.care-panel button>.ui-art{background:none}.care-panel button b{font-size:13px}
+.yard-seed,.yard-seed[aria-pressed=true]{background:#fffaf0;border:1px solid #d8dbc8;border-radius:12px;filter:none}
+.yard-seed[aria-pressed=true]{background:#e4edda;border:2px solid #819b70}
+@media(hover:hover){.sheet button:not(:disabled):hover{filter:brightness(1.035)}.sheet .tabs button:not(:disabled):hover{background:#edf1e2}.game footer nav button:hover{background:#f1f2e6!important}}
+@media(orientation:landscape) and (max-height:440px){.sheet .shop-life-links button{min-height:49px;padding:7px 9px;font-size:15px}.sheet .shop-life-links img{width:29px;height:29px}.sheet .tabs button{padding:8px 10px;min-height:40px}.sheet .shop-toolbar{margin:6px 0 10px}.sheet .shop-toolbar p{margin:0;padding-left:0;background:none}.sheet .cozy-life-body h3{font-size:18px}.game footer nav button{padding:6px 7px}.game footer nav button>.ui-art{width:25px;height:25px}}
+@media(orientation:landscape) and (max-width:750px){.sheet .shop-life-links{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.sheet .shop-life-links button{flex-direction:column;justify-content:center;gap:3px;padding:7px 3px;font-size:14px;min-height:65px}.sheet .shop-life-links button:after{content:none}.sheet .shop-life-links img{width:28px;height:28px}.game footer nav b{font-size:14px}.game footer nav button>.ui-art{width:22px;height:22px}.sheet .shop-toolbar .pill{font-size:14px;padding:8px 10px}}
+@media(orientation:portrait){.sheet .shop-life-links{grid-template-columns:repeat(2,minmax(0,1fr))}.sheet .tabs button{font-size:14px;padding:8px 9px}.game footer nav b{font-size:13px}}
