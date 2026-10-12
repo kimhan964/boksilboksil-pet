@@ -26,4 +26,18 @@ export function moveToy(item,target,items,rectFor,isObstacle){
  }
  return {x:next.x,y:next.y};
 }
-export function roomFloorTarget(x,y,space='room',bodyHeight=.12){return {x:clamp(x,.06,.94),y:clamp(y,space==='room'?bodyHeight:.72,.94)};}
+export function roomFloorTarget(x,y,space='room'){return {x:clamp(x,.06,.94),y:clamp(y,space==='room'?.70:.80,.94)};}
+export function toyLanding(item,target,items,rectFor){
+ const r=rectFor(item),x=clamp(target.x,r.w/2+.015,1-r.w/2-.015),y=clamp(target.y,.72,.96),options=[{x,y,d:0}];
+ for(let py=.72;py<=.961;py+=.04)for(let px=r.w/2+.015;px<=1-r.w/2-.015;px+=.04)options.push({x:px,y:py,d:(px-x)**2+(py-y)**2});
+ options.sort((a,b)=>a.d-b.d);
+ for(const p of options)if(positionClear({...item,x:p.x,y:p.y},items,rectFor,playObstacle))return {x:p.x,y:p.y};
+ return null;
+}
+export function toyDropFrame(elapsed,startOffset){
+ const t=Math.max(0,elapsed),fall=.65,bounce=.4;
+ if(t<fall)return {offset:Math.min(0,startOffset)*(1-(t/fall)**2),done:false};
+ if(t<fall+bounce){const p=(t-fall)/bounce;return {offset:-.045*Math.sin(Math.PI*p)*(1-p),done:false};}
+ return {offset:0,done:true};
+}
+
