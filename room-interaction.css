@@ -1,0 +1,9 @@
+.toy-targets{position:absolute;inset:0;z-index:4;pointer-events:none}
+.toy-targets[hidden],.toy-status-bubble[hidden]{display:none}
+.toy-target{position:absolute;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;background:transparent;border:1px dashed #fff8dca8;border-radius:50%;padding:0;cursor:grab;box-shadow:none}
+.toy-target:active{cursor:grabbing}.toy-target[aria-pressed=true]{border:2px solid #dfb65b;box-shadow:0 0 0 3px #fff1bc55}
+.toy-target img{position:absolute;right:-2px;top:-4px;width:21px;height:21px;padding:2px;background:#fff9e9;border:1px solid #adc193;border-radius:50%;pointer-events:none;box-shadow:0 2px 3px #51452e25}
+.toy-target:focus-visible{outline:3px solid #53774c;outline-offset:2px}
+.toy-status-bubble{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 28px);z-index:5;pointer-events:none;background:#fffaf1f5;border:1px solid #c3d2b1;border-radius:14px;padding:7px 12px;box-shadow:0 2px 5px #614d2520;color:#3b573d;font:600 13px/1.4 PetText,sans-serif;text-align:center;word-break:keep-all}
+.toy-status-bubble img{width:20px;height:20px;vertical-align:middle;margin-right:5px}
+@media(orientation:landscape) and (max-width:750px){.toy-status-bubble{font-size:12px;padding:6px 9px;bottom:7px}}

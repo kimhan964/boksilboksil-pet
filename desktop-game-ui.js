@@ -59,5 +59,5 @@ export function createDesktopUI(api){
   for(const bank of [...available,...EMOTIONS]){const b=document.createElement('button');b.dataset.bank=bank;b.textContent=names[bank]||({surprised:'깜짝 놀람',happy:'방긋 기쁨',angry:'조금 삐짐',sleepy:'졸린 눈'})[bank];b.onclick=()=>choose(bank);$('.animation-options').append(b);}choose(selected);
   const container=$('.animation-album'),canvas=content.querySelector('canvas');function animate(ms){if(!container.isConnected)return;const c=canvas.getContext('2d'),elapsed=(ms-start)/1000,isEmotion=EMOTIONS.includes(selected),spec=banks[selected],duration=spec?.duration||api.animationCatalog.base[state.species][age][selected]?.duration||4.8;c.clearRect(0,0,320,280);const pose={bank:isEmotion?'emotions':selected,emotion:isEmotion?selected:undefined,elapsed,duration};if(selected.startsWith('hold-')||selected==='dizzy')pose.progress=(elapsed%2)/2;api.drawPet(c,160,245,246,state.species,elapsed,false,1,null,look,pose);requestAnimationFrame(animate);}requestAnimationFrame(animate);
  }
- return {wardrobe,playroom,living,furnitureStyle,animationAlbum};
+ return {wardrobe,playroom,living,furnitureStyle,animationAlbum,basket};
 }

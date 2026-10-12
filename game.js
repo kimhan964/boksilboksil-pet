@@ -1,3 +1,4 @@
+import {MOVABLE_TOYS,toyTouchRect,nearestToy,moveToy,roomFloorTarget} from './room-interaction.js';
 
 import {freePosition,positionClear} from './furniture-placement.js';
 function placementRect(f){if(f.uiBlock)return f.bounds;const r=furnitureRect(f);return {x:r.x/width,y:r.y/height,w:r.w/width,h:r.h/height};}
@@ -82,6 +83,21 @@ let arrangementChanged=false;
 let width=1,height=1,dpr=1,edit=false,selected=null,drag=null,animTime=0,last=0,toastTimer,audio=null,sound=state.desktop.settings.sound;
 let pet={x:.51,y:.77,target:null,until:3,action:null,dir:1};
 let particles=[],toySession=null,toyDrag=null,followMode=false,followMoved=0,followStart=null,heldPet=null;
+const toyTargets=document.createElement('div');toyTargets.className='toy-targets';toyTargets.setAttribute('aria-label','방의 놀잇감');room.parentElement.append(toyTargets);
+const toyStatus=document.createElement('div');toyStatus.className='toy-status-bubble';toyStatus.setAttribute('role','status');toyStatus.setAttribute('aria-live','polite');toyStatus.hidden=true;room.parentElement.append(toyStatus);
+const toyButtons=new Map();
+function syncToyTargets(){
+ const hidden=edit||gardenSpace.active||!$('#overlay').hidden;toyTargets.hidden=hidden;
+ const items=roomFurniture().filter(f=>MOVABLE_TOYS.includes(f.id));const ids=new Set(items.map(f=>f.id));
+ for(const [id,b]of toyButtons)if(!ids.has(id)){b.remove();toyButtons.delete(id);}
+ for(const f of items){let b=toyButtons.get(f.id);if(!b){b=document.createElement('button');b.type='button';b.className='toy-target';b.dataset.toy=f.id;b.setAttribute('aria-label',TOYS.find(t=>t.id===f.id).name+' · 톡 눌러 놀기, 상하좌우로 끌어 이동');b.innerHTML=iconHTML('play');b.addEventListener('pointerdown',e=>beginRoomPointer(e,f));b.addEventListener('click',e=>{if(e.detail===0)startToy(f.id);});toyTargets.append(b);toyButtons.set(f.id,b);}
+  const r=toyTouchRect(furnitureRect(f),width,height);Object.assign(b.style,{left:r.x+'px',top:r.y+'px',width:r.w+'px',height:r.h+'px'});b.setAttribute('aria-pressed',String(toyDrag?.item.id===f.id||toySession?.id===f.id));b.dataset.phase=toyDrag?.item.id===f.id?'dragging':toySession?.id===f.id?toySession.phase:'ready';
+ }
+ const active=toyDrag?.item.id||toySession?.id;toyStatus.hidden=hidden||!active;
+ if(!toyStatus.hidden){const phase=toyDrag?'상하좌우로 이동 중':toySession.phase==='approach'?'친구가 다가오는 중':toySession.phase==='follow'?'친구가 따라가는 중':'함께 놀고 있어요';const label=TOYS.find(t=>t.id===active).name+' · '+phase;if(toyStatus.dataset.label!==label){toyStatus.dataset.label=label;toyStatus.innerHTML=iconHTML('play')+'<span>'+label+'</span>';}}
+ $('#room-tip').style.visibility=active&&!hidden?'hidden':'';
+}
+
 const desktopUI=createDesktopUI({state,image,iconHTML,drawPet,openSheet,closeSheet,toast,log,save,updateUI,care,startToy,setFollow,beginLife,canAct,beginHabit,animationCatalog,catalog:CATALOG,activityFor,shop,recordPurchase:()=>recordEvent(state,'buy'),furnitureImage,furnitureFile,onFurnitureStyle:()=>{arrangementChanged=true;keepPlaythingsApart();}});
 const gardenWorker=createGardenWorker(state,{timing:plan=>gardenSpace.timing(plan)});
 const gardenSpace=createGardenSpace({state,save,toast,recordEvent,updateUI,log,iconHTML,closeSheet,drawPet,worker:gardenWorker,motion:()=>animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk,kitchen:crop=>gardenUI.kitchen(crop),farm:()=>cozyLifeUI.farm(),market:()=>cozyLifeUI.market(),prepare:()=>{if(edit||pet.action&&!pet.action.automatic){toast('하던 돌봄이나 꾸미기를 마친 뒤 텃밭으로 가요.');return false;}cancelInteraction();pet.action=null;pet.target=null;return true;},onHome:()=>{closeSheet();pet.until=animTime+3;roomCaption();resize();}});
@@ -101,8 +117,32 @@ function finishLife(){const activity=pet.action.activity,data=LIFE[activity];for
 function beginHabit(automatic=false){if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');interruptAutonomy();const info=HABITS[state.species],baby=growthInfo(state).stage==='baby';pet.target=null;pet.action={type:'habit',automatic,pose:baby?(['rabbit','puppy','penguin'].includes(state.species)?'jump':'look'):({rabbit:'jump',otter:'pet',squirrel:'sniff',hedgehog:'rest',raccoon:'rub',fox:'jump',bear:'stretch',owl:'look'}[state.species]||'look'),remaining:info.seconds};if(!automatic)toast(name()+'의 '+(baby?'작은 몸짓':info.name)+'을 함께 봐요.');}
 function finishHabit(){if(!pet.action.automatic){state.stats.happy=clamp(state.stats.happy+8,0,100);completeDesktopActivity(state,'personality');recordEvent(state,'personality');const earned=reward('personality',6);log(name()+'의 작은 몸짓을 함께 관찰했어요.');toast('우리 친구의 취향을 알아가요.'+(earned?' +'+earned+' 도토리':''));updateUI();}pet.action=null;pet.until=animTime+5;}
 const reactionAllowed=new Map();function showReaction(event){const data=REACTION_EVENTS[event];if(!data||animTime<(reactionAllowed.get(event)||0))return;reactionAllowed.set(event,animTime+(data.cooldown||3));const duration=expressionDuration(SPECIES.findIndex(i=>i[0]===state.species),data.kind);const words=event==='toy'?PLAY_WORDS[SPECIES.findIndex(i=>i[0]===state.species)]:data.words[0];pet.target=null;pet.action={type:'expression',automatic:true,emotion:data.kind,event,strength:data.strength,elapsed:0,remaining:duration,duration};pet.words=words;pet.until=animTime+5;}
-function startToy(id,direction=1){if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');const toy=TOYS.find(t=>t.id===id);if(!toy||(!['acorn'].includes(id)&&!state.owned.includes(id)))return;followMode=false;let f=state.furniture.find(i=>i.id===id);if(!f){f={id,x:clamp(pet.x+.14,.17,.83),y:.90};const p=freePosition(f,placementItems(),placementRect,placementObstacle);if(!p)return toast('놀이할 자리가 부족해요. 가구를 조금 옮겨 주세요.');Object.assign(f,p);state.furniture.push(f);if(!state.owned.includes(id))state.owned.push(id);save();}keepPlaythingsApart();toySession={id,phase:'approach',round:0,clock:0,direction};pet.action={type:'play',toy:id,remaining:null};pet.target=floorTarget(f.x-.06,f.y+.025);toast(toy.name+'와 함께 놀아요!');}
-function advanceToy(dt){if(!toySession||!pet.action?.toy)return;const f=state.furniture.find(i=>i.id===toySession.id);if(!f){toySession=null;pet.action=null;return;}const t=toySession;t.clock+=dt;if(t.phase==='approach'&&!pet.target){t.phase='inspect';t.clock=0;}else if(t.phase==='inspect'&&!pet.target&&t.clock>.7){if(t.id==='acorn'||t.round>=2){toySession=null;finishCare('play');return;}t.round++;t.clock=0;t.phase='follow';t.start=f.x;const next=clamp(f.x+t.direction*(t.id==='toy_mouse'?.15:.12),.16,.84);if(Math.abs(next-f.x)<.04)t.direction*=-1;t.goal=clamp(f.x+t.direction*(t.id==='toy_mouse'?.15:.12),.16,.84);pet.target=floorTarget(t.goal-t.direction*.05,f.y+.025);}else if(t.phase==='follow'){const before=f.x;const proposed=t.start+(t.goal-t.start)*Math.min(1,t.clock/.85);if(!positionClear({...f,x:proposed},placementItems(),placementRect,placementObstacle)){t.phase='inspect';t.clock=0;t.direction*=-1;pet.target=null;save();return;}f.x=proposed;if(t.id==='toy_ball')f.roll=(f.roll||0)+(f.x-before)*width/Math.max(10,width*.035);if(t.clock>=.85&&!pet.target){f.x=t.goal;t.phase='inspect';t.clock=0;t.direction*=-1;save();}}}
+function startToy(id,direction=1){
+ if(id==='basket'){interruptAutonomy();return desktopUI.basket();}
+ if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');
+ interruptAutonomy();const toy=TOYS.find(t=>t.id===id);if(!toy||(!['acorn'].includes(id)&&!state.owned.includes(id)))return;followMode=false;
+ let f=state.furniture.find(i=>i.id===id);if(!f){f={id,x:clamp(pet.x+.14,.17,.83),y:.90};const p=freePosition(f,placementItems(),placementRect,placementObstacle);if(!p)return toast('놀이할 자리가 부족해요. 가구를 조금 옮겨 주세요.');Object.assign(f,p);state.furniture.push(f);if(!state.owned.includes(id))state.owned.push(id);save();}
+ keepPlaythingsApart();if(!state.furniture.includes(f))return;
+ const vector=typeof direction==='number'?{x:direction,y:-.7}:direction;
+ toySession={id,phase:'approach',round:0,clock:0,direction:vector.x||0,directionY:vector.y||0};pet.action={type:'play',toy:id,remaining:null};pet.target=floorTarget(f.x-.06,f.y+.025);toast(toy.name+' 놀이를 시작해요.');
+}
+function advanceToy(dt){
+ if(!toySession||!pet.action?.toy)return;const f=state.furniture.find(i=>i.id===toySession.id);if(!f){toySession=null;pet.action=null;return;}
+ const t=toySession;t.clock+=dt;
+ if(t.phase==='approach'&&!pet.target){t.phase='inspect';t.clock=0;}
+ else if(t.phase==='inspect'&&!pet.target&&t.clock>.7){
+  if(t.id==='acorn'||t.round>=2){toySession=null;finishCare('play');return;}
+  t.round++;t.clock=0;t.phase='follow';t.start={x:f.x,y:f.y};
+  t.goal=moveToy(f,{x:f.x+t.direction*.14,y:f.y+t.directionY*.12},placementItems(),placementRect,placementObstacle);
+  pet.target=floorTarget(t.goal.x-t.direction*.05,t.goal.y+.025);
+ }else if(t.phase==='follow'){
+  const before=f.x,progress=Math.min(1,t.clock/.85);
+  const next=moveToy(f,{x:t.start.x+(t.goal.x-t.start.x)*progress,y:t.start.y+(t.goal.y-t.start.y)*progress},placementItems(),placementRect,placementObstacle);Object.assign(f,next);
+  if(t.id==='toy_ball')f.roll=(f.roll||0)+(f.x-before)*width/Math.max(10,width*.035);
+  if(t.clock>=.85&&!pet.target){t.phase='inspect';t.clock=0;t.direction*=-1;t.directionY*=-1;save();}
+ }
+}
+
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 function save(){state.updated=Date.now();try{localStorage.setItem(STORE,JSON.stringify(state));$('#save-status span').textContent='자동 저장';}catch{$('#save-status span').textContent='저장 공간을 확인해 주세요';}}
 function log(text){state.journal.unshift({at:Date.now(),text});state.journal=state.journal.slice(0,80);save();}
@@ -198,7 +238,7 @@ function furnitureFile(item,f){return furnitureAsset(item,f);}
 function roomFurniture(){return state.furniture.filter(f=>visibleFurniture(CATALOG.find(i=>i.id===f.id),state.species));}
 function furnitureRect(f){const item=CATALOG.find(i=>i.id===f.id),img=image(furnitureFile(item,f));const ratio=img.naturalHeight/(img.naturalWidth||1);const w=Math.min(width*item.w*clamp(Number(f.scale)||1,.6,1.6),height*(item.wall?.27:.53)*clamp(Number(f.scale)||1,.6,1.6)/(ratio||1));const h=w*(ratio||.75);return {x:f.x*width-w/2,y:f.y*height-h,w,h};}
 function drawFurniture(f){const item=CATALOG.find(i=>i.id===f.id),img=image(furnitureFile(item,f)),r=furnitureRect(f);if(img.complete&&img.naturalWidth){ctx.save();ctx.translate(r.x+r.w/2,r.y+r.h/2);if(f.id==='toy_ball')ctx.rotate(f.roll||0);if(f.id==='acorn'&&toySession?.id==='acorn')ctx.rotate(Math.sin(animTime*12)*.16);if(f.flip)ctx.scale(-1,1);ctx.drawImage(furnitureImage(img,f.id,f.style),-r.w/2,-r.h/2,r.w,r.h);ctx.restore();}if(edit){ctx.save();ctx.strokeStyle=selected===f.id?'#526e55':'#fdf9ebbb';ctx.lineWidth=selected===f.id?2:1;ctx.setLineDash([5,4]);ctx.strokeRect(r.x-3,r.y-3,r.w+6,r.h+6);if(selected===f.id){ctx.fillStyle='#526e55';ctx.fillRect(r.x+r.w/2-4,r.y+r.h-4,8,8);}ctx.restore();}}
-function floorTarget(x,y){return{x:clamp(x,.09,.91),y:clamp(y,state.desktop.settings.activitySpace==='room'?.50:.72,.94)};}
+function floorTarget(x,y){return roomFloorTarget(x,y,state.desktop.settings.activitySpace);}
 function clearFloorPoint(){for(let n=0;n<15;n++){const q=floorTarget(.12+Math.random()*.76,.59+Math.random()*.32);if(!roomFurniture().some(f=>!CATALOG.find(i=>i.id===f.id).wall&&f.id!=='rug'&&Math.abs(q.x-f.x)<.10&&Math.abs(q.y-f.y)<.08))return q;}return{x:.5,y:.88};}
 function reward(key,amount){const day=dayKey(),tag=day+':'+key;const count=state.daily[tag]||0;state.daily[tag]=count+1;const earned=count<5?amount:0;state.coins+=earned;state.bond+=count<5?3:1;return earned;}
 function drawIcon(c,name,x,y,size){const art=image('ui-icons/'+name+'.png');if(art.complete&&art.naturalWidth)c.drawImage(art,x-size/2,y-size/2,size,size);}
@@ -230,11 +270,11 @@ function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   if(!busy&&!nativePaused&&!document.hidden){
   const idle=gardenWorker.advance(dt);if(idle){if(idle.type==='harvest'||idle.type==='cook'){recordEvent(state,idle.type);log(idle.message);}save();updateUI();gardenSpace.refresh();if($('#food-shop'))restaurant($('#food-shop').dataset.tab,$('#food-shop').dataset.filter);else gardenUI.updateCookbook();}
   }
-  if(gardenSpace.active){gardenSpace.draw(animTime);const c=$('#portrait').getContext('2d');c.clearRect(0,0,160,160);drawPet(c,80,143,154,state.species,animTime,false,1);requestAnimationFrame(frame);return;}
-  if(!edit&&!busy&&!nativePaused&&!document.hidden){idleElapsed=!pet.action&&!pet.target&&!heldPet?idleElapsed+dt:0;advanceDelivery();if(!pet.action&&!pet.target&&!heldPet&&!followMode&&animTime>=nextSneeze&&idleElapsed>3&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('sneeze');}
-  if(!edit&&!busy&&!nativePaused&&!document.hidden){if(pet.action&&!pet.target)pet.action.elapsed=(pet.action.elapsed||0)+dt;advanceToy(dt);if(pet.target){const dx=(pet.target.x-pet.x)*width,dy=(pet.target.y-pet.y)*height,dist=Math.hypot(dx,dy),hop=animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk.hop,speed=Math.max(18,height*.13)*(hop?hopTravelRate(pet.walkElapsed||0,dt,hop):1);pet.walkElapsed=(pet.walkElapsed||0)+dt;if(dist<speed*dt+1){pet.x=pet.target.x;pet.y=pet.target.y;pet.target=null;pet.until=animTime+2+Math.random()*3;if(pet.action)pet.action.remaining=pet.action.toy?null:pet.action.duration||2.4;if(!toySession&&!followMode&&!heldPet&&animTime>=nextStumble&&pet.walkElapsed>=.35&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('stumble',pet.action?{...pet.action}:null);}else{pet.dir=dx<0?-1:1;pet.x+=dx/dist*speed*dt/width;pet.y+=dy/dist*speed*dt/height;}}
+  if(gardenSpace.active){syncToyTargets();gardenSpace.draw(animTime);const c=$('#portrait').getContext('2d');c.clearRect(0,0,160,160);drawPet(c,80,143,154,state.species,animTime,false,1);requestAnimationFrame(frame);return;}
+  if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden){idleElapsed=!pet.action&&!pet.target&&!heldPet?idleElapsed+dt:0;advanceDelivery();if(!pet.action&&!pet.target&&!heldPet&&!followMode&&animTime>=nextSneeze&&idleElapsed>3&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('sneeze');}
+  if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden){if(pet.action&&!pet.target)pet.action.elapsed=(pet.action.elapsed||0)+dt;advanceToy(dt);if(pet.target){const dx=(pet.target.x-pet.x)*width,dy=(pet.target.y-pet.y)*height,dist=Math.hypot(dx,dy),hop=animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk.hop,speed=Math.max(18,height*.13)*(hop?hopTravelRate(pet.walkElapsed||0,dt,hop):1);pet.walkElapsed=(pet.walkElapsed||0)+dt;if(dist<speed*dt+1){pet.x=pet.target.x;pet.y=pet.target.y;pet.target=null;pet.until=animTime+2+Math.random()*3;if(pet.action)pet.action.remaining=pet.action.toy?null:pet.action.duration||2.4;if(!toySession&&!followMode&&!heldPet&&animTime>=nextStumble&&pet.walkElapsed>=.35&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('stumble',pet.action?{...pet.action}:null);}else{pet.dir=dx<0?-1:1;pet.x+=dx/dist*speed*dt/width;pet.y+=dy/dist*speed*dt/height;}}
     else if(pet.action?.remaining!=null){pet.action.remaining-=dt;if(pet.action.remaining<=0){if(pet.action.type==='life')finishLife();else if(pet.action.type==='habit')finishHabit();else if(['expression','transition','motion'].includes(pet.action.type)){const event=pet.action.after,resume=pet.action.resume;pet.action=resume||null;pet.words=null;pet.until=animTime+5;if(event==='dizzy')pet.action={type:'motion',bank:'dizzy',automatic:true,elapsed:0,duration:2.4,remaining:2.4,after:'set_down'};else if(event)showReaction(event);}else finishCare(pet.action.type);}}
-    else if(animTime>pet.until&&!heldPet&&!followMode){const usable=roomFurniture().filter(f=>LIFE[activityFor(f.id)]&&!CATALOG.find(i=>i.id===f.id).wall);if(usable.length&&Math.random()<.35)beginLife(usable[Math.floor(Math.random()*usable.length)].id,true);else if(Math.random()<.25)beginHabit(true);else pet.target=clearFloorPoint();}
+    else if(!pet.action&&animTime>pet.until&&!heldPet&&!followMode){const usable=roomFurniture().filter(f=>LIFE[activityFor(f.id)]&&!CATALOG.find(i=>i.id===f.id).wall);if(usable.length&&Math.random()<.35)beginLife(usable[Math.floor(Math.random()*usable.length)].id,true);else if(Math.random()<.25)beginHabit(true);else pet.target=clearFloorPoint();}
   }
   ctx.clearRect(0,0,width,height);
   if(background.complete&&background.naturalWidth)ctx.drawImage(background,0,0,width,height);else{ctx.fillStyle='#f0e6cc';ctx.fillRect(0,0,width,height*.45);ctx.fillStyle='#dbc39d';ctx.fillRect(0,height*.45,width,height*.55);ctx.strokeStyle='#c4aa84';for(let y=height*.5;y<height;y+=height*.09){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(width,y);ctx.stroke();}}
@@ -248,27 +288,30 @@ function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   if(pet.action?.type==='play'&&!pet.action.toy&&!pet.target)drawIcon(ctx,'play',px+Math.sin(animTime*4)*size*.5,py,Math.max(24,size*.29));
   particles=particles.filter(p=>p.age<1.8);for(const p of particles){p.age+=dt;p.y-=30*dt;p.x+=p.vx*dt;ctx.save();ctx.globalAlpha=1-p.age/1.8;drawIcon(ctx,p.icon,p.x,p.y,24);ctx.restore();}
   const portrait=$('#portrait'),pc=portrait.getContext('2d');pc.clearRect(0,0,160,160);drawPet(pc,80,143,154,state.species,animTime,false,1);
-  requestAnimationFrame(frame);
+  syncToyTargets();requestAnimationFrame(frame);
 }
 function point(e){const r=room.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height};}
 function hitFurniture(p){return [...roomFurniture()].sort((a,b)=>(b.stackOrder||0)-(a.stackOrder||0)||furnitureDepth(b)-furnitureDepth(a)).find(f=>{const r=furnitureRect(f);return p.x*width>=r.x&&p.x*width<=r.x+r.w&&p.y*height>=r.y&&p.y*height<=r.y+r.h;});}
-room.addEventListener('pointerdown',e=>{
- const p=point(e),hit=hitFurniture(p);room.setPointerCapture(e.pointerId);
+function beginRoomPointer(e,forcedToy=null){
+ if(e.button!=null&&e.button!==0)return;e.preventDefault();
+ const p=point(e),toyHit=forcedToy||nearestToy(p,roomFurniture(),furnitureRect,width,height),hit=edit?hitFurniture(p):toyHit||hitFurniture(p);room.setPointerCapture(e.pointerId);
  if(edit){if(hit){selected=hit.id;drag={item:hit,originalX:hit.x,originalY:hit.y,dx:p.x-hit.x,dy:p.y-hit.y};}else selected=null;return;}
  if(followMode&&!pet.action){followStart=p;pet.target=floorTarget(p.x,p.y);return;}
- interruptAutonomy();if(pet.action)return;
+ interruptAutonomy();if(toyHit&&pet.action?.toy){toySession=null;pet.action=null;pet.target=null;}if(pet.action){toast('친구가 하던 일을 마친 뒤 함께 놀아요.');return;}
+ if(toyHit){toyDrag={item:toyHit,start:p,dx:p.x-toyHit.x,dy:p.y-toyHit.y,direction:{x:1,y:-.7},moved:false};pet.target=null;return;}
  const size=Math.min(width*.16,height*.37);
  if(Math.abs(p.x-pet.x)*width<size*.45&&p.y*height>pet.y*height-size*.85&&p.y*height<pet.y*height+size*.1){heldPet={start:p,original:{x:pet.x,y:pet.y},moved:false,at:animTime};pet.target=null;return;}
- if(hit&&['toy_ball','toy_mouse','acorn'].includes(hit.id)){toyDrag={item:hit,start:p,dx:p.x-hit.x,direction:1,moved:false};return;}
+
  if(hit&&LIFE[activityFor(hit.id)]){beginLife(hit.id);return;}
  if(hit?.id==='rug'){care('play');return;}
  if(p.y>.5){pet.target=floorTarget(p.x,p.y);$('#room-tip').textContent='총총, 그쪽으로 갈게요!';setTimeout(()=>$('#room-tip').textContent='친구나 가구를 톡 눌러 함께해요',2500);}
-});
+}
+room.addEventListener('pointerdown',beginRoomPointer);
 room.addEventListener('pointermove',e=>{
  const p=point(e);
  if(drag){const f=drag.item,r=furnitureRect(f),margin=r.w/width/2+.01;f.x=clamp(p.x-drag.dx,margin,1-margin);f.y=clamp(p.y-drag.dy,CATALOG.find(i=>i.id===f.id).wall?.20:.55,CATALOG.find(i=>i.id===f.id).wall?.45:.97);return;}
  if(heldPet){if(Math.hypot(p.x-heldPet.start.x,p.y-heldPet.start.y)>.035)heldPet.moved=true;if(heldPet.moved){pet.x=clamp(heldPet.original.x+p.x-heldPet.start.x,.12,.88);pet.y=clamp(heldPet.original.y+p.y-heldPet.start.y,.25,.94);}return;}
- if(toyDrag){const f=toyDrag.item,previous=f.x;const next=clamp(p.x-toyDrag.dx,.15,.85);if(positionClear({...f,x:next},placementItems(),placementRect,placementObstacle))f.x=next;if(Math.abs(f.x-previous)>.001)toyDrag.direction=Math.sign(f.x-previous);if(f.id==='toy_ball')f.roll=(f.roll||0)+(f.x-previous)*width/Math.max(10,width*.035);toyDrag.moved ||= Math.abs(p.x-toyDrag.start.x)>.01;return;}
+ if(toyDrag){const f=toyDrag.item,previous={x:f.x,y:f.y};const next=moveToy(f,{x:p.x-toyDrag.dx,y:p.y-toyDrag.dy},placementItems(),placementRect,placementObstacle);Object.assign(f,next);const dx=f.x-previous.x,dy=f.y-previous.y,dist=Math.hypot(dx,dy);if(dist>.001)toyDrag.direction={x:dx/dist,y:dy/dist};if(f.id==='toy_ball')f.roll=(f.roll||0)+dx*width/Math.max(10,width*.035);toyDrag.moved ||= Math.hypot(p.x-toyDrag.start.x,p.y-toyDrag.start.y)>.01;return;}
  if(followMode&&followStart){followMoved+=Math.hypot(p.x-followStart.x,p.y-followStart.y);followStart=p;pet.target=floorTarget(p.x,p.y);}
 });
 function endDrag(e){
