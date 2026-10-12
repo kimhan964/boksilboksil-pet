@@ -7,3 +7,7 @@
 .toy-status-bubble{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 28px);z-index:5;pointer-events:none;background:#fffaf1f5;border:1px solid #c3d2b1;border-radius:14px;padding:7px 12px;box-shadow:0 2px 5px #614d2520;color:#3b573d;font:600 13px/1.4 PetText,sans-serif;text-align:center;word-break:keep-all}
 .toy-status-bubble img{width:20px;height:20px;vertical-align:middle;margin-right:5px}
 @media(orientation:landscape) and (max-width:750px){.toy-status-bubble{font-size:12px;padding:6px 9px;bottom:7px}}
+
+.table-meal-target{position:absolute;z-index:4;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.table-meal-target[hidden]{display:none}.table-meal-target img{width:var(--meal-size);height:var(--meal-size);object-fit:contain;pointer-events:none;filter:drop-shadow(0 3px 2px #67482835)}
+.table-meal-target:focus-visible{outline:3px solid #648356;outline-offset:3px}.table-meal-target:active{transform:scale(.94)}
