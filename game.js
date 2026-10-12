@@ -1,4 +1,4 @@
-import {MOVABLE_TOYS,toyTouchRect,nearestToy,moveToy,roomFloorTarget} from './room-interaction.js';
+import {MOVABLE_TOYS,toyTouchRect,nearestToy,moveToy,roomFloorTarget,toyIconFile,playObstacle} from './room-interaction.js';
 
 import {freePosition,positionClear} from './furniture-placement.js';
 function placementRect(f){if(f.uiBlock)return f.bounds;const r=furnitureRect(f);return {x:r.x/width,y:r.y/height,w:r.w/width,h:r.h/height};}
@@ -8,7 +8,7 @@ function keepPlaythingsApart(){
  if(width<=1||height<=1)return;
  let changed=false,stored=0;
  for(const f of state.furniture.filter(f=>CATALOG.find(i=>i.id===f.id)?.cat==='놀이감')){
-  const p=freePosition(f,placementItems(),placementRect,placementObstacle);
+  const p=freePosition(f,placementItems(),placementRect,MOVABLE_TOYS.includes(f.id)?playObstacle:placementObstacle);
   if(p&&(Math.abs(p.x-f.x)>.001||Math.abs(p.y-f.y)>.001)){Object.assign(f,p);changed=true;}
   if(!p){state.furniture=state.furniture.filter(other=>other!==f);changed=true;stored++;}
  }
@@ -86,15 +86,16 @@ let particles=[],toySession=null,toyDrag=null,followMode=false,followMoved=0,fol
 const toyTargets=document.createElement('div');toyTargets.className='toy-targets';toyTargets.setAttribute('aria-label','방의 놀잇감');room.parentElement.append(toyTargets);
 const toyStatus=document.createElement('div');toyStatus.className='toy-status-bubble';toyStatus.setAttribute('role','status');toyStatus.setAttribute('aria-live','polite');toyStatus.hidden=true;room.parentElement.append(toyStatus);
 const toyButtons=new Map();
+function toyIconHTML(id){return '<img class="ui-art" src="assets/'+toyIconFile(id)+'" alt="" aria-hidden="true">';}
 function syncToyTargets(){
  const hidden=edit||gardenSpace.active||!$('#overlay').hidden;toyTargets.hidden=hidden;
  const items=roomFurniture().filter(f=>MOVABLE_TOYS.includes(f.id));const ids=new Set(items.map(f=>f.id));
  for(const [id,b]of toyButtons)if(!ids.has(id)){b.remove();toyButtons.delete(id);}
- for(const f of items){let b=toyButtons.get(f.id);if(!b){b=document.createElement('button');b.type='button';b.className='toy-target';b.dataset.toy=f.id;b.setAttribute('aria-label',TOYS.find(t=>t.id===f.id).name+' · 톡 눌러 놀기, 상하좌우로 끌어 이동');b.innerHTML=iconHTML('play');b.addEventListener('pointerdown',e=>beginRoomPointer(e,f));b.addEventListener('click',e=>{if(e.detail===0)startToy(f.id);});toyTargets.append(b);toyButtons.set(f.id,b);}
+ for(const f of items){let b=toyButtons.get(f.id);if(!b){b=document.createElement('button');b.type='button';b.className='toy-target';b.dataset.toy=f.id;b.setAttribute('aria-label',TOYS.find(t=>t.id===f.id).name+' · 톡 눌러 놀기, 상하좌우로 끌어 이동');b.innerHTML=toyIconHTML(f.id);b.addEventListener('pointerdown',e=>beginRoomPointer(e,f));b.addEventListener('click',e=>{if(e.detail===0)startToy(f.id);});toyTargets.append(b);toyButtons.set(f.id,b);}
   const r=toyTouchRect(furnitureRect(f),width,height);Object.assign(b.style,{left:r.x+'px',top:r.y+'px',width:r.w+'px',height:r.h+'px'});b.setAttribute('aria-pressed',String(toyDrag?.item.id===f.id||toySession?.id===f.id));b.dataset.phase=toyDrag?.item.id===f.id?'dragging':toySession?.id===f.id?toySession.phase:'ready';
  }
  const active=toyDrag?.item.id||toySession?.id;toyStatus.hidden=hidden||!active;
- if(!toyStatus.hidden){const phase=toyDrag?'상하좌우로 이동 중':toySession.phase==='approach'?'친구가 다가오는 중':toySession.phase==='follow'?'친구가 따라가는 중':'함께 놀고 있어요';const label=TOYS.find(t=>t.id===active).name+' · '+phase;if(toyStatus.dataset.label!==label){toyStatus.dataset.label=label;toyStatus.innerHTML=iconHTML('play')+'<span>'+label+'</span>';}}
+ if(!toyStatus.hidden){const phase=toyDrag?'상하좌우로 이동 중':toySession.phase==='approach'?'친구가 다가오는 중':toySession.phase==='follow'?'친구가 따라가는 중':'함께 놀고 있어요';const label=TOYS.find(t=>t.id===active).name+' · '+phase;if(toyStatus.dataset.label!==label){toyStatus.dataset.label=label;toyStatus.innerHTML=toyIconHTML(active)+'<span>'+label+'</span>';}}
  $('#room-tip').style.visibility=active&&!hidden?'hidden':'';
 }
 
@@ -104,7 +105,7 @@ const gardenSpace=createGardenSpace({state,save,toast,recordEvent,updateUI,log,i
 const gardenUI=createGardenUI({state,openSheet,save,toast,iconHTML,recordEvent,updateUI,log,restaurant,enterGarden:crop=>gardenSpace.enter(crop),updateGarden:()=>gardenSpace.update()});
 const cozyLifeUI=createCozyLifeUI({state,catalog:CATALOG,iconHTML,openSheet,save,updateUI,toast,log,shop,isOpen:furnitureOpen,condition:furnitureCondition,visible:item=>visibleFurniture(item,state.species),skinName:id=>findSkin(id).name,event:event=>recordEvent(state,event),enterGarden:()=>gardenSpace.enter(),updateGarden:()=>gardenSpace.refresh(),busyPlot:index=>gardenWorker.task?.plot===index,buy:buyHomeFurniture,place:placeOwnedFurniture,restore:restoreHomeLayout});
 function buyHomeFurniture(id){const result=purchaseFurniture(state,id,CATALOG,furnitureOpen);if(!result)return false;if(!state.desktop.manualTools.includes(id))state.desktop.manualTools.push(id);recordEvent(state,'buy');log(result.item.name+'를 '+result.price+' 도토리로 주문했어요.');return result;}
-function placeOwnedFurniture(id){if(gardenSpace.active)gardenSpace.home();const item=CATALOG.find(i=>i.id===id);if(!item||!state.owned.includes(id)||!visibleFurniture(item,state.species))return false;if(state.furniture.some(f=>f.id===id))state.furniture=state.furniture.filter(f=>f.id!==id);else{const f={id,x:.5,y:item.wall?.35:.75};if(!item.wall&&id!=='rug'){const p=freePosition(f,placementItems(),placementRect,placementObstacle);if(!p){toast('빈 공간이 부족해요. 다른 가구를 수납하거나 옮겨 주세요.');return false;}Object.assign(f,p);}state.furniture.push(f);keepPlaythingsApart();}return true;}
+function placeOwnedFurniture(id){if(gardenSpace.active)gardenSpace.home();const item=CATALOG.find(i=>i.id===id);if(!item||!state.owned.includes(id)||!visibleFurniture(item,state.species))return false;if(state.furniture.some(f=>f.id===id))state.furniture=state.furniture.filter(f=>f.id!==id);else{const f={id,x:.5,y:item.wall?.35:.75};if(!item.wall&&id!=='rug'){const p=freePosition(f,placementItems(),placementRect,MOVABLE_TOYS.includes(f.id)?playObstacle:placementObstacle);if(!p){toast('빈 공간이 부족해요. 다른 가구를 수납하거나 옮겨 주세요.');return false;}Object.assign(f,p);}state.furniture.push(f);keepPlaythingsApart();}return true;}
 async function restoreHomeLayout(index){const layout=state.cozy.layouts[index];if(!layout)return false;const skin=isUnlocked(state,'skin',layout.skin)?findSkin(layout.skin):findSkin(state.skin);try{const next=image(skin.file);await next.decode();if(gardenSpace.active)gardenSpace.home();cancelInteraction();pet.action=null;pet.target=null;if(edit)setEdit(false);const result=restoreLayout(state,index,CATALOG,id=>isUnlocked(state,'skin',id));if(!result)return false;background=next;state.skin=skin.id;keepPlaythingsApart();roomCaption();recordEvent(state,'arrange');return result;}catch{return false;}}
 function canAct(){return !edit&&(!pet.action||pet.action.automatic)&&!heldPet;}
 function interruptAutonomy(){if(pet.action?.automatic){pet.action=null;pet.words=null;pet.target=null;pet.until=animTime+5;}}
@@ -121,7 +122,7 @@ function startToy(id,direction=1){
  if(id==='basket'){interruptAutonomy();return desktopUI.basket();}
  if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');
  interruptAutonomy();const toy=TOYS.find(t=>t.id===id);if(!toy||(!['acorn'].includes(id)&&!state.owned.includes(id)))return;followMode=false;
- let f=state.furniture.find(i=>i.id===id);if(!f){f={id,x:clamp(pet.x+.14,.17,.83),y:.90};const p=freePosition(f,placementItems(),placementRect,placementObstacle);if(!p)return toast('놀이할 자리가 부족해요. 가구를 조금 옮겨 주세요.');Object.assign(f,p);state.furniture.push(f);if(!state.owned.includes(id))state.owned.push(id);save();}
+ let f=state.furniture.find(i=>i.id===id);if(!f){f={id,x:clamp(pet.x+.14,.17,.83),y:.90};const p=freePosition(f,placementItems(),placementRect,MOVABLE_TOYS.includes(f.id)?playObstacle:placementObstacle);if(!p)return toast('놀이할 자리가 부족해요. 가구를 조금 옮겨 주세요.');Object.assign(f,p);state.furniture.push(f);if(!state.owned.includes(id))state.owned.push(id);save();}
  keepPlaythingsApart();if(!state.furniture.includes(f))return;
  const vector=typeof direction==='number'?{x:direction,y:-.7}:direction;
  toySession={id,phase:'approach',round:0,clock:0,direction:vector.x||0,directionY:vector.y||0};pet.action={type:'play',toy:id,remaining:null};pet.target=floorTarget(f.x-.06,f.y+.025);toast(toy.name+' 놀이를 시작해요.');
@@ -133,11 +134,11 @@ function advanceToy(dt){
  else if(t.phase==='inspect'&&!pet.target&&t.clock>.7){
   if(t.id==='acorn'||t.round>=2){toySession=null;finishCare('play');return;}
   t.round++;t.clock=0;t.phase='follow';t.start={x:f.x,y:f.y};
-  t.goal=moveToy(f,{x:f.x+t.direction*.14,y:f.y+t.directionY*.12},placementItems(),placementRect,placementObstacle);
+  t.goal=moveToy(f,{x:f.x+t.direction*.14,y:f.y+t.directionY*.12},placementItems(),placementRect,playObstacle);
   pet.target=floorTarget(t.goal.x-t.direction*.05,t.goal.y+.025);
  }else if(t.phase==='follow'){
   const before=f.x,progress=Math.min(1,t.clock/.85);
-  const next=moveToy(f,{x:t.start.x+(t.goal.x-t.start.x)*progress,y:t.start.y+(t.goal.y-t.start.y)*progress},placementItems(),placementRect,placementObstacle);Object.assign(f,next);
+  const next=moveToy(f,{x:t.start.x+(t.goal.x-t.start.x)*progress,y:t.start.y+(t.goal.y-t.start.y)*progress},placementItems(),placementRect,playObstacle);Object.assign(f,next);
   if(t.id==='toy_ball')f.roll=(f.roll||0)+(f.x-before)*width/Math.max(10,width*.035);
   if(t.clock>=.85&&!pet.target){t.phase='inspect';t.clock=0;t.direction*=-1;t.directionY*=-1;save();}
  }
@@ -238,12 +239,12 @@ function furnitureFile(item,f){return furnitureAsset(item,f);}
 function roomFurniture(){return state.furniture.filter(f=>visibleFurniture(CATALOG.find(i=>i.id===f.id),state.species));}
 function furnitureRect(f){const item=CATALOG.find(i=>i.id===f.id),img=image(furnitureFile(item,f));const ratio=img.naturalHeight/(img.naturalWidth||1);const w=Math.min(width*item.w*clamp(Number(f.scale)||1,.6,1.6),height*(item.wall?.27:.53)*clamp(Number(f.scale)||1,.6,1.6)/(ratio||1));const h=w*(ratio||.75);return {x:f.x*width-w/2,y:f.y*height-h,w,h};}
 function drawFurniture(f){const item=CATALOG.find(i=>i.id===f.id),img=image(furnitureFile(item,f)),r=furnitureRect(f);if(img.complete&&img.naturalWidth){ctx.save();ctx.translate(r.x+r.w/2,r.y+r.h/2);if(f.id==='toy_ball')ctx.rotate(f.roll||0);if(f.id==='acorn'&&toySession?.id==='acorn')ctx.rotate(Math.sin(animTime*12)*.16);if(f.flip)ctx.scale(-1,1);ctx.drawImage(furnitureImage(img,f.id,f.style),-r.w/2,-r.h/2,r.w,r.h);ctx.restore();}if(edit){ctx.save();ctx.strokeStyle=selected===f.id?'#526e55':'#fdf9ebbb';ctx.lineWidth=selected===f.id?2:1;ctx.setLineDash([5,4]);ctx.strokeRect(r.x-3,r.y-3,r.w+6,r.h+6);if(selected===f.id){ctx.fillStyle='#526e55';ctx.fillRect(r.x+r.w/2-4,r.y+r.h-4,8,8);}ctx.restore();}}
-function floorTarget(x,y){return roomFloorTarget(x,y,state.desktop.settings.activitySpace);}
-function clearFloorPoint(){for(let n=0;n<15;n++){const q=floorTarget(.12+Math.random()*.76,.59+Math.random()*.32);if(!roomFurniture().some(f=>!CATALOG.find(i=>i.id===f.id).wall&&f.id!=='rug'&&Math.abs(q.x-f.x)<.10&&Math.abs(q.y-f.y)<.08))return q;}return{x:.5,y:.88};}
+function floorTarget(x,y){return roomFloorTarget(x,y,state.desktop.settings.activitySpace,Math.min(width*.16,height*.37)*.9/height);}
+function clearFloorPoint(){for(let n=0;n<15;n++){const q=floorTarget(.08+Math.random()*.84,.16+Math.random()*.76);if(!roomFurniture().some(f=>!CATALOG.find(i=>i.id===f.id).wall&&f.id!=='rug'&&Math.abs(q.x-f.x)<.10&&Math.abs(q.y-f.y)<.08))return q;}return{x:.5,y:.88};}
 function reward(key,amount){const day=dayKey(),tag=day+':'+key;const count=state.daily[tag]||0;state.daily[tag]=count+1;const earned=count<5?amount:0;state.coins+=earned;state.bond+=count<5?3:1;return earned;}
-function drawIcon(c,name,x,y,size){const art=image('ui-icons/'+name+'.png');if(art.complete&&art.naturalWidth)c.drawImage(art,x-size/2,y-size/2,size,size);}
+function drawIcon(c,name,x,y,size){const art=image(name.startsWith('toy:')?toyIconFile(name.slice(4)):'ui-icons/'+name+'.png');if(art.complete&&art.naturalWidth)c.drawImage(art,x-size/2,y-size/2,size,size);}
 function burst(icon){for(let i=0;i<5;i++)particles.push({x:pet.x*width+(Math.random()-.5)*25,y:pet.y*height-height*.13,age:0,icon:i===0?icon:'pet',vx:(Math.random()-.5)*25});}
-function finishCare(action){const data={feed:['hunger',25,'feed',12,'맛있는 당근을 먹었어요.'],pet:['happy',15,'pet',8,'따뜻하게 쓰다듬어 주었어요.'],play:['happy',22,'play',15,'실뭉치와 신나게 놀았어요.'],clean:['clean',30,'clean',10,'뽀송뽀송 목욕을 했어요.'],sleep:['energy',35,'sleep',8,'포근하게 쉬었어요.']}[action];let meal=null,newTaste=false;if(action==='feed'){newTaste=!state.food.eaten.includes(pet.action.foodId)&&pet.action.foodId!=='carrot';meal=eatFood(state,pet.action.foodId);if(!meal){pet.action=null;toast('요리를 찾을 수 없어요. 냉장고를 확인해 주세요.');return;}}else state.stats[data[0]]=clamp(state.stats[data[0]]+data[1],0,100);if(action==='play')state.stats.energy=clamp(state.stats.energy-8,0,100);const before=level(state);recordEvent(state,action);completeDesktopActivity(state,action);if(newTaste)recordEvent(state,'taste');const earned=reward(action,data[3]);burst(data[2]);tone();const completedToy=pet.action?.toy;const message=meal?meal.name+' 냠냠!'+(meal.favorite?' 좋아하는 요리예요.':''):(completedToy?TOYS.find(t=>t.id===completedToy).name+'와 즐겁게 놀았어요.':data[4]);toast(name()+' '+message+(earned?' +'+earned+' 도토리':''));log(name()+'와 '+message);pet.action=null;pet.until=animTime+3;updateUI();announceLevel(before);showReaction(action==='feed'?(meal?.favorite?'favorite_meal':'meal'):({pet:'pet',play:'toy',clean:'groom',sleep:'wake'})[action]);}
+function finishCare(action){const data={feed:['hunger',25,'feed',12,'맛있는 당근을 먹었어요.'],pet:['happy',15,'pet',8,'따뜻하게 쓰다듬어 주었어요.'],play:['happy',22,'play',15,'실뭉치와 신나게 놀았어요.'],clean:['clean',30,'clean',10,'뽀송뽀송 목욕을 했어요.'],sleep:['energy',35,'sleep',8,'포근하게 쉬었어요.']}[action];let meal=null,newTaste=false;if(action==='feed'){newTaste=!state.food.eaten.includes(pet.action.foodId)&&pet.action.foodId!=='carrot';meal=eatFood(state,pet.action.foodId);if(!meal){pet.action=null;toast('요리를 찾을 수 없어요. 냉장고를 확인해 주세요.');return;}}else state.stats[data[0]]=clamp(state.stats[data[0]]+data[1],0,100);if(action==='play')state.stats.energy=clamp(state.stats.energy-8,0,100);const before=level(state);recordEvent(state,action);completeDesktopActivity(state,action);if(newTaste)recordEvent(state,'taste');const earned=reward(action,data[3]);burst(action==='play'&&pet.action?.toy?'toy:'+pet.action.toy:data[2]);tone();const completedToy=pet.action?.toy;const message=meal?meal.name+' 냠냠!'+(meal.favorite?' 좋아하는 요리예요.':''):(completedToy?TOYS.find(t=>t.id===completedToy).name+'와 즐겁게 놀았어요.':data[4]);toast(name()+' '+message+(earned?' +'+earned+' 도토리':''));log(name()+'와 '+message);pet.action=null;pet.until=animTime+3;updateUI();announceLevel(before);showReaction(action==='feed'?(meal?.favorite?'favorite_meal':'meal'):({pet:'pet',play:'toy',clean:'groom',sleep:'wake'})[action]);}
 function care(action,foodId=null){if(gardenSpace.active)gardenSpace.home();interruptAutonomy();followMode=false;if(edit){toast('꾸미기를 완료한 뒤 친구와 놀아주세요.');return;}if(pet.action){toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');return;}if(action==='feed'&&!foodId){restaurant();return;}if(action==='feed'&&(!FOODS.some(f=>f.id===foodId)||(foodId!=='carrot'&&!(state.food.stock[foodId]>0)))){toast('냉장고에 요리가 없어요. 식당에서 먼저 주문해 주세요.');return;}const targetId={feed:'table',sleep:'sofa',play:'rug'}[action];const target=roomFurniture().find(f=>f.id===targetId)||roomFurniture().find(f=>CATALOG.find(i=>i.id===f.id).kind===({feed:'table',sleep:'sofa'}[action]));const duration={feed:4.8,pet:2.4,play:6.4,clean:6.8,sleep:10.8}[action];pet.action={type:action,foodId,elapsed:0,duration,remaining:null};pet.target=target?floorTarget(target.x,target.y+.05):null;if(!pet.target)pet.action.remaining=duration;toast({feed:'식탁으로 총총, 요리를 먹으러 가요.',pet:'따뜻한 손길을 기다리고 있어요.',play:'실뭉치와 놀아볼까요?',clean:'보송보송 씻는 시간!',sleep:'잠깐, 포근하게 쉬어요.'}[action]);}
 function roomPose(){
  if(heldPet)return holdPose(Math.max(0,animTime-heldPet.at),heldPet.moved);
@@ -263,7 +264,7 @@ function roomPose(){
 }
 let nextStumble=30,nextSneeze=45,nextDeliveryTime=3,idleElapsed=0;
 function startSilly(bank,resume=null){const age=growthInfo(state).stage==='baby'?'baby':'adult',resolved=resolveAnimation(animationCatalog,state.species,age,state.desktop.outfits[state.species],{bank});if(!resolved?.supported)return false;pet.target=null;pet.action={type:'motion',bank,automatic:!resume||Boolean(resume.automatic),resume,elapsed:0,duration:bank==='stumble'?4.8:2.4,remaining:bank==='stumble'?4.8:2.4};if(bank==='stumble')nextStumble=animTime+60+Math.random()*30;else nextSneeze=animTime+45;return true;}
-function advanceDelivery(){if(animTime<nextDeliveryTime||pet.action||pet.target||heldPet||edit||followMode||state.stats.hunger<48||state.stats.hydration<45||state.stats.energy<35)return;const id=nextDelivery(state,CATALOG,furnitureOpen);if(!id)return;state.desktop.autoDelivered.push(id);state.desktop.arrivalSeen.push(id);state.owned.push(id);if(!state.furniture.some(f=>f.id===id)){const f={id,x:clamp(pet.x+.17,.16,.84),y:.85},p=freePosition(f,placementItems(),placementRect,placementObstacle);if(p)state.furniture.push({...f,...p});}keepPlaythingsApart();nextDeliveryTime=animTime+2.5;burst('gift');save();updateUI();toast((CATALOG.find(i=>i.id===id)?.name||id)+' 선물이 도착했어요!');tone();}
+function advanceDelivery(){if(animTime<nextDeliveryTime||pet.action||pet.target||heldPet||edit||followMode||state.stats.hunger<48||state.stats.hydration<45||state.stats.energy<35)return;const id=nextDelivery(state,CATALOG,furnitureOpen);if(!id)return;state.desktop.autoDelivered.push(id);state.desktop.arrivalSeen.push(id);state.owned.push(id);if(!state.furniture.some(f=>f.id===id)){const f={id,x:clamp(pet.x+.17,.16,.84),y:.85},p=freePosition(f,placementItems(),placementRect,MOVABLE_TOYS.includes(f.id)?playObstacle:placementObstacle);if(p)state.furniture.push({...f,...p});}keepPlaythingsApart();nextDeliveryTime=animTime+2.5;burst('gift');save();updateUI();toast((CATALOG.find(i=>i.id===id)?.name||id)+' 선물이 도착했어요!');tone();}
 function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   const busy=Boolean($('#overlay').hidden===false);
   if(!busy&&!nativePaused&&!document.hidden)animTime+=dt;
@@ -280,9 +281,9 @@ function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   if(background.complete&&background.naturalWidth)ctx.drawImage(background,0,0,width,height);else{ctx.fillStyle='#f0e6cc';ctx.fillRect(0,0,width,height*.45);ctx.fillStyle='#dbc39d';ctx.fillRect(0,height*.45,width,height*.55);ctx.strokeStyle='#c4aa84';for(let y=height*.5;y<height;y+=height*.09){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(width,y);ctx.stroke();}}
   for(const f of roomFurniture()){const r=furnitureRect(f),margin=r.w/width/2+.01;f.x=clamp(f.x,margin,1-margin);}
   if(!pet.target)pet.walkElapsed=0;
-  const layers=roomFurniture().map(f=>({order:f.stackOrder||0,y:furnitureDepth(f),draw:()=>drawFurniture(f)}));
+  const layers=roomFurniture().map(f=>({order:MOVABLE_TOYS.includes(f.id)?Number.MAX_SAFE_INTEGER:(f.stackOrder||0),y:furnitureDepth(f),draw:()=>drawFurniture(f)}));
   const size=Math.min(width*.16,height*.37),px=pet.x*width,py=pet.y*height;
-  layers.push({order:Infinity,y:heldPet?2:pet.y,draw:()=>{ctx.fillStyle='#756c4830';ctx.beginPath();ctx.ellipse(px,py,size*.23,size*.06,0,0,Math.PI*2);ctx.fill();drawPet(ctx,px,py,size,state.species,animTime,Boolean(pet.target),pet.dir,null,null,roomPose());if(pet.action&&!pet.target&&!['habit','expression','transition','motion'].includes(pet.action.type)){const iconSize=Math.max(22,size*.28),iconY=py-size*.83+Math.sin(animTime*3)*3;const meal=pet.action.type==='feed'&&FOODS.find(f=>f.id===pet.action.foodId);if(meal){const art=image(meal.icon.replace('assets/',''));if(art.complete&&art.naturalWidth)ctx.drawImage(art,px-iconSize/2,iconY-iconSize/2,iconSize,iconSize);}else drawIcon(ctx,pet.action.type==='life'?LIFE[pet.action.activity].icon:pet.action.type,px,iconY,iconSize);}}});
+  layers.push({order:Infinity,y:heldPet?2:pet.y,draw:()=>{ctx.fillStyle='#756c4830';ctx.beginPath();ctx.ellipse(px,py,size*.23,size*.06,0,0,Math.PI*2);ctx.fill();drawPet(ctx,px,py,size,state.species,animTime,Boolean(pet.target),pet.dir,null,null,roomPose());if(pet.action&&!pet.target&&!['habit','expression','transition','motion'].includes(pet.action.type)){const iconSize=Math.max(22,size*.28),iconY=py-size*.83+Math.sin(animTime*3)*3;const meal=pet.action.type==='feed'&&FOODS.find(f=>f.id===pet.action.foodId);if(meal){const art=image(meal.icon.replace('assets/',''));if(art.complete&&art.naturalWidth)ctx.drawImage(art,px-iconSize/2,iconY-iconSize/2,iconSize,iconSize);}else drawIcon(ctx,pet.action.toy?'toy:'+pet.action.toy:pet.action.type==='life'?LIFE[pet.action.activity].icon:pet.action.type,px,iconY,iconSize);}}});
   layers.sort((a,b)=>a.order-b.order||a.y-b.y).forEach(l=>l.draw());
   if(pet.words&&pet.action?.type==='expression'){ctx.save();ctx.font='bold 10px sans-serif';const bubbleWidth=ctx.measureText(pet.words).width+18,bx=clamp(px-bubbleWidth/2,8,width-bubbleWidth-8),by=Math.max(55,py-size-15);ctx.fillStyle='#fffbf0f0';ctx.beginPath();ctx.roundRect(bx,by,bubbleWidth,24,9);ctx.fill();ctx.fillStyle='#6e765b';ctx.fillText(pet.words,bx+9,by+16);ctx.restore();}
   if(pet.action?.type==='play'&&!pet.action.toy&&!pet.target)drawIcon(ctx,'play',px+Math.sin(animTime*4)*size*.5,py,Math.max(24,size*.29));
@@ -304,14 +305,14 @@ function beginRoomPointer(e,forcedToy=null){
 
  if(hit&&LIFE[activityFor(hit.id)]){beginLife(hit.id);return;}
  if(hit?.id==='rug'){care('play');return;}
- if(p.y>.5){pet.target=floorTarget(p.x,p.y);$('#room-tip').textContent='총총, 그쪽으로 갈게요!';setTimeout(()=>$('#room-tip').textContent='친구나 가구를 톡 눌러 함께해요',2500);}
+ if(p.y>=0){pet.target=floorTarget(p.x,p.y);$('#room-tip').textContent='총총, 그쪽으로 갈게요!';setTimeout(()=>$('#room-tip').textContent='친구나 가구를 톡 눌러 함께해요',2500);}
 }
 room.addEventListener('pointerdown',beginRoomPointer);
 room.addEventListener('pointermove',e=>{
  const p=point(e);
  if(drag){const f=drag.item,r=furnitureRect(f),margin=r.w/width/2+.01;f.x=clamp(p.x-drag.dx,margin,1-margin);f.y=clamp(p.y-drag.dy,CATALOG.find(i=>i.id===f.id).wall?.20:.55,CATALOG.find(i=>i.id===f.id).wall?.45:.97);return;}
  if(heldPet){if(Math.hypot(p.x-heldPet.start.x,p.y-heldPet.start.y)>.035)heldPet.moved=true;if(heldPet.moved){pet.x=clamp(heldPet.original.x+p.x-heldPet.start.x,.12,.88);pet.y=clamp(heldPet.original.y+p.y-heldPet.start.y,.25,.94);}return;}
- if(toyDrag){const f=toyDrag.item,previous={x:f.x,y:f.y};const next=moveToy(f,{x:p.x-toyDrag.dx,y:p.y-toyDrag.dy},placementItems(),placementRect,placementObstacle);Object.assign(f,next);const dx=f.x-previous.x,dy=f.y-previous.y,dist=Math.hypot(dx,dy);if(dist>.001)toyDrag.direction={x:dx/dist,y:dy/dist};if(f.id==='toy_ball')f.roll=(f.roll||0)+dx*width/Math.max(10,width*.035);toyDrag.moved ||= Math.hypot(p.x-toyDrag.start.x,p.y-toyDrag.start.y)>.01;return;}
+ if(toyDrag){const f=toyDrag.item,previous={x:f.x,y:f.y};const next=moveToy(f,{x:p.x-toyDrag.dx,y:p.y-toyDrag.dy},placementItems(),placementRect,playObstacle);Object.assign(f,next);const dx=f.x-previous.x,dy=f.y-previous.y,dist=Math.hypot(dx,dy);if(dist>.001)toyDrag.direction={x:dx/dist,y:dy/dist};if(f.id==='toy_ball')f.roll=(f.roll||0)+dx*width/Math.max(10,width*.035);toyDrag.moved ||= Math.hypot(p.x-toyDrag.start.x,p.y-toyDrag.start.y)>.01;return;}
  if(followMode&&followStart){followMoved+=Math.hypot(p.x-followStart.x,p.y-followStart.y);followStart=p;pet.target=floorTarget(p.x,p.y);}
 });
 function endDrag(e){

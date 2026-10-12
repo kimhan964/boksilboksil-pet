@@ -1,6 +1,8 @@
 import {positionClear} from './furniture-placement.js';
 const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
 export const MOVABLE_TOYS=['toy_ball','toy_mouse','acorn','basket'];
+export const toyIconFile=id=>MOVABLE_TOYS.includes(id)?'desktop/'+id+'.webp':'ui-icons/play.png';
+export const playObstacle=f=>Boolean(f.uiBlock)||MOVABLE_TOYS.includes(f.id);
 export function toyTouchRect(rect,width,height){
  const w=Math.min(width,Math.max(44,rect.w)),h=Math.min(height,Math.max(44,rect.h));
  return {x:clamp(rect.x+rect.w/2-w/2,0,width-w),y:clamp(rect.y+rect.h/2-h/2,0,height-h),w,h};
@@ -10,7 +12,8 @@ export function nearestToy(point,items,rectFor,width,height){
 }
 // Sweep the path instead of teleporting through furniture on a fast touch drag.
 export function moveToy(item,target,items,rectFor,isObstacle){
- const end={x:clamp(target.x,.06,.94),y:clamp(target.y,.56,.96)};
+ const r=rectFor(item),marginX=r.w/2+.015;
+ const end={x:clamp(target.x,marginX,1-marginX),y:clamp(target.y,r.h+.015,.96)};
  const steps=Math.max(1,Math.ceil(Math.hypot(end.x-item.x,end.y-item.y)/.01));
  const dx=(end.x-item.x)/steps,dy=(end.y-item.y)/steps;let next={...item};
  for(let i=0;i<steps;i++){
@@ -23,4 +26,4 @@ export function moveToy(item,target,items,rectFor,isObstacle){
  }
  return {x:next.x,y:next.y};
 }
-export function roomFloorTarget(x,y,space='room'){return {x:clamp(x,.09,.91),y:clamp(y,space==='room'?.54:.72,.94)};}
+export function roomFloorTarget(x,y,space='room',bodyHeight=.12){return {x:clamp(x,.06,.94),y:clamp(y,space==='room'?bodyHeight:.72,.94)};}
