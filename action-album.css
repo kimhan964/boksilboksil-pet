@@ -1,0 +1,24 @@
+/* A quiet paper spread; selected actions and the furniture link have distinct roles. */
+.action-album-sheet .album-filters{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.action-album-sheet .album-filters button,.action-album-sheet .album-ages button{border:1px solid #c4cbb3;border-radius:22px;background:#fffdf3;color:#4c5940;min-height:44px;padding:8px 14px;font:400 15px/1.4 PetTitle,sans-serif;box-shadow:none}
+.action-album-sheet .album-filters button[aria-pressed=true],.action-album-sheet .album-ages button[aria-pressed=true]{background:#e3edd6;border-color:#698750;color:#25472b}
+.action-book{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,2fr);gap:16px;align-items:start}
+.action-preview{position:sticky;top:0;border:1px solid #d6d9bc;border-radius:26px;background:linear-gradient(#fffdf2eb,#fffdf2eb),url('assets/ui-storybook/inventory-paper-v1.png') center/cover;padding:12px;display:flex;align-items:center;flex-direction:column;gap:8px;min-width:0}
+.action-preview canvas{display:block;width:100%;max-width:240px;height:auto;aspect-ratio:320/280}
+.album-ages,.album-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}
+.action-album-sheet .album-controls button{font-size:14px;min-height:44px;padding:8px 10px}
+.action-album-sheet .album-preview-note,.action-album-sheet .album-footnote{font:400 14px/1.7 PetText,sans-serif;color:#536044;margin:4px 0;overflow-wrap:anywhere}
+.album-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.action-album-sheet .album-actions button{display:flex;align-items:center;gap:7px;text-align:left;min-width:0;min-height:52px;padding:8px;background:#fffdf4;border:1px solid #d5d5ba;border-radius:14px;color:#3c4e35;font:400 15px/1.4 PetTitle,sans-serif;box-shadow:0 2px 0 #dddcc6;filter:none}
+.action-album-sheet .album-actions button[aria-pressed=true]{border:2px solid #6c8b52;background:#edf3e1;box-shadow:0 2px 0 #aec296;padding:7px}
+.action-album-sheet .album-actions .ui-art{width:32px;height:32px;flex-shrink:0;object-fit:contain;margin:0}
+.album-detail{margin-top:14px;padding:16px;border-radius:18px;border:1px solid #d9d6bc;background:#fffdf5}
+.action-album-sheet .album-detail h3{font:400 21px/1.4 PetTitle,sans-serif;color:#2c4b32;margin:0 0 8px}
+.action-album-sheet .album-detail p{font:400 15px/1.75 PetText,sans-serif;color:#4c5741;margin:7px 0}
+.action-album-sheet .album-detail .album-furniture{background:#dfeccd;border-color:#8da779;color:#294a31;min-height:44px}
+.action-album-sheet .album-furniture[hidden]{display:none}
+.action-album-sheet .album-footnote{margin:16px 0 10px}
+.album-target{outline:3px solid #75924f;outline-offset:3px}
+@media(max-width:760px){.action-book{grid-template-columns:170px minmax(0,1fr);gap:10px}.album-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.action-preview{padding:8px}.action-album-sheet .album-actions button{font-size:14px}.action-album-sheet .album-actions .ui-art{width:27px;height:27px}}
+@media(max-width:480px){.action-book{grid-template-columns:1fr}.action-preview{position:static}.action-preview canvas{max-width:180px}.album-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-height:440px) and (orientation:landscape){.action-preview{padding:6px;gap:4px}.action-preview canvas{max-width:116px}.action-album-sheet .album-controls{flex-wrap:nowrap;gap:4px}.action-album-sheet .album-controls button{font-size:12px;padding:6px;white-space:nowrap}.action-album-sheet .album-preview-note{font-size:12px;line-height:1.5}.action-album-sheet .album-ages button{font-size:14px;padding:6px 12px}.album-detail{padding:12px}}
