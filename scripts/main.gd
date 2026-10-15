@@ -98,6 +98,8 @@ func restore_layer_order() -> void:
 			if is_instance_valid(piece.size_editor) and piece.size_editor.visible: ordered_windows.append(piece.size_editor)
 	if is_instance_valid(pet) and pet.menu.visible: ordered_windows.append(pet.menu)
 	if is_instance_valid(info) and info.visible: ordered_windows.append(info)
+	var album=get_node_or_null("V1ActionAlbum")
+	if is_instance_valid(album) and album.visible: ordered_windows.append(album)
 	if download_visible: ordered_windows.append(animal_packs.panel)
 	if OS.get_name()=="Windows": NativeLayer.raise_windows(ordered_windows)
 	else:

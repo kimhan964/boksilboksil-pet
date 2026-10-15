@@ -114,6 +114,7 @@ func _ready() -> void:
 	footer.add_child(friend_button)
 	footer.add_child(make_button("오늘은 안녕",func(): hide(); id_pressed.emit(3)))
 	about_to_popup.connect(prepare)
+	if OS.get_cmdline_user_args().has("--v1-action-album"): open_v1_action_album.call_deferred()
 
 func set_friend_count(count: int) -> void:
 	if friend_button!=null: friend_button.visible=count>1
@@ -135,6 +136,20 @@ func prepare() -> void:
 	rebuild()
 	var screen=DisplayServer.screen_get_usable_rect(DisplayServer.get_screen_from_rect(Rect2i(position,size)))
 	position=Vector2i(Vector2(position).clamp(Vector2(screen.position),Vector2((screen.end-size).max(screen.position))))
+
+func open_v1_action_album() -> void:
+	hide()
+	show_v1_action_album.call_deferred()
+
+func show_v1_action_album() -> void:
+	var pet=get_parent()
+	var app=pet.get_parent()
+	var album=app.get_node_or_null("V1ActionAlbum")
+	if album==null:
+		album=preload("res://scripts/v1_action_album.gd").new()
+		album.name="V1ActionAlbum"
+		app.add_child(album)
+	album.open_for(pet)
 
 func open_source(next: PopupMenu) -> void:
 	history.append(source)
@@ -186,6 +201,11 @@ func rebuild() -> void:
 			style_action(button)
 			body.add_child(button)
 		return
+	if section in [0,3]:
+		var album_button=make_button("행동 도감 · 움직임과 만나는 방법",open_v1_action_album)
+		style_action(album_button)
+		Icons.decorate(album_button,"journal",28)
+		body.add_child(album_button)
 	var caption=Label.new()
 	caption.text=[
 		"놀이감을 꺼내 클릭하거나 동물을 데려다 놓아 함께 놀아요.\n마우스 따라오기로 함께 산책해 보세요.",

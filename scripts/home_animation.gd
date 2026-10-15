@@ -2,7 +2,9 @@ extends RefCounted
 ## Fresh complete-character illustrations. No limb rigging or crossfade.
 const Catalog=preload("res://scripts/animal_catalog.gd")
 const KINDS={"home_sofa":"rest","home_tea":"tea","home_shelf":"read","home_lamp":"nap","home_reading_chair":"read","home_daybed":"nap","home_vanity":"groom","home_record_player":"music","home_play_rug":"play","home_window_seat":"rest","home_tv":"rest","home_turntable":"music","home_wall_shelf":"read","home_dresser":"groom","home_fireplace":"rest"}
-const DURATIONS={"rest":8.0,"tea":7.2,"read":8.4,"nap":10.8,"groom":6.8,"music":7.2,"play":6.4}
+const CYCLE_DURATIONS={"rest":8.0,"tea":7.2,"read":8.4,"nap":10.8,"groom":6.8,"music":7.2,"play":6.4}
+# Complete cycles keep the original tempo; each visit lasts 20-29 seconds.
+const DURATIONS={"rest":24.0,"tea":21.6,"read":25.2,"nap":21.6,"groom":20.4,"music":21.6,"play":25.6}
 # These are authored key poses with deliberate holds, not 60 newly drawn cels.
 const TRACKS={
 	"rest":[0,1,2,3,4,3,4,3,2,1,0],
@@ -44,7 +46,7 @@ static func frames(m,kind: String) -> Array:
 static func sample(m) -> Dictionary:
 	var kind: String=KINDS[m.visit_id]
 	var track: Array=TRACKS[kind]
-	var phase=clampf(m.elapsed/duration(m.visit_id),0,.999999)
+	var phase=fposmod(maxf(0.0,m.elapsed),float(CYCLE_DURATIONS[kind]))/float(CYCLE_DURATIONS[kind])
 	var index=int(track[mini(track.size()-1,int(phase*track.size()))])
 	if kind!="rest" and (m.elapsed<.55 or m.action_left<.55):
 		kind="rest"
