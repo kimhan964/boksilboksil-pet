@@ -1,3 +1,4 @@
+import {tripPose} from './soft-actions.js';
 export const MOTION_OUTFITS=[
  {id:'motion-vest',name:'산책 조끼',price:60,level:2,minutes:5},
  {id:'motion-knit',name:'포근한 니트',price:90,level:3,minutes:15},
@@ -8,6 +9,20 @@ export const HOME_KINDS={read:'read',music:'music',groom:'groom',tea:'tea',rest:
 export function motionStyle(id){return MOTION_OUTFITS.some(i=>i.id===id)?id.slice(7):null;}
 export function lifeKind(id,activity){return activity==='rest'&&(id==='bed'||id==='lamp'||id.endsWith('_daybed')||id.endsWith('_lamp'))?'nap':HOME_KINDS[activity]||'rest';}
 export function resolveAnimation(catalog,species,age,look,pose){
+ if(catalog.skin==='soft-roster-v2'){
+  const banks=catalog.base[species]?.[age];
+  const trip=pose.bank==='stumble'?tripPose(pose.elapsed||0):null;
+  const requested=trip?.bank||(pose.bank==='emotions'?({happy:'pet',surprised:'peek',angry:'sad',sleepy:'sleep'}[pose.emotion]||'pet'):pose.bank);
+  let bank=banks?.[requested]?requested:'idle',spec=banks?.[bank],sampling;
+  if(trip)sampling={progress:trip.progress};
+  const life={'home-rest':'sofa','home-nap':'bed','home-bath':'bath','home-play':'play'}[requested];
+  if(life&&banks?.[life+'-enter']&&pose.duration){
+   const elapsed=pose.elapsed||0,remaining=pose.duration-elapsed,edge=.65;
+   if(elapsed<edge||remaining<edge){bank=life+'-enter';spec=banks[bank];sampling={progress:Math.max(0,Math.min(1,(elapsed<edge?elapsed:remaining)/edge))};}
+   else sampling={progress:((elapsed-edge)/spec.duration)%1};
+  }
+  return spec?{spec,bank,dressed:false,supported:Boolean(banks?.[requested]),sampling}:null;
+ }
  const style=motionStyle(look?.style);
  if(style&&age==='adult'){
   const banks=catalog.costumes[species]?.[style];if(!banks)return null;
@@ -23,6 +38,11 @@ export function resolveAnimation(catalog,species,age,look,pose){
 }
 export function animationFrame(spec,pose={}){
  const count=spec.count,elapsed=Math.max(0,pose.elapsed||0);
+ if(spec.wholeBody){
+  let phase=Math.max(0,Math.min(1,pose.progress??(elapsed/(spec.duration||4.8))%1));
+  if(spec.phase_curve)for(let i=0;i<spec.phase_curve.length-1;i++){const [a,x]=spec.phase_curve[i],[b,y]=spec.phase_curve[i+1];if(phase<=b){phase=x+(y-x)*(phase-a)/(b-a);break;}}
+  return Math.min(count-1,Math.floor(phase*(spec.loop===false?count-1:count)));
+ }
  if(pose.bank==='emotions')return Math.max(0,EMOTIONS.indexOf(pose.emotion||'happy'));
  if(pose.bank==='dizzy'){const p=Math.max(0,Math.min(1,pose.progress??elapsed/2));return p<.15?0:p>.9?3:1+Math.floor(elapsed/.4)%2;}
  if(pose.bank?.startsWith('hold-release')&&spec.source_path?.startsWith('wardrobe-motion-v3/'))return (pose.progress??elapsed/.64)<.5?0:16;

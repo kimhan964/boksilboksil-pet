@@ -1,5 +1,5 @@
 export const SKINS = [
-  {id:'forest',country:'기본',name:'숲속의 작은 집',file:'room.png',description:'초록 커튼과 햇살 가득한 나무 바닥',color:'#8a9a72'},
+  {id:'forest',country:'기본',name:'숲속의 작은 집',file:'thin-home-v3/room.webp',description:'초록 커튼과 햇살 가득한 나무 바닥',color:'#8a9a72'},
   {id:'korea',country:'한국',name:'햇살 한옥',file:'room-korea.png',description:'한지와 나무 창살, 고요한 마당의 풍경',color:'#a48564'},
   {id:'japan',country:'일본',name:'느긋한 다다미방',file:'room-japan.png',description:'종이 미닫이문과 다다미, 둥근 정원 창',color:'#91a17e'},
   {id:'france',country:'프랑스',name:'라벤더 시골집',file:'room-france.png',description:'파스텔 창틀과 헤링본 바닥, 들판의 햇살',color:'#a399b1'},

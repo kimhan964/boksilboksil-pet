@@ -1,0 +1,15 @@
+{
+  "format": "WOFF2",
+  "glyphsChecked": "모루복슬펫텃밭포만감행복청결기운수분옷장도토리0123456789",
+  "sources": [
+    "https://github.com/google/fonts/tree/main/ofl/jua",
+    "https://github.com/google/fonts/tree/main/ofl/gowundodum"
+  ],
+  "fontsBytes": 814600,
+  "bodyFont": "Gowun Dodum",
+  "licenseFiles": [
+    "Jua-OFL.txt",
+    "GowunDodum-OFL.txt"
+  ],
+  "titleFont": "Jua"
+}

@@ -1,10 +1,10 @@
 export const CROPS=[
- {id:'carrot',name:'당근',seed:4,seconds:120,harvests:0,art:'assets/garden/carrot-painted-v1.png'},
- {id:'herb',name:'허브',seed:7,seconds:240,harvests:2,art:'assets/garden/herb-painted-v1.png'},
- {id:'berry',name:'산딸기',seed:10,seconds:360,harvests:5,art:'assets/garden/berry-painted-v1.png'},
- {id:'mushroom',name:'버섯',seed:12,seconds:480,harvests:9,art:'assets/garden/mushroom-painted-v1.png'},
- {id:'tomato',name:'토마토',seed:14,seconds:600,harvests:12,art:'assets/garden/tomato-painted-v1.png'},
- {id:'pumpkin',name:'호박',seed:18,seconds:720,harvests:18,art:'assets/garden/pumpkin-painted-v1.png'}
+ {id:'carrot',name:'당근',seed:4,seconds:120,harvests:0,art:'assets/garden-thin-v2/carrot-icon.png'},
+ {id:'herb',name:'허브',seed:7,seconds:240,harvests:2,art:'assets/garden-thin-v2/herb-icon.png'},
+ {id:'berry',name:'산딸기',seed:10,seconds:360,harvests:5,art:'assets/garden-thin-v2/berry-icon.png'},
+ {id:'mushroom',name:'버섯',seed:12,seconds:480,harvests:9,art:'assets/garden-thin-v2/mushroom-icon.png'},
+ {id:'tomato',name:'토마토',seed:14,seconds:600,harvests:12,art:'assets/garden-thin-v2/tomato-icon.png'},
+ {id:'pumpkin',name:'호박',seed:18,seconds:720,harvests:18,art:'assets/garden-thin-v2/pumpkin-icon.png'}
 ];
 export const GARDEN_DISHES=[
  ['carrot-soup','텃밭 당근 수프','carrot',2,'dish-0-0','정식',34,8,4],

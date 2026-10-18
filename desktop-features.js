@@ -26,7 +26,7 @@ export const DESKTOP_FURNITURE=[
  {id:'acorn',name:'도토리 오뚝이',price:0,cat:'놀이감',w:.08,group:'play',count:0,minutes:0,activity:'toy'},
  {id:'water',name:'작은 세라믹 물컵',price:0,cat:'소품',w:.08,group:'feed',count:0,minutes:0,activity:'drink'}
 ].map(i=>({...i,file:'desktop/'+i.id+'.webp'})).concat(PERSONAL_PROPS.filter(i=>i.id.endsWith('-plant')),SIGNATURE_FURNITURE);
-export const LIFE={
+export const LIFE={bath:{name:'거품 목욕',icon:'clean',happy:8,clean:30,group:'sleep'},plush:{name:'인형 안고 놀기',icon:'play',happy:15,group:'play'},
  explore:{name:'취향 놀이감 살펴보기',icon:'play',happy:10,group:'play'},tea:{name:'식탁에서 티타임',icon:'feed',happy:6,energy:5,group:'feed'},
  fish:{name:'물고기 구경',icon:'play',happy:8,group:'play'},nature:{name:'잎새 구경',icon:'flower',happy:6,group:'play'},clock:{name:'시계 살펴보기',icon:'sun',happy:4,group:'read'},
  read:{name:'책 읽기',icon:'journal',happy:8,energy:2,group:'read'},music:{name:'음악 듣기',icon:'sound-on',happy:12,energy:3,group:'music'},

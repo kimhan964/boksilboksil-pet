@@ -1,5 +1,7 @@
+import {SOFT_BEHAVIORS,behaviorRequirement,softMotion,smooth,lifeBank} from './soft-actions.js';
+import {EXTRA_HOME,prepareSoftHome,softHomeFile,furnitureFrame,ladderLift} from './soft-home.js';
 import {MOVABLE_TOYS,toyTouchRect,nearestToy,moveToy,roomFloorTarget,toyIconFile,playObstacle,toyLanding,toyDropFrame} from './room-interaction.js';
-
+import {connectMobileCommerce} from './mobile-commerce-ui.js';
 import {freePosition,positionClear} from './furniture-placement.js';
 function placementRect(f){if(f.uiBlock)return f.bounds;const r=furnitureRect(f);return {x:r.x/width,y:r.y/height,w:r.w/width,h:r.h/height};}
 function placementObstacle(f){if(f.uiBlock)return true;const item=CATALOG.find(i=>i.id===f.id);return item&&visibleFurniture(item,state.species)&&!item.wall&&f.id!=='rug';}
@@ -38,7 +40,7 @@ import {GOALS,DAILY_GOALS,SKIN_LEVELS,FURNITURE_LEVELS,PERIODS,TIME_UNLOCKS,time
 import {SKINS,findSkin} from './skins.js';
 import {UI_ICONS,iconHTML} from './ui-icons.js';
 const $=s=>document.querySelector(s);
-
+const mobileLicense=connectMobileCommerce();
 const SPECIES=[['rabbit','토끼','모루'],['otter','수달','보리'],['squirrel','다람쥐','도토'],['hedgehog','고슴도치','밤이'],['raccoon','너구리','누리'],['fox','여우','솔'],['bear','곰','두리'],['owl','부엉이','달'],['cat','고양이','치즈'],['puppy','강아지','쿠키'],['hamster','햄스터','콩이'],['panda','판다','포포'],['red_panda','레서판다','단풍'],['lamb','아기 양','몽실'],['koala','코알라','코코'],['penguin','펭귄','빙글']];
 const CATALOG=[
   {id:'sofa',name:'토끼 귀 미니 소파',price:0,cat:'가구',w:.27},
@@ -56,6 +58,7 @@ const CATALOG=[
   ,...DESKTOP_FURNITURE
   ,{id:'basket',name:'숨은 간식 바구니',price:25,cat:'놀이감',w:.12,file:'desktop/basket.webp',activity:'explore'}
 ];
+CATALOG.push(...EXTRA_HOME);prepareSoftHome(CATALOG);
 const STORE='boksil-mobile-landscape-v1';
 const initial=()=>({version:1,species:'rabbit',coins:350,bond:0,created:Date.now(),updated:Date.now(),stats:{hunger:80,happy:85,clean:90,energy:90},petStats:{},owned:['sofa','table','rug','plant'],furniture:[{id:'sofa',x:.24,y:.66},{id:'rug',x:.54,y:.85},{id:'table',x:.73,y:.77},{id:'plant',x:.88,y:.57}],journal:[{at:Date.now(),text:'모루와 숲속의 작은 집에 이사 왔어요. 우리의 첫 번째 하루!'}],daily:{}});
 let state=initial(),hadSave=false;
@@ -69,7 +72,8 @@ initProgress(state);initGarden(state);initFood(state);initDesktop(state,hadSave)
 // Time away affects needs gently, capped so returning remains welcoming.
 const away=Math.min(8,Math.max(0,(Date.now()-state.updated)/3600000));
 for(const [key,rate]of Object.entries({hunger:3,happy:1,clean:2,energy:1,hydration:3}))state.stats[key]=Math.max(20,state.stats[key]-away*rate);
-const animationCatalog=await fetch('assets/animations/catalog.json').then(r=>r.json());
+const homeCatalog=await fetch('assets/thin-home-v3/catalog.json').then(r=>r.json());
+const animationCatalog=await fetch('assets/thin-line-v3/catalog.json').then(r=>r.json());
 const animationMetadata=new Map();for(const group of [animationCatalog.costumes,animationCatalog.base])for(const species of Object.values(group))for(const banks of Object.values(species))for(const spec of Object.values(banks))animationMetadata.set(spec.file,{size:spec.size,offset:spec.offset,frames:spec.count});
 const imageCache=new Map(),atlasCache=new Map();
 function image(file){if(!imageCache.has(file)){const img=new Image();img.src='assets/'+file;img.addEventListener('load',()=>{if(width>1)keepPlaythingsApart();});imageCache.set(file,img);}return imageCache.get(file);}
@@ -91,7 +95,7 @@ function dropToy(f,fromY=null){const p=toyLanding(f,{x:f.x,y:Math.max(.76,f.y)},
 function toyVisualRect(f){const r=furnitureRect(f),drop=toyDrops.get(f.id);return drop?{...r,y:r.y+toyDropFrame(drop.elapsed,drop.startOffset).offset*height}:r;}
 function advanceToyDrops(dt){for(const [id,drop]of toyDrops){drop.elapsed+=dt;if(toyDropFrame(drop.elapsed,drop.startOffset).done)toyDrops.delete(id);}}
 
-function toyIconHTML(id){return '<img class="ui-art" src="assets/'+toyIconFile(id)+'" alt="" aria-hidden="true">';}
+function toyIconHTML(id){return '<img class="ui-art" src="assets/'+(softHomeFile(id)||toyIconFile(id))+'" alt="" aria-hidden="true">';}
 const tableMealButton=document.createElement('button');tableMealButton.type='button';tableMealButton.className='table-meal-target';tableMealButton.hidden=true;room.parentElement.append(tableMealButton);
 tableMealButton.onclick=()=>{const meal=tableMeal(state);if(meal)care('feed',meal.id);};
 function diningTable(){return roomFurniture().find(f=>f.id==='table')||roomFurniture().find(f=>CATALOG.find(i=>i.id===f.id)?.kind==='table');}
@@ -112,10 +116,10 @@ function syncToyTargets(){
  }
  const active=toyDrag?.item.id||toySession?.id;toyStatus.hidden=hidden||!active;
  if(!toyStatus.hidden){const phase=toyDrag?'상하좌우로 이동 중':toySession.phase==='falling'?'바닥으로 내려오는 중':toySession.phase==='approach'?'친구가 다가오는 중':toySession.phase==='follow'?'친구가 따라가는 중':'함께 놀고 있어요';const label=TOYS.find(t=>t.id===active).name+' · '+phase;if(toyStatus.dataset.label!==label){toyStatus.dataset.label=label;toyStatus.innerHTML=toyIconHTML(active)+'<span>'+label+'</span>';}}
- $('#room-tip').style.visibility=active&&!hidden?'hidden':'';
+ $('#room-tip').style.visibility=(active||pet.action||heldPet)&&!hidden?'hidden':'';
 }
 
-const desktopUI=createDesktopUI({state,image,iconHTML,drawPet,openSheet,closeSheet,toast,log,save,updateUI,care,startToy,setFollow,beginLife,canAct,beginHabit,animationCatalog,catalog:CATALOG,activityFor,shop,isFurnitureOpen:furnitureOpen,furnitureCondition,openFurniture:openAlbumFurniture,recordPurchase:()=>recordEvent(state,'buy'),furnitureImage,furnitureFile,onFurnitureStyle:()=>{arrangementChanged=true;keepPlaythingsApart();}});
+const desktopUI=createDesktopUI({state,image,iconHTML,drawPet,openSheet,closeSheet,toast,log,save,updateUI,care,startToy,setFollow,beginLife,canAct,beginHabit,animationCatalog,catalog:CATALOG,activityFor,shop,roster:SPECIES,selectCompanion,startBehavior,behaviorRequirement: id=>behaviorRequirement(state,id),isFurnitureOpen:furnitureOpen,furnitureCondition,openFurniture:openAlbumFurniture,recordPurchase:()=>recordEvent(state,'buy'),furnitureImage,furnitureFile,onFurnitureStyle:()=>{arrangementChanged=true;keepPlaythingsApart();}});
 const gardenWorker=createGardenWorker(state,{timing:plan=>gardenSpace.timing(plan)});
 const gardenSpace=createGardenSpace({state,save,toast,recordEvent,updateUI,log,iconHTML,closeSheet,drawPet,worker:gardenWorker,motion:()=>animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk,kitchen:crop=>gardenUI.kitchen(crop),farm:()=>cozyLifeUI.farm(),market:()=>cozyLifeUI.market(),prepare:()=>{if(edit||pet.action&&!pet.action.automatic){toast('하던 돌봄이나 꾸미기를 마친 뒤 텃밭으로 가요.');return false;}cancelInteraction();pet.action=null;pet.target=null;return true;},onHome:()=>{closeSheet();pet.until=animTime+3;roomCaption();resize();}});
 const gardenUI=createGardenUI({state,openSheet,save,toast,iconHTML,recordEvent,updateUI,log,restaurant,enterGarden:crop=>gardenSpace.enter(crop),updateGarden:()=>gardenSpace.update()});
@@ -123,13 +127,47 @@ const cozyLifeUI=createCozyLifeUI({state,catalog:CATALOG,iconHTML,openSheet,save
 function buyHomeFurniture(id){const result=purchaseFurniture(state,id,CATALOG,furnitureOpen);if(!result)return false;if(!state.desktop.manualTools.includes(id))state.desktop.manualTools.push(id);recordEvent(state,'buy');log(result.item.name+'를 '+result.price+' 도토리로 주문했어요.');return result;}
 function placeOwnedFurniture(id){if(gardenSpace.active)gardenSpace.home();const item=CATALOG.find(i=>i.id===id);if(!item||!state.owned.includes(id)||!visibleFurniture(item,state.species))return false;if(state.furniture.some(f=>f.id===id))state.furniture=state.furniture.filter(f=>f.id!==id);else{const f={id,x:.5,y:item.wall?.35:.75};if(!item.wall&&id!=='rug'){const p=freePosition(f,placementItems(),placementRect,MOVABLE_TOYS.includes(f.id)?playObstacle:placementObstacle);if(!p){toast('빈 공간이 부족해요. 다른 가구를 수납하거나 옮겨 주세요.');return false;}Object.assign(f,p);}state.furniture.push(f);keepPlaythingsApart();if(MOVABLE_TOYS.includes(id))dropToy(f);}return true;}
 async function restoreHomeLayout(index){const layout=state.cozy.layouts[index];if(!layout)return false;const skin=isUnlocked(state,'skin',layout.skin)?findSkin(layout.skin):findSkin(state.skin);try{const next=image(skin.file);await next.decode();if(gardenSpace.active)gardenSpace.home();cancelInteraction();pet.action=null;pet.target=null;if(edit)setEdit(false);const result=restoreLayout(state,index,CATALOG,id=>isUnlocked(state,'skin',id));if(!result)return false;background=next;state.skin=skin.id;keepPlaythingsApart();roomCaption();recordEvent(state,'arrange');return result;}catch{return false;}}
-function canAct(){return !edit&&(!pet.action||pet.action.automatic)&&!heldPet;}
+function selectCompanion(id){
+ if(!SPECIES.some(s=>s[0]===id))return false;
+ if(!canAct()){toast('하던 일을 마친 뒤 친구를 만나 주세요.');return false;}
+ cancelInteraction();pet.action=null;pet.target=null;pet.words=null;
+ state.petStats[state.species]={...state.stats};state.species=id;state.companionId=id;
+ state.stats={hunger:80,happy:85,clean:90,energy:90,hydration:75,...state.petStats[id]};
+ state.desktop.outfits[id]||={style:'none',color:0};
+ pet.x=.51;pet.y=.83;pet.until=animTime+4;pet.walkElapsed=0;refreshDesktop(state);
+ save();updateUI();log(name()+'와 우리 집에서 함께 지내요.');return true;
+}
+function startBehavior(id,automatic=false){
+ const descriptor=SOFT_BEHAVIORS.find(a=>a.id===id);if(!descriptor)return false;
+ if(!behaviorRequirement(state,id).open){toast(behaviorRequirement(state,id).text+'면 함께할 수 있어요.');return false;}
+ if(!canAct()){if(!automatic)toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');return false;}
+ interruptAutonomy();followMode=false;pet.target=null;
+ const spec=animationCatalog.base[state.species].adult[id==='stumble'?'landing':id],direction=pet.x<.5?1:-1;
+ const bodySize=Math.min(width*.16,height*.37),unit=bodySize/256*growthInfo(state).scale;
+ const distance=id==='roll'?Math.PI*2*(spec.roll_radius||85.5)*unit:id==='fly'?Math.min(135,width*.3):id==='run'?Math.min(210,width*.5):0;
+ const from={x:pet.x,y:pet.y},goal=floorTarget(pet.x+direction*distance/width,pet.y);
+ const duration=id==='jump'?spec.duration:descriptor.duration;
+ pet.action={type:'behavior',bank:id,automatic,elapsed:0,duration,remaining:duration,from,goal,direction,travelPixels:0};pet.dir=id==='roll'?1:direction;
+ nextBehavior=animTime+duration+28+Math.random()*20;if(!automatic)toast(descriptor.title+'!');return true;
+}
+function advanceBehavior(){
+ const a=pet.action;if(a?.type!=='behavior')return;
+ const p=Math.min(1,a.elapsed/a.duration),travel=smooth(.1,.88,p);
+ pet.x=a.from.x+(a.goal.x-a.from.x)*travel;pet.y=a.from.y;a.travelPixels=Math.abs(pet.x-a.from.x)*width;
+}
+function finishBehavior(){
+ const a=pet.action;if(a.bank==='drink')state.stats.hydration=clamp(state.stats.hydration+20,0,100);
+ if(a.bank==='pajama')state.stats.energy=clamp(state.stats.energy+6,0,100);
+ if(!a.automatic)log(name()+'와 '+SOFT_BEHAVIORS.find(i=>i.id===a.bank).title+'을 함께했어요.');
+ pet.action=null;pet.until=animTime+4;save();updateUI();
+}
+function canAct(){return mobileLicense.licensed&&!edit&&(!pet.action||pet.action.automatic)&&!heldPet;}
 function interruptAutonomy(){if(pet.action?.automatic){pet.action=null;pet.words=null;pet.target=null;pet.until=animTime+5;}}
-function furnitureOpen(item){return sourceUnlocked(state,item)||state.owned.includes(item.id)||(item.id==='basket'?state.desktop.counts.play>=1||state.progress.playSeconds>=120:DESKTOP_FURNITURE.some(i=>i.id===item.id)?desktopUnlocked(state,item):isUnlocked(state,'furniture',item.id));}
-function furnitureCondition(item){const source=sourceCondition(state,item);return source&&!item.signature?source+' 또는 '+(Number.isFinite(item.minutes)?'플레이 '+item.minutes+'분':unlockCondition(state,'furniture',item.id)):(item.id==='basket'?'함께 놀기 1회 또는 플레이 2분':DESKTOP_FURNITURE.some(i=>i.id===item.id)?desktopCondition(state,item):unlockCondition(state,'furniture',item.id));}
-function activityFor(id){return DESKTOP_FURNITURE.find(i=>i.id===id)?.activity||({table:'tea',clock:'clock',plant:'nature',sofa:'rest',bed:'rest',chair:'read',shelf:'read',lamp:'rest',record:'music',aquarium:'fish',tv:'watch'}[id]);}
+function furnitureOpen(item){return sourceUnlocked(state,item)||state.owned.includes(item.id)||(item.id==='basket'?state.desktop.counts.play>=1||state.progress.playSeconds>=120:[...DESKTOP_FURNITURE,...EXTRA_HOME].some(i=>i.id===item.id)?desktopUnlocked(state,item):isUnlocked(state,'furniture',item.id));}
+function furnitureCondition(item){const source=sourceCondition(state,item);return source&&!item.signature?source+' 또는 '+(Number.isFinite(item.minutes)?'플레이 '+item.minutes+'분':unlockCondition(state,'furniture',item.id)):(item.id==='basket'?'함께 놀기 1회 또는 플레이 2분':[...DESKTOP_FURNITURE,...EXTRA_HOME].some(i=>i.id===item.id)?desktopCondition(state,item):unlockCondition(state,'furniture',item.id));}
+function activityFor(id){return CATALOG.find(i=>i.id===id)?.activity||DESKTOP_FURNITURE.find(i=>i.id===id)?.activity||({table:'tea',clock:'clock',plant:'nature',sofa:'rest',bed:'rest',chair:'read',shelf:'read',lamp:'rest',record:'music',aquarium:'fish',tv:'watch'}[id]);}
 function setFollow(on){if(gardenSpace.active)gardenSpace.home();if(on&&!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');interruptAutonomy();followMode=on;followMoved=0;followStart=null;toast(on?'방 바닥을 누른 채 움직여요. 산책을 마치려면 손가락을 떼세요.':'산책을 마쳤어요.');}
-function beginLife(id,automatic=false){if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');const f=state.furniture.find(i=>i.id===id&&visibleFurniture(CATALOG.find(c=>c.id===id),state.species)),activity=activityFor(id);if(!f||!LIFE[activity])return;followMode=false;const kind=lifeKind(id,activity);pet.action={type:'life',activity,kind,automatic,elapsed:0,duration:animationCatalog.durations[kind],remaining:null};pet.target=floorTarget(f.x,f.y+.04);if(!automatic)toast(name()+'와 '+LIFE[activity].name+' 시간이에요.');}
+function beginLife(id,automatic=false){if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');const f=state.furniture.find(i=>i.id===id&&visibleFurniture(CATALOG.find(c=>c.id===id),state.species)),activity=activityFor(id);if(!f||!LIFE[activity])return;interruptAutonomy();followMode=false;const kind=lifeBank(CATALOG.find(i=>i.id===id),activity),duration=id==='wall_shelf'?10:animationCatalog.durations[kind]||8;pet.action={type:'life',activity,kind,furnitureId:id,automatic,elapsed:0,duration,remaining:null};pet.target=floorTarget(f.x,f.y+.04);if(!automatic)toast(name()+'와 '+LIFE[activity].name+' 시간이에요.');}
 function finishLife(){const activity=pet.action.activity,data=LIFE[activity];for(const key of ['happy','energy','clean'])if(data[key])state.stats[key]=clamp(state.stats[key]+data[key],0,100);if(['tea','drink'].includes(activity))state.stats.hydration=clamp(state.stats.hydration+(activity==='drink'?40:25),0,100);completeDesktopActivity(state,activity);recordEvent(state,activity);pet.action=null;pet.until=animTime+6;burst(data.icon);log(name()+'와 '+data.name+' 시간을 보냈어요.');updateUI();toast('포근한 '+data.name+' · 조금 더 친해졌어요.');showReaction(({drink:'water',rest:'rest',nature:'garden',explore:'toy',fish:'rest',clock:'rest',watch:'rest'})[activity]||activity);}
 function beginHabit(automatic=false){if(gardenSpace.active)gardenSpace.home();if(!canAct())return toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');interruptAutonomy();const info=HABITS[state.species],baby=growthInfo(state).stage==='baby';pet.target=null;pet.action={type:'habit',automatic,pose:baby?(['rabbit','puppy','penguin'].includes(state.species)?'jump':'look'):({rabbit:'jump',otter:'pet',squirrel:'sniff',hedgehog:'rest',raccoon:'rub',fox:'jump',bear:'stretch',owl:'look'}[state.species]||'look'),remaining:info.seconds};if(!automatic)toast(name()+'의 '+(baby?'작은 몸짓':info.name)+'을 함께 봐요.');}
 function finishHabit(){if(!pet.action.automatic){state.stats.happy=clamp(state.stats.happy+8,0,100);completeDesktopActivity(state,'personality');recordEvent(state,'personality');const earned=reward('personality',6);log(name()+'의 작은 몸짓을 함께 관찰했어요.');toast('우리 친구의 취향을 알아가요.'+(earned?' +'+earned+' 도토리':''));updateUI();}pet.action=null;pet.until=animTime+5;}
@@ -220,7 +258,7 @@ function restaurant(tab='식당 메뉴',filter='전체'){
 function unlockedName(entry){return entry.kind==='furniture'?CATALOG.find(i=>i.id===entry.id).name:entry.kind==='skin'?findSkin(entry.id).name:SPECIES.find(s=>s[0]===entry.id)[2];}
 let playClock=performance.now(),timeSave=0,nativePaused=false;
 setInterval(()=>{
-  gardenUI.updateTimers();const now=performance.now(),seconds=(now-playClock)/1000;playClock=now;if(document.hidden||nativePaused)return;
+  gardenUI.updateTimers();const now=performance.now(),seconds=(now-playClock)/1000;playClock=now;if(document.hidden||nativePaused||!mobileLicense.licensed||!$('#mobile-license-gate').hidden)return;
 
   const opened=addPlayTime(state,seconds).filter(entry=>entry.kind!=='friend'),newFood=refreshFoodUnlocks(state);timeSave+=seconds>0&&seconds<=5?seconds:0;
   if(timeSave>=5||opened.length||newFood.length){updateUI();updateTimeSheet();}
@@ -237,62 +275,102 @@ function drawPet(c,x,y,size,species,time=0,walking=false,dir=1,action=null,previ
  const current=animationCatalog.base[species][age];
  const pose=motionPose||{bank,elapsed:time,duration:current[bank]?.duration||4.8};
  const resolved=resolveAnimation(animationCatalog,species,age,look,pose);if(!resolved)return;
- let spec=resolved.spec,sheet=atlas(spec.file),sampling={...pose,bank:resolved.bank};
+ let spec=resolved.spec,sheet=atlas(spec.file),sampling={...pose,bank:resolved.bank,...resolved.sampling};
  if(!resolved.supported){sampling.elapsed=time;sampling.duration=spec.duration||4.8;delete sampling.progress;}
  const hop=current.walk.hop;if(pose.bank==='walk'&&resolved.bank==='walk'&&hop)sampling.progress=hopPhase(pose.elapsed||0,hop);
  if(!sheet){const idle=resolveAnimation(animationCatalog,species,age,look,{bank:'idle'});spec=idle.spec;sheet=atlas(spec.file);sampling={bank:'idle',elapsed:time,duration:spec.duration||4.8};}
  if(!sheet)return;
  const frame=animationFrame(spec,sampling),side=spec.cell_size,anchor=spec.anchor||[128,232],unit=size/256*(look.previewAge?(age==='baby'?.93:1):look.adultPreview?1:growth.scale);
  c.save();c.translate(x,y);c.scale(dir,1);
+ const transform=softMotion(spec,pose,unit);c.translate(0,-transform.lift);
+ if(transform.angle){const pivot=pose.bank==='roll'?spec.roll_center||[160,210]:anchor;c.translate((pivot[0]-anchor[0])*unit,(pivot[1]-anchor[1])*unit);c.rotate(transform.angle);c.translate(-(pivot[0]-anchor[0])*unit,-(pivot[1]-anchor[1])*unit);}
  if(pose.bank==='walk'&&resolved.bank==='walk'&&hop)c.translate(0,-hopLift(pose.elapsed||0,hop)*unit);
- if(pose.bank==='emotions'){const motion=expressionPose(SPECIES.findIndex(i=>i[0]===species),pose.emotion,pose.event,pose.progress??((pose.elapsed%(pose.duration||2.8))/(pose.duration||2.8)),pose.strength);c.translate(motion.x*unit,motion.y*unit);c.rotate(motion.angle);}
+ if(pose.bank==='emotions'&&!spec.wholeBody){const motion=expressionPose(SPECIES.findIndex(i=>i[0]===species),pose.emotion,pose.event,pose.progress??((pose.elapsed%(pose.duration||2.8))/(pose.duration||2.8)),pose.strength);c.translate(motion.x*unit,motion.y*unit);c.rotate(motion.angle);}
  // Restore the cropped source coordinates inside one clipped cel, without
  // duplicating a 60-frame bank in another large canvas allocation.
  c.translate(-anchor[0]*unit,-anchor[1]*unit);c.scale(unit,unit);c.beginPath();c.rect(0,0,side,side);c.clip();
  c.drawImage(sheet,spec.offset[0]-(frame%spec.columns)*side,spec.offset[1]-Math.floor(frame/spec.columns)*side);c.restore();
- const hand=spec.anchors?.[frame]?.hand||[155,182];return {hand:{x:x+(hand[0]-anchor[0])*unit*dir,y:y+(hand[1]-anchor[1])*unit-(pose.bank==='walk'&&hop?hopLift(pose.elapsed||0,hop)*unit:0)}};
+ const hand=spec.anchors?.[frame]?.hand||spec.hand||[155,182];return {hand:{x:x+(hand[0]-anchor[0])*unit*dir,y:y+(hand[1]-anchor[1])*unit-(pose.bank==='walk'&&hop?hopLift(pose.elapsed||0,hop)*unit:0)}};
 }
 function furnitureFile(item,f){return furnitureAsset(item,f);}
 function roomFurniture(){return state.furniture.filter(f=>visibleFurniture(CATALOG.find(i=>i.id===f.id),state.species));}
 function furnitureRect(f){const item=CATALOG.find(i=>i.id===f.id),img=image(furnitureFile(item,f));const ratio=img.naturalHeight/(img.naturalWidth||1);const w=Math.min(width*item.w*clamp(Number(f.scale)||1,.6,1.6),height*(item.wall?.27:.53)*clamp(Number(f.scale)||1,.6,1.6)/(ratio||1));const h=w*(ratio||.75);return {x:f.x*width-w/2,y:f.y*height-h,w,h};}
-function drawFurniture(f){const item=CATALOG.find(i=>i.id===f.id),img=image(furnitureFile(item,f)),r=toyVisualRect(f);if(toyDrops.has(f.id)){const ground=furnitureRect(f),lift=Math.abs(toyDropFrame(toyDrops.get(f.id).elapsed,toyDrops.get(f.id).startOffset).offset);ctx.save();ctx.fillStyle='#66503330';ctx.beginPath();ctx.ellipse(f.x*width,f.y*height,ground.w*(.22+.12*(1-Math.min(1,lift))),4,0,0,Math.PI*2);ctx.fill();ctx.restore();}if(img.complete&&img.naturalWidth){ctx.save();ctx.translate(r.x+r.w/2,r.y+r.h/2);if(f.id==='toy_ball')ctx.rotate(f.roll||0);if(f.id==='acorn'&&toySession?.id==='acorn')ctx.rotate(Math.sin(animTime*12)*.16);if(f.flip)ctx.scale(-1,1);ctx.drawImage(furnitureImage(img,f.id,f.style),-r.w/2,-r.h/2,r.w,r.h);ctx.restore();}if(edit){ctx.save();ctx.strokeStyle=selected===f.id?'#526e55':'#fdf9ebbb';ctx.lineWidth=selected===f.id?2:1;ctx.setLineDash([5,4]);ctx.strokeRect(r.x-3,r.y-3,r.w+6,r.h+6);if(selected===f.id){ctx.fillStyle='#526e55';ctx.fillRect(r.x+r.w/2-4,r.y+r.h-4,8,8);}ctx.restore();}}
+function activeFurniture(){return !pet.target&&pet.action?.furnitureId?state.furniture.find(f=>f.id===pet.action.furnitureId):null;}
+function drawFurniture(f){
+ const item=CATALOG.find(i=>i.id===f.id),r=toyVisualRect(f),using=activeFurniture()?.id===f.id;
+ if(using&&f.id==='toy_plush')return;
+ const kind=item.kind||f.id,key=kind==='bed'?'daybed':kind,animation=homeCatalog.animations[key];
+ const movingMouse=f.id==='toy_mouse'&&(toySession?.id===f.id||toyDrag?.item.id===f.id);
+ const animated=animation&&(using||movingMouse),img=image(animated?animation.file:furnitureFile(item,f));
+ if(toyDrops.has(f.id)){const lift=Math.abs(toyDropFrame(toyDrops.get(f.id).elapsed,toyDrops.get(f.id).startOffset).offset);ctx.save();ctx.fillStyle='#66503330';ctx.beginPath();ctx.ellipse(f.x*width,f.y*height,r.w*(.22+.12*(1-Math.min(1,lift))),4,0,0,Math.PI*2);ctx.fill();ctx.restore();}
+ if(img.complete&&img.naturalWidth){
+  ctx.save();ctx.translate(r.x+r.w/2,r.y+r.h/2);if(f.id==='toy_ball')ctx.rotate(f.roll||0);if(f.id==='acorn'&&toySession?.id==='acorn')ctx.rotate(Math.sin(animTime*12)*.16);if(f.flip)ctx.scale(-1,1);
+  if(animated){const frame=furnitureFrame(animation,movingMouse?animTime:pet.action.elapsed,true),styled=furnitureImage(img,f.id,f.style,frame);if(styled===img)ctx.drawImage(img,frame.x,frame.y,frame.w,frame.h,-r.w/2,-r.h/2,r.w,r.h);else ctx.drawImage(styled,-r.w/2,-r.h/2,r.w,r.h);}
+  else ctx.drawImage(furnitureImage(img,f.id,f.style),-r.w/2,-r.h/2,r.w,r.h);ctx.restore();
+ }
+ if(edit){ctx.save();ctx.strokeStyle=selected===f.id?'#526e55':'#fdf9ebbb';ctx.lineWidth=selected===f.id?2:1;ctx.setLineDash([5,4]);ctx.strokeRect(r.x-3,r.y-3,r.w+6,r.h+6);ctx.restore();}
+}
+function lifeVisual(size){
+ const f=activeFurniture(),a=pet.action;let x=pet.x*width,y=pet.y*height,pose=roomPose(),front=null,plush=null,ladder=null;
+ if(!f)return {x,y,pose};const kind=CATALOG.find(i=>i.id===f.id).kind||f.id,r=furnitureRect(f),elapsed=a.elapsed||0,remaining=Math.max(0,a.duration-elapsed),mix=Math.min(smooth(0,.65,elapsed),smooth(0,.65,remaining));
+ if(['sofa','bed','bathtub'].includes(kind)){
+  x+=(r.x+r.w*.51-x)*mix;y+=(r.y+r.h*(kind==='sofa'?.70:kind==='bed'?.68:.62)-y)*mix;
+  if(f.id==='bathtub')front={...r,file:homeCatalog.bathFront.file,flip:f.flip,style:f.style};
+ }
+ if(f.id==='wall_shelf'){
+  const climbHeight=Math.max(20,pet.y*height-(r.y+r.h*.7)-size*.4);
+  if(elapsed<7.4){y-=ladderLift(elapsed,climbHeight);pose={bank:'carry',elapsed,duration:.86};}
+  else pose={bank:'study',elapsed:elapsed-7.4};
+  ladder={x:pet.x*width,y:pet.y*height,height:climbHeight+size*.65};
+ }
+ if(f.id==='toy_plush')plush={file:softHomeFile('toy_plush'),size:size*.38*mix};
+ return {x,y,pose,front,plush,ladder};
+}
+function drawPetFurniture(view,size){
+ if(view.ladder){const a=image('thin-home-v3/library-ladder.webp');if(a.complete&&a.naturalWidth){const r=view.ladder,w=r.height*a.naturalWidth/a.naturalHeight;ctx.drawImage(a,r.x-w/2,r.y-r.height,w,r.height);}}
+ const result=drawPet(ctx,view.x,view.y,size,state.species,animTime,Boolean(pet.target),pet.dir,null,null,view.pose);
+ if(view.plush&&result){const art=image(view.plush.file),s=view.plush.size;if(art.complete&&art.naturalWidth)ctx.drawImage(art,result.hand.x-s/2,result.hand.y-s/2,s,s);}
+ if(view.front){const f=view.front,img=image(f.file);if(img.complete&&img.naturalWidth){ctx.save();ctx.translate(f.x+f.w/2,f.y+f.h/2);if(f.flip)ctx.scale(-1,1);ctx.drawImage(furnitureImage(img,'bathtub',f.style),-f.w/2,-f.h/2,f.w,f.h);ctx.restore();}}
+}
 function floorTarget(x,y){return roomFloorTarget(x,y,state.desktop.settings.activitySpace);}
 function clearFloorPoint(){for(let n=0;n<15;n++){const q=floorTarget(.08+Math.random()*.84,.70+Math.random()*.23);if(!roomFurniture().some(f=>!CATALOG.find(i=>i.id===f.id).wall&&f.id!=='rug'&&Math.abs(q.x-f.x)<.10&&Math.abs(q.y-f.y)<.08))return q;}return{x:.5,y:.88};}
 function reward(key,amount){const day=dayKey(),tag=day+':'+key;const count=state.daily[tag]||0;state.daily[tag]=count+1;const earned=count<5?amount:0;state.coins+=earned;state.bond+=count<5?3:1;return earned;}
-function drawIcon(c,name,x,y,size){const art=image(name.startsWith('toy:')?toyIconFile(name.slice(4)):'ui-icons/'+name+'.png');if(art.complete&&art.naturalWidth)c.drawImage(art,x-size/2,y-size/2,size,size);}
+function drawIcon(c,name,x,y,size){const art=image(name.startsWith('toy:')?(softHomeFile(name.slice(4))||toyIconFile(name.slice(4))):'ui-icons/'+name+'.png');if(art.complete&&art.naturalWidth)c.drawImage(art,x-size/2,y-size/2,size,size);}
 function burst(icon){for(let i=0;i<5;i++)particles.push({x:pet.x*width+(Math.random()-.5)*25,y:pet.y*height-height*.13,age:0,icon:i===0?icon:'pet',vx:(Math.random()-.5)*25});}
 function finishCare(action){const data={feed:['hunger',25,'feed',12,'맛있는 당근을 먹었어요.'],pet:['happy',15,'pet',8,'따뜻하게 쓰다듬어 주었어요.'],play:['happy',22,'play',15,'실뭉치와 신나게 놀았어요.'],clean:['clean',30,'clean',10,'뽀송뽀송 목욕을 했어요.'],sleep:['energy',35,'sleep',8,'포근하게 쉬었어요.']}[action];let meal=null,newTaste=false;if(action==='feed'){newTaste=!state.food.eaten.includes(pet.action.foodId)&&pet.action.foodId!=='carrot';meal=eatFood(state,pet.action.foodId);if(!meal){pet.action=null;toast('요리를 찾을 수 없어요. 냉장고를 확인해 주세요.');return;}}else state.stats[data[0]]=clamp(state.stats[data[0]]+data[1],0,100);if(action==='play')state.stats.energy=clamp(state.stats.energy-8,0,100);const before=level(state);recordEvent(state,action);completeDesktopActivity(state,action);if(newTaste)recordEvent(state,'taste');const earned=reward(action,data[3]);burst(action==='play'&&pet.action?.toy?'toy:'+pet.action.toy:data[2]);tone();const completedToy=pet.action?.toy;const message=meal?meal.name+' 냠냠!'+(meal.favorite?' 좋아하는 요리예요.':''):(completedToy?TOYS.find(t=>t.id===completedToy).name+'와 즐겁게 놀았어요.':data[4]);toast(name()+' '+message+(earned?' +'+earned+' 도토리':''));log(name()+'와 '+message);pet.action=null;pet.until=animTime+3;updateUI();announceLevel(before);showReaction(action==='feed'?(meal?.favorite?'favorite_meal':'meal'):({pet:'pet',play:'toy',clean:'groom',sleep:'wake'})[action]);}
-function care(action,foodId=null){if(gardenSpace.active)gardenSpace.home();interruptAutonomy();followMode=false;if(edit){toast('꾸미기를 완료한 뒤 친구와 놀아주세요.');return;}if(pet.action){toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');return;}if(action==='feed'&&!foodId){restaurant();return;}if(action==='feed'&&(!FOODS.some(f=>f.id===foodId)||(foodId!=='carrot'&&!(state.food.stock[foodId]>0)))){toast('냉장고에 요리가 없어요. 식당에서 먼저 주문해 주세요.');return;}if(action==='feed'){serveFood(state,foodId);ensureDiningTable();save();}const targetId={feed:'table',sleep:'sofa',play:'rug'}[action];const target=roomFurniture().find(f=>f.id===targetId)||roomFurniture().find(f=>CATALOG.find(i=>i.id===f.id).kind===({feed:'table',sleep:'sofa'}[action]));const duration={feed:4.8,pet:2.4,play:6.4,clean:6.8,sleep:10.8}[action];pet.action={type:action,foodId,elapsed:0,duration,remaining:null};pet.target=target?floorTarget(target.x,target.y+.05):null;if(!pet.target)pet.action.remaining=duration;toast({feed:'식탁으로 총총, 요리를 먹으러 가요.',pet:'따뜻한 손길을 기다리고 있어요.',play:'실뭉치와 놀아볼까요?',clean:'보송보송 씻는 시간!',sleep:'잠깐, 포근하게 쉬어요.'}[action]);}
+function care(action,foodId=null){if(gardenSpace.active)gardenSpace.home();interruptAutonomy();followMode=false;if(edit){toast('꾸미기를 완료한 뒤 친구와 놀아주세요.');return;}if(pet.action){toast('친구가 하던 일을 마칠 때까지 기다려 주세요.');return;}if(action==='feed'&&!foodId){restaurant();return;}if(action==='feed'&&(!FOODS.some(f=>f.id===foodId)||(foodId!=='carrot'&&!(state.food.stock[foodId]>0)))){toast('냉장고에 요리가 없어요. 식당에서 먼저 주문해 주세요.');return;}if(action==='feed'){serveFood(state,foodId);ensureDiningTable();save();}const targetId={feed:'table',sleep:state.furniture.some(f=>f.id==='bed')?'bed':'sofa',play:'rug',clean:'bathtub'}[action];const target=roomFurniture().find(f=>f.id===targetId)||roomFurniture().find(f=>CATALOG.find(i=>i.id===f.id).kind===({feed:'table',sleep:'sofa'}[action]));const duration={feed:4.8,pet:2.4,play:6.4,clean:6.8,sleep:10.8}[action];pet.action={type:action,foodId,furnitureId:target?.id,elapsed:0,duration,remaining:null};pet.target=target?floorTarget(target.x,target.y+.05):null;if(!pet.target)pet.action.remaining=duration;toast({feed:'식탁으로 총총, 요리를 먹으러 가요.',pet:'따뜻한 손길을 기다리고 있어요.',play:'실뭉치와 놀아볼까요?',clean:'보송보송 씻는 시간!',sleep:'잠깐, 포근하게 쉬어요.'}[action]);}
 function roomPose(){
  if(heldPet)return holdPose(Math.max(0,animTime-heldPet.at),heldPet.moved);
  if(pet.target)return {bank:'walk',elapsed:pet.walkElapsed||0,duration:animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk.duration||2.2};
  const a=pet.action;if(!a)return {bank:'idle',elapsed:animTime,duration:4.8};
  const elapsed=a.elapsed||0,progress=clamp(elapsed/(a.duration||2.4),0,1);
  if(a.type==='expression')return {bank:'emotions',emotion:a.emotion,event:a.event,strength:a.strength,elapsed,progress,duration:a.duration};
+ if(a.type==='behavior')return {bank:a.bank,elapsed,progress:['run','drink','sing','study','work','pajama','fight','happy','sad','peek'].includes(a.bank)?undefined:progress,duration:a.duration,travelPixels:a.travelPixels,direction:a.direction};
  if(a.type==='motion')return {bank:a.bank,elapsed,progress,duration:a.duration};
- if(a.type==='transition'){if(a.long&&elapsed>.28)return {bank:'hold-recover',elapsed,progress:(elapsed-.28)/.36};return {bank:a.bank,elapsed,progress:a.reverse?1-elapsed/.28:elapsed/.28};}
+ if(a.type==='transition'){if(a.bank==='hold-release')return {bank:a.bank,elapsed,progress,duration:a.duration};if(a.long&&elapsed>.28)return {bank:'hold-recover',elapsed,progress:(elapsed-.28)/.36};return {bank:a.bank,elapsed,progress:a.reverse?1-elapsed/.28:elapsed/.28};}
  if(a.type==='habit')return {bank:ACTION_ART[a.pose]||a.pose,elapsed,duration:HABITS[state.species].seconds};
- if(a.type==='life')return {bank:a.activity==='drink'?'drink':'home-'+a.kind,elapsed,progress,duration:a.duration};
- if(a.type==='sleep')return {bank:'home-nap',elapsed,progress,duration:a.duration};
- if(a.type==='clean')return {bank:'home-groom',elapsed,progress,duration:a.duration};
- if(a.type==='play'&&!a.toy)return {bank:'home-play',elapsed,progress,duration:a.duration};
+ if(a.type==='life')return {bank:a.activity==='drink'?'drink':'home-'+a.kind,elapsed,duration:a.duration};
+ if(a.type==='sleep')return {bank:CATALOG.find(i=>i.id===a.furnitureId)?.kind==='sofa'||a.furnitureId==='sofa'?'home-rest':a.furnitureId?'home-nap':'sleep',elapsed,duration:a.duration};
+ if(a.type==='clean')return {bank:a.furnitureId?'home-bath':'pet',elapsed,duration:a.duration};
+ if(a.type==='play'&&!a.toy)return {bank:'home-play',elapsed,duration:a.duration};
  if(a.type==='pet')return {bank:'emotions',emotion:'happy',elapsed};
- return {bank:ACTION_ART[a.type]||'idle',elapsed,progress:a.toy?undefined:progress,duration:a.duration};
+ return {bank:ACTION_ART[a.type]||'idle',elapsed,duration:a.duration};
 }
+let nextBehavior=20;
 let nextStumble=30,nextSneeze=45,nextDeliveryTime=3,idleElapsed=0;
-function startSilly(bank,resume=null){const age=growthInfo(state).stage==='baby'?'baby':'adult',resolved=resolveAnimation(animationCatalog,state.species,age,state.desktop.outfits[state.species],{bank});if(!resolved?.supported)return false;pet.target=null;pet.action={type:'motion',bank,automatic:!resume||Boolean(resume.automatic),resume,elapsed:0,duration:bank==='stumble'?4.8:2.4,remaining:bank==='stumble'?4.8:2.4};if(bank==='stumble')nextStumble=animTime+60+Math.random()*30;else nextSneeze=animTime+45;return true;}
+function startSilly(bank,resume=null){const age=growthInfo(state).stage==='baby'?'baby':'adult',resolved=resolveAnimation(animationCatalog,state.species,age,state.desktop.outfits[state.species],{bank});if(!resolved?.supported)return false;pet.target=null;pet.action={type:'motion',bank,automatic:!resume||Boolean(resume.automatic),resume,elapsed:0,duration:bank==='stumble'?2.8:2.4,remaining:bank==='stumble'?2.8:2.4};if(bank==='stumble')nextStumble=animTime+60+Math.random()*30;else nextSneeze=animTime+45;return true;}
 function advanceDelivery(){if(animTime<nextDeliveryTime||pet.action||pet.target||heldPet||edit||followMode||state.stats.hunger<48||state.stats.hydration<45||state.stats.energy<35)return;const id=nextDelivery(state,CATALOG,furnitureOpen);if(!id)return;state.desktop.autoDelivered.push(id);state.desktop.arrivalSeen.push(id);state.owned.push(id);if(!state.furniture.some(f=>f.id===id)){const f={id,x:clamp(pet.x+.17,.16,.84),y:.85},p=freePosition(f,placementItems(),placementRect,MOVABLE_TOYS.includes(f.id)?playObstacle:placementObstacle);if(p)state.furniture.push({...f,...p});}keepPlaythingsApart();const delivered=state.furniture.find(f=>f.id===id);if(delivered&&MOVABLE_TOYS.includes(id))dropToy(delivered);nextDeliveryTime=animTime+2.5;burst('gift');save();updateUI();toast((CATALOG.find(i=>i.id===id)?.name||id)+' 선물이 도착했어요!');tone();}
 function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
-  const busy=Boolean($('#overlay').hidden===false);
+  const busy=Boolean($('#overlay').hidden===false)||!mobileLicense.licensed||!$('#mobile-license-gate').hidden;
   if(!busy&&!nativePaused&&!document.hidden)animTime+=dt;
   if(!busy&&!nativePaused&&!document.hidden){
   const idle=gardenWorker.advance(dt);if(idle){if(idle.type==='harvest'||idle.type==='cook'){recordEvent(state,idle.type);log(idle.message);}save();updateUI();gardenSpace.refresh();if($('#food-shop'))restaurant($('#food-shop').dataset.tab,$('#food-shop').dataset.filter);else gardenUI.updateCookbook();}
   }
   if(gardenSpace.active){syncToyTargets();gardenSpace.draw(animTime);const c=$('#portrait').getContext('2d');c.clearRect(0,0,160,160);drawPet(c,80,143,154,state.species,animTime,false,1);requestAnimationFrame(frame);return;}
-  if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden){idleElapsed=!pet.action&&!pet.target&&!heldPet?idleElapsed+dt:0;advanceDelivery();if(!pet.action&&!pet.target&&!heldPet&&!followMode&&animTime>=nextSneeze&&idleElapsed>3&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('sneeze');}
-  if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden){if(pet.action&&!pet.target)pet.action.elapsed=(pet.action.elapsed||0)+dt;advanceToy(dt);if(pet.target){const dx=(pet.target.x-pet.x)*width,dy=(pet.target.y-pet.y)*height,dist=Math.hypot(dx,dy),hop=animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk.hop,speed=Math.max(18,height*.13)*(hop?hopTravelRate(pet.walkElapsed||0,dt,hop):1);pet.walkElapsed=(pet.walkElapsed||0)+dt;if(dist<speed*dt+1){pet.x=pet.target.x;pet.y=pet.target.y;pet.target=null;pet.until=animTime+2+Math.random()*3;if(pet.action)pet.action.remaining=pet.action.toy?null:pet.action.duration||2.4;if(!toySession&&!followMode&&!heldPet&&animTime>=nextStumble&&pet.walkElapsed>=.35&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('stumble',pet.action?{...pet.action}:null);}else{pet.dir=dx<0?-1:1;pet.x+=dx/dist*speed*dt/width;pet.y+=dy/dist*speed*dt/height;}}
-    else if(pet.action?.remaining!=null){pet.action.remaining-=dt;if(pet.action.remaining<=0){if(pet.action.type==='life')finishLife();else if(pet.action.type==='habit')finishHabit();else if(['expression','transition','motion'].includes(pet.action.type)){const event=pet.action.after,resume=pet.action.resume;pet.action=resume||null;pet.words=null;pet.until=animTime+5;if(event==='dizzy')pet.action={type:'motion',bank:'dizzy',automatic:true,elapsed:0,duration:2.4,remaining:2.4,after:'set_down'};else if(event)showReaction(event);}else finishCare(pet.action.type);}}
-    else if(!pet.action&&animTime>pet.until&&!heldPet&&!followMode){const usable=roomFurniture().filter(f=>LIFE[activityFor(f.id)]&&!CATALOG.find(i=>i.id===f.id).wall);if(usable.length&&Math.random()<.35)beginLife(usable[Math.floor(Math.random()*usable.length)].id,true);else if(Math.random()<.25)beginHabit(true);else pet.target=clearFloorPoint();}
+  if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden){idleElapsed=!pet.action&&!pet.target&&!heldPet?idleElapsed+dt:0;advanceDelivery();if(animationCatalog.skin!=='soft-roster-v2'&&!pet.action&&!pet.target&&!heldPet&&!followMode&&animTime>=nextSneeze&&idleElapsed>3&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('sneeze');}
+  if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden){if(pet.action&&!pet.target)pet.action.elapsed=(pet.action.elapsed||0)+dt;advanceBehavior();advanceToy(dt);if(pet.target){const dx=(pet.target.x-pet.x)*width,dy=(pet.target.y-pet.y)*height,dist=Math.hypot(dx,dy),hop=animationCatalog.base[state.species][growthInfo(state).stage==='baby'?'baby':'adult'].walk.hop,speed=Math.max(18,height*.13)*(hop?hopTravelRate(pet.walkElapsed||0,dt,hop):1);pet.walkElapsed=(pet.walkElapsed||0)+dt;if(dist<speed*dt+1){pet.x=pet.target.x;pet.y=pet.target.y;pet.target=null;pet.until=animTime+2+Math.random()*3;if(pet.action)pet.action.remaining=pet.action.toy?null:pet.action.duration||2.4;if(!toySession&&!followMode&&!heldPet&&animTime>=nextStumble&&pet.walkElapsed>=.35&&state.stats.hunger>=30&&state.stats.hydration>=30&&state.stats.energy>=30)startSilly('stumble',pet.action?{...pet.action}:null);}else{pet.dir=dx<0?-1:1;pet.x+=dx/dist*speed*dt/width;pet.y+=dy/dist*speed*dt/height;}}
+    else if(pet.action?.remaining!=null){pet.action.remaining-=dt;if(pet.action.remaining<=0){if(pet.action.type==='behavior')finishBehavior();else if(pet.action.type==='life')finishLife();else if(pet.action.type==='habit')finishHabit();else if(['expression','transition','motion'].includes(pet.action.type)){const event=pet.action.after,resume=pet.action.resume,nextFurniture=pet.action.nextFurniture;pet.action=resume||null;pet.words=null;pet.until=animTime+5;if(event==='dizzy')pet.action={type:'motion',bank:'dizzy',automatic:true,elapsed:0,duration:1.4,remaining:1.4,after:'recover',nextFurniture};else if(event==='recover')pet.action={type:'motion',bank:'hold-recover',automatic:true,elapsed:0,duration:.65,remaining:.65,after:nextFurniture?'use-furniture:'+nextFurniture:'set_down'};else if(event?.startsWith('use-furniture:'))beginLife(event.slice(14));else if(event)showReaction(event);}else finishCare(pet.action.type);}}
+    else if(!pet.action&&animTime>pet.until&&!heldPet&&!followMode){const usable=roomFurniture().filter(f=>LIFE[activityFor(f.id)]&&!CATALOG.find(i=>i.id===f.id).wall);if(usable.length&&Math.random()<.35)beginLife(usable[Math.floor(Math.random()*usable.length)].id,true);else if(animTime>=nextBehavior&&Math.min(state.stats.hunger,state.stats.hydration,state.stats.energy)>=40){const choices=SOFT_BEHAVIORS.filter(a=>behaviorRequirement(state,a.id).open&&(a.id!=='pajama'||new Date().getHours()>=21));startBehavior(choices[Math.floor(Math.random()*choices.length)].id,true);}else if(Math.random()<.25)beginHabit(true);else pet.target=clearFloorPoint();}
   }
   if(!heldPet){pet.y=floorTarget(pet.x,pet.y).y;if(pet.target)pet.target=floorTarget(pet.target.x,pet.target.y);}
   if(!edit&&!toyDrag&&!busy&&!nativePaused&&!document.hidden)advanceToyDrops(dt);
@@ -302,7 +380,7 @@ function frame(ms){const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   if(!pet.target)pet.walkElapsed=0;
   const layers=roomFurniture().map(f=>({order:MOVABLE_TOYS.includes(f.id)?Number.MAX_SAFE_INTEGER:(f.stackOrder||0),y:furnitureDepth(f),draw:()=>drawFurniture(f)}));
   const size=Math.min(width*.16,height*.37),px=pet.x*width,py=pet.y*height;
-  layers.push({order:Infinity,y:heldPet?2:pet.y,draw:()=>{ctx.fillStyle='#756c4830';ctx.beginPath();ctx.ellipse(px,py,size*.23,size*.06,0,0,Math.PI*2);ctx.fill();drawPet(ctx,px,py,size,state.species,animTime,Boolean(pet.target),pet.dir,null,null,roomPose());if(pet.action&&!pet.target&&!['habit','expression','transition','motion'].includes(pet.action.type)){const iconSize=Math.max(22,size*.28),iconY=py-size*.83+Math.sin(animTime*3)*3;const meal=pet.action.type==='feed'&&FOODS.find(f=>f.id===pet.action.foodId);if(meal){const art=image(meal.icon.replace('assets/',''));if(art.complete&&art.naturalWidth)ctx.drawImage(art,px-iconSize/2,iconY-iconSize/2,iconSize,iconSize);}else drawIcon(ctx,pet.action.toy?'toy:'+pet.action.toy:pet.action.type==='life'?LIFE[pet.action.activity].icon:pet.action.type,px,iconY,iconSize);}}});
+  layers.push({order:Infinity,y:heldPet?2:pet.y,draw:()=>{ctx.fillStyle='#756c4830';ctx.beginPath();ctx.ellipse(px,py,size*.23,size*.06,0,0,Math.PI*2);ctx.fill();drawPetFurniture(lifeVisual(size),size);if(pet.action&&!pet.target&&!activeFurniture()&&!['habit','expression','transition','motion','behavior'].includes(pet.action.type)){const iconSize=Math.max(22,size*.28),iconY=py-size*.83+Math.sin(animTime*3)*3;const meal=pet.action.type==='feed'&&FOODS.find(f=>f.id===pet.action.foodId);if(meal){const art=image(meal.icon.replace('assets/',''));if(art.complete&&art.naturalWidth)ctx.drawImage(art,px-iconSize/2,iconY-iconSize/2,iconSize,iconSize);}else drawIcon(ctx,pet.action.toy?'toy:'+pet.action.toy:pet.action.type==='life'?LIFE[pet.action.activity].icon:pet.action.type,px,iconY,iconSize);}}});
   layers.sort((a,b)=>a.order-b.order||a.y-b.y).forEach(l=>l.draw());
   if(pet.words&&pet.action?.type==='expression'){ctx.save();ctx.font='bold 10px sans-serif';const bubbleWidth=ctx.measureText(pet.words).width+18,bx=clamp(px-bubbleWidth/2,8,width-bubbleWidth-8),by=Math.max(55,py-size-15);ctx.fillStyle='#fffbf0f0';ctx.beginPath();ctx.roundRect(bx,by,bubbleWidth,24,9);ctx.fill();ctx.fillStyle='#6e765b';ctx.fillText(pet.words,bx+9,by+16);ctx.restore();}
   if(pet.action?.type==='play'&&!pet.action.toy&&!pet.target)drawIcon(ctx,'play',px+Math.sin(animTime*4)*size*.5,py,Math.max(24,size*.29));
@@ -337,7 +415,7 @@ room.addEventListener('pointermove',e=>{
 });
 function endDrag(e){
  if(drag){if(state.cozy.snap){const item=CATALOG.find(i=>i.id===drag.item.id),rect=furnitureRect(drag.item),margin=rect.w/width/2+.01;drag.item.x=clamp(Math.round(drag.item.x/.05)*.05,margin,1-margin);drag.item.y=clamp(Math.round(drag.item.y/.05)*.05,item.wall?.20:.55,item.wall?.45:.97);}arrangementChanged ||= Math.hypot(drag.item.x-drag.originalX,drag.item.y-drag.originalY)>.003;drag=null;keepPlaythingsApart();save();}
- if(heldPet){const held=heldPet,seconds=animTime-held.at;heldPet=null;if(!held.moved&&seconds<.35&&e.type!=='pointercancel'){care('pet');}else{const dropHeight=Math.max(0,.58-pet.y),floor=floorTarget(pet.x,pet.y);pet.x=floor.x;pet.y=floor.y;const long=seconds>=2.2,quarter=Math.floor(Math.max(0,seconds-2.48)/.4)%4;pet.action={type:'transition',bank:long?'hold-release'+quarter:'hold-pickup',reverse:!long,long,elapsed:0,duration:long?.64:.28,remaining:long?.64:.28,after:dropHeight>.12?'dizzy':long?'held_long':'set_down'};pet.until=animTime+2;toast('사뿐, 친구를 내려놓았어요.');}}
+ if(heldPet){const held=heldPet,seconds=animTime-held.at;heldPet=null;if(!held.moved&&seconds<.35&&e.type!=='pointercancel'){care('pet');}else{const dropHeight=Math.max(0,.58-pet.y),floor=floorTarget(pet.x,pet.y);pet.x=floor.x;pet.y=floor.y;const destination=held.moved?hitFurniture(point(e)):null;const use=destination&&LIFE[activityFor(destination.id)]?destination.id:null;pet.action={type:'transition',bank:'hold-release',reverse:false,long:false,elapsed:0,duration:.45,remaining:.45,after:dropHeight>.12?'dizzy':use?'use-furniture:'+use:'set_down',nextFurniture:use};pet.until=animTime+2;toast('사뿐, 친구를 내려놓았어요.');}}
  if(toyDrag){const t=toyDrag,fromY=t.item.y;toyDrag=null;if(e.type!=='pointercancel'&&t.item.id!=='basket')startToy(t.item.id,t.direction,t.moved?fromY:null);else{dropToy(t.item,fromY);if(e.type!=='pointercancel')desktopUI.basket();}save();}
  if(followMode&&followStart){const walked=followMoved>=.25&&e.type!=='pointercancel';followMode=false;followStart=null;if(walked){pet.action={type:'play',remaining:2.4};toast('함께 산책하고 기분이 좋아졌어요.');}else toast('놀이 메뉴에서 산책을 다시 시작할 수 있어요.');followMoved=0;}
 }
@@ -405,7 +483,7 @@ function toggleSound(){sound=!sound;state.desktop.settings.sound=sound;save();$(
 $('#fullscreen').onclick=async()=>{if(window.BoksilAndroid){toast('이미 가로 전체 화면으로 플레이 중이에요.');return;}try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();try{await screen.orientation.lock('landscape');}catch{}}catch{toast('브라우저 메뉴에서 전체 화면으로 열어주세요.');}};
 $('#snapshot').onclick=()=>{const photo=room.toDataURL('image/png');if(window.BoksilAndroid){window.BoksilAndroid.savePhoto(photo);return;}const a=document.createElement('a');a.download='복슬복슬펫-우리집.png';a.href=photo;a.click();toast('우리 집 사진을 저장했어요.');};
 $('.portrait-hint button').onclick=()=>$('.portrait-hint').style.display='none';
-setInterval(()=>{if(document.hidden||nativePaused||!$('#overlay').hidden||edit)return;for(const [key,rate]of Object.entries({hunger:.14,happy:.07,clean:.09,energy:.06,hydration:.18}))state.stats[key]=clamp(state.stats[key]-rate,0,100);updateUI();save();},15000);
+setInterval(()=>{if(!mobileLicense.licensed||document.hidden||nativePaused||!$('#overlay').hidden||edit)return;for(const [key,rate]of Object.entries({hunger:.14,happy:.07,clean:.09,energy:.06,hydration:.18}))state.stats[key]=clamp(state.stats[key]-rate,0,100);updateUI();save();},15000);
 window.addEventListener('boksil-app-pause',()=>{nativePaused=true;playClock=performance.now();cancelInteraction();if(pet.action?.toy)pet.action=null;save();});
 window.addEventListener('boksil-app-resume',()=>{nativePaused=false;playClock=performance.now();last=performance.now();updateUI();updateTimeSheet();});
 document.addEventListener('visibilitychange',()=>{playClock=performance.now();if(document.hidden){cancelInteraction();if(pet.action?.toy)pet.action=null;save();}else{last=performance.now();updateUI();updateTimeSheet();}});window.addEventListener('pagehide',save);

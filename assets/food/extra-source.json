@@ -1,0 +1,14 @@
+{
+  "project": "복실복실 식당",
+  "count": 35,
+  "tables": [
+    "scripts/signature_menu.gd",
+    "scripts/drink_menu.gd",
+    "scripts/forest_menu.gd"
+  ],
+  "atlases": [
+    "assets/menus/signature-atlas-v1.png",
+    "assets/menus/biome-signature-atlas.png",
+    "assets/drink-atlas.png"
+  ]
+}
