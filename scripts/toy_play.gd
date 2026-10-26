@@ -12,8 +12,15 @@ var direction=1
 var pet_start=Vector2.ZERO
 var pet_goal=Vector2.ZERO
 var user_motion: Dictionary={}
-func busy() -> bool: return not id.is_empty() or not user_motion.is_empty()
+var mouse_motion=preload("res://scripts/mouse_toy_motion.gd").new()
+func busy() -> bool: return mouse_motion.running or not id.is_empty() or not user_motion.is_empty()
 func arrived(room,key: String) -> bool:
+	if key=="home_toy_mouse":
+		if mouse_motion.running: mouse_motion.on_arrival(room)
+		else:
+			cancel()
+			mouse_motion.start(room)
+		return true
 	if key not in ["home_toy_mouse","home_toy_ball"]: return false
 	var m=room.app.pet.motion
 	if not user_motion.is_empty() and key=="home_"+str(user_motion.id):
@@ -43,6 +50,7 @@ func arrived(room,key: String) -> bool:
 	m.say("어디로 가는 거야?" if id=="toy_mouse" else "톡, 굴려볼까")
 	return true
 func cancel() -> void:
+	mouse_motion.cancel()
 	id="";stage="";clock=0;user_motion.clear()
 func begin_follow(room) -> void:
 	var piece=room.pieces[id]
@@ -82,6 +90,10 @@ func follow_point(room) -> Vector2:
 	var point=piece.art_point(Vector2(.5,1.0))+Vector2(-direction*42,0)
 	return point.clamp(m.bounds.position,m.bounds.end)
 func launch_user(room,toy_id: String,velocity: Vector2) -> void:
+	if toy_id=="toy_mouse":
+		cancel()
+		mouse_motion.start(room,velocity.x)
+		return
 	if toy_id not in IDS or not room.pieces.has(toy_id): return
 	cancel()
 	var piece=room.pieces[toy_id]
@@ -125,6 +137,9 @@ func advance_user(room,delta: float) -> void:
 	if user_motion.inspect>=.85 or user_motion.time>30:
 		room.save();m.react("happy",1.4,"interaction_done");m.say("같이 놀아줘서 좋아");cancel()
 func advance(room,delta: float) -> void:
+	if mouse_motion.running:
+		mouse_motion.advance(room,delta)
+		return
 	if not user_motion.is_empty(): advance_user(room,delta);return
 	if not busy(): return
 	if not is_instance_valid(room.app.pet) or not room.pieces.has(id): cancel();return
