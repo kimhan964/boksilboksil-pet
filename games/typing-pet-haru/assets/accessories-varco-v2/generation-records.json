@@ -1,0 +1,60 @@
+{
+  "workflow": "44a1d43a-43ca-4d63-93ad-a6b85c3b3f94",
+  "model": "gpt-image-2.5-flare",
+  "created": "2026-10-07",
+  "items": [
+    {
+      "id": "beret",
+      "nodeId": "e07d8cf9-44c4-40b8-8db1-6f95e881a937",
+      "url": "https://3d.varco.ai/api/objects/69fc48f5fecec0a64028ac53b85681e3.png"
+    },
+    {
+      "id": "ribbon",
+      "nodeId": "d78c34cf-0ed0-4e5a-bb2e-c38f7a527a65",
+      "url": "https://3d.varco.ai/api/objects/94ffcea5113e3e0e4dbbdd725788efd9.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A comically puffy dusty-rose linen bow hair clip, one loop slightly larger and drooping, gathered knot, two short folded tails, cream tiny stitch edging. Convincing overlapping cloth folds and soft woven texture, a tiny pearl sewn into the center. All parts attached, no loose decorations."
+    },
+    {
+      "id": "jester",
+      "nodeId": "b462ca24-d528-4486-bac2-0688f45315ba",
+      "url": "https://3d.varco.ai/api/objects/7abb8b594a0deade3cf46c25e808e2b2.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A floppy two-horn pierrot jester cap in dusty rose and muted sage fabric. One horn droops sideways under a fat cream wool pompom, the other curls upward with a small honey-gold bell. Padded curved cream headband, clear stitched fabric panels, wrinkles at horn bases. Playful asymmetrical gravity, warmly comic, no face. Broad compact silhouette."
+    },
+    {
+      "id": "crown",
+      "nodeId": "c3981d8a-e8f0-4454-b712-0d6d6cfab5b7",
+      "url": "https://3d.varco.ai/api/objects/fdcc4f1e4fc00010f38d623ae54470e4.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A slightly wonky miniature antique brass crown with three rounded uneven points, warm honey-gold brushed metal, tiny scuffed edges, a rose cabochon heart sewn-looking inset and pearl tip rivets. Rounded oval curved headband with visible inner rim, subtly bent middle point for comic charm. Rich modeled metal volume but matte warm highlights, not shiny plastic or a crown symbol."
+    },
+    {
+      "id": "wizard",
+      "nodeId": "79d66a03-e96e-41db-aa0e-bb8102d3675c",
+      "url": "https://3d.varco.ai/api/objects/e771143d639920343e9b01f6bbc5025c.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A comically floppy muted dusty-lavender wizard hat with the top tip bent over by its own weight, soft short curved brim, actual gathered wool cloth and seam stitching, oat-colored leather band with tiny brass buckle and sewn cream crescent patch. Compact silhouette, two visible creases, friendly eccentric magician, not a flat triangle icon."
+    },
+    {
+      "id": "sprout",
+      "nodeId": "8352c308-40c0-4336-b560-73f8657453fa",
+      "url": "https://3d.varco.ai/api/objects/b77ac0ebbf9b8d6c601a17d2db97e03f.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A playful little fabric sprout hair clip with two unequal plump sage leaves, one leaf flopping lower, fine embroidered leaf veins, flexible bent stem, and a small padded oval cream felt base. Slightly absurd as a sprout growing on a pet head, believable hand-sewn miniature accessory. Leaves and base all connected."
+    },
+    {
+      "id": "clover",
+      "nodeId": "1c647ad2-2f9e-4a59-9dcc-8c38325bbe53",
+      "url": "https://3d.varco.ai/api/objects/31ce8f81d87d37b64a11beac9c8dfe4e.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A tiny four-leaf clover brooch made of padded sage velvet with four overlapping heart-shaped leaves, tiny soft folds and finely stitched leaf veins. Slightly lopsided leaves for comic charm, short bent stem, discreet antique brass clasp barely visible behind. One connected finished wearable brooch, no detached elements."
+    },
+    {
+      "id": "daisy",
+      "nodeId": "99ee6ef4-a515-438e-a020-b53d576e75d6",
+      "url": "https://3d.varco.ai/api/objects/0b23bf4ee32c4bdfc6de1892f27a61cd.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A playful puffy cream wool daisy hair brooch with five slightly uneven thick petals, one folded-over petal, raised honey-yellow textured stitched center, tiny sage felt leaf tucked behind. Soft dimensional felt and visible embroidery, subtly comic handmade proportions. One connected accessory."
+    },
+    {
+      "id": "star",
+      "nodeId": "e5f12065-cccc-456a-bbc6-a0af5ee5c531",
+      "url": "https://3d.varco.ai/api/objects/4a423747fa34465f49f9d461262b1cb4.png",
+      "prompt": "Use case: stylized-concept. One isolated wearable accessory sprite for a cozy typing-pet game. Reference 1 is the animal art; reference 2 is the approved material/outline style of the beret. Match their warm cocoa outlines, softly painted warm shading and muted cafe palette. Believable physical construction and dimensional volume in a hand-painted 2D illustration, tactile materials, clear fold shadows and upper-left highlights. More comic and realistic as a physical miniature prop, charming for women in their twenties. NOT a flat UI icon, vector symbol, symmetrical logo, plastic toy or photographic object. Strong readable silhouette at 30-50px. Front view with slight top visible, wearable base suitable for a rounded pet head. Entire accessory centered at 75% canvas width. No animal, head, face, body, keyboard, text, watermark, sticker border, ground or cast shadow. Pure solid white #ffffff background, never checkerboard. Subject: A slightly wonky plump five-point butter-gold quilted star hair clip with a softly bent point, padded cloth volume, little cream seam stitches, a tiny rose patch at one corner, discreet antique-brass fastener partly visible behind. A comic handmade lucky-star prop, no face or dangling parts, not a flat star icon."
+    }
+  ]
+}

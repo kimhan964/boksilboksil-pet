@@ -1,0 +1,8 @@
+.godot/
+builds/
+*.import
+*.log
+assets/typing-animals-v1/generation-records.json
+# VARCO 생성 원본·후보 그림은 로컬 보관(런타임은 assets/typing-haru-v1/<species>/ 사용)
+assets/typing-haru-v1/source/**/*.png
+assets/typing-haru-v1/source/**/*.jpg

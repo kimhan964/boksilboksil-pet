@@ -1,0 +1,36 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "workflow": "44a1d43a-43ca-4d63-93ad-a6b85c3b3f94",
+  "items": [
+    {
+      "id": "headphones",
+      "nodeId": "8987f959-1c06-4ee4-981e-163099a3e592",
+      "url": "https://3d.varco.ai/api/objects/5c26d2d2f2a2b27c11cb654a0638fe63.png",
+      "prompt": "Use case: stylized-concept. Create ONE isolated wearable accessory sprite for the attached cozy typing-pet game's collection. Reference 1 is the animal illustration, reference 2 is the approved beret material style. Match warm cocoa outlines, hand-painted dimensional shading, plausible construction, tactile material detail, muted sage/rose/cream palette. Comic but believable as a physical miniature prop. Clearly readable at 30-50px; not flat icon, vector symbol, logo, plastic toy, photograph or 3D render. Front view with slight top visible. Entire accessory centered at 75% square canvas width, ample empty border. Upper-left warm light, defined gentle fold shadows. No character, head, body, keyboard, text, sticker border, cast shadow, background objects. PURE SOLID WHITE #ffffff background, no checkerboard. Subject: A miniature wearable pair of retro sage and cream headphones perched as a tiny head-top novelty hat, NOT full-size headphones surrounding an animal head. Complete small inverted U shaped padded headband, two plump round stitched leather earcups angled inward, small brass hinges and a tiny rose heart badge. Slightly lopsided comical proportions, both earcups aligned at the same bottom resting level. No wires."
+    },
+    {
+      "id": "sleepcap",
+      "nodeId": "cc06c33f-2983-4a65-be16-5b762919b56a",
+      "url": "https://3d.varco.ai/api/objects/88ec1b3fb74e85bb7b2f0c6976582d82.png",
+      "prompt": "Use case: stylized-concept. Create ONE isolated wearable accessory sprite for the attached cozy typing-pet game's collection. Reference 1 is the animal illustration, reference 2 is the approved beret material style. Match warm cocoa outlines, hand-painted dimensional shading, plausible construction, tactile material detail, muted sage/rose/cream palette. Comic but believable as a physical miniature prop. Clearly readable at 30-50px; not flat icon, vector symbol, logo, plastic toy, photograph or 3D render. Front view with slight top visible. Entire accessory centered at 75% square canvas width, ample empty border. Upper-left warm light, defined gentle fold shadows. No character, head, body, keyboard, text, sticker border, cast shadow, background objects. PURE SOLID WHITE #ffffff background, no checkerboard. Subject: A comically floppy oat-cream nightcap with dusty-rose thin stripes and a soft rounded pompom drooping to the right, padded curved brim, gathered folds and stitched seams. Short compact cap suitable between pet ears, natural cloth weight and cozy sleepiness, no face."
+    },
+    {
+      "id": "friedegg",
+      "nodeId": "a1add216-1799-4deb-b446-e6473bb4c09f",
+      "url": "https://3d.varco.ai/api/objects/122e58cb0e30d4eb0910387e6ea0b82d.png",
+      "prompt": "Use case: stylized-concept. Create ONE isolated wearable accessory sprite for the attached cozy typing-pet game's collection. Reference 1 is the animal illustration, reference 2 is the approved beret material style. Match warm cocoa outlines, hand-painted dimensional shading, plausible construction, tactile material detail, muted sage/rose/cream palette. Comic but believable as a physical miniature prop. Clearly readable at 30-50px; not flat icon, vector symbol, logo, plastic toy, photograph or 3D render. Front view with slight top visible. Entire accessory centered at 75% square canvas width, ample empty border. Upper-left warm light, defined gentle fold shadows. No character, head, body, keyboard, text, sticker border, cast shadow, background objects. PURE SOLID WHITE #ffffff background, no checkerboard. Subject: A tiny novelty fried egg hair clip: irregular softly ruffled ivory egg white with lightly golden browned edge, plump shiny honey-yellow yolk slightly off center, discreet small brass hairclip hidden behind. Cute absurd breakfast accessory, convincing illustrated egg texture and volume, no plate, no fork, no text, no face."
+    },
+    {
+      "id": "teacup",
+      "nodeId": "699a86c9-db3b-424a-8dfb-d00a9e96d3de",
+      "url": "https://3d.varco.ai/api/objects/e883866ded69100fa87d4773f69a8c29.png",
+      "prompt": "Use case: stylized-concept. Create ONE isolated wearable accessory sprite for the attached cozy typing-pet game's collection. Reference 1 is the animal illustration, reference 2 is the approved beret material style. Match warm cocoa outlines, hand-painted dimensional shading, plausible construction, tactile material detail, muted sage/rose/cream palette. Comic but believable as a physical miniature prop. Clearly readable at 30-50px; not flat icon, vector symbol, logo, plastic toy, photograph or 3D render. Front view with slight top visible. Entire accessory centered at 75% square canvas width, ample empty border. Upper-left warm light, defined gentle fold shadows. No character, head, body, keyboard, text, sticker border, cast shadow, background objects. PURE SOLID WHITE #ffffff background, no checkerboard. Subject: A miniature funny teacup fascinator hat: small cream ceramic teacup with sage rim and dainty rose flower painting, warm tea visible inside, small handle on the right, fixed to a shallow oval sage saucer resting horizontally on a pet head. A tea bag string drapes over the cup and its tiny blank rose tag rests on the saucer, all parts touching. Warm glazed ceramic highlights, no steam or detached elements."
+    },
+    {
+      "id": "mushroom",
+      "nodeId": "94993a78-a62d-45a3-8180-708fe40ab070",
+      "url": "https://3d.varco.ai/api/objects/d31fceb094ff505d914c34984ca7131a.png",
+      "prompt": "Use case: stylized-concept. Create ONE isolated wearable accessory sprite for the attached cozy typing-pet game's collection. Reference 1 is the animal illustration, reference 2 is the approved beret material style. Match warm cocoa outlines, hand-painted dimensional shading, plausible construction, tactile material detail, muted sage/rose/cream palette. Comic but believable as a physical miniature prop. Clearly readable at 30-50px; not flat icon, vector symbol, logo, plastic toy, photograph or 3D render. Front view with slight top visible. Entire accessory centered at 75% square canvas width, ample empty border. Upper-left warm light, defined gentle fold shadows. No character, head, body, keyboard, text, sticker border, cast shadow, background objects. PURE SOLID WHITE #ffffff background, no checkerboard. Subject: A miniature comic mushroom cap hat with a squishy dusty-terracotta rounded dome, uneven raised cream spots, thick curved cream underside band fitted to rest on the forehead. One side droops slightly, subtle seams and soft felt texture, small sage leaf patch. No mushroom stem, animal, face, body or ground."
+    }
+  ]
+}

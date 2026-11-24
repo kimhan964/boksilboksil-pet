@@ -1,0 +1,43 @@
+{
+  "workflow": "44a1d43a-43ca-4d63-93ad-a6b85c3b3f94",
+  "model": "gpt-image-2-medium",
+  "created": "2026-10-07",
+  "items": [
+    {
+      "id": "jester",
+      "nodeId": "3f23b99e-e1a9-47f6-9ffc-975e7cb65cd0",
+      "prompt": "Create exactly ONE isolated wearable pet head accessory: A whimsical tiny two-point pierrot jester hat, dusty rose and muted sage panels, cream folded band, two round butter-yellow pom-poms. Friendly playful silhouette, no face. Match the attached typing rabbit game's illustration style: warm cocoa clean outlines, gentle flat cel shading, soft rounded shapes, tasteful cozy Korean stationery aesthetic for young adult women. Front view with a very slight view of the top, bilaterally balanced wearable bottom edge. Accessory only: NO animal, NO head, NO body, NO outfit, NO keyboard, NO text, NO scene, NO cast shadow. Genuine transparent PNG alpha background, not white or checkerboard. Center the complete object occupying 75% of square canvas, generous clear margin, no cropping. Clear readable silhouette at 28–42 pixels display size. The reference is for style only; do not reproduce the rabbit.",
+      "url": "https://3d.varco.ai/api/objects/f0ae9ee7c207ab0ae9401154e0b36898.png"
+    },
+    {
+      "id": "crown",
+      "nodeId": "83dd6a6f-9e02-4701-8be9-84f5e9768a36",
+      "prompt": "Create exactly ONE isolated wearable pet head accessory: A tiny butter-gold three-point crown with rounded pearl tips and one dusty rose heart gem. Simple elegant toy-like proportions. Match the attached typing rabbit game's illustration style: warm cocoa clean outlines, gentle flat cel shading, soft rounded shapes, tasteful cozy Korean stationery aesthetic for young adult women. Front view with a very slight view of the top, bilaterally balanced wearable bottom edge. Accessory only: NO animal, NO head, NO body, NO outfit, NO keyboard, NO text, NO scene, NO cast shadow. Genuine transparent PNG alpha background, not white or checkerboard. Center the complete object occupying 75% of square canvas, generous clear margin, no cropping. Clear readable silhouette at 28–42 pixels display size. The reference is for style only; do not reproduce the rabbit.",
+      "url": "https://3d.varco.ai/api/objects/0f9b5555b55ff981436c798a4f3e1e86.png"
+    },
+    {
+      "id": "beret",
+      "nodeId": "f2e5f613-dbb6-46f3-8276-46a37601f53c",
+      "prompt": "Create exactly ONE isolated wearable pet head accessory: A soft muted sage French beret, small top nub, tiny cream daisy pinned at its side. Rounded plush silhouette. Match the attached typing rabbit game's illustration style: warm cocoa clean outlines, gentle flat cel shading, soft rounded shapes, tasteful cozy Korean stationery aesthetic for young adult women. Front view with a very slight view of the top, bilaterally balanced wearable bottom edge. Accessory only: NO animal, NO head, NO body, NO outfit, NO keyboard, NO text, NO scene, NO cast shadow. Genuine transparent PNG alpha background, not white or checkerboard. Center the complete object occupying 75% of square canvas, generous clear margin, no cropping. Clear readable silhouette at 28–42 pixels display size. The reference is for style only; do not reproduce the rabbit.",
+      "url": "https://3d.varco.ai/api/objects/218f8ae141f48650c9e3c4472ec61b7d.png"
+    },
+    {
+      "id": "ribbon",
+      "nodeId": "0a56e721-e6cf-410b-94f6-8f4a92b5b70f",
+      "prompt": "Create exactly ONE isolated wearable pet head accessory: A dusty rose linen bow hair clip, two soft rounded loops, two short tails, tiny cream center knot. Match the attached typing rabbit game's illustration style: warm cocoa clean outlines, gentle flat cel shading, soft rounded shapes, tasteful cozy Korean stationery aesthetic for young adult women. Front view with a very slight view of the top, bilaterally balanced wearable bottom edge. Accessory only: NO animal, NO head, NO body, NO outfit, NO keyboard, NO text, NO scene, NO cast shadow. Genuine transparent PNG alpha background, not white or checkerboard. Center the complete object occupying 75% of square canvas, generous clear margin, no cropping. Clear readable silhouette at 28–42 pixels display size. The reference is for style only; do not reproduce the rabbit.",
+      "url": "https://3d.varco.ai/api/objects/b266c86bdb7ec07f74c93a8bc3ac7c94.png"
+    },
+    {
+      "id": "wizard",
+      "nodeId": "a666f410-68b7-4f1a-95e8-4e1e21184620",
+      "prompt": "Create exactly ONE isolated wearable pet head accessory: A little lavender wizard hat with a bent tip, cream moon applique and a muted gold band. Cozy whimsical rather than dark. Match the attached typing rabbit game's illustration style: warm cocoa clean outlines, gentle flat cel shading, soft rounded shapes, tasteful cozy Korean stationery aesthetic for young adult women. Front view with a very slight view of the top, bilaterally balanced wearable bottom edge. Accessory only: NO animal, NO head, NO body, NO outfit, NO keyboard, NO text, NO scene, NO cast shadow. Genuine transparent PNG alpha background, not white or checkerboard. Center the complete object occupying 75% of square canvas, generous clear margin, no cropping. Clear readable silhouette at 28–42 pixels display size. The reference is for style only; do not reproduce the rabbit.",
+      "url": "https://3d.varco.ai/api/objects/88bbea11da67bed7649d6a5d21ba956e.png"
+    },
+    {
+      "id": "sprout",
+      "nodeId": "11a45de5-0943-4184-89ff-2b4677e575fb",
+      "prompt": "Create exactly ONE isolated wearable pet head accessory: A tiny adorable two-leaf sage green sprout hair clip, with a small cream oval base and rounded leaves. Match the attached typing rabbit game's illustration style: warm cocoa clean outlines, gentle flat cel shading, soft rounded shapes, tasteful cozy Korean stationery aesthetic for young adult women. Front view with a very slight view of the top, bilaterally balanced wearable bottom edge. Accessory only: NO animal, NO head, NO body, NO outfit, NO keyboard, NO text, NO scene, NO cast shadow. Genuine transparent PNG alpha background, not white or checkerboard. Center the complete object occupying 75% of square canvas, generous clear margin, no cropping. Clear readable silhouette at 28–42 pixels display size. The reference is for style only; do not reproduce the rabbit.",
+      "url": "https://3d.varco.ai/api/objects/6c36e7aff57f938d772f3ce5e5f9f094.png"
+    }
+  ]
+}
